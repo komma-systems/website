@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-feature-settings: "ss01" on, "ss02" on, "ss03" on, "ss04" on, "ss05" on;
+}

@@ -5,13 +5,19 @@ import Link from "next/link"
 import { Menu, X } from "lucide-react"
 import Image from "next/image"
 
-export function Navigation() {
+interface NavigationProps {
+  hideContact?: boolean
+}
+
+export function Navigation({ hideContact }: NavigationProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false)
   const [showLogo, setShowLogo] = React.useState(false)
+  const [scrolled, setScrolled] = React.useState(false)
 
   React.useEffect(() => {
     const handleScroll = () => {
       setShowLogo(window.scrollY > 100)
+      setScrolled(window.scrollY > 100)
     }
     window.addEventListener('scroll', handleScroll)
     handleScroll()
@@ -19,8 +25,10 @@ export function Navigation() {
   }, [])
 
   return (
-    <nav className="fixed top-0 left-0 right-0 w-full px-4 sm:px-6 py-2.5 z-50 bg-black/90 backdrop-blur-sm">
-      <div className="max-w-6xl mx-auto flex items-center justify-between">
+    <nav className="fixed top-0 left-0 right-0 w-full px-4 sm:px-6 py-2.5 z-50">
+      <div className={`max-w-6xl mx-auto flex items-center justify-between transition-all duration-300 ${
+        showLogo ? `${scrolled ? 'mt-4 bg-black/50' : 'mt-4 bg-black'} backdrop-blur-sm rounded-full px-6 py-3` : 'bg-transparent'
+      }`}>
         <div>
           {showLogo ? (
             <Link href="/" className="hover:opacity-80 transition-opacity">
@@ -38,16 +46,13 @@ export function Navigation() {
         </div>
 
         <ul className="hidden md:flex gap-x-8 text-base">
-          <li>
-            <Link href="/about" className="hover:opacity-80 transition-opacity">
-              About
-            </Link>
-          </li>
-          <li>
-            <Link href="/contact" className="hover:opacity-80 transition-opacity">
-              Contact
-            </Link>
-          </li>
+          {!hideContact && (
+            <li>
+              <Link href="/contact" className="hover:opacity-80 transition-opacity">
+                Contact
+              </Link>
+            </li>
+          )}
         </ul>
 
         <button
@@ -70,16 +75,13 @@ export function Navigation() {
                 Home
               </Link>
             </li>
-            <li>
-              <Link href="/about" className="hover:opacity-80 transition-opacity" onClick={() => setMobileMenuOpen(false)}>
-                About
-              </Link>
-            </li>
-            <li>
-              <Link href="/contact" className="hover:opacity-80 transition-opacity" onClick={() => setMobileMenuOpen(false)}>
-                Contact
-              </Link>
-            </li>
+            {!hideContact && (
+              <li>
+                <Link href="/contact" className="hover:opacity-80 transition-opacity" onClick={() => setMobileMenuOpen(false)}>
+                  Contact
+                </Link>
+              </li>
+            )}
           </ul>
         </div>
       </div>
