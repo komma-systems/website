@@ -115,11 +115,11 @@ export default function Home() {
           </div>
         </section>
 
-        <section ref={descriptionSectionRef} className="py-16 px-4 sm:px-6 md:px-8 bg-black">
+        <section id="about" ref={descriptionSectionRef} className="py-16 px-4 sm:px-6 md:px-8 bg-black mt-12 scroll-mt-48">
           <div className="max-w-4xl mx-auto">
             <AnimatedElement animation="fade-in" className="mb-12">
-              <p className="text-xl md:text-2xl lg:text-3xl text-center leading-relaxed">
-                Komma is an action-research studio with over a decade of experience working with citizens, 
+              <p className="text-xl md:text-2xl lg:text-3xl text-center" style={{ lineHeight: 1.15 }}>
+                <span className="komma-title">Komma</span> is an action-research studio with over a decade of experience working with citizens, 
                 municipalities, philanthropy and the construction sector to conceptualise a new civics 
                 catalysed by decentralised technology.
               </p>
@@ -136,11 +136,12 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[
                 {
+                  key: 'tech',
                   heading: "Technology & Urban Environments",
                   description: "Komma works at the intersection of technology and urban environments, creating processes that encourage everyday acts of civic engagement."
                 },
                 {
-                  heading: "Researching roots",
+                  heading: (<><span>Researching</span><br /><span>hard to see roots</span></>),
                   description: "Engaging with the fundamentals of how we own, value and care for what we hold in common "
                 },
                 {
@@ -164,7 +165,7 @@ export default function Home() {
         </section>
 
         {/* Team Section - with gray background */}
-        <section className="relative py-16 px-4 sm:px-6 md:px-8 bg-[#D9D9D9]">
+        <section id="team" className="relative py-16 px-4 sm:px-6 md:px-8 bg-[#D9D9D9] scroll-mt-0">
           {/* Video background */}
           <div className="absolute inset-0 w-full h-full">
             <video
