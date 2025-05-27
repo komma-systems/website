@@ -123,21 +123,11 @@ export default function Home() {
         <section id="introduction" ref={introductionSectionRef} className="py-16 px-4 sm:px-6 md:px-8 bg-black mt-20 scroll-mt-48 min-h-[50vh] flex items-center justify-center">
           <div className="max-w-4xl mx-auto text-center">
             <AnimatedElement animation="fade-in" className="mb-12">
-              <p className="text-xl md:text-2xl lg:text-3xl" style={{ lineHeight: 1.15 }}>
+              <p className="text-2xl sm:text-xl md:text-2xl lg:text-3xl px-4 sm:px-0" style={{ lineHeight: 1.15 }}>
                 <span className="komma-title">Komma</span> is an action-research studio with over a decade of experience working with citizens, 
                 municipalities, philanthropy and the construction sector to conceptualise a new civics 
                 catalysed by decentralised technology.
               </p>
-            </AnimatedElement>
-            <AnimatedElement animation="fade-in" delay={500}>
-              <div className="mt-16 flex justify-center">
-                <RippleButton 
-                  onClick={handleApproachChevronClick} 
-                  className="animate-bounce"
-                >
-                  <ChevronDown size={32} className="text-white opacity-70 hover:opacity-100 transition-opacity" />
-                </RippleButton>
-              </div>
             </AnimatedElement>
           </div>
         </section>
