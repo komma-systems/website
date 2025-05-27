@@ -198,7 +198,7 @@ export default function Home() {
                   <div>
                     <h3 className="text-xl font-bold mb-4">Charlie Fisher</h3>
                     <p className="text-black/80 mb-6">
-                      Charlie is an advisor, researcher and activism concerning the operationalisation of long-term stewardship of land, particularly in the pursuit of urban affordable housing. With a background in architecture, he is completing a PhD in Spatial Planning and was on the team that launched the first tokenised land trust.
+                      Charlie is an advisor, researcher and founder active in the challenge of operationalising the long-term stewardship of land, particularly in the pursuit of urban affordable housing. With a background in architecture, he is completing a PhD in Spatial Planning and was on the team that launched the first tokenised land trust.
                     </p>
                     <a 
                       href="https://www.linkedin.com/in/fishercharlie/" 
