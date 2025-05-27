@@ -95,6 +95,8 @@ export function ContactForm() {
           required
           rows={6}
           disabled={isLoading}
+          spellCheck="false"
+          suppressHydrationWarning
           className="w-full bg-transparent rounded-lg p-3 text-base border border-white/10 focus:border-white placeholder:text-white/40 resize-none transition-colors disabled:opacity-50"
         />
       </div>

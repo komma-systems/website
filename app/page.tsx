@@ -11,7 +11,8 @@ export default function Home() {
   const [opacity, setOpacity] = useState(0)
   const [isActionActive, setIsActionActive] = useState(false)
   const [actionHover, setActionHover] = useState(false)
-  const descriptionSectionRef = useRef<HTMLDivElement>(null)
+  const introductionSectionRef = useRef<HTMLDivElement>(null)
+  const approachSectionRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     // Start the fade-in animation after component mounts
@@ -20,7 +21,11 @@ export default function Home() {
   }, [])
 
   const handleChevronClick = () => {
-    descriptionSectionRef.current?.scrollIntoView({ behavior: 'smooth' })
+    introductionSectionRef.current?.scrollIntoView({ behavior: 'smooth' })
+  }
+
+  const handleApproachChevronClick = () => {
+    approachSectionRef.current?.scrollIntoView({ behavior: 'smooth' })
   }
 
   const handleTouchStart = () => setIsActionActive(true)
@@ -115,19 +120,29 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="about" ref={descriptionSectionRef} className="py-16 px-4 sm:px-6 md:px-8 bg-black mt-12 scroll-mt-48">
-          <div className="max-w-4xl mx-auto">
+        <section id="introduction" ref={introductionSectionRef} className="py-16 px-4 sm:px-6 md:px-8 bg-black mt-20 scroll-mt-48 min-h-[50vh] flex items-center justify-center">
+          <div className="max-w-4xl mx-auto text-center">
             <AnimatedElement animation="fade-in" className="mb-12">
-              <p className="text-xl md:text-2xl lg:text-3xl text-center" style={{ lineHeight: 1.15 }}>
+              <p className="text-xl md:text-2xl lg:text-3xl" style={{ lineHeight: 1.15 }}>
                 <span className="komma-title">Komma</span> is an action-research studio with over a decade of experience working with citizens, 
                 municipalities, philanthropy and the construction sector to conceptualise a new civics 
                 catalysed by decentralised technology.
               </p>
             </AnimatedElement>
+            <AnimatedElement animation="fade-in" delay={500}>
+              <div className="mt-16 flex justify-center">
+                <RippleButton 
+                  onClick={handleApproachChevronClick} 
+                  className="animate-bounce"
+                >
+                  <ChevronDown size={32} className="text-white opacity-70 hover:opacity-100 transition-opacity" />
+                </RippleButton>
+              </div>
+            </AnimatedElement>
           </div>
         </section>
 
-        <section className="py-16 px-4 sm:px-6 md:px-8 bg-black">
+        <section ref={approachSectionRef} className="py-16 px-4 sm:px-6 md:px-8 bg-black scroll-mt-48">
           <div className="max-w-7xl mx-auto">
             <AnimatedElement animation="fade-in" className="mb-12">
               <h2 className="text-2xl md:text-3xl lg:text-4xl text-center mb-8">Our Approach</h2>
@@ -141,15 +156,17 @@ export default function Home() {
                   description: "Komma works at the intersection of technology and urban environments, creating processes that encourage everyday acts of civic engagement."
                 },
                 {
+                  key: 'research',
                   heading: (<><span>Researching</span><br /><span>hard to see roots</span></>),
                   description: "Engaging with the fundamentals of how we own, value and care for what we hold in common "
                 },
                 {
+                  key: 'community',
                   heading: "Community Building",
                   description: "We develop solutions that reinforce positive civic habits and build stronger, more connected communities for the long term."
                 }
               ].map((item, idx) => (
-                <AnimatedElement animation="fade-up" delay={100 * (idx + 1)} key={item.heading}>
+                <AnimatedElement animation="fade-up" delay={100 * (idx + 1)} key={item.key}>
                   <div className="flex flex-col items-center justify-center min-h-[220px] h-full border border-white rounded-xl p-8 bg-transparent text-white transition-all duration-300">
                     <h3 className="text-2xl md:text-3xl font-bold text-center w-full mb-4">
                       {item.heading}
@@ -191,7 +208,7 @@ export default function Home() {
                   <div>
                     <h3 className="text-xl font-bold mb-4">Charlie Fisher</h3>
                     <p className="text-black/80 mb-6">
-                      Charlie is known for his advice, research and activism on operationalising the long-term stewardship of land, particularly in the pursuit of urban affordable housing. With a background in architecture, he is completing a PhD in Spatial Planning and was on the team that launched the first tokenised land trust.
+                      Charlie is an advisor, researcher and activism concerning the operationalisation of long-term stewardship of land, particularly in the pursuit of urban affordable housing. With a background in architecture, he is completing a PhD in Spatial Planning and was on the team that launched the first tokenised land trust.
                     </p>
                     <a 
                       href="https://www.linkedin.com/in/fishercharlie/" 
@@ -207,7 +224,7 @@ export default function Home() {
                   <div>
                     <h3 className="text-xl font-bold mb-4">Clara Gromaches</h3>
                     <p className="text-black/80 mb-6">
-                      Clara works in the intersection of regenerative architecture, affordable housing and technology projects, to leverage the power self-organization to replicate housing commons. As architect and independent consultant, has been a member of Auquer i Prats, developed regen housing projects, advised municipalities on impulsing affordable cooperative housing projects in Spain and is an Operations member at dOrg, a web3 native workers co-operative organized as DAO since 2019.
+                      Clara works in the intersection of regenerative architecture, affordable housing and technology projects, to leverage the power of self-organization to replicate housing commons. As an architect and independent consultant, she has been a member of Auquer i Prats, developed regen housing projects, advised municipalities on initiating affordable cooperative housing projects in Spain and is an Operations member at dOrg, a web3 native workers co-operative organized as DAO since 2019.
                     </p>
                     <a 
                       href="https://www.linkedin.com/in/cgromaches/" 
