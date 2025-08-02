@@ -6,6 +6,7 @@ import { ChevronDown } from "lucide-react"
 import { AnimatedElement } from "@/components/animated-element"
 import { RippleButton } from "@/components/ripple-button"
 import { MaskedVideoText } from '@/components/MaskedVideoText'
+import { TypingAnimation } from '@/components/typing-animation'
 
 export default function Home() {
   const [opacity, setOpacity] = useState(0)
@@ -35,11 +36,11 @@ export default function Home() {
     <div className="min-h-screen flex flex-col bg-black text-white">
       <Navigation />
 
-      <main className="flex-1 flex flex-col pt-12">
+      <main className="flex-1 flex flex-col pt-4">
         {/* Hero Section */}
-        <section className="flex items-start justify-center px-4 pt-2 min-h-screen">
+        <section className="flex items-start justify-center px-4 pt-2">
           <div
-            className="w-full max-w-4xl transition-opacity duration-3000 ease-in-out mt-8 md:mt-16"
+            className="w-full max-w-4xl transition-opacity duration-3000 ease-in-out mt-4 md:mt-8"
             style={{ opacity }}
           >
             <div className="flex flex-col md:flex-row md:items-start gap-5 md:gap-16">
@@ -51,8 +52,8 @@ export default function Home() {
               </div>
 
               {/* Main content - description */}
-              <div className="text-lg md:text-xl lg:text-2xl leading-relaxed space-y-2">
-                <div className={`pb-16 md:pb-20 transition-colors duration-300 ${actionHover ? 'text-[#222]' : 'text-white'}`}> 
+              <div className="text-xs md:text-sm lg:text-base leading-relaxed space-y-2">
+                <div className={`pb-8 md:pb-10 transition-colors duration-300 ${actionHover ? 'text-[#222]' : 'text-white'}`}> 
                   a pause, transition,
                   <br />
                   integration, or inflection
@@ -93,50 +94,36 @@ export default function Home() {
                   </span>
                 </div>
 
-                <AnimatedElement animation="fade-in" delay={500}>
-                  <div>
-                    <span
-                      onMouseEnter={() => setActionHover(true)}
-                      onMouseLeave={() => setActionHover(false)}
-                      className="inline-block mt-16"
-                    >
-                      <RippleButton 
-                        onClick={handleChevronClick} 
-                        className="animate-bounce"
-                      >
-                        <ChevronDown size={32} className="text-white opacity-70 hover:opacity-100 transition-opacity" />
-                      </RippleButton>
-                    </span>
-                  </div>
-                </AnimatedElement>
+
               </div>
             </div>
           </div>
         </section>
 
-        <section id="introduction" ref={introductionSectionRef} className="py-16 px-4 sm:px-6 md:px-8 bg-black mt-20 scroll-mt-48 min-h-[50vh] flex items-center justify-center">
+        <section id="introduction" ref={introductionSectionRef} className="py-8 px-4 sm:px-6 md:px-8 bg-black mt-12 scroll-mt-48 flex items-center justify-center">
           <div className="max-w-4xl mx-auto text-center">
             <AnimatedElement animation="fade-in" className="mb-12">
-              <p className="text-2xl sm:text-xl md:text-2xl lg:text-3xl px-4 sm:px-0" style={{ lineHeight: 1.15 }}>
-                <span className="komma-title">Komma</span> is a Action-Research & Venture Collective with over a decade of experience working with citizens, 
-                municipalities, philanthropy and the construction sector to conceptualise a New Civics 
-                catalysed by decentralised technology.
+              <p className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8 text-white">
+                We research and design <TypingAnimation words={["tools", "mechanisms", "pilots"]} className="text-white" />
+                <br />
+                for community-led stewardship, finance and governance.
+              </p>
+              <p className="text-2xl sm:text-xl md:text-2xl lg:text-3xl px-4 sm:px-0 text-center" style={{ lineHeight: 1.15 }}>
+                With a particular focus on housing affordability and land stewardship, we work within the intersection of the built environment and decentralised technology.
               </p>
             </AnimatedElement>
           </div>
         </section>
 
-        <section ref={approachSectionRef} className="py-16 px-4 sm:px-6 md:px-8 bg-black scroll-mt-48">
+        <section ref={approachSectionRef} className="py-16 px-4 sm:px-6 md:px-8 bg-white scroll-mt-48">
           <div className="max-w-7xl mx-auto">
             <AnimatedElement animation="fade-in" className="mb-16">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8 text-white">
-                Our <span className="italic">Approach</span>
-              </h2>
-              <p className="text-lg md:text-xl text-center text-gray-300 max-w-4xl mx-auto leading-relaxed">
-                Engaging with the fundamentals of how we own, value and care for what we hold in common.
+              <h2 className="text-2xl md:text-3xl lg:text-4xl text-center mb-8 text-black">Our Approach</h2>
+              <p className="text-2xl sm:text-xl md:text-2xl lg:text-3xl px-4 sm:px-0 text-center max-w-4xl mx-auto font-thin text-gray-800" style={{ lineHeight: 1.15 }}>
+                <span className="komma-title">Komma</span> is a research and venture firm employing applied research, artistic inquiry, and real-world prototyping at the edge of technological innovation to explore the fundamentals of how we value, own and care for what we hold in common.
               </p>
-              <p className="text-base text-center text-gray-400 max-w-3xl mx-auto leading-relaxed mt-8">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+              <p className="text-2xl sm:text-xl md:text-2xl lg:text-3xl px-4 sm:px-0 text-center mt-8 max-w-4xl mx-auto font-thin text-gray-800" style={{ lineHeight: 1.15 }}>
+                Our practice is possible through place-based partnering with citizens, municipalities, philanthropies and the private sector to develop experiments, products and tools to conceptualise a new civics catalysed by decentralised technology.
               </p>
             </AnimatedElement>
           </div>
@@ -153,13 +140,13 @@ export default function Home() {
               {[
                 {
                   key: 'tech',
-                  heading: "Growing Community Wealth",
-                  description: "Empowering communities through innovative economic tools designed to enhance control over housing and land ownership. Pooled funding, community-driven exit strategies, multi-capital currencies, and bioregional banking reshape how wealth flows within neighborhoods and interconnected communities."
+                  heading: "Growing Civic Wealth",
+                  description: "Supporting communities through innovative economic tools designed to enhance control over housing and land ownership. Pooled funding, community-driven exit strategies, multi-capital currencies, and bioregional banking reshape how wealth flows within neighborhoods and interconnected communities."
                 },
                 {
                   key: 'research',
-                  heading: "Modernizing Agreements & Policies",
-                  description: "Enabling modular and automated legal and governance frameworks for stewardship agreements that redefine how communities own and care. Implementing interoperable organizational models to create scalable civic systems that meet communities evolving needs."
+                  heading: "Modernizing Agreements",
+                  description: "Enabling modular and automated legal, policy and governance frameworks for stewardship agreements that redefine how communities own and care. Implementing interoperable organisational models to create scalable civic systems that meet communities evolving needs."
                 },
                 {
                   key: 'community',
@@ -180,26 +167,10 @@ export default function Home() {
               ))}
             </div>
 
-            {/* Case Studies Section */}
-            <div className="mt-16">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl text-center mb-12">Case Studies</h2>
+            {/* Initiatives Section */}
+            <div className="mt-32">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl text-center mb-12">Initiatives</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div className="border border-white/20 rounded-lg p-6 bg-white/5 backdrop-blur-sm flex flex-col h-full">
-                  <div className="flex-1">
-                    <h4 className="text-lg font-bold mb-3">Algorithmic Currency in Action</h4>
-                    <p className="text-sm text-white/80 mb-4">
-                      Using smart algorithms, the currency protocol pulls tokenized assets likes homes or land into community control by a commons capture device that distributes governance and access rights automonosly while buying back shares from stakeholders. Designed to support the emergence of bioregional banking systems as well, the protocol adapts strategies depending on local context, offering a scalable model for decentralized commons management.
-                    </p>
-                  </div>
-                  <div className="flex items-center justify-between mt-auto">
-                    <span className="text-xs bg-white/10 px-2 py-1 rounded">Phase 0</span>
-                    <div className="flex gap-1">
-                      <span className="text-xs bg-green-500/20 text-green-300 px-2 py-1 rounded">#governance</span>
-                      <span className="text-xs bg-purple-500/20 text-purple-300 px-2 py-1 rounded">#finance</span>
-                      <span className="text-xs bg-orange-500/20 text-orange-300 px-2 py-1 rounded">#infrastructure</span>
-                    </div>
-                  </div>
-                </div>
                 <div className="border border-white/20 rounded-lg p-6 bg-white/5 backdrop-blur-sm flex flex-col h-full">
                   <div className="flex-1">
                     <h4 className="text-lg font-bold mb-3">Neighbourhood Finance Tools in Berlin</h4>
@@ -208,7 +179,7 @@ export default function Home() {
                     </p>
                   </div>
                   <div className="flex items-center justify-between mt-auto">
-                    <span className="text-xs bg-white/10 px-2 py-1 rounded">Phase 0</span>
+                    <span className="text-xs bg-white/10 px-2 py-1 rounded">Phase 1</span>
                     <div className="flex gap-1">
                       <span className="text-xs bg-green-500/20 text-green-300 px-2 py-1 rounded">#governance</span>
                       <span className="text-xs bg-purple-500/20 text-purple-300 px-2 py-1 rounded">#finance</span>
@@ -217,80 +188,18 @@ export default function Home() {
                 </div>
                 <div className="border border-white/20 rounded-lg p-6 bg-white/5 backdrop-blur-sm flex flex-col h-full">
                   <div className="flex-1">
-                    <h4 className="text-lg font-bold mb-3">Impact Tourism Fund for Affordable Housing in Barcelona</h4>
+                    <h4 className="text-lg font-bold mb-3">Algorithmic Currency in Action</h4>
                     <p className="text-sm text-white/80 mb-4">
-                      Funneling capital investment into affordable housing by leveraging the lucrative Barcelona hotel industry through innovative digital bonds and ex-urance products. This fund encourages hotels to contribute to local communities by attracting impact tourism that aligns business success with social responsibility, creating a sustainable cycle of investment and positive community impact.
+                      Using smart algorithms, the currency protocol pulls tokenised assets likes homes or land into community control by a commons capture device that distributes governance and access rights automonosly while buying back shares from stakeholders. Designed to support the emergence of bioregional banking systems as well, the protocol adapts strategies depending on local context, offering a scalable model for decentralised commons management.
                     </p>
                   </div>
-                  <div className="flex items-center justify-between mt-auto">
-                    <span className="text-xs bg-white/10 px-2 py-1 rounded">Phase 0</span>
-                    <div className="flex gap-1">
-                      <span className="text-xs bg-purple-500/20 text-purple-300 px-2 py-1 rounded">#finance</span>
-                      <span className="text-xs bg-green-500/20 text-green-300 px-2 py-1 rounded">#governance</span>
+                                      <div className="flex items-center justify-between mt-auto">
+                      <span className="text-xs bg-white/10 px-2 py-1 rounded">Phase 1</span>
+                      <div className="flex gap-1">
+                        <span className="text-xs bg-green-500/20 text-green-300 px-2 py-1 rounded">#governance</span>
+                        <span className="text-xs bg-purple-500/20 text-purple-300 px-2 py-1 rounded">#finance</span>
+                      </div>
                     </div>
-                  </div>
-                </div>
-                <div className="border border-white/20 rounded-lg p-6 bg-white/5 backdrop-blur-sm flex flex-col h-full">
-                  <div className="flex-1">
-                    <h4 className="text-lg font-bold mb-3">Cross-Border Cooperative for Housing</h4>
-                    <p className="text-sm text-white/80 mb-4">
-                      Connecting housing cooperatives across countries to enable shared stewardship and governance of housing commons. Blockchain-based agreements and decentralized legal tools simplifies cross-border collaboration, increases transparency, and opens access to financing. It empowers members to co-own and manage housing sustainably with trusted, user-friendly technology.
-                    </p>
-                  </div>
-                  <div className="flex items-center justify-between mt-auto">
-                    <span className="text-xs bg-white/10 px-2 py-1 rounded">Phase 0</span>
-                    <div className="flex gap-1">
-                      <span className="text-xs bg-blue-500/20 text-blue-300 px-2 py-1 rounded">#communities</span>
-                      <span className="text-xs bg-purple-500/20 text-purple-300 px-2 py-1 rounded">#finance</span>
-                      <span className="text-xs bg-green-500/20 text-green-300 px-2 py-1 rounded">#governance</span>
-                    </div>
-                  </div>
-                </div>
-                <div className="border border-white/20 rounded-lg p-6 bg-white/5 backdrop-blur-sm flex flex-col h-full">
-                  <div className="flex-1">
-                    <h4 className="text-lg font-bold mb-3">Agreements Platform for Housing and Land Projects</h4>
-                    <p className="text-sm text-white/80 mb-4">
-                      Simplifying housing and land development streamlining access to finance and legal certainty through peer-to-peer lending, tokenized investments, and democratized crowdfunding. With on-chain legal contracts and tailored insurance products, the platform builds trust, reduces founder risk, and makes treasury management effortless.
-                    </p>
-                  </div>
-                  <div className="flex items-center justify-between mt-auto">
-                    <span className="text-xs bg-white/10 px-2 py-1 rounded">Phase 0</span>
-                    <div className="flex gap-1">
-                      <span className="text-xs bg-green-500/20 text-green-300 px-2 py-1 rounded">#governance</span>
-                      <span className="text-xs bg-purple-500/20 text-purple-300 px-2 py-1 rounded">#finance</span>
-                    </div>
-                  </div>
-                </div>
-                <div className="border border-white/20 rounded-lg p-6 bg-white/5 backdrop-blur-sm flex flex-col h-full">
-                  <div className="flex-1">
-                    <h4 className="text-lg font-bold mb-3">Unlocking Nature Value in Rural Germany</h4>
-                    <p className="text-sm text-white/80 mb-4">
-                      Transforming rural regions by harnessing the power of nature. This initiative helps local governments and communities use participatory digital tools to unlock the hidden value of trees, forests and green landscapes. Through two hands-on pilot projects in Germany, local actors co-create better ways to care for forests, manage green spaces and support public services.
-                    </p>
-                  </div>
-                  <div className="flex items-center justify-between mt-auto">
-                    <span className="text-xs bg-white/10 px-2 py-1 rounded">Phase 0</span>
-                    <div className="flex gap-1">
-                      <span className="text-xs bg-blue-500/20 text-blue-300 px-2 py-1 rounded">#communities</span>
-                      <span className="text-xs bg-purple-500/20 text-purple-300 px-2 py-1 rounded">#finance</span>
-                      <span className="text-xs bg-green-500/20 text-green-300 px-2 py-1 rounded">#governance</span>
-                    </div>
-                  </div>
-                </div>
-                <div className="border border-white/20 rounded-lg p-6 bg-white/5 backdrop-blur-sm flex flex-col h-full">
-                  <div className="flex-1">
-                    <h4 className="text-lg font-bold mb-3">Wearables to Enable Physical & Digital Rituals</h4>
-                    <p className="text-sm text-white/80 mb-4">
-                      This project uses small NFC chips in wearable devices to help people interact with their city in fun and meaningful ways. Instead of forcing rules, it encourages people to work together and make agreements by sharing trust and cooperating openly. Wearing these devices makes it easy to join in community activities and influence how public spaces are used.
-                    </p>
-                  </div>
-                  <div className="flex items-center justify-between mt-auto">
-                    <span className="text-xs bg-white/10 px-2 py-1 rounded">Phase 2</span>
-                    <div className="flex gap-1">
-                      <span className="text-xs bg-blue-500/20 text-blue-300 px-2 py-1 rounded">#community</span>
-                      <span className="text-xs bg-green-500/20 text-green-300 px-2 py-1 rounded">#governance</span>
-                    </div>
-                  </div>
                 </div>
                 <div className="border border-white/20 rounded-lg p-6 bg-white/5 backdrop-blur-sm flex flex-col h-full">
                   <div className="flex-1">
@@ -304,6 +213,83 @@ export default function Home() {
                     <div className="flex gap-1">
                       <span className="text-xs bg-purple-500/20 text-purple-300 px-2 py-1 rounded">#art</span>
                       <span className="text-xs bg-blue-500/20 text-blue-300 px-2 py-1 rounded">#communities</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="border border-white/20 rounded-lg p-6 bg-white/5 backdrop-blur-sm flex flex-col h-full">
+                  <div className="flex-1">
+                    <h4 className="text-lg font-bold mb-3">Cross-Border Cooperative for Housing</h4>
+                    <p className="text-sm text-white/80 mb-4">
+                      Connecting housing cooperatives across countries to enable shared stewardship and governance of housing commons. Blockchain-based agreements and decentralised legal tools simplifies cross-border collaboration, increases transparency, and opens access to financing. It empowers members to co-own and manage housing sustainably with trusted, user-friendly technology.
+                    </p>
+                  </div>
+                  <div className="flex items-center justify-between mt-auto">
+                    <span className="text-xs bg-white/10 px-2 py-1 rounded">Phase 1</span>
+                    <div className="flex gap-1">
+                      <span className="text-xs bg-blue-500/20 text-blue-300 px-2 py-1 rounded">#communities</span>
+                      <span className="text-xs bg-purple-500/20 text-purple-300 px-2 py-1 rounded">#finance</span>
+                      <span className="text-xs bg-green-500/20 text-green-300 px-2 py-1 rounded">#governance</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="border border-white/20 rounded-lg p-6 bg-white/5 backdrop-blur-sm flex flex-col h-full">
+                  <div className="flex-1">
+                    <h4 className="text-lg font-bold mb-3">Agreements Platform for Housing and Land Projects</h4>
+                    <p className="text-sm text-white/80 mb-4">
+                      Simplifying housing and land development streamlining access to finance and legal certainty through peer-to-peer lending, tokenised investments, and democratised crowdfunding. With on-chain legal contracts and tailored insurance products, the platform builds trust, reduces founder risk, and makes treasury management effortless.
+                    </p>
+                  </div>
+                  <div className="flex items-center justify-between mt-auto">
+                    <span className="text-xs bg-white/10 px-2 py-1 rounded">Phase 1</span>
+                    <div className="flex gap-1">
+                      <span className="text-xs bg-green-500/20 text-green-300 px-2 py-1 rounded">#governance</span>
+                      <span className="text-xs bg-purple-500/20 text-purple-300 px-2 py-1 rounded">#finance</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="border border-white/20 rounded-lg p-6 bg-white/5 backdrop-blur-sm flex flex-col h-full">
+                  <div className="flex-1">
+                    <h4 className="text-lg font-bold mb-3">Innovative Tools for Physical & Digital Rituals</h4>
+                    <p className="text-sm text-white/80 mb-4">
+                      This project uses innovative devices to help people interact with their city in fun and meaningful ways. Instead of forcing rules, it encourages people to work together and make agreements by sharing trust and cooperating openly. Wearing these devices makes it easy to join in community activities and influence how public spaces are used.
+                    </p>
+                  </div>
+                  <div className="flex items-center justify-between mt-auto">
+                    <span className="text-xs bg-white/10 px-2 py-1 rounded">Phase 2</span>
+                    <div className="flex gap-1">
+                      <span className="text-xs bg-blue-500/20 text-blue-300 px-2 py-1 rounded">#community</span>
+                      <span className="text-xs bg-green-500/20 text-green-300 px-2 py-1 rounded">#governance</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="border border-white/20 rounded-lg p-6 bg-white/5 backdrop-blur-sm flex flex-col h-full">
+                  <div className="flex-1">
+                    <h4 className="text-lg font-bold mb-3">Impact Tourism Fund for Affordable Housing in Barcelona</h4>
+                    <p className="text-sm text-white/80 mb-4">
+                      Funneling capital investment into affordable housing by leveraging the lucrative Barcelona hotel industry through innovative digital bonds and ex-urance products. This fund encourages hotels to contribute to local communities by attracting impact tourism that aligns business success with social responsibility, creating a sustainable cycle of investment and positive community impact.
+                    </p>
+                  </div>
+                  <div className="flex items-center justify-between mt-auto">
+                    <span className="text-xs bg-white/10 px-2 py-1 rounded">Phase 1</span>
+                    <div className="flex gap-1">
+                      <span className="text-xs bg-purple-500/20 text-purple-300 px-2 py-1 rounded">#finance</span>
+                      <span className="text-xs bg-green-500/20 text-green-300 px-2 py-1 rounded">#governance</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="border border-white/20 rounded-lg p-6 bg-white/5 backdrop-blur-sm flex flex-col h-full">
+                  <div className="flex-1">
+                    <h4 className="text-lg font-bold mb-3">Unlocking Nature Value in Rural Germany</h4>
+                    <p className="text-sm text-white/80 mb-4">
+                      Transforming rural regions by harnessing the power of nature. This initiative helps local governments and communities use participatory digital tools to unlock the hidden value of trees, forests and green landscapes. Through two hands-on pilot projects in Germany, local actors co-create better ways to care for forests, manage green spaces and support public services.
+                    </p>
+                  </div>
+                  <div className="flex items-center justify-between mt-auto">
+                    <span className="text-xs bg-white/10 px-2 py-1 rounded">Phase 1</span>
+                    <div className="flex gap-1">
+                      <span className="text-xs bg-blue-500/20 text-blue-300 px-2 py-1 rounded">#communities</span>
+                      <span className="text-xs bg-purple-500/20 text-purple-300 px-2 py-1 rounded">#finance</span>
+                      <span className="text-xs bg-green-500/20 text-green-300 px-2 py-1 rounded">#governance</span>
                     </div>
                   </div>
                 </div>
@@ -344,9 +330,9 @@ export default function Home() {
               {/* Charlie Fisher */}
               <AnimatedElement animation="fade-up" delay={100}>
                 <div className="text-center">
-                  <div className="w-64 h-64 mx-auto mb-6 overflow-hidden rounded-full bg-gray-200">
+                  <div className="w-64 h-64 mx-auto mb-6 overflow-hidden rounded-lg bg-gray-200">
                     <img 
-                      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face" 
+                      src="/charlie-fisher.jpg" 
                       alt="Charlie Fisher"
                       className="w-full h-full object-cover grayscale"
                     />
@@ -362,7 +348,7 @@ export default function Home() {
                       href="https://www.linkedin.com/in/fishercharlie/" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-blue-600 hover:text-blue-800 transition-colors"
+                      className="text-gray-600 hover:text-black transition-colors"
                     >
                       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.785-1.75-1.75s.784-1.75 1.75-1.75 1.75.785 1.75 1.75-.784 1.75-1.75 1.75zm15.5 11.268h-3v-5.604c0-1.337-.025-3.063-1.868-3.063-1.868 0-2.154 1.459-2.154 2.967v5.7h-3v-10h2.881v1.367h.041c.401-.761 1.379-1.563 2.838-1.563 3.036 0 3.597 2.001 3.597 4.601v5.595z"/>
@@ -370,7 +356,7 @@ export default function Home() {
                     </a>
                     <a 
                       href="/team/charlie" 
-                      className="text-blue-600 hover:text-blue-800 transition-colors"
+                      className="text-gray-600 hover:text-black transition-colors"
                     >
                       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/>
@@ -384,24 +370,23 @@ export default function Home() {
               {/* Clara Gromaches */}
               <AnimatedElement animation="fade-up" delay={200}>
                 <div className="text-center">
-                  <div className="w-64 h-64 mx-auto mb-6 overflow-hidden rounded-full bg-gray-200">
+                  <div className="w-64 h-64 mx-auto mb-6 overflow-hidden rounded-lg bg-gray-200">
                     <img 
-                      src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop&crop=face" 
+                      src="/clara-gromaches.jfif" 
                       alt="Clara Gromaches"
                       className="w-full h-full object-cover grayscale"
                     />
                   </div>
                   <h3 className="text-2xl font-bold text-black mb-2">Clara Gromaches</h3>
                   <p className="text-sm text-gray-500 leading-relaxed">
-                    Clara is a consultant, researcher and business operator at the intersection of regenerative architecture, affordable housing, and decentralized technoogy to replicate housing and land commons. 
-                    With a background in Architecture she developed regenerative housing projects, incubated cooperative housing projects, policy making for municipalities in Spain and Operations at a web3-native workers cooperative.
+                    Clara is a consultant, researcher and business operator. With a background in Architecture she developed regenerative housing projects, incubated cooperative housing projects, adviced on affordable housing policy making to municipalities in Barcelona and manages operations at a decentralized tech workers cooperative.
                   </p>
                   <div className="flex justify-center gap-4 mt-6">
                     <a 
                       href="https://www.linkedin.com/in/cgromaches/" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-blue-600 hover:text-blue-800 transition-colors"
+                      className="text-gray-600 hover:text-black transition-colors"
                     >
                       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.785-1.75-1.75s.784-1.75 1.75-1.75 1.75.785 1.75 1.75-.784 1.75-1.75 1.75zm15.5 11.268h-3v-5.604c0-1.337-.025-3.063-1.868-3.063-1.868 0-2.154 1.459-2.154 2.967v5.7h-3v-10h2.881v1.367h.041c.401-.761 1.379-1.563 2.838-1.563 3.036 0 3.597 2.001 3.597 4.601v5.595z"/>
@@ -409,7 +394,7 @@ export default function Home() {
                     </a>
                     <a 
                       href="/team/clara" 
-                      className="text-blue-600 hover:text-blue-800 transition-colors"
+                      className="text-gray-600 hover:text-black transition-colors"
                     >
                       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/>
@@ -423,37 +408,26 @@ export default function Home() {
               {/* Bradley C Royes */}
               <AnimatedElement animation="fade-up" delay={300}>
                 <div className="text-center">
-                  <div className="w-64 h-64 mx-auto mb-6 overflow-hidden rounded-full bg-gray-200">
+                  <div className="w-64 h-64 mx-auto mb-6 overflow-hidden rounded-lg bg-gray-200">
                     <img 
-                      src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face" 
-                      alt="Bradley C Royes"
+                      src="/bradley-royes.jfif" 
+                      alt="Bradley Clark Royes"
                       className="w-full h-full object-cover grayscale"
                     />
                   </div>
-                  <h3 className="text-2xl font-bold text-black mb-2">Bradley C Royes</h3>
+                  <h3 className="text-2xl font-bold text-black mb-2">Bradley Clark Royes</h3>
                   <p className="text-sm text-gray-500 leading-relaxed">
-                    Bradley is a strategic designer with expertise in creating innovative solutions at the intersection of 
-                    technology, society, and business. His work focuses on developing human-centered approaches to complex 
-                    challenges in urban development and civic innovation.
+                    Bradley is a strategic designer and innovator working at the intersection of culture, AI-native systems, and human-centered technology. He leads AI Builders Berlin as Community Director & DevRel and co-founded experience design collective seks.design, blending applied research with grassroots organizing and urban rituals.
                   </p>
                   <div className="flex justify-center gap-4 mt-6">
                     <a 
-                      href="#" 
+                      href="https://www.linkedin.com/in/bradleyroyes/" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-blue-600 hover:text-blue-800 transition-colors"
+                      className="text-gray-600 hover:text-black transition-colors"
                     >
                       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.785-1.75-1.75s.784-1.75 1.75-1.75 1.75.785 1.75 1.75-.784 1.75-1.75 1.75zm15.5 11.268h-3v-5.604c0-1.337-.025-3.063-1.868-3.063-1.868 0-2.154 1.459-2.154 2.967v5.7h-3v-10h2.881v1.367h.041c.401-.761 1.379-1.563 2.838-1.563 3.036 0 3.597 2.001 3.597 4.601v5.595z"/>
-                      </svg>
-                    </a>
-                    <a 
-                      href="#" 
-                      className="text-blue-600 hover:text-blue-800 transition-colors"
-                    >
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/>
-                        <path d="M8 12h8v2H8zm0 4h8v2H8z"/>
                       </svg>
                     </a>
                   </div>
@@ -463,37 +437,26 @@ export default function Home() {
               {/* Livia Deschermayer */}
               <AnimatedElement animation="fade-up" delay={400}>
                 <div className="text-center">
-                  <div className="w-64 h-64 mx-auto mb-6 overflow-hidden rounded-full bg-gray-200">
+                  <div className="w-64 h-64 mx-auto mb-6 overflow-hidden rounded-lg bg-gray-200">
                     <img 
-                      src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face" 
+                      src="/livia.jpg" 
                       alt="Livia Deschermayer"
                       className="w-full h-full object-cover grayscale"
                     />
                   </div>
                   <h3 className="text-2xl font-bold text-black mb-2">Livia Deschermayer</h3>
                   <p className="text-sm text-gray-500 leading-relaxed">
-                    Livia is an artist and published social researcher in the field of token engineering with over 6 years of practice 
-                    in the web3 space on the topics of governance, culture and incentivization. Her contributions include designing 
-                    social system protocols, stewarding a 2 years long working group on soft governance and culture and leading the Cultural Build initiative at Commons Stack which implemented Elinor Ostrom's principles in the Token Engineering Commons.
+                    Livia is an artist and published social researcher in the field of token engineering with over six years of practice on the decentralized ecosystem with topics of governance, culture and incentivization. Her contributions include designing social system protocols, stewarding a 2 years long working group on soft governance and culture and leading the Cultural Build initiative at Commons Stack.
                   </p>
                   <div className="flex justify-center gap-4 mt-6">
                     <a 
-                      href="#" 
+                      href="https://www.linkedin.com/in/livia-deschermayer-8759418b/" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-blue-600 hover:text-blue-800 transition-colors"
+                      className="text-gray-600 hover:text-black transition-colors"
                     >
                       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.785-1.75-1.75s.784-1.75 1.75-1.75 1.75.785 1.75 1.75-.784 1.75-1.75 1.75zm15.5 11.268h-3v-5.604c0-1.337-.025-3.063-1.868-3.063-1.868 0-2.154 1.459-2.154 2.967v5.7h-3v-10h2.881v1.367h.041c.401-.761 1.379-1.563 2.838-1.563 3.036 0 3.597 2.001 3.597 4.601v5.595z"/>
-                      </svg>
-                    </a>
-                    <a 
-                      href="#" 
-                      className="text-blue-600 hover:text-blue-800 transition-colors"
-                    >
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/>
-                        <path d="M8 12h8v2H8zm0 4h8v2H8z"/>
                       </svg>
                     </a>
                   </div>
@@ -503,9 +466,9 @@ export default function Home() {
               {/* Jeff Emmett */}
               <AnimatedElement animation="fade-up" delay={500}>
                 <div className="text-center">
-                  <div className="w-64 h-64 mx-auto mb-6 overflow-hidden rounded-full bg-gray-200">
+                  <div className="w-64 h-64 mx-auto mb-6 overflow-hidden rounded-lg bg-gray-200">
                     <img 
-                      src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face" 
+                      src="/jeff-emmett.jpg" 
                       alt="Jeff Emmett"
                       className="w-full h-full object-cover grayscale"
                     />
@@ -519,22 +482,13 @@ export default function Home() {
                   </p>
                   <div className="flex justify-center gap-4 mt-6">
                     <a 
-                      href="#" 
+                      href="https://www.linkedin.com/in/jeff-emmett-05268139/" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-blue-600 hover:text-blue-800 transition-colors"
+                      className="text-gray-600 hover:text-black transition-colors"
                     >
                       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.785-1.75-1.75s.784-1.75 1.75-1.75 1.75.785 1.75 1.75-.784 1.75-1.75 1.75zm15.5 11.268h-3v-5.604c0-1.337-.025-3.063-1.868-3.063-1.868 0-2.154 1.459-2.154 2.967v5.7h-3v-10h2.881v1.367h.041c.401-.761 1.379-1.563 2.838-1.563 3.036 0 3.597 2.001 3.597 4.601v5.595z"/>
-                      </svg>
-                    </a>
-                    <a 
-                      href="#" 
-                      className="text-blue-600 hover:text-blue-800 transition-colors"
-                    >
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/>
-                        <path d="M8 12h8v2H8zm0 4h8v2H8z"/>
                       </svg>
                     </a>
                   </div>
@@ -544,9 +498,9 @@ export default function Home() {
               {/* Caroline Paulick-Thiel */}
               <AnimatedElement animation="fade-up" delay={600}>
                 <div className="text-center">
-                  <div className="w-64 h-64 mx-auto mb-6 overflow-hidden rounded-full bg-gray-200">
+                  <div className="w-64 h-64 mx-auto mb-6 overflow-hidden rounded-lg bg-gray-200">
                     <img 
-                      src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop&crop=face" 
+                      src="/carolina-paulick-thiel.jpg" 
                       alt="Caroline Paulick-Thiel"
                       className="w-full h-full object-cover grayscale"
                     />
@@ -554,28 +508,17 @@ export default function Home() {
                   <h3 className="text-2xl font-bold text-black mb-2">Caroline Paulick-Thiel</h3>
                   <p className="text-lg text-gray-600 mb-4">Advisor</p>
                   <p className="text-sm text-gray-500 leading-relaxed">
-                    Caroline is a strategic designer and expert in transformative public sector innovation. Trained in Design (BA) 
-                    and Public Policy (MPP), she has extensive experience in developing and leading participatory processes to address 
-                    public challenges. In 2015, she co-founded Politics for Tomorrow, and facilitates societal transformation processes in collaboration with political-administrative institutions from the local to the highest federal level in Germany and internationally.
+                    Caroline is a strategic designer and expert in transformative public sector innovation. Trained in Design and Public Policy, she has extensive experience in participatory processes and innovative policy to address public challenges. She co-founded Politics for Tomorrow, and facilitates societal transformation processes in collaboration with political-administrative institutions from the local to the highest federal level in Germany and internationally.
                   </p>
                   <div className="flex justify-center gap-4 mt-6">
                     <a 
-                      href="#" 
+                      href="https://www.linkedin.com/in/caroline-paulick-thiel/" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-blue-600 hover:text-blue-800 transition-colors"
+                      className="text-gray-600 hover:text-black transition-colors"
                     >
                       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.785-1.75-1.75s.784-1.75 1.75-1.75 1.75.785 1.75 1.75-.784 1.75-1.75 1.75zm15.5 11.268h-3v-5.604c0-1.337-.025-3.063-1.868-3.063-1.868 0-2.154 1.459-2.154 2.967v5.7h-3v-10h2.881v1.367h.041c.401-.761 1.379-1.563 2.838-1.563 3.036 0 3.597 2.001 3.597 4.601v5.595z"/>
-                      </svg>
-                    </a>
-                    <a 
-                      href="#" 
-                      className="text-blue-600 hover:text-blue-800 transition-colors"
-                    >
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/>
-                        <path d="M8 12h8v2H8zm0 4h8v2H8z"/>
                       </svg>
                     </a>
                   </div>
@@ -624,10 +567,7 @@ export default function Home() {
                 </a>
               </div>
               
-              {/* Made with love text */}
-              <p className="text-sm text-black">
-                Made with <span className="text-black">♥</span> between Berlin & Barcelona
-              </p>
+
             </div>
           </div>
         </footer>
