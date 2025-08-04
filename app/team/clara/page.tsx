@@ -12,7 +12,7 @@ export default function ClaraPage() {
           <section>
             <h2 className="text-2xl font-semibold mb-4">About</h2>
             <p className="text-gray-300 mb-4">Barcelona, Spain, 1990</p>
-            <p className="text-gray-300 mb-4">With a background as regen architect and social housing incubator I leverage the power of self-organization and decentralized technology to bring housing and land commons to mainstream to advance into having more fair, regen and sovereign societies.</p>
+            <p className="text-gray-300 mb-4">With a background as regen architect and social housing incubator I leverage the power of self-organisation and decentralised technology to bring housing and land commons to mainstream to advance into having more fair, regen and sovereign societies.</p>
           </section>
 
           <section>
