@@ -103,6 +103,14 @@ export default function CharliePage() {
               </div>
             </div>
           </section>
+
+          <section>
+            <h2 className="text-2xl font-semibold mb-4">Contact</h2>
+            <ul className="list-disc list-inside space-y-2 text-gray-300">
+              <li>Phone: +491785299866</li>
+              <li>Email: charlie@fshr.xyz</li>
+            </ul>
+          </section>
         </div>
       </main>
     </div>
