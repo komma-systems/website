@@ -12,6 +12,8 @@ export default function Home() {
   const [isActionActive, setIsActionActive] = useState(false)
   const [actionHover, setActionHover] = useState(false)
   const [showSecondParagraph, setShowSecondParagraph] = useState(false)
+  const [initiatives, setInitiatives] = useState<any[]>([])
+  const [initiativesLoading, setInitiativesLoading] = useState(true)
   const introductionSectionRef = useRef<HTMLDivElement>(null)
   const approachSectionRef = useRef<HTMLDivElement>(null)
 
@@ -25,6 +27,74 @@ export default function Home() {
     // Show the second paragraph after 5 seconds
     const timer = setTimeout(() => setShowSecondParagraph(true), 5000)
     return () => clearTimeout(timer)
+  }, [])
+
+  useEffect(() => {
+    // Fetch initiatives from Notion API
+    async function fetchInitiatives() {
+      try {
+        const response = await fetch('/api/initiatives')
+        if (response.ok) {
+          const data = await response.json()
+          setInitiatives(data)
+        } else {
+          // Fallback to hardcoded initiatives if API fails
+          setInitiatives([
+            {
+              id: 'algorithmic-currency',
+              title: 'Algorithmic Currency in Action',
+              phase: 'Phase 1',
+              tags: ['#governance', '#finance', '#community'],
+              slug: 'algorithmic-currency'
+            },
+            {
+              id: 'neighbourhood-finance',
+              title: 'Neighbourhood Finance Tools in Berlin',
+              phase: 'Phase 1',
+              tags: ['#governance', '#finance', '#community'],
+              slug: 'neighbourhood-finance'
+            },
+            {
+              id: 'arts-experimentation',
+              title: 'Arts as a Means for Systemic Experimentation',
+              phase: 'Phase 1',
+              tags: ['#governance', '#finance', '#community'],
+              slug: 'arts-experimentation'
+            },
+            {
+              id: 'cross-border-housing',
+              title: 'Cross-Border Cooperative for Housing',
+              phase: 'Phase 1',
+              tags: ['#governance', '#finance', '#community'],
+              slug: 'cross-border-housing'
+            },
+            {
+              id: 'agreements-platform',
+              title: 'Agreements Platform for Housing and Land Projects',
+              phase: 'Phase 1',
+              tags: ['#governance', '#finance', '#community'],
+              slug: 'agreements-platform'
+            }
+          ])
+        }
+      } catch (error) {
+        console.error('Failed to fetch initiatives:', error)
+        // Use fallback data
+        setInitiatives([
+          {
+            id: 'algorithmic-currency',
+            title: 'Algorithmic Currency in Action',
+            phase: 'Phase 1',
+            tags: ['#governance', '#finance', '#community'],
+            slug: 'algorithmic-currency'
+          }
+        ])
+      } finally {
+        setInitiativesLoading(false)
+      }
+    }
+
+    fetchInitiatives()
   }, [])
 
   const handleChevronClick = () => {
@@ -154,6 +224,7 @@ export default function Home() {
             <div className="flex flex-wrap items-center justify-center gap-8">
               <img src="/Partners/Consensys_logo_2023.svg" alt="Consensys" className="h-8 filter grayscale brightness-110 contrast-75" />
               <img src="/Partners/politics-for-tomorrow_logo_1.0.svg" alt="Politics for Tomorrow" className="h-8 filter grayscale brightness-110 contrast-75" />
+              <img src="/Partners/just.svg" alt="Just" className="h-8 filter grayscale brightness-110 contrast-75" />
             </div>
           </div>
         </section>
@@ -206,46 +277,24 @@ export default function Home() {
                   Initiatives
                 </h2>
                 <span className="font-normal text-xs sm:text-sm text-white leading-relaxed align-super relative -top-1 sm:-top-2">
-                  5
+                  {initiativesLoading ? '...' : initiatives.length}
                 </span>
               </div>
             </AnimatedElement>
 
             <div className="space-y-0">
-              {[
-                {
-                  id: 'algorithmic-currency',
-                  title: 'Algorithmic Currency in Action',
-                  phase: 'Phase 1',
-                  tags: ['#governance', '#finance', '#community']
-                },
-                {
-                  id: 'neighbourhood-finance',
-                  title: 'Neighbourhood Finance Tools in Berlin',
-                  phase: 'Phase 1',
-                  tags: ['#governance', '#finance', '#community']
-                },
-                {
-                  id: 'arts-experimentation',
-                  title: 'Arts as a Means for Systemic Experimentation',
-                  phase: 'Phase 1',
-                  tags: ['#governance', '#finance', '#community']
-                },
-                {
-                  id: 'cross-border-housing',
-                  title: 'Cross-Border Cooperative for Housing',
-                  phase: 'Phase 1',
-                  tags: ['#governance', '#finance', '#community']
-                },
-                {
-                  id: 'agreements-platform',
-                  title: 'Agreements Platform for Housing and Land Projects',
-                  phase: 'Phase 1',
-                  tags: ['#governance', '#finance', '#community']
-                }
-              ].map((project, idx) => (
+              {initiativesLoading ? (
+                <div className="text-center py-8">
+                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white mx-auto mb-4"></div>
+                  <p className="text-gray-400">Loading initiatives...</p>
+                </div>
+              ) : (
+                initiatives.map((project, idx) => (
                 <AnimatedElement animation="fade-up" delay={100 * (idx + 1)} key={project.id}>
-                  <div className="flex flex-col sm:grid sm:grid-cols-[1fr_auto_auto_120px] lg:grid-cols-[1fr_auto_auto_150px] gap-3 sm:gap-4 lg:gap-6 items-start py-4 sm:py-6 hover:bg-[#1a1a1a] transition-colors duration-200 px-3 sm:px-4 border-b border-dashed border-[#a29f9f] last:border-b-0">
+                  <a 
+                    href={`/initiatives/${project.slug}`}
+                    className="flex flex-col sm:grid sm:grid-cols-[1fr_auto_auto_120px] lg:grid-cols-[1fr_auto_auto_150px] gap-3 sm:gap-4 lg:gap-6 items-start py-4 sm:py-6 hover:bg-[#1a1a1a] transition-colors duration-200 px-3 sm:px-4 border-b border-dashed border-[#a29f9f] last:border-b-0 cursor-pointer"
+                  >
                     {/* Mobile: Title and Image Row */}
                     <div className="flex justify-between items-start gap-3 w-full sm:contents">
                       {/* Project Title */}
@@ -281,9 +330,10 @@ export default function Home() {
                         ))}
                       </div>
                     </div>
-                  </div>
+                  </a>
                 </AnimatedElement>
-              ))}
+                ))
+              )}
             </div>
           </div>
         </section>
