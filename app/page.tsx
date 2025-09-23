@@ -11,6 +11,7 @@ export default function Home() {
   const [opacity, setOpacity] = useState(0)
   const [isActionActive, setIsActionActive] = useState(false)
   const [actionHover, setActionHover] = useState(false)
+  const [showSecondParagraph, setShowSecondParagraph] = useState(false)
   const introductionSectionRef = useRef<HTMLDivElement>(null)
   const approachSectionRef = useRef<HTMLDivElement>(null)
 
@@ -20,8 +21,21 @@ export default function Home() {
     return () => clearTimeout(timer)
   }, [])
 
+  useEffect(() => {
+    // Show the second paragraph after 5 seconds
+    const timer = setTimeout(() => setShowSecondParagraph(true), 5000)
+    return () => clearTimeout(timer)
+  }, [])
+
   const handleChevronClick = () => {
-    introductionSectionRef.current?.scrollIntoView({ behavior: 'smooth' })
+    if (introductionSectionRef.current) {
+      const elementTop = introductionSectionRef.current.offsetTop
+      const offsetPosition = elementTop - 100 // Scroll 100px higher than the element
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      })
+    }
   }
 
   const handleApproachChevronClick = () => {
@@ -108,7 +122,7 @@ export default function Home() {
                     >
                       <RippleButton 
                         onClick={handleChevronClick} 
-                        className="animate-bounce"
+                        className="animate-bounce p-16"
                       >
                         <ChevronDown size={32} className="text-white opacity-70 hover:opacity-100 transition-opacity" />
                       </RippleButton>
@@ -123,12 +137,24 @@ export default function Home() {
         <section id="introduction" ref={introductionSectionRef} className="py-16 px-4 sm:px-6 md:px-8 bg-black mt-20 scroll-mt-48 min-h-[50vh] flex items-center justify-center">
           <div className="max-w-4xl mx-auto text-center">
             <AnimatedElement animation="fade-in" className="mb-12">
-              <p className="text-2xl sm:text-xl md:text-2xl lg:text-3xl px-4 sm:px-0" style={{ lineHeight: 1.15 }}>
-                <span className="komma-title">Komma</span> is an action-research studio with over a decade of experience working with citizens, 
-                municipalities, philanthropy and the construction sector to conceptualise a new civics 
-                catalysed by decentralised technology.
+              <p className="text-2xl sm:text-xl md:text-2xl lg:text-3xl px-4 sm:px-0" style={{ lineHeight: 1.5 }}>
+                <span className="komma-title">Komma</span> is a venture collective utilising applied research, artistic inquiry and real-world demonstration to shift collective imagination on how we value, own and care for what is held in common. 
+              </p>
+              <p className="text-2xl sm:text-xl md:text-2xl lg:text-3xl px-4 sm:px-0 mt-6 transition-colors duration-1000" style={{ lineHeight: 1.5, color: showSecondParagraph ? 'white' : '#666' }}>
+                Our action is made possible through place-based partnerships with citizens, municipalities, philanthropy and the private sector to develop experiments, products and tools to conceptualise a new civics catalysed by decentralised technology.
               </p>
             </AnimatedElement>
+          </div>
+        </section>
+
+        {/* Partners Section */}
+        <section className="py-8 px-4 sm:px-6 md:px-8 bg-black">
+          <div className="max-w-5xl mx-auto text-center">
+            <div className="font-silkscreen text-base md:text-lg tracking-widest uppercase text-gray-300 mb-4">Partners</div>
+            <div className="flex flex-wrap items-center justify-center gap-8">
+              <img src="/Partners/Consensys_logo_2023.svg" alt="Consensys" className="h-8 filter grayscale brightness-110 contrast-75" />
+              <img src="/Partners/politics-for-tomorrow_logo_1.0.svg" alt="Politics for Tomorrow" className="h-8 filter grayscale brightness-110 contrast-75" />
+            </div>
           </div>
         </section>
 
@@ -141,19 +167,19 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[
                 {
-                  key: 'tech',
-                  heading: "Technology & Urban Environments",
-                  description: "Komma works at the intersection of technology and urban environments, creating processes that encourage everyday acts of civic engagement."
+                  key: 'wealth',
+                  heading: "Growing Civic Wealth",
+                  description: "Supporting communities through innovative economic tools designed to enhance control over housing and land ownership. Pooled funding, community-driven exit strategies, multi-capital currencies, and bioregional banking reshape how wealth flows within neighborhoods and interconnected communities."
                 },
                 {
-                  key: 'research',
-                  heading: (<><span>Researching</span><br /><span>hard to see roots</span></>),
-                  description: "Engaging with the fundamentals of how we own, value and care for what we hold in common "
+                  key: 'agreements',
+                  heading: "Modernizing Agreements",
+                  description: "Enabling modular and automated legal, policy and governance frameworks for stewardship agreements that redefine how communities own and care. Implementing interoperable organisational models to create scalable civic systems that meet communities evolving needs."
                 },
                 {
-                  key: 'community',
-                  heading: "Community Building",
-                  description: "We develop solutions that reinforce positive civic habits and build stronger, more connected communities for the long term."
+                  key: 'rituals',
+                  heading: "Cultivating Playful Rituals",
+                  description: "Integrating governance into everyday life through the human-centric design. Including sociocratic decision-making, digital coordination tools, and innovative wearables to enhance collective collaboration by smoothly connecting digital and physical spaces."
                 }
               ].map((item, idx) => (
                 <AnimatedElement animation="fade-up" delay={100 * (idx + 1)} key={item.key}>
@@ -171,83 +197,266 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Team Section - with gray background */}
-        <section id="team" className="relative py-16 px-4 sm:px-6 md:px-8 bg-[#D9D9D9] scroll-mt-0">
-          {/* Video background */}
-          <div className="absolute inset-0 w-full h-full">
-            <video
-              src="/Video_of_Comma_Blob_Ready (1).mp4"
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full h-full object-cover"
-            />
-            {/* Frosted overlay */}
-            <div className="absolute inset-0 bg-white/30 backdrop-blur-[2px]" />
+        {/* Initiatives Section */}
+        <section className="py-16 px-4 sm:px-6 md:px-8 bg-black">
+          <div className="max-w-7xl mx-auto">
+            <AnimatedElement animation="fade-in" className="mb-16">
+              <div className="flex items-center gap-2 sm:gap-4 mb-6 sm:mb-8 pb-3 sm:pb-4 border-b border-[#46403e]">
+                <h2 className="font-semibold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-tight">
+                  Initiatives
+                </h2>
+                <span className="font-normal text-xs sm:text-sm text-white leading-relaxed align-super relative -top-1 sm:-top-2">
+                  5
+                </span>
+              </div>
+            </AnimatedElement>
+
+            <div className="space-y-0">
+              {[
+                {
+                  id: 'algorithmic-currency',
+                  title: 'Algorithmic Currency in Action',
+                  phase: 'Phase 1',
+                  tags: ['#governance', '#finance', '#community']
+                },
+                {
+                  id: 'neighbourhood-finance',
+                  title: 'Neighbourhood Finance Tools in Berlin',
+                  phase: 'Phase 1',
+                  tags: ['#governance', '#finance', '#community']
+                },
+                {
+                  id: 'arts-experimentation',
+                  title: 'Arts as a Means for Systemic Experimentation',
+                  phase: 'Phase 1',
+                  tags: ['#governance', '#finance', '#community']
+                },
+                {
+                  id: 'cross-border-housing',
+                  title: 'Cross-Border Cooperative for Housing',
+                  phase: 'Phase 1',
+                  tags: ['#governance', '#finance', '#community']
+                },
+                {
+                  id: 'agreements-platform',
+                  title: 'Agreements Platform for Housing and Land Projects',
+                  phase: 'Phase 1',
+                  tags: ['#governance', '#finance', '#community']
+                }
+              ].map((project, idx) => (
+                <AnimatedElement animation="fade-up" delay={100 * (idx + 1)} key={project.id}>
+                  <div className="flex flex-col sm:grid sm:grid-cols-[1fr_auto_auto_120px] lg:grid-cols-[1fr_auto_auto_150px] gap-3 sm:gap-4 lg:gap-6 items-start py-4 sm:py-6 hover:bg-[#1a1a1a] transition-colors duration-200 px-3 sm:px-4 border-b border-dashed border-[#a29f9f] last:border-b-0">
+                    {/* Mobile: Title and Image Row */}
+                    <div className="flex justify-between items-start gap-3 w-full sm:contents">
+                      {/* Project Title */}
+                      <div className="flex-1 min-w-0 sm:col-span-1">
+                        <h3 className="font-light text-xl sm:text-2xl lg:text-3xl text-white tracking-tight leading-tight">
+                          {project.title}
+                        </h3>
+                      </div>
+
+                      {/* Project Image - Always visible on mobile, positioned in grid on larger screens */}
+                      <div className="sm:hidden w-20 h-16 bg-left bg-no-repeat bg-cover flex-shrink-0 bg-gray-600" />
+                      <div className="hidden sm:block w-[120px] lg:w-[150px] h-20 lg:h-28 bg-left bg-no-repeat bg-cover flex-shrink-0 bg-gray-600" />
+                    </div>
+
+                    {/* Mobile: Phase and Tags Row */}
+                    <div className="flex flex-wrap items-center justify-between gap-4 w-full sm:contents">
+                      {/* Phase */}
+                      <div className="whitespace-nowrap">
+                        <span className="font-normal text-base sm:text-lg lg:text-xl text-white leading-relaxed px-2 py-1 bg-[#1a1a1a] sm:bg-transparent sm:p-0">
+                          {project.phase}
+                        </span>
+                      </div>
+
+                      {/* Tags */}
+                      <div className="flex flex-row sm:flex-col gap-2 min-w-0 sm:min-w-[120px] lg:min-w-[140px]">
+                        {project.tags.map((tag) => (
+                          <span 
+                            key={tag}
+                            className="font-normal text-sm sm:text-base lg:text-lg text-gray-300 sm:text-white leading-relaxed"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </AnimatedElement>
+              ))}
+            </div>
           </div>
-          
-          {/* Content overlay */}
-          <div className="relative w-full flex justify-end">
-            {/* Team box */}
-            <div className="w-full md:w-1/2 p-8 md:p-12">
-              <div className="rounded-xl p-8 bg-white/90 backdrop-blur-sm text-black transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,0,0,0.5)] hover:backdrop-blur-md">
-                <h2 className="text-2xl md:text-3xl lg:text-4xl text-center mb-12">Team</h2>
-                
-                <div className="space-y-12">
-                  <div>
-                    <h3 className="text-xl font-bold mb-4">Charlie Fisher</h3>
-                    <p className="text-black/80 mb-6">
-                      Charlie is an advisor, researcher and founder active in the challenge of operationalising the long-term stewardship of land, particularly in the pursuit of urban affordable housing. With a background in architecture, he is completing a PhD in Spatial Planning and was on the team that launched the first tokenised land trust.
-                    </p>
+        </section>
+
+        {/* Team Section */}
+        <section className="py-16 px-4 sm:px-6 md:px-8 bg-white">
+          <div className="max-w-7xl mx-auto">
+            <AnimatedElement animation="fade-in" className="mb-16">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-left mb-8 text-black">
+                Team
+              </h2>
+              <p className="text-lg md:text-xl text-left text-gray-600 max-w-4xl leading-relaxed">
+                Our team brings together deep expertise across architecture design, spatial planning, legal and agreements frameworks, financing tools, decentralised technologies, token engineering, and collective governance, with over a decade of experience advancing equitable, commons-based housing and innovative civic frameworks.
+              </p>
+            </AnimatedElement>
+
+            {/* Team Members Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+              {/* Charlie Fisher */}
+              <AnimatedElement animation="fade-up" delay={100}>
+                <div className="text-center">
+                  <h3 className="text-2xl font-bold text-black mb-2 text-left">Charlie Fisher</h3>
+                  <p className="text-sm text-gray-500 leading-relaxed text-left">
+                  Charlie works on practical demonstrations of decentralised technologies for enhancing the delivery of affordable housing and commons-based landholding. As a researcher, founder, and project advisor, he ran an architecture practice for a decade, and was a key advisor on large scale new housing developments in England. He co-founded Oasa, a Swiss token-issuer for networked land projects.
+                  </p>
+                  <div className="flex justify-center gap-4 mt-6">
                     <a 
                       href="https://www.linkedin.com/in/fishercharlie/" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-black/80 hover:text-black transition-colors mr-4"
+                      className="text-gray-600 hover:text-black transition-colors"
                     >
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.785-1.75-1.75s.784-1.75 1.75-1.75 1.75.785 1.75 1.75-.784 1.75-1.75 1.75zm15.5 11.268h-3v-5.604c0-1.337-.025-3.063-1.868-3.063-1.868 0-2.154 1.459-2.154 2.967v5.7h-3v-10h2.881v1.367h.041c.401-.761 1.379-1.563 2.838-1.563 3.036 0 3.597 2.001 3.597 4.601v5.595z"/></svg>
-                      <span>Connect on LinkedIn</span>
+                      <img src="/linkedin.svg" alt="LinkedIn" className="w-5 h-5 filter brightness-0 invert" />
                     </a>
                     <a 
                       href="/team/charlie" 
-                      className="inline-flex items-center gap-2 text-black/80 hover:text-black transition-colors"
+                      className="text-gray-600 hover:text-black transition-colors"
                     >
                       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/>
                         <path d="M8 12h8v2H8zm0 4h8v2H8z"/>
                       </svg>
-                      <span>View CV</span>
                     </a>
                   </div>
+                </div>
+              </AnimatedElement>
 
-                  <div>
-                    <h3 className="text-xl font-bold mb-4">Clara Gromaches</h3>
-                    <p className="text-black/80 mb-6">
-                      Clara works in the intersection of regenerative architecture, affordable housing and technology projects, to leverage the power of self-organization to replicate housing commons. As an architect and independent consultant, she has been a member of Auquer i Prats, developed regen housing projects, advised municipalities on initiating affordable cooperative housing projects in Spain and is an Operations member at dOrg, a web3 native workers co-operative organized as DAO since 2019.
-                    </p>
+              {/* Clara Gromaches */}
+              <AnimatedElement animation="fade-up" delay={200}>
+                <div className="text-center">
+                  <h3 className="text-2xl font-bold text-black mb-2 text-left">Clara Gromaches</h3>
+                  <p className="text-sm text-gray-500 leading-relaxed text-left">
+                    Clara is a consultant, researcher and business operator. With a background in Architecture she developed regenerative housing projects, incubated cooperative housing projects, adviced on affordable housing policy making to municipalities in Barcelona and manages operations at a decentralized tech workers cooperative.
+                  </p>
+                  <div className="flex justify-center gap-4 mt-6">
                     <a 
                       href="https://www.linkedin.com/in/cgromaches/" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-black/80 hover:text-black transition-colors mr-4"
+                      className="text-gray-600 hover:text-black transition-colors"
                     >
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.785-1.75-1.75s.784-1.75 1.75-1.75 1.75.785 1.75 1.75-.784 1.75-1.75 1.75zm15.5 11.268h-3v-5.604c0-1.337-.025-3.063-1.868-3.063-1.868 0-2.154 1.459-2.154 2.967v5.7h-3v-10h2.881v1.367h.041c.401-.761 1.379-1.563 2.838-1.563 3.036 0 3.597 2.001 3.597 4.601v5.595z"/></svg>
-                      <span>Connect on LinkedIn</span>
+                      <img src="/linkedin.svg" alt="LinkedIn" className="w-5 h-5 filter brightness-0 invert" />
                     </a>
                     <a 
                       href="/team/clara" 
-                      className="inline-flex items-center gap-2 text-black/80 hover:text-black transition-colors"
+                      className="text-gray-600 hover:text-black transition-colors"
                     >
                       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/>
                         <path d="M8 12h8v2H8zm0 4h8v2H8z"/>
                       </svg>
-                      <span>View CV</span>
                     </a>
                   </div>
                 </div>
-              </div>
+              </AnimatedElement>
+
+              {/* Bradley C Royes */}
+              <AnimatedElement animation="fade-up" delay={300}>
+                <div className="text-center">
+                  <h3 className="text-2xl font-bold text-black mb-2 text-left">Bradley Clark Royes</h3>
+                  <p className="text-sm text-gray-500 leading-relaxed text-left">
+                    Bradley is a strategic designer and innovator working at the intersection of culture, AI-native systems, and human-centered technology. He leads AI Builders Berlin as Community Director & DevRel and co-founded experience design collective seks.design, blending applied research with grassroots organizing and urban rituals.
+                  </p>
+                  <div className="flex justify-center gap-4 mt-6">
+                    <a 
+                      href="https://www.linkedin.com/in/bradleyroyes/" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-gray-600 hover:text-black transition-colors"
+                    >
+                      <img src="/linkedin.svg" alt="LinkedIn" className="w-5 h-5 filter brightness-0 invert" />
+                    </a>
+                  </div>
+                </div>
+              </AnimatedElement>
+
+              {/* Livia Deschermayer */}
+              <AnimatedElement animation="fade-up" delay={400}>
+                <div className="text-center">
+                  <h3 className="text-2xl font-bold text-black mb-2 text-left">Livia Deschermayer</h3>
+                  <p className="text-sm text-gray-500 leading-relaxed text-left">
+                    Livia is an artist and published social researcher in the field of token engineering with over six years of practice on the decentralized ecosystem with topics of governance, culture and incentivization. Her contributions include designing social system protocols, stewarding a 2 years long working group on soft governance and culture and leading the Cultural Build initiative at Commons Stack.
+                  </p>
+                  <div className="flex justify-center gap-4 mt-6">
+                    <a 
+                      href="https://www.linkedin.com/in/livia-deschermayer-8759418b/" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-gray-600 hover:text-black transition-colors"
+                    >
+                      <img src="/linkedin.svg" alt="LinkedIn" className="w-5 h-5 filter brightness-0 invert" />
+                    </a>
+                  </div>
+                </div>
+              </AnimatedElement>
+
+              {/* Jeff Emmett */}
+              <AnimatedElement animation="fade-up" delay={500}>
+                <div className="text-center">
+                  <h3 className="text-2xl font-bold text-black mb-2 text-left">Jeff Emmett</h3>
+                  <p className="text-sm text-gray-500 leading-relaxed text-left">
+                    Jeff is a researcher and technical writer at BlockScience. Along with Michael Zargham & Griff Green, 
+                    he co-founded the Commons Stack to build out a toolkit of modular components that can be used for 
+                    polycentric governance of DAO ecosystems. He is involved in multiple open research initiatives into novel resource allocation patterns like bonding curves and conviction voting that could facilitate a future of data-driven algorithmic policy and computer-aided governance.
+                  </p>
+                  <div className="flex justify-center gap-4 mt-6">
+                    <a 
+                      href="https://www.linkedin.com/in/jeff-emmett-05268139/" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-gray-600 hover:text-black transition-colors"
+                    >
+                      <img src="/linkedin.svg" alt="LinkedIn" className="w-5 h-5 filter brightness-0 invert" />
+                    </a>
+                  </div>
+                </div>
+              </AnimatedElement>
+
+
+            </div>
+          </div>
+        </section>
+
+        {/* Advisors Section */}
+        <section className="py-16 px-4 sm:px-6 md:px-8 bg-white">
+          <div className="max-w-7xl mx-auto">
+            <AnimatedElement animation="fade-in" className="mb-16">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-left mb-8 text-black">
+                Advisors
+              </h2>
+            </AnimatedElement>
+
+            {/* Advisors Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+              {/* Caroline Paulick-Thiel */}
+              <AnimatedElement animation="fade-up" delay={100}>
+                <div className="text-center">
+                  <h3 className="text-2xl font-bold text-black mb-2 text-left">Caroline Paulick-Thiel</h3>
+                  <p className="text-sm text-gray-500 leading-relaxed text-left">
+                    Caroline is a strategic designer and expert in transformative public sector innovation. Trained in Design and Public Policy, she has extensive experience in participatory processes and innovative policy to address public challenges. She co-founded Politics for Tomorrow, and facilitates societal transformation processes in collaboration with political-administrative institutions from the local to the highest federal level in Germany and internationally.
+                  </p>
+                  <div className="flex justify-center gap-4 mt-6">
+                    <a 
+                      href="https://www.linkedin.com/in/caroline-paulick-thiel/" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-gray-600 hover:text-black transition-colors"
+                    >
+                      <img src="/linkedin.svg" alt="LinkedIn" className="w-5 h-5 filter brightness-0 invert" />
+                    </a>
+                  </div>
+                </div>
+              </AnimatedElement>
             </div>
           </div>
         </section>
