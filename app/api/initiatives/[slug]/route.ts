@@ -3,10 +3,11 @@ import { fetchInitiativeBySlug } from '@/lib/notion'
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
-    const initiative = await fetchInitiativeBySlug(params.slug)
+    const { slug } = await params
+    const initiative = await fetchInitiativeBySlug(slug)
     
     if (!initiative) {
       return NextResponse.json(

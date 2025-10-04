@@ -15,11 +15,10 @@ interface InitiativePageProps {
 interface Initiative {
   id: string
   title: string
-  description: string
-  phase: string
-  tags: string[]
-  status: string
   slug: string
+  stage: string
+  tags: string[]
+  prod: boolean
   createdAt: string
   updatedAt: string
 }
@@ -32,7 +31,9 @@ export default function InitiativePage({ params }: InitiativePageProps) {
   useEffect(() => {
     async function fetchInitiative() {
       try {
-        const response = await fetch(`/api/initiatives/${params.slug}`)
+        // Await params in Next.js 15
+        const { slug } = await params
+        const response = await fetch(`/api/initiatives/${slug}`)
         if (!response.ok) {
           throw new Error('Initiative not found')
         }
@@ -46,7 +47,7 @@ export default function InitiativePage({ params }: InitiativePageProps) {
     }
 
     fetchInitiative()
-  }, [params.slug])
+  }, [params])
 
   if (loading) {
     return (
@@ -99,7 +100,7 @@ export default function InitiativePage({ params }: InitiativePageProps) {
             <AnimatedElement animation="fade-in" className="mb-8">
               <div className="flex items-center gap-4 mb-6">
                 <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
-                  {initiative.phase}
+                  {initiative.stage}
                 </span>
                 <span className="text-gray-400 text-sm">
                   {new Date(initiative.createdAt).toLocaleDateString('en-US', {
@@ -115,7 +116,7 @@ export default function InitiativePage({ params }: InitiativePageProps) {
               </h1>
               
               <p className="text-xl md:text-2xl text-gray-300 leading-relaxed mb-8">
-                {initiative.description}
+                Learn more about this initiative and how it contributes to our mission.
               </p>
             </AnimatedElement>
           </div>
@@ -147,16 +148,16 @@ export default function InitiativePage({ params }: InitiativePageProps) {
           <div className="max-w-4xl mx-auto">
             <AnimatedElement animation="fade-in" delay={400}>
               <div className="grid md:grid-cols-2 gap-12">
-                {/* Status & Phase */}
+                {/* Status & Stage */}
                 <div className="space-y-6">
                   <div>
                     <h3 className="text-lg font-semibold text-gray-400 mb-2">Status</h3>
-                    <p className="text-xl text-white capitalize">{initiative.status}</p>
+                    <p className="text-xl text-white capitalize">{initiative.prod ? 'Published' : 'Draft'}</p>
                   </div>
                   
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-400 mb-2">Phase</h3>
-                    <p className="text-xl text-white">{initiative.phase}</p>
+                    <h3 className="text-lg font-semibold text-gray-400 mb-2">Stage</h3>
+                    <p className="text-xl text-white">{initiative.stage}</p>
                   </div>
                 </div>
 
