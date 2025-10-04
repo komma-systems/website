@@ -34,8 +34,7 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div className="space-y-6">
               <p className="text-base sm:text-lg">
-                We're always interested in new collaborations and projects. Get in touch to discuss how we can work
-                together.
+                We're always interested in new collaborations. Get in touch to discuss how we can make something happen.
               </p>
 
               <div className="space-y-4 mt-6 sm:mt-8">

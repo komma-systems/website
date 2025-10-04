@@ -408,7 +408,7 @@ export default function Home() {
             {/* Team Members Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
               {/* Charlie Fisher */}
-              <AnimatedElement animation="fade-up" delay={100}>
+              <AnimatedElement animation="fade-in" delay={100}>
                 <div className="text-left">
                   <div className="flex justify-between items-start mb-2">
                     <a
@@ -437,7 +437,7 @@ export default function Home() {
               </AnimatedElement>
 
               {/* Clara Gromaches */}
-              <AnimatedElement animation="fade-up" delay={200}>
+              <AnimatedElement animation="fade-in" delay={200}>
                 <div className="text-left">
                   <div className="flex justify-between items-start mb-2">
                     <a
@@ -462,7 +462,7 @@ export default function Home() {
               </AnimatedElement>
 
               {/* Bradley C Royes */}
-              <AnimatedElement animation="fade-up" delay={300}>
+              <AnimatedElement animation="fade-in" delay={300}>
                 <div className="text-left">
                   <div className="flex justify-between items-start mb-2">
                     <h3 className="text-2xl font-bold text-black">Bradley Clark Royes</h3>
@@ -478,13 +478,13 @@ export default function Home() {
                     </div>
                   </div>
                   <p className="text-sm text-gray-500 leading-relaxed">
-                    Bradley is a strategic designer and innovator working at the intersection of culture, AI-native systems, and human-centered technology. He leads AI Builders Berlin as Community Director & DevRel and co-founded experience design collective seks.design, blending applied research with grassroots organizing and urban rituals.
+                    Bradley is a strategic designer and innovator working at the intersection of culture, AI-native systems, and human-centered technology. Currently leading AI Builders Berlin as Community Director & DevRel, he co-founded experience design collective seks.design which blends applied research with grassroots organizing and urban rituals.
                   </p>
                 </div>
               </AnimatedElement>
 
               {/* Livia Deschermayer */}
-              <AnimatedElement animation="fade-up" delay={400}>
+              <AnimatedElement animation="fade-in" delay={400}>
                 <div className="text-left">
                   <div className="flex justify-between items-start mb-2">
                     <h3 className="text-2xl font-bold text-black">Livia Deschermayer</h3>
@@ -506,7 +506,7 @@ export default function Home() {
               </AnimatedElement>
 
               {/* Jeff Emmett */}
-              <AnimatedElement animation="fade-up" delay={500}>
+              <AnimatedElement animation="fade-in" delay={500}>
                 <div className="text-left">
                   <div className="flex justify-between items-start mb-2">
                     <h3 className="text-2xl font-bold text-black">Jeff Emmett</h3>
