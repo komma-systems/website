@@ -529,6 +529,31 @@ export default function Home() {
                 </div>
               </AnimatedElement>
 
+              {/* Rita Palma */}
+              <AnimatedElement animation="fade-in" delay={600}>
+                <div className="text-left">
+                  <div className="flex justify-between items-start mb-2">
+                    <a
+                      href="/team/rita"
+                      className="text-2xl font-bold text-black hover:text-gray-600 transition-colors"
+                    >
+                      Rita Palma
+                    </a>
+                    <a
+                      href="https://www.linkedin.com/in/rita-santos-palma/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-600 hover:text-black transition-colors"
+                    >
+                      <img src="/linkedin.svg" alt="LinkedIn" className="w-5 h-5" />
+                    </a>
+                  </div>
+                  <p className="text-sm text-gray-500 leading-relaxed">
+                    Rita is an artist and researcher whose work centers on multispecies perspectives within organisational contexts. She explores the convergence of art and sustainability, developing creative and transdisciplinary experiences to challenge conventional paradigms and cultivate new imaginaries for transformative change.
+                  </p>
+                </div>
+              </AnimatedElement>
+
 
             </div>
 
@@ -545,7 +570,7 @@ export default function Home() {
             {/* Advisors Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
               {/* Caroline Paulick-Thiel */}
-              <AnimatedElement animation="fade-up" delay={600}>
+              <AnimatedElement animation="fade-up" delay={700}>
                 <div className="text-left">
                   <div className="flex justify-between items-start mb-2">
                     <h3 className="text-2xl font-bold text-black">Caroline Paulick-Thiel</h3>
@@ -562,6 +587,28 @@ export default function Home() {
                   </div>
                   <p className="text-sm text-gray-500 leading-relaxed">
                     Caroline is a strategic designer and expert in transformative public sector innovation. Trained in Design and Public Policy, she has extensive experience in participatory processes and innovative policy to address public challenges. She co-founded Politics for Tomorrow, and facilitates societal transformation processes in collaboration with political-administrative institutions from the local to the highest federal level in Germany and internationally.
+                  </p>
+                </div>
+              </AnimatedElement>
+
+              {/* Kate Beecroft */}
+              <AnimatedElement animation="fade-up" delay={800}>
+                <div className="text-left">
+                  <div className="flex justify-between items-start mb-2">
+                    <h3 className="text-2xl font-bold text-black">Kate Beecroft</h3>
+                    <div className="flex gap-3 ml-4">
+                      <a
+                        href="https://www.linkedin.com/in/kate-beecroft-a3a20955"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-gray-600 hover:text-black transition-colors"
+                      >
+                        <img src="/linkedin.svg" alt="LinkedIn" className="w-5 h-5" />
+                      </a>
+                    </div>
+                  </div>
+                  <p className="text-sm text-gray-500 leading-relaxed">
+                    Kate designs and implements governance for decentralised organisations, supporting high level strategic leadership at some of the most forward-thinking organisations and networks.
                   </p>
                 </div>
               </AnimatedElement>
