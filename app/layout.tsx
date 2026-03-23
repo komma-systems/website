@@ -2,6 +2,7 @@ import type React from "react"
 import "./globals.css"
 import type { Metadata } from "next"
 import { Source_Serif_4, Silkscreen } from "next/font/google"
+import { SiteFooter } from "@/components/site-footer"
 
 // Load Source Serif Pro (Source Serif 4 is the updated version)
 const sourceSerif = Source_Serif_4({
@@ -54,7 +55,10 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/favicon.svg" />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <SiteFooter />
+      </body>
     </html>
   )
 }

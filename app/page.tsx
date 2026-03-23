@@ -1,627 +1,170 @@
-"use client"
-
-import { useEffect, useState, useRef } from "react"
+import type { Metadata } from "next"
+import Link from "next/link"
 import { Navigation } from "@/components/navigation"
-import { ChevronDown } from "lucide-react"
-import { AnimatedElement } from "@/components/animated-element"
-import { RippleButton } from "@/components/ripple-button"
-import { MaskedVideoText } from '@/components/MaskedVideoText'
+
+export const metadata: Metadata = {
+  title: "Meld — Komma Systems",
+  description:
+    "Meld is a hardware device and spatial AI platform for civic deliberation. Built by Komma Systems.",
+  alternates: {
+    canonical: "https://meld.komma.systems",
+  },
+}
+
+const sectionLabelClasses =
+  "mb-4 text-xs font-semibold uppercase tracking-[0.14em] text-slate-400"
+
+const proseClasses = "text-[1.06rem] leading-[1.75] text-slate-100"
 
 export default function Home() {
-  const [opacity, setOpacity] = useState(0)
-  const [isActionActive, setIsActionActive] = useState(false)
-  const [actionHover, setActionHover] = useState(false)
-  const [showSecondParagraph, setShowSecondParagraph] = useState(false)
-  const [chevronClicked, setChevronClicked] = useState(false)
-  const [textColorWhite, setTextColorWhite] = useState(false)
-  const [initiatives, setInitiatives] = useState<any[]>([])
-  const [initiativesLoading, setInitiativesLoading] = useState(true)
-  const introductionSectionRef = useRef<HTMLDivElement>(null)
-  const approachSectionRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    // Start the fade-in animation after component mounts
-    const timer = setTimeout(() => setOpacity(1), 100)
-    return () => clearTimeout(timer)
-  }, [])
-
-  useEffect(() => {
-    // Show the second paragraph after 5 seconds only if chevron was clicked
-    if (chevronClicked) {
-      const paragraphTimer = setTimeout(() => setShowSecondParagraph(true), 5000)
-      return () => clearTimeout(paragraphTimer)
-    }
-  }, [chevronClicked])
-
-  useEffect(() => {
-    // Make text white after 5 seconds OR when user starts scrolling
-    if (chevronClicked) {
-      const scrollHandler = () => {
-        setTextColorWhite(true)
-      }
-
-      // Add scroll listener
-      window.addEventListener('scroll', scrollHandler)
-
-      // Set timer for 5 seconds
-      const whiteTimer = setTimeout(() => {
-        setTextColorWhite(true)
-      }, 5000)
-
-      return () => {
-        window.removeEventListener('scroll', scrollHandler)
-        clearTimeout(whiteTimer)
-      }
-    }
-  }, [chevronClicked])
-
-  useEffect(() => {
-    // Fetch initiatives from Notion API
-    async function fetchInitiatives() {
-      try {
-        const response = await fetch('/api/initiatives')
-        if (response.ok) {
-          const data = await response.json()
-          setInitiatives(data)
-        } else {
-          // Fallback to hardcoded initiatives if API fails
-          setInitiatives([
-            {
-              id: 'algorithmic-currency',
-              title: 'Algorithmic Currency in Action',
-              stage: 'Stage 1',
-              tags: ['#governance', '#finance', '#community'],
-              slug: 'algorithmic-currency',
-              prod: true
-            },
-            {
-              id: 'neighbourhood-finance',
-              title: 'Neighbourhood Finance Tools in Berlin',
-              stage: 'Stage 1',
-              tags: ['#governance', '#finance', '#community'],
-              slug: 'neighbourhood-finance',
-              prod: true
-            },
-            {
-              id: 'arts-experimentation',
-              title: 'Arts as a Means for Systemic Experimentation',
-              stage: 'Stage 1',
-              tags: ['#governance', '#finance', '#community'],
-              slug: 'arts-experimentation',
-              prod: true
-            },
-            {
-              id: 'cross-border-housing',
-              title: 'Cross-Border Cooperative for Housing',
-              stage: 'Stage 1',
-              tags: ['#governance', '#finance', '#community'],
-              slug: 'cross-border-housing',
-              prod: true
-            },
-            {
-              id: 'agreements-platform',
-              title: 'Agreements Platform for Housing and Land Projects',
-              stage: 'Stage 1',
-              tags: ['#governance', '#finance', '#community'],
-              slug: 'agreements-platform',
-              prod: true
-            }
-          ])
-        }
-      } catch (error) {
-        console.error('Failed to fetch initiatives:', error)
-        // Use fallback data
-        setInitiatives([
-          {
-            id: 'algorithmic-currency',
-            title: 'Algorithmic Currency in Action',
-            stage: 'Stage 1',
-            tags: ['#governance', '#finance', '#community'],
-            slug: 'algorithmic-currency',
-            prod: true
-          }
-        ])
-      } finally {
-        setInitiativesLoading(false)
-      }
-    }
-
-    fetchInitiatives()
-  }, [])
-
-  const handleChevronClick = () => {
-    setChevronClicked(true)
-    if (introductionSectionRef.current) {
-      const elementTop = introductionSectionRef.current.offsetTop
-      const offsetPosition = elementTop - 100 // Scroll 100px higher than the element
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      })
-    }
-  }
-
-  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault()
-    const href = e.currentTarget.getAttribute('href')
-    if (href && href.startsWith('#')) {
-      const targetId = href.substring(1)
-      const targetElement = document.getElementById(targetId)
-      if (targetElement) {
-        const elementTop = targetElement.offsetTop
-        const offsetPosition = elementTop - 100 // Scroll 100px higher than the element to account for nav bar
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        })
-      }
-    }
-  }
-
-  const handleApproachChevronClick = () => {
-    approachSectionRef.current?.scrollIntoView({ behavior: 'smooth' })
-  }
-
-  const handleTouchStart = () => setIsActionActive(true)
-  const handleTouchEnd = () => setIsActionActive(false)
-
   return (
-    <div className="min-h-screen flex flex-col bg-black text-white">
+    <>
       <Navigation />
-
-
-      <main className="flex-1 flex flex-col pt-12">
-        {/* Hero Section */}
-        <section className="flex items-start justify-center px-4 pt-2 min-h-screen">
-          <div
-            className="w-full max-w-4xl transition-opacity duration-3000 ease-in-out mt-8 md:mt-16"
-            style={{ opacity }}
+      <main className="min-h-screen bg-black px-6 pb-14 pt-28 font-sourceSerif text-white sm:px-10 sm:pt-32">
+        <div className="mx-auto max-w-[680px]">
+        <header className="mb-16 pb-10">
+          <h1 className="text-6xl font-semibold tracking-tight text-white sm:text-7xl">Meld</h1>
+          <p className="mt-5 text-lg text-slate-200">
+            Making physical space programmable
+            <br />
+            at the threshold of shared memory
+          </p>
+          <Link
+            href="https://komma.systems"
+            className="mt-8 inline-block text-sm font-medium uppercase tracking-wider text-teal-300 underline decoration-teal-500/70 underline-offset-4 transition-colors hover:text-teal-200 font-silkscreen"
           >
-            <div className="flex flex-col md:flex-row md:items-start gap-5 md:gap-16">
-              {/* KOMMA title - positioned to the left */}
-              <div className="text-left mb-5 md:mb-0 relative inline-block align-top">
-                <span className={`komma-title text-4xl md:text-5xl block transition-colors duration-300 ${actionHover ? 'text-[#222]' : 'text-white'}`}
-                  style={{ verticalAlign: 'top' }}
-                >KOMMA</span>
-              </div>
+            ← BACK
+          </Link>
+        </header>
 
-              {/* Main content - description */}
-              <div className="text-lg md:text-xl lg:text-2xl leading-relaxed space-y-2">
-                <div className={`pb-16 md:pb-20 transition-colors duration-300 ${actionHover ? 'text-[#222]' : 'text-white'}`}> 
-                  a pause, transition,
-                  <br />
-                  integration, or inflection
-                  <br />
-                  point punctuating the
-                  <br />
-                  dynamic relationship
-                  <br />
-                  between{" "}
-                  <span className="relative inline-block cursor-pointer align-baseline"
-                    style={{ verticalAlign: 'baseline' }}
-                    onMouseEnter={() => setActionHover(true)}
-                    onMouseLeave={() => setActionHover(false)}
-                  >
-                    {/* Sensing SVG, slightly lower */}
-                    <img
-                      src="/01Sensing.svg"
-                      alt="sensing"
-                      className="h-[1.2em] w-auto align-bottom relative"
-                      style={{ top: '0.15em' }}
-                      draggable={false}
-                    />
-                  </span>{" "}
-                  and{" "}
-                  <span
-                    className="relative inline-block cursor-pointer align-baseline"
-                    style={{ verticalAlign: 'baseline' }}
-                    onMouseEnter={() => setActionHover(true)}
-                    onMouseLeave={() => setActionHover(false)}
-                  >
-                    <MaskedVideoText
-                      svgSrc="/02Action.svg"
-                      videoSrc="/blob_video.mp4"
-                      alt="action"
-                      className="h-[1.2em] w-auto align-baseline"
-                      hover={actionHover}
-                    />
-                  </span>
-                </div>
-
-                <AnimatedElement animation="fade-in" delay={500}>
-                  <div>
-                    <p
-                      className={`text-lg md:text-xl lg:text-2xl leading-relaxed text-left transition-opacity duration-300 ${actionHover ? 'opacity-100' : 'opacity-0'} pointer-events-none`}
-                      style={{ color: '#e4e4e4' }}
-                    >
-                      Research and strategy to <br />forge a new civics
-                    </p>
-                    <span
-                      onMouseEnter={() => setActionHover(true)}
-                      onMouseLeave={() => setActionHover(false)}
-                      className="inline-block mt-16"
-                    >
-                      <RippleButton 
-                        onClick={handleChevronClick} 
-                        className="animate-bounce p-16"
-                      >
-                        <ChevronDown size={32} className="text-white opacity-70 hover:opacity-100 transition-opacity" />
-                      </RippleButton>
-                    </span>
-                  </div>
-                </AnimatedElement>
-              </div>
-            </div>
-          </div>
+        <section className="mb-14">
+          <p className={proseClasses}>
+            Governance fails not because people don&apos;t show up, but because what they say
+            disappears. Citizen assemblies, community consultations, and municipal workshops
+            produce hours of spoken deliberation that is difficult to track, impossible to compare
+            across sessions, and rarely reflected in the decisions that follow. Meld is Komma&apos;s
+            initiative to change that.
+          </p>
+          <p className={`${proseClasses} mt-6`}>
+            Meld is a hardware device and spatial AI platform designed for deployment in civic
+            settings. It captures spoken deliberation in the room, processes it locally, and
+            returns structured sensemaking outputs to facilitators and participants without raw
+            audio ever leaving the space. It is the physical and technical infrastructure for a
+            new kind of civic listening.
+          </p>
         </section>
 
-        <section id="introduction" ref={introductionSectionRef} className="py-16 px-4 sm:px-6 md:px-8 bg-black mt-20 scroll-mt-48 min-h-[50vh] flex items-center justify-center">
-          <div className="max-w-4xl mx-auto text-center">
-            <AnimatedElement animation="fade-in" className="mb-12">
-              <p className="text-2xl sm:text-xl md:text-2xl lg:text-3xl px-4 sm:px-0" style={{ lineHeight: 1.5 }}>
-                <span className="komma-title">Komma</span> is a venture collective utilising applied research, artistic inquiry and real-world demonstration to shift collective imagination on how we value, own and care for what is held in common. 
+        <section className="mb-14">
+          <p className={sectionLabelClasses}>The Problem</p>
+          <p className={proseClasses}>
+            Public deliberation sits at the heart of democratic renewal, but the tools available
+            to it are broken. Existing approaches either rely on commercial cloud AI that creates
+            unacceptable data sovereignty and privacy risks in public sector settings, or they
+            produce flat transcripts that demand hours of manual analysis. Neither is fit for
+            deployment in the places that need participatory tools most: under-resourced
+            municipalities, rural communities, and administrations without specialist technical
+            capacity.
+          </p>
+          <p className={`${proseClasses} mt-6`}>
+            Beneath this is a deeper structural problem. Democratic processes generate rich,
+            layered knowledge from citizens and communities, but that knowledge has no durable
+            form. It does not accumulate. It does not travel. It does not inform the next session
+            or the next decision. Each assembly starts from scratch.
+          </p>
+        </section>
+
+        <section className="mb-14">
+          <p className={sectionLabelClasses}>What Meld Does</p>
+          <p className={proseClasses}>
+            The Meld device sits in the room during civic assemblies and public workshops.
+            Participants register consent through a physical NFC tap before their voice enters the
+            pipeline. Transcription, anonymisation, and initial sensemaking happen locally on the
+            device, powered by KairOS - the operating system for relational technology developed
+            within the initiative.
+          </p>
+          <p className={`${proseClasses} mt-6`}>
+            After each session, the Embers Engine constructs a knowledge graph from the
+            discussion: extracting themes, relationships, and patterns across contributions, and
+            connecting them to prior sessions through a Temporal Deliberation Graph. Facilitators
+            receive structured outputs that make the conversation legible, comparable, and
+            actionable.
+          </p>
+          <p className={`${proseClasses} mt-6`}>
+            The underlying platform is Kair, named for Kairos - the Greek concept of qualitative
+            or relational time. Where Chronos measures the passing of moments, Kairos names the
+            moment when something shifts. Kair is built to locate and hold those moments in civic
+            life.
+          </p>
+        </section>
+
+        <section className="mb-14">
+          <p className={sectionLabelClasses}>Design Principles</p>
+          <div className="space-y-8">
+            <article>
+              <h3 className="text-base font-semibold text-white">Consent as action</h3>
+              <p className={`${proseClasses} mt-2`}>
+                Participation in the pipeline is an active, physical choice. Each participant taps
+                an NFC tag before their contributions are captured. Withdrawal is possible at any
+                time, at the level of a session or a single exchange, without requiring
+                identification.
               </p>
-              <p className="text-2xl sm:text-xl md:text-2xl lg:text-3xl px-4 sm:px-0 mt-6 transition-colors duration-1000" style={{ lineHeight: 1.5, color: showSecondParagraph ? (textColorWhite ? 'white' : '#333') : '#666' }}>
-                Our action is made possible through place-based partnerships with citizens, 
-                municipalities, philanthropy and the private sector to develop experiments, 
-                products and tools that conceptualise a new civics catalysed by decentralised technology.
+            </article>
+            <article>
+              <h3 className="text-base font-semibold text-white">Edge-first</h3>
+              <p className={`${proseClasses} mt-2`}>
+                Raw audio stays on local hardware. Only de-identified transcripts and structured
+                graph outputs leave the device. The platform operates without internet
+                connectivity, which is essential for deployment in rural and low-connectivity
+                settings.
               </p>
-            </AnimatedElement>
-          </div>
-        </section>
-
-        {/* Partners Section */}
-        <section id="partners" className="py-8 px-4 sm:px-6 md:px-8 bg-black">
-          <div className="max-w-5xl mx-auto text-center">
-            <div className="font-silkscreen text-base md:text-lg tracking-widest uppercase text-white filter grayscale brightness-200 contrast-50 mb-8">Partners</div>
-            <div className="flex flex-wrap items-center justify-center gap-8">
-              <img src="/Partners/Consensys_logo_2023.svg" alt="Consensys" className="h-8 filter grayscale brightness-200 contrast-50 opacity-80 hover:opacity-100 transition-all duration-300" />
-              <img src="/Partners/politics-for-tomorrow_logo_1.0.svg" alt="Politics for Tomorrow" className="h-8 filter grayscale brightness-200 contrast-50 opacity-80 hover:opacity-100 transition-all duration-300" />
-              <img src="/Partners/just.svg" alt="Just" className="h-5 filter grayscale brightness-200 contrast-50 opacity-80 hover:opacity-100 transition-all duration-300" />
-            </div>
-          </div>
-        </section>
-
-        <section id="approach" ref={approachSectionRef} className="py-16 px-4 sm:px-6 md:px-8 bg-black scroll-mt-48">
-          <div className="max-w-7xl mx-auto">
-            <AnimatedElement animation="fade-in" className="mb-12">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl text-center mb-8">Our Approach</h2>
-            </AnimatedElement>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {[
-                {
-                  key: 'wealth',
-                  heading: "Inverting Civic Wealth",
-                  description: "Supporting communities through co-designing innovative economic tools to enhance control over housing and land ownership. Pooled funding, community-driven exit strategies, multi-capital currencies, and bioregional banking reshape how wealth flows within neighborhoods and interconnected communities."
-                },
-                {
-                  key: 'agreements',
-                  heading: "Modernising Agreements",
-                  description: "Crafting modular and automated governance, policy and legal frameworks that redefine how communities own and care. We work to implement interoperable organisational models to create scalable systems that meet evolving needs."
-                },
-                {
-                  key: 'rituals',
-                  heading: "Cultivating Playful Rituals",
-                  description: "Integrating governance into everyday life through the human-centric design. Including sociocratic decision-making, digital coordination tools, and innovative hardware to enhance collective collaboration by smoothly connecting digital and physical spaces."
-                }
-              ].map((item, idx) => (
-                <AnimatedElement animation="fade-up" delay={100 * (idx + 1)} key={item.key}>
-                  <div className="flex flex-col items-center justify-center min-h-[220px] h-full border border-white rounded-xl p-8 bg-transparent text-white transition-all duration-300">
-                    <h3 className="text-2xl md:text-3xl font-bold text-center w-full mb-4">
-                      {item.heading}
-                    </h3>
-                    <p className="text-base md:text-lg font-normal text-center">
-                      {item.description}
-                    </p>
-                  </div>
-                </AnimatedElement>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Initiatives Section */}
-        <section id="initiatives" className="py-16 px-4 sm:px-6 md:px-8 bg-black">
-          <div className="max-w-7xl mx-auto">
-            <AnimatedElement animation="fade-in" className="mb-16">
-              <div className="flex items-center gap-2 sm:gap-4 mb-6 sm:mb-8 pb-3 sm:pb-4 border-b border-[#46403e]">
-                <h2 className="font-semibold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-tight">
-                  Initiatives
-                </h2>
-                <span className="font-normal text-xs sm:text-sm text-white leading-relaxed align-super relative -top-1 sm:-top-2">
-                  {initiativesLoading ? '...' : initiatives.length}
-                </span>
-              </div>
-            </AnimatedElement>
-
-            <div className="space-y-0">
-              {initiativesLoading ? (
-                <div className="text-center py-8">
-                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white mx-auto mb-4"></div>
-                  <p className="text-gray-400">Loading initiatives...</p>
-                </div>
-              ) : (
-                initiatives.map((project, idx) => (
-                <AnimatedElement animation="fade-up" delay={100 * (idx + 1)} key={project.id}>
-                  <a 
-                    href={`/initiatives/${project.slug}`}
-                    className="flex flex-col sm:grid sm:grid-cols-[1fr_auto_auto_120px] lg:grid-cols-[1fr_auto_auto_150px] gap-3 sm:gap-4 lg:gap-6 items-start py-4 sm:py-6 hover:bg-[#1a1a1a] transition-colors duration-200 px-3 sm:px-4 border-b border-dashed border-[#a29f9f] last:border-b-0 cursor-pointer"
-                  >
-                    {/* Mobile: Title and Image Row */}
-                    <div className="flex justify-between items-start gap-3 w-full sm:contents">
-                      {/* Project Title */}
-                      <div className="flex-1 min-w-0 sm:col-span-1">
-                        <h3 className="font-light text-xl sm:text-2xl lg:text-3xl text-white tracking-tight leading-tight">
-                          {project.title}
-                        </h3>
-                      </div>
-
-                      {/* Project Image - Always visible on mobile, positioned in grid on larger screens */}
-                      <div className="sm:hidden w-20 h-16 bg-left bg-no-repeat bg-cover flex-shrink-0 bg-gray-600" />
-                      <div className="hidden sm:block w-[120px] lg:w-[150px] h-20 lg:h-28 bg-left bg-no-repeat bg-cover flex-shrink-0 bg-gray-600" />
-                    </div>
-
-                    {/* Mobile: Phase and Tags Row */}
-                    <div className="flex flex-wrap items-center justify-between gap-4 w-full sm:contents">
-                      {/* Stage */}
-                      <div className="whitespace-nowrap">
-                        <span className="font-normal text-base sm:text-lg lg:text-xl text-white leading-relaxed px-2 py-1 bg-[#1a1a1a] sm:bg-transparent sm:p-0">
-                          {project.stage}
-                        </span>
-                      </div>
-
-                      {/* Tags */}
-                      <div className="flex flex-row sm:flex-col gap-2 min-w-0 sm:min-w-[120px] lg:min-w-[140px]">
-                        {project.tags.map((tag) => (
-                          <span 
-                            key={tag}
-                            className="font-normal text-sm sm:text-base lg:text-lg text-gray-300 sm:text-white leading-relaxed"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </a>
-                </AnimatedElement>
-                ))
-              )}
-            </div>
-          </div>
-        </section>
-
-        {/* Team & Advisors Section */}
-        <section id="team" className="py-16 px-4 sm:px-6 md:px-8 bg-white">
-          <div className="max-w-7xl mx-auto">
-            <AnimatedElement animation="fade-in" className="mb-16">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-left mb-8 text-black">
-                The Collective
-              </h2>
-              <p className="text-lg md:text-xl text-left text-gray-600 max-w-4xl leading-relaxed">
-                Our collaborators bring together deep expertise across organisational design, agreements frameworks, financing tools,
-                decentralised technologies, token engineering, and collective governance, with experience leading organisations, and working alongside leading
-                institutions, who are advancing equitable, commons-based civic action.
+            </article>
+            <article>
+              <h3 className="text-base font-semibold text-white">Minimal trace by default</h3>
+              <p className={`${proseClasses} mt-2`}>
+                Exports contain graph structures and metadata only. The system is designed so that
+                the outputs of deliberation are useful without being personally attributable.
               </p>
-            </AnimatedElement>
+            </article>
+          </div>
+        </section>
 
-            {/* Team Members Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-              {/* Charlie Fisher */}
-              <AnimatedElement animation="fade-in" delay={100}>
-                <div className="text-left">
-                  <div className="flex justify-between items-start mb-2">
-                    <a
-                      href="/team/charlie"
-                      className="text-2xl font-bold text-black hover:text-gray-600 transition-colors"
-                    >
-                      Charlie Fisher
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/in/fishercharlie/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-gray-600 hover:text-black transition-colors"
-                    >
-                      <img src="/linkedin.svg" alt="LinkedIn" className="w-5 h-5" />
-                    </a>
-                  </div>
-                  <p className="text-sm text-gray-500 leading-relaxed">
-                  Charlie works on practical demonstrations of decentralised technologies 
-                  for enhancing the delivery of affordable housing and commons-based landholding. 
-                  As a researcher, founder, and project advisor, he ran an architecture practice for 
-                  a decade, and was a key advisor on large scale new housing developments in England. 
-                  In 2022 he co-founded Oasa, a Swiss token-issuer for networked land projects.
-                  </p>
-                </div>
-              </AnimatedElement>
+        <section className="mb-14">
+          <p className={sectionLabelClasses}>Current Deployment</p>
+          <p className={proseClasses}>
+            Meld&apos;s first production deployment is the InnoVER contract - a BMBF-funded public
+            procurement running from 2026 to 2027 across two rural Landkreise in northern Germany:
+            Herzogtum Lauenburg in Schleswig-Holstein, and Ludwigslust-Parchim in
+            Mecklenburg-Vorpommern. The contracting authority is NextLearning e.V., with research
+            collaboration on the Temporal Deliberation Graph underway with the Max Planck Institute
+            for Geoanthropology.
+          </p>
+          <p className={`${proseClasses} mt-6`}>
+            This is the first instantiation of the Kair Network: Komma&apos;s vision for a distributed
+            set of places where civic deliberation is captured, structured, and returned to
+            communities as usable knowledge.
+          </p>
+        </section>
 
-              {/* Clara Gromaches */}
-              <AnimatedElement animation="fade-in" delay={200}>
-                <div className="text-left">
-                  <div className="flex justify-between items-start mb-2">
-                    <a
-                      href="/team/clara"
-                      className="text-2xl font-bold text-black hover:text-gray-600 transition-colors"
-                    >
-                      Clara Gromaches
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/in/cgromaches/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-gray-600 hover:text-black transition-colors"
-                    >
-                      <img src="/linkedin.svg" alt="LinkedIn" className="w-5 h-5" />
-                    </a>
-                  </div>
-                  <p className="text-sm text-gray-500 leading-relaxed">
-                    Clara is a consultant, researcher and business operator on decentralised technologies. With a background in Architecture she developed regenerative housing projects, incubated cooperative housing projects, advised on affordable housing policy making to municipalities in Barcelona and manages operations at a decentralized tech workers cooperative.
-                  </p>
-                </div>
-              </AnimatedElement>
-
-              {/* Bradley C Royes */}
-              <AnimatedElement animation="fade-in" delay={300}>
-                <div className="text-left">
-                  <div className="flex justify-between items-start mb-2">
-                    <h3 className="text-2xl font-bold text-black">Bradley Clark Royes</h3>
-                    <div className="flex gap-3 ml-4">
-                      <a
-                        href="https://www.linkedin.com/in/bradleyroyes/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-gray-600 hover:text-black transition-colors"
-                      >
-                        <img src="/linkedin.svg" alt="LinkedIn" className="w-5 h-5" />
-                      </a>
-                    </div>
-                  </div>
-                  <p className="text-sm text-gray-500 leading-relaxed">
-                    Bradley is a strategic designer and innovator working at the intersection of culture, AI-native systems, and human-centered technology. Currently leading AI Builders Berlin as Community Director & DevRel, he co-founded experience design collective seks.design which blends applied research with grassroots organizing and urban rituals.
-                  </p>
-                </div>
-              </AnimatedElement>
-
-              {/* Livia Deschermayer */}
-              <AnimatedElement animation="fade-in" delay={400}>
-                <div className="text-left">
-                  <div className="flex justify-between items-start mb-2">
-                    <h3 className="text-2xl font-bold text-black">Livia Deschermayer</h3>
-                    <div className="flex gap-3 ml-4">
-                      <a
-                        href="https://www.linkedin.com/in/livia-deschermayer-8759418b/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-gray-600 hover:text-black transition-colors"
-                      >
-                        <img src="/linkedin.svg" alt="LinkedIn" className="w-5 h-5" />
-                      </a>
-                    </div>
-                  </div>
-                  <p className="text-sm text-gray-500 leading-relaxed">
-                    Livia is an artist and published social researcher in the field of token engineering with over six years of practice on decentralized ecosystems within topics of governance, culture and incentivization. Her contributions include designing social system protocols and leading the Cultural Build initiative at Commons Stack.
-                  </p>
-                </div>
-              </AnimatedElement>
-
-              {/* Jeff Emmett */}
-              <AnimatedElement animation="fade-in" delay={500}>
-                <div className="text-left">
-                  <div className="flex justify-between items-start mb-2">
-                    <h3 className="text-2xl font-bold text-black">Jeff Emmett</h3>
-                    <div className="flex gap-3 ml-4">
-                      <a
-                        href="https://www.linkedin.com/in/jeff-emmett-05268139/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-gray-600 hover:text-black transition-colors"
-                      >
-                        <img src="/linkedin.svg" alt="LinkedIn" className="w-5 h-5" />
-                      </a>
-                    </div>
-                  </div>
-                  <p className="text-sm text-gray-500 leading-relaxed">
-                    Jeff is a researcher and technical writer at BlockScience. Along with Michael Zargham & Griff Green,
-                    he co-founded the Commons Stack to build out a toolkit of modular components that can be used for
-                    polycentric governance of DAO ecosystems. He is involved in multiple open research initiatives into novel resource allocation patterns like bonding curves and conviction voting that could facilitate a future of data-driven algorithmic policy and computer-aided governance.
-                  </p>
-                </div>
-              </AnimatedElement>
-
-              {/* Rita Palma */}
-              <AnimatedElement animation="fade-in" delay={600}>
-                <div className="text-left">
-                  <div className="flex justify-between items-start mb-2">
-                    <a
-                      href="/team/rita"
-                      className="text-2xl font-bold text-black hover:text-gray-600 transition-colors"
-                    >
-                      Rita Palma
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/in/rita-santos-palma/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-gray-600 hover:text-black transition-colors"
-                    >
-                      <img src="/linkedin.svg" alt="LinkedIn" className="w-5 h-5" />
-                    </a>
-                  </div>
-                  <p className="text-sm text-gray-500 leading-relaxed">
-                    Rita is an artist and researcher whose work centers on multispecies perspectives within organisational contexts. She explores the convergence of art and sustainability, developing creative and transdisciplinary experiences to challenge conventional paradigms and cultivate new imaginaries for transformative change.
-                  </p>
-                </div>
-              </AnimatedElement>
-
-
+        <section className="mb-16">
+          <p className={sectionLabelClasses}>Team + Partners</p>
+          <div className="grid gap-8 sm:grid-cols-2">
+            <div>
+              <h3 className="text-sm font-semibold uppercase tracking-[0.1em] text-slate-300">Team</h3>
+              <p className="mt-3 text-[1rem] leading-7 text-slate-100">Charlie Fisher (Project Lead)</p>
+              <p className="text-[1rem] leading-7 text-slate-100">Robert Matijevic (Technical Lead)</p>
             </div>
-
-            {/* Subheading for Advisors */}
-            <AnimatedElement animation="fade-in" className="mb-12 mt-16">
-              <h3 className="text-2xl md:text-3xl font-semibold text-left mb-6 text-black">
-                Advisors
-              </h3>
-              <p className="text-base md:text-lg text-left text-gray-600 max-w-4xl leading-relaxed mb-8">
-                Our advisory board provides strategic guidance and expertise to support our mission.
+            <div>
+              <h3 className="text-sm font-semibold uppercase tracking-[0.1em] text-slate-300">Partners</h3>
+              <p className="mt-3 text-[1rem] leading-7 text-slate-100">NextLearning e.V.</p>
+              <p className="text-[1rem] leading-7 text-slate-100">
+                Max Planck Institute for Geoanthropology
               </p>
-            </AnimatedElement>
-
-            {/* Advisors Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-              {/* Caroline Paulick-Thiel */}
-              <AnimatedElement animation="fade-up" delay={700}>
-                <div className="text-left">
-                  <div className="flex justify-between items-start mb-2">
-                    <h3 className="text-2xl font-bold text-black">Caroline Paulick-Thiel</h3>
-                    <div className="flex gap-3 ml-4">
-                      <a
-                        href="https://www.linkedin.com/in/caroline-paulick-thiel/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-gray-600 hover:text-black transition-colors"
-                      >
-                        <img src="/linkedin.svg" alt="LinkedIn" className="w-5 h-5" />
-                      </a>
-                    </div>
-                  </div>
-                  <p className="text-sm text-gray-500 leading-relaxed">
-                    Caroline is a strategic designer and expert in transformative public sector innovation. Trained in Design and Public Policy, she has extensive experience in participatory processes and innovative policy to address public challenges. She co-founded Politics for Tomorrow, and facilitates societal transformation processes in collaboration with political-administrative institutions from the local to the highest federal level in Germany and internationally.
-                  </p>
-                </div>
-              </AnimatedElement>
-
-              {/* Kate Beecroft */}
-              <AnimatedElement animation="fade-up" delay={800}>
-                <div className="text-left">
-                  <div className="flex justify-between items-start mb-2">
-                    <h3 className="text-2xl font-bold text-black">Kate Beecroft</h3>
-                    <div className="flex gap-3 ml-4">
-                      <a
-                        href="https://www.linkedin.com/in/kate-beecroft-a3a20955"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-gray-600 hover:text-black transition-colors"
-                      >
-                        <img src="/linkedin.svg" alt="LinkedIn" className="w-5 h-5" />
-                      </a>
-                    </div>
-                  </div>
-                  <p className="text-sm text-gray-500 leading-relaxed">
-                    Kate designs and implements governance for decentralised organisations, supporting high level strategic leadership at some of the most forward-thinking organisations and networks.
-                  </p>
-                </div>
-              </AnimatedElement>
             </div>
           </div>
         </section>
 
-        <footer className="py-8 px-4 bg-[#D9D9D9]">
-          <div className="max-w-7xl mx-auto">
-            <p className="text-center font-silkscreen text-2xl text-black">KOMMA</p>
-          </div>
-        </footer>
+        </div>
       </main>
-    </div>
+    </>
   )
 }
