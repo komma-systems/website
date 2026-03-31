@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Strike Pools | KOMMA",
+  title: "Komma / Strike Pools",
   description: "Strike Pools — A KOMMA initiative",
 }
 

@@ -3,11 +3,24 @@ import Link from "next/link"
 import { Navigation } from "@/components/navigation"
 
 export const metadata: Metadata = {
-  title: "Meld — Komma Systems",
+  title: "Komma / Meld",
   description:
     "Meld is a hardware device and spatial AI platform for civic deliberation. Built by Komma Systems.",
   alternates: {
     canonical: "https://meld.komma.systems",
+  },
+  openGraph: {
+    title: "Komma / Meld",
+    description:
+      "Meld is a hardware device and spatial AI platform for civic deliberation. Built by Komma Systems.",
+    url: "https://meld.komma.systems",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Komma / Meld",
+    description:
+      "Meld is a hardware device and spatial AI platform for civic deliberation. Built by Komma Systems.",
   },
 }
 

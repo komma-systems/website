@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Impressum — Meld",
+  title: "Komma / Impressum",
 }
 
 export default function ImpressumPage() {

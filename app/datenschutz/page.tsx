@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Datenschutz — Meld",
+  title: "Komma / Datenschutz",
 }
 
 export default function DatenschutzPage() {

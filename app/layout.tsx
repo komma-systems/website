@@ -22,7 +22,7 @@ const silkscreen = Silkscreen({
 })
 
 export const metadata: Metadata = {
-  title: "KOMMA",
+  title: "Komma / Initiative",
   description: "A pause, transition, integration, or inflection point punctuating the dynamic relationship between sensing and action",
   generator: 'v0.dev',
   viewport: "width=device-width, initial-scale=1",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     apple: "/favicon.svg",
   },
   openGraph: {
-    title: "KOMMA",
+    title: "Komma / Initiative",
     description: "A pause, transition, integration, or inflection point punctuating the dynamic relationship between sensing and action",
     type: "website",
   },
