@@ -39,11 +39,11 @@ export default function MeldPage() {
 
           <section className="mb-14">
             <p className={proseClasses}>
-              Governance fails not because people don&apos;t show up, but because what they say
+              Governance fails because what people say
               disappears. Citizen assemblies, community consultations, and municipal workshops
               produce hours of spoken deliberation that is difficult to track, impossible to compare
               across sessions, and rarely reflected in the decisions that follow. Meld is Komma&apos;s
-              initiative to change that.
+              initiative to address that.
             </p>
             <p className={`${proseClasses} mt-6`}>
               Meld is a hardware device and spatial AI platform designed for deployment in civic
@@ -127,19 +127,19 @@ export default function MeldPage() {
 
           <section className="mb-14">
             <p className={sectionLabelClasses}>Current Deployment</p>
-            <p className={proseClasses}>
-              Meld&apos;s first production deployment is the InnoVER contract - a BMBF-funded public
+            {/* <p className={proseClasses}>
+              Meld&apos;s first production deployment is InnoVER - a BMBF-funded public
               procurement running from 2026 to 2027 across two rural Landkreise in northern Germany:
               Herzogtum Lauenburg in Schleswig-Holstein, and Ludwigslust-Parchim in
               Mecklenburg-Vorpommern. The contracting authority is NextLearning e.V., with research
               collaboration on the Temporal Deliberation Graph underway with the Max Planck Institute
               for Geoanthropology.
-            </p>
-            <p className={`${proseClasses} mt-6`}>
+            </p> */}
+            {/* <p className={`${proseClasses} mt-6`}>
               This is the first instantiation of the Kair Network: Komma&apos;s vision for a distributed
               set of places where civic deliberation is captured, structured, and returned to
               communities as usable knowledge.
-            </p>
+            </p> */}
           </section>
 
           <section className="mb-16">
