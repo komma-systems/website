@@ -127,6 +127,7 @@ export default function MeldPage() {
 
           <section className="mb-14">
             <p className={sectionLabelClasses}>Current Deployment</p>
+            <p className={proseClasses}>Announcement Soon</p>
             {/* <p className={proseClasses}>
               Meld&apos;s first production deployment is InnoVER - a BMBF-funded public
               procurement running from 2026 to 2027 across two rural Landkreise in northern Germany:
@@ -161,9 +162,6 @@ export default function MeldPage() {
                   Partners
                 </h3>
                 <p className="mt-3 text-[1rem] leading-7 text-slate-100">NextLearning e.V.</p>
-                <p className="text-[1rem] leading-7 text-slate-100">
-                  Max Planck Institute for Geoanthropology
-                </p>
               </div>
             </div>
           </section>
