@@ -1,49 +1,71 @@
 import { NextResponse } from "next/server"
 import type { NextRequest } from "next/server"
+import { LOCALE_HEADER, PATHNAME_HEADER } from "@/lib/request-locale"
+import { defaultLocale, isLocale, locales, type Locale } from "@/lib/i18n"
 
-function isNextInternalOrAssetPath(pathname: string) {
-  const lastSegment = pathname.split("/").pop() ?? ""
-  return (
-    pathname.startsWith("/_next") ||
-    pathname.startsWith("/api") ||
-    pathname === "/favicon.ico" ||
-    pathname === "/favicon.svg" ||
-    pathname.startsWith("/favicon-") ||
-    /\.(?:svg|png|jpg|jpeg|gif|webp|ico|mp4|woff2?|txt|xml|webmanifest)$/i.test(lastSegment)
-  )
+const LOCALE_COOKIE = "NEXT_LOCALE"
+
+function preferredFromAcceptLanguage(header: string | null): Locale {
+  if (!header) return defaultLocale
+  const lower = header.toLowerCase()
+  if (lower.startsWith("de") || lower.includes("de-de") || lower.includes("de-at") || lower.includes("de-ch")) {
+    return "de"
+  }
+  return defaultLocale
+}
+
+function resolveLocale(request: NextRequest): Locale {
+  const cookie = request.cookies.get(LOCALE_COOKIE)?.value
+  if (cookie && isLocale(cookie)) return cookie
+  return preferredFromAcceptLanguage(request.headers.get("accept-language"))
 }
 
 export function middleware(request: NextRequest) {
-  const pathname = request.nextUrl.pathname
+  const { pathname } = request.nextUrl
 
-  if (isNextInternalOrAssetPath(pathname)) {
+  if (
+    pathname.startsWith("/api") ||
+    pathname.startsWith("/_next") ||
+    pathname.startsWith("/favicon") ||
+    /\.[^/]+$/.test(pathname)
+  ) {
     return NextResponse.next()
   }
 
-  const hostHeader = request.headers.get("host") || request.nextUrl.hostname
-  const hostname = hostHeader.split(":")[0] ?? hostHeader
+  const pathnameLocale = locales.find(
+    (l) => pathname === `/${l}` || pathname.startsWith(`/${l}/`)
+  )
 
-  // strikepools.komma.systems → /strikepools
-  if (hostname === "strikepools.komma.systems" || hostname.endsWith(".strikepools.komma.systems")) {
-    if (!pathname.startsWith("/strikepools")) {
-      const url = request.nextUrl.clone()
-      url.pathname = "/strikepools"
-      return NextResponse.rewrite(url)
-    }
+  if (pathnameLocale) {
+    const requestHeaders = new Headers(request.headers)
+    requestHeaders.set(LOCALE_HEADER, pathnameLocale)
+    requestHeaders.set(PATHNAME_HEADER, pathname)
+
+    const res = NextResponse.next({
+      request: {
+        headers: requestHeaders,
+      },
+    })
+    res.cookies.set(LOCALE_COOKIE, pathnameLocale, {
+      path: "/",
+      maxAge: 60 * 60 * 24 * 365,
+      sameSite: "lax",
+    })
+    return res
   }
 
-  // meld.komma.systems → /meld (keep legal pages reachable on same host)
-  if (hostname === "meld.komma.systems" || hostname.endsWith(".meld.komma.systems")) {
-    const allowed =
-      pathname.startsWith("/meld") ||
-      pathname === "/impressum" ||
-      pathname === "/datenschutz"
-    if (!allowed) {
-      const url = request.nextUrl.clone()
-      url.pathname = "/meld"
-      return NextResponse.rewrite(url)
-    }
-  }
+  const locale = resolveLocale(request)
+  const url = request.nextUrl.clone()
+  url.pathname = `/${locale}${pathname === "/" ? "" : pathname}`
+  const res = NextResponse.redirect(url)
+  res.cookies.set(LOCALE_COOKIE, locale, {
+    path: "/",
+    maxAge: 60 * 60 * 24 * 365,
+    sameSite: "lax",
+  })
+  return res
+}
 
-  return NextResponse.next()
+export const config = {
+  matcher: ["/((?!api|_next/static|_next/image|favicon.ico|.*\\..*).*)"],
 }

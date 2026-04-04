@@ -1,13 +1,21 @@
 "use client"
 
 import { useEffect, useState, useRef } from "react"
+import { useParams } from "next/navigation"
 import { Navigation } from "@/components/navigation"
 import { ChevronDown } from "lucide-react"
 import { AnimatedElement } from "@/components/animated-element"
 import { RippleButton } from "@/components/ripple-button"
 import { MaskedVideoText } from '@/components/MaskedVideoText'
+import { defaultLocale, isLocale, type Locale } from "@/lib/i18n"
+import { homeMessages } from "@/lib/messages/home"
 
-export default function Home() {
+export function HomePageClient() {
+  const params = useParams()
+  const rawLocale = params.locale as string
+  const locale: Locale = isLocale(rawLocale) ? rawLocale : defaultLocale
+  const t = homeMessages[locale]
+
   const [opacity, setOpacity] = useState(0)
   const [isActionActive, setIsActionActive] = useState(false)
   const [actionHover, setActionHover] = useState(false)
@@ -188,15 +196,15 @@ export default function Home() {
               {/* Main content - description */}
               <div className="text-lg md:text-xl lg:text-2xl leading-relaxed space-y-2">
                 <div className={`pb-16 md:pb-20 transition-colors duration-300 ${actionHover ? 'text-[#222]' : 'text-white'}`}> 
-                  a pause, transition,
+                  {t.hero.line1}
                   <br />
-                  integration, or inflection
+                  {t.hero.line2}
                   <br />
-                  point punctuating the
+                  {t.hero.line3}
                   <br />
-                  dynamic relationship
+                  {t.hero.line4}
                   <br />
-                  between{" "}
+                  {t.hero.between ? `${t.hero.between} ` : null}
                   <span className="relative inline-block cursor-pointer align-baseline"
                     style={{ verticalAlign: 'baseline' }}
                     onMouseEnter={() => setActionHover(true)}
@@ -205,13 +213,13 @@ export default function Home() {
                     {/* Sensing SVG, slightly lower */}
                     <img
                       src="/01Sensing.svg"
-                      alt="sensing"
+                      alt={t.sensingAlt}
                       className="h-[1.2em] w-auto align-bottom relative"
                       style={{ top: '0.15em' }}
                       draggable={false}
                     />
                   </span>{" "}
-                  and{" "}
+                  {t.hero.and}{" "}
                   <span
                     className="relative inline-block cursor-pointer align-baseline"
                     style={{ verticalAlign: 'baseline' }}
@@ -221,7 +229,7 @@ export default function Home() {
                     <MaskedVideoText
                       svgSrc="/02Action.svg"
                       videoSrc="/blob_video.mp4"
-                      alt="action"
+                      alt={t.actionAlt}
                       className="h-[1.2em] w-auto align-baseline"
                       hover={actionHover}
                     />
@@ -234,7 +242,12 @@ export default function Home() {
                       className={`text-lg md:text-xl lg:text-2xl leading-relaxed text-left transition-opacity duration-300 ${actionHover ? 'opacity-100' : 'opacity-0'} pointer-events-none`}
                       style={{ color: '#e4e4e4' }}
                     >
-                      Research and strategy to <br />forge a new civics
+                      {t.researchSubtitle.split("\n").map((line, i) => (
+                        <span key={i}>
+                          {i > 0 ? <br /> : null}
+                          {line}
+                        </span>
+                      ))}
                     </p>
                     <span
                       onMouseEnter={() => setActionHover(true)}
@@ -259,12 +272,10 @@ export default function Home() {
           <div className="max-w-4xl mx-auto text-center">
             <AnimatedElement animation="fade-in" className="mb-12">
               <p className="text-2xl sm:text-xl md:text-2xl lg:text-3xl px-4 sm:px-0" style={{ lineHeight: 1.5 }}>
-                <span className="komma-title">Komma</span> is a venture collective utilising applied research, artistic inquiry and real-world demonstration to shift collective imagination on how we value, own and care for what is held in common. 
+                <span className="komma-title">Komma</span> {t.intro1}
               </p>
               <p className="text-2xl sm:text-xl md:text-2xl lg:text-3xl px-4 sm:px-0 mt-6 transition-colors duration-1000" style={{ lineHeight: 1.5, color: showSecondParagraph ? (textColorWhite ? 'white' : '#333') : '#666' }}>
-                Our action is made possible through place-based partnerships with citizens, 
-                municipalities, philanthropy and the private sector to develop experiments, 
-                products and tools that conceptualise a new civics catalysed by decentralised technology.
+                {t.intro2}
               </p>
             </AnimatedElement>
           </div>
@@ -273,7 +284,7 @@ export default function Home() {
         {/* Partners Section */}
         <section id="partners" className="py-8 px-4 sm:px-6 md:px-8 bg-black">
           <div className="max-w-5xl mx-auto text-center">
-            <div className="font-silkscreen text-base md:text-lg tracking-widest uppercase text-white filter grayscale brightness-200 contrast-50 mb-8">Partners</div>
+            <div className="font-silkscreen text-base md:text-lg tracking-widest uppercase text-white filter grayscale brightness-200 contrast-50 mb-8">{t.partners}</div>
             <div className="flex flex-wrap items-center justify-center gap-8">
               <a href="http://foresight.org/" target="_blank" rel="noopener noreferrer" className="inline-flex opacity-80 hover:opacity-100 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 rounded">
                 <img src="/Partners/Vector-Foresight-Logo-dark-blue.svg.png" alt="Foresight Institute" className="h-16 filter grayscale brightness-200 contrast-50" />
@@ -295,27 +306,11 @@ export default function Home() {
         <section id="approach" ref={approachSectionRef} className="py-16 px-4 sm:px-6 md:px-8 bg-black scroll-mt-48">
           <div className="max-w-7xl mx-auto">
             <AnimatedElement animation="fade-in" className="mb-12">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl text-center mb-8">Our Approach</h2>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl text-center mb-8">{t.ourApproach}</h2>
             </AnimatedElement>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {[
-                {
-                  key: 'wealth',
-                  heading: "Inverting Civic Wealth",
-                  description: "Supporting communities through co-designing innovative economic tools to enhance control over housing and land ownership. Pooled funding, community-driven exit strategies, multi-capital currencies, and bioregional banking reshape how wealth flows within neighborhoods and interconnected communities."
-                },
-                {
-                  key: 'agreements',
-                  heading: "Modernising Agreements",
-                  description: "Crafting modular and automated governance, policy and legal frameworks that redefine how communities own and care. We work to implement interoperable organisational models to create scalable systems that meet evolving needs."
-                },
-                {
-                  key: 'rituals',
-                  heading: "Cultivating Playful Rituals",
-                  description: "Integrating governance into everyday life through the human-centric design. Including sociocratic decision-making, digital coordination tools, and innovative hardware to enhance collective collaboration by smoothly connecting digital and physical spaces."
-                }
-              ].map((item, idx) => (
+              {t.approachCards.map((item, idx) => (
                 <AnimatedElement animation="fade-up" delay={100 * (idx + 1)} key={item.key}>
                   <div className="flex flex-col items-center justify-center min-h-[220px] h-full border border-white rounded-xl p-8 bg-transparent text-white transition-all duration-300">
                     <h3 className="text-2xl md:text-3xl font-bold text-center w-full mb-4">
@@ -337,7 +332,7 @@ export default function Home() {
             <AnimatedElement animation="fade-in" className="mb-16">
               <div className="flex items-center gap-2 sm:gap-4 mb-6 sm:mb-8 pb-3 sm:pb-4 border-b border-[#46403e]">
                 <h2 className="font-semibold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-tight">
-                  Initiatives
+                  {t.initiatives}
                 </h2>
                 <span className="font-normal text-xs sm:text-sm text-white leading-relaxed align-super relative -top-1 sm:-top-2">
                   {initiativesLoading ? '...' : initiatives.length}
@@ -349,13 +344,13 @@ export default function Home() {
               {initiativesLoading ? (
                 <div className="text-center py-8">
                   <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white mx-auto mb-4"></div>
-                  <p className="text-gray-400">Loading initiatives...</p>
+                  <p className="text-gray-400">{t.loadingInitiatives}</p>
                 </div>
               ) : (
                 initiatives.map((project, idx) => (
                 <AnimatedElement animation="fade-up" delay={100 * (idx + 1)} key={project.id}>
                   <a 
-                    href={`/initiatives/${project.slug}`}
+                    href={`/${locale}/initiatives/${project.slug}`}
                     className="flex flex-col sm:grid sm:grid-cols-[1fr_auto_auto_120px] lg:grid-cols-[1fr_auto_auto_150px] gap-3 sm:gap-4 lg:gap-6 items-start py-4 sm:py-6 hover:bg-[#1a1a1a] transition-colors duration-200 px-3 sm:px-4 border-b border-dashed border-[#a29f9f] last:border-b-0 cursor-pointer"
                   >
                     {/* Mobile: Title and Image Row */}
@@ -406,12 +401,10 @@ export default function Home() {
           <div className="max-w-7xl mx-auto">
             <AnimatedElement animation="fade-in" className="mb-16">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-left mb-8 text-black">
-                The Collective
+                {t.collective}
               </h2>
               <p className="text-lg md:text-xl text-left text-gray-600 max-w-4xl leading-relaxed">
-                Our collaborators bring together deep expertise across organisational design, agreements frameworks, financing tools,
-                decentralised technologies, token engineering, and collective governance, with experience leading organisations, and working alongside leading
-                institutions, who are advancing equitable, commons-based civic action.
+                {t.collectiveIntro}
               </p>
             </AnimatedElement>
 
@@ -422,7 +415,7 @@ export default function Home() {
                 <div className="text-left">
                   <div className="flex justify-between items-start mb-2">
                     <a
-                      href="/team/charlie"
+                      href={`/${locale}/team/charlie`}
                       className="text-2xl font-bold text-black hover:text-gray-600 transition-colors"
                     >
                       Charlie Fisher
@@ -451,7 +444,7 @@ export default function Home() {
                 <div className="text-left">
                   <div className="flex justify-between items-start mb-2">
                     <a
-                      href="/team/clara"
+                      href={`/${locale}/team/clara`}
                       className="text-2xl font-bold text-black hover:text-gray-600 transition-colors"
                     >
                       Clara Gromaches
@@ -488,7 +481,7 @@ export default function Home() {
                     </div>
                   </div>
                   <p className="text-sm text-gray-500 leading-relaxed">
-                    Bradley is a strategic designer and innovator working at the intersection of culture, AI-native systems, and human-centered technology. Currently leading AI Builders Berlin as Community Director & DevRel, he co-founded experience design collective seks.design which blends applied research with grassroots organizing and urban rituals.
+                    Bradley is a strategic designer and innovator working at the intersection of culture, AI-native systems, and human-centered technology. Currently the Node Manager for Foresight Institute's Berlin AI Node and leading AI Builders Berlin as Community Director, he brings experience design, blending applied research with grassroots organising and urban rituals.
                   </p>
                 </div>
               </AnimatedElement>
@@ -510,7 +503,7 @@ export default function Home() {
                     </div>
                   </div>
                   <p className="text-sm text-gray-500 leading-relaxed">
-                    Livia is an artist and published social researcher in the field of token engineering with over six years of practice on decentralized ecosystems within topics of governance, culture and incentivization. Her contributions include designing social system protocols and leading the Cultural Build initiative at Commons Stack.
+                    Livia is an artist and published social researcher in the field of token engineering with deep practice on decentralized ecosystems within topics of governance, culture and incentivization. Her contributions include designing social system protocols and leading the Cultural Build initiative at Commons Stack.
                   </p>
                 </div>
               </AnimatedElement>
@@ -544,7 +537,7 @@ export default function Home() {
                 <div className="text-left">
                   <div className="flex justify-between items-start mb-2">
                     <a
-                      href="/team/rita"
+                      href={`/${locale}/team/rita`}
                       className="text-2xl font-bold text-black hover:text-gray-600 transition-colors"
                     >
                       Rita Palma
@@ -564,23 +557,45 @@ export default function Home() {
                 </div>
               </AnimatedElement>
 
+              {/* Robert Matijević */}
+              <AnimatedElement animation="fade-in" delay={700}>
+                <div className="text-left">
+                  <div className="flex justify-between items-start mb-2">
+                    <h3 className="text-2xl font-bold text-black">Robert Matijević</h3>
+                    <div className="flex gap-3 ml-4">
+                      <a
+                        href="https://www.linkedin.com/in/robertfd/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-gray-600 hover:text-black transition-colors"
+                      >
+                        <img src="/linkedin.svg" alt="LinkedIn" className="w-5 h-5" />
+                      </a>
+                    </div>
+                  </div>
+                  <p className="text-sm text-gray-500 leading-relaxed">
+                    Robert Matijević is a fullstack developer and technical lead with a decade of experience shipping software and leading engineering teams across complex, multi-layer systems. He brings a generalist depth across frontend, backend, and infrastructure that lets him move fluidly between architecture decisions and hands-on implementation with an expertise in Rust. Alongside his professional work, Robert pursues a personal fascination with the world's writing systems, which he channels into Glyf, a spaced repetition platform he built for learning scripts and alphabets from around the world. He joined Komma as Meld Initiative Technical Lead in 2025, where he leads development of the Kair platform.
+                  </p>
+                </div>
+              </AnimatedElement>
 
             </div>
 
             {/* Subheading for Advisors */}
             <AnimatedElement animation="fade-in" className="mb-12 mt-16">
               <h3 className="text-2xl md:text-3xl font-semibold text-left mb-6 text-black">
-                Advisors
+                {t.advisors}
               </h3>
               <p className="text-base md:text-lg text-left text-gray-600 max-w-4xl leading-relaxed mb-8">
-                Our advisory board provides strategic guidance and expertise to support our mission.
+                {t.advisorsIntro}
               </p>
             </AnimatedElement>
 
             {/* Advisors Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-              {/* Caroline Paulick-Thiel */}
-              <AnimatedElement animation="fade-up" delay={700}>
+              {/*
+              Caroline Paulick-Thiel (archived)
+              <AnimatedElement animation="fade-up" delay={800}>
                 <div className="text-left">
                   <div className="flex justify-between items-start mb-2">
                     <h3 className="text-2xl font-bold text-black">Caroline Paulick-Thiel</h3>
@@ -600,9 +615,32 @@ export default function Home() {
                   </p>
                 </div>
               </AnimatedElement>
+              */}
+
+              {/* Dan Lewis */}
+              <AnimatedElement animation="fade-up" delay={800}>
+                <div className="text-left">
+                  <div className="flex justify-between items-start mb-2">
+                    <h3 className="text-2xl font-bold text-black">Dan Lewis</h3>
+                    <div className="flex gap-3 ml-4">
+                      <a
+                        href="https://www.linkedin.com/in/danalexilewis/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-gray-600 hover:text-black transition-colors"
+                      >
+                        <img src="/linkedin.svg" alt="LinkedIn" className="w-5 h-5" />
+                      </a>
+                    </div>
+                  </div>
+                  <p className="text-sm text-gray-500 leading-relaxed">
+                    Dan Lewis is a software developer, cooperative entrepreneur, and business coach rooted in the Enspiral network, where he serves as a Foundation Steward. With a background spanning technical architecture, organisational design, and decentralised coordination, he brings a rare cross-disciplinary perspective to the future of collaborative work. He advises Komma Systems on the Meld Initiative.
+                  </p>
+                </div>
+              </AnimatedElement>
 
               {/* Kate Beecroft */}
-              <AnimatedElement animation="fade-up" delay={800}>
+              <AnimatedElement animation="fade-up" delay={900}>
                 <div className="text-left">
                   <div className="flex justify-between items-start mb-2">
                     <h3 className="text-2xl font-bold text-black">Kate Beecroft</h3>
@@ -619,6 +657,9 @@ export default function Home() {
                   </div>
                   <p className="text-sm text-gray-500 leading-relaxed">
                     Kate designs and implements governance for decentralised organisations, supporting high level strategic leadership at some of the most forward-thinking organisations and networks.
+                  </p>
+                  <p className="text-sm text-gray-500 leading-relaxed mt-3">
+                    Kate is working with us on Noumenal, our initiative on the role of the body in decision-making.
                   </p>
                 </div>
               </AnimatedElement>

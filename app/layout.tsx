@@ -3,6 +3,9 @@ import "./globals.css"
 import type { Metadata } from "next"
 import { Source_Serif_4, Silkscreen } from "next/font/google"
 import { SiteFooter } from "@/components/site-footer"
+import { getRequestLocale } from "@/lib/request-locale"
+import { getSiteBaseUrl } from "@/lib/site-url"
+import type { Locale } from "@/lib/i18n"
 
 // Load Source Serif Pro (Source Serif 4 is the updated version)
 const sourceSerif = Source_Serif_4({
@@ -22,6 +25,7 @@ const silkscreen = Silkscreen({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL(getSiteBaseUrl()),
   title: "Komma / Initiative",
   description: "A pause, transition, integration, or inflection point punctuating the dynamic relationship between sensing and action",
   generator: 'v0.dev',
@@ -43,13 +47,15 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const lang: Locale = await getRequestLocale()
+
   return (
-    <html lang="en" className={`${sourceSerif.variable} ${silkscreen.variable}`.trim()}>
+    <html lang={lang} className={`${sourceSerif.variable} ${silkscreen.variable}`.trim()}>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />

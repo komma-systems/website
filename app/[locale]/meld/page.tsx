@@ -1,27 +1,35 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { Navigation } from "@/components/navigation"
+import { defaultLocale, isLocale, type Locale } from "@/lib/i18n"
+import { localeAlternatesMetadata } from "@/lib/metadata/locale-alternates"
 
-export const metadata: Metadata = {
-  title: "Komma / Meld",
-  description:
-    "Meld is a hardware device and spatial AI platform for civic deliberation. Built by Komma Systems.",
-  alternates: {
-    canonical: "https://meld.komma.systems",
-  },
-  openGraph: {
+const meldDescription =
+  "Meld is a hardware device and spatial AI platform for civic deliberation. Built by Komma Systems."
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale: raw } = await params
+  const locale: Locale = isLocale(raw) ? raw : defaultLocale
+  return {
     title: "Komma / Meld",
-    description:
-      "Meld is a hardware device and spatial AI platform for civic deliberation. Built by Komma Systems.",
-    url: "https://meld.komma.systems",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Komma / Meld",
-    description:
-      "Meld is a hardware device and spatial AI platform for civic deliberation. Built by Komma Systems.",
-  },
+    description: meldDescription,
+    openGraph: {
+      title: "Komma / Meld",
+      description: meldDescription,
+      url: "https://meld.komma.systems",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Komma / Meld",
+      description: meldDescription,
+    },
+    ...localeAlternatesMetadata("/meld", locale),
+  }
 }
 
 const sectionLabelClasses =
@@ -29,7 +37,12 @@ const sectionLabelClasses =
 
 const proseClasses = "text-[1.06rem] leading-[1.75] text-slate-100"
 
-export default function MeldPage() {
+type PageProps = { params: Promise<{ locale: string }> }
+
+export default async function MeldPage({ params }: PageProps) {
+  const { locale: raw } = await params
+  const locale: Locale = isLocale(raw) ? raw : defaultLocale
+
   return (
     <>
       <Navigation />
@@ -43,7 +56,7 @@ export default function MeldPage() {
               at the threshold of shared memory
             </p>
             <Link
-              href="https://komma.systems"
+              href={`/${locale}`}
               className="mt-8 inline-block text-sm font-medium uppercase tracking-wider text-teal-300 underline decoration-teal-500/70 underline-offset-4 transition-colors hover:text-teal-200 font-silkscreen"
             >
               ← BACK

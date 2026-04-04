@@ -1,4 +1,20 @@
+import type { Metadata } from "next"
 import { Navigation } from "@/components/navigation"
+import { defaultLocale, isLocale, type Locale } from "@/lib/i18n"
+import { localeAlternatesMetadata } from "@/lib/metadata/locale-alternates"
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale: raw } = await params
+  const locale: Locale = isLocale(raw) ? raw : defaultLocale
+  return {
+    title: "Komma / Charlie Fisher",
+    ...localeAlternatesMetadata("/team/charlie", locale),
+  }
+}
 
 export default function CharliePage() {
   return (

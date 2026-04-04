@@ -1,16 +1,13 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import { useParams } from "next/navigation"
 import { Navigation } from "@/components/navigation"
 import { AnimatedElement } from "@/components/animated-element"
-import { ChevronLeft, ExternalLink, Calendar, Tag } from "lucide-react"
+import { ChevronLeft, ExternalLink, Tag } from "lucide-react"
 import Link from "next/link"
-
-interface InitiativePageProps {
-  params: {
-    slug: string
-  }
-}
+import { defaultLocale, isLocale, type Locale } from "@/lib/i18n"
+import { initiativePageUi } from "@/lib/messages/initiative-page"
 
 interface Initiative {
   id: string
@@ -23,7 +20,14 @@ interface Initiative {
   updatedAt: string
 }
 
-export default function InitiativePage({ params }: InitiativePageProps) {
+export function InitiativePageClient() {
+  const params = useParams()
+  const rawLocale = params.locale as string
+  const locale: Locale = isLocale(rawLocale) ? rawLocale : defaultLocale
+  const slug = params.slug as string
+  const ui = initiativePageUi[locale]
+  const dateLocale = locale === "de" ? "de-DE" : "en-US"
+
   const [initiative, setInitiative] = useState<Initiative | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -31,30 +35,28 @@ export default function InitiativePage({ params }: InitiativePageProps) {
   useEffect(() => {
     async function fetchInitiative() {
       try {
-        // Await params in Next.js 15
-        const { slug } = await params
         const response = await fetch(`/api/initiatives/${slug}`)
         if (!response.ok) {
-          throw new Error('Initiative not found')
+          throw new Error("Initiative not found")
         }
         const data = await response.json()
         setInitiative(data)
       } catch (err) {
-        setError(err instanceof Error ? err.message : 'Failed to load initiative')
+        setError(err instanceof Error ? err.message : "Failed to load initiative")
       } finally {
         setLoading(false)
       }
     }
 
     fetchInitiative()
-  }, [params])
+  }, [slug])
 
   if (loading) {
     return (
       <div className="min-h-screen bg-black text-white flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white mx-auto mb-4"></div>
-          <p>Loading initiative...</p>
+          <p>{ui.loading}</p>
         </div>
       </div>
     )
@@ -64,14 +66,14 @@ export default function InitiativePage({ params }: InitiativePageProps) {
     return (
       <div className="min-h-screen bg-black text-white flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-bold mb-4">Initiative Not Found</h1>
-          <p className="mb-6">{error || 'The requested initiative could not be found.'}</p>
-          <Link 
-            href="/" 
+          <h1 className="text-2xl font-bold mb-4">{ui.notFoundTitle}</h1>
+          <p className="mb-6">{error || ui.notFoundBody}</p>
+          <Link
+            href={`/${locale}`}
             className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors"
           >
             <ChevronLeft size={16} />
-            Back to Home
+            {ui.backHome}
           </Link>
         </div>
       </div>
@@ -81,20 +83,18 @@ export default function InitiativePage({ params }: InitiativePageProps) {
   return (
     <div className="min-h-screen bg-black text-white">
       <Navigation />
-      
+
       <main className="pt-20">
-        {/* Back Button */}
         <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 py-8">
-          <Link 
-            href="/" 
+          <Link
+            href={`/${locale}#initiatives`}
             className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors mb-8"
           >
             <ChevronLeft size={16} />
-            Back to Initiatives
+            {ui.backList}
           </Link>
         </div>
 
-        {/* Initiative Header */}
         <section className="py-16 px-4 sm:px-6 md:px-8 bg-black">
           <div className="max-w-4xl mx-auto">
             <AnimatedElement animation="fade-in" className="mb-8">
@@ -103,26 +103,21 @@ export default function InitiativePage({ params }: InitiativePageProps) {
                   {initiative.stage}
                 </span>
                 <span className="text-gray-400 text-sm">
-                  {new Date(initiative.createdAt).toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
+                  {new Date(initiative.createdAt).toLocaleDateString(dateLocale, {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
                   })}
                 </span>
               </div>
-              
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                {initiative.title}
-              </h1>
-              
-              <p className="text-xl md:text-2xl text-gray-300 leading-relaxed mb-8">
-                Learn more about this initiative and how it contributes to our mission.
-              </p>
+
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">{initiative.title}</h1>
+
+              <p className="text-xl md:text-2xl text-gray-300 leading-relaxed mb-8">{ui.teaser}</p>
             </AnimatedElement>
           </div>
         </section>
 
-        {/* Tags Section */}
         {initiative.tags.length > 0 && (
           <section className="py-8 px-4 sm:px-6 md:px-8 bg-black border-t border-gray-800">
             <div className="max-w-4xl mx-auto">
@@ -143,44 +138,43 @@ export default function InitiativePage({ params }: InitiativePageProps) {
           </section>
         )}
 
-        {/* Initiative Details */}
         <section className="py-16 px-4 sm:px-6 md:px-8 bg-black">
           <div className="max-w-4xl mx-auto">
             <AnimatedElement animation="fade-in" delay={400}>
               <div className="grid md:grid-cols-2 gap-12">
-                {/* Status & Stage */}
                 <div className="space-y-6">
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-400 mb-2">Status</h3>
-                    <p className="text-xl text-white capitalize">{initiative.prod ? 'Published' : 'Draft'}</p>
+                    <h3 className="text-lg font-semibold text-gray-400 mb-2">{ui.status}</h3>
+                    <p className="text-xl text-white capitalize">
+                      {initiative.prod ? ui.published : ui.draft}
+                    </p>
                   </div>
-                  
+
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-400 mb-2">Stage</h3>
+                    <h3 className="text-lg font-semibold text-gray-400 mb-2">{ui.stage}</h3>
                     <p className="text-xl text-white">{initiative.stage}</p>
                   </div>
                 </div>
 
-                {/* Timeline */}
                 <div className="space-y-6">
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-400 mb-2">Created</h3>
+                    <h3 className="text-lg font-semibold text-gray-400 mb-2">{ui.created}</h3>
                     <p className="text-xl text-white">
-                      {new Date(initiative.createdAt).toLocaleDateString('en-US', {
-                        year: 'numeric',
-                        month: 'long',
-                        day: 'numeric'
+                      {new Date(initiative.createdAt).toLocaleDateString(dateLocale, {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
                       })}
                     </p>
                   </div>
-                  
+
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-400 mb-2">Last Updated</h3>
+                    <h3 className="text-lg font-semibold text-gray-400 mb-2">{ui.lastUpdated}</h3>
                     <p className="text-xl text-white">
-                      {new Date(initiative.updatedAt).toLocaleDateString('en-US', {
-                        year: 'numeric',
-                        month: 'long',
-                        day: 'numeric'
+                      {new Date(initiative.updatedAt).toLocaleDateString(dateLocale, {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
                       })}
                     </p>
                   </div>
@@ -190,21 +184,16 @@ export default function InitiativePage({ params }: InitiativePageProps) {
           </div>
         </section>
 
-        {/* Call to Action */}
         <section className="py-16 px-4 sm:px-6 md:px-8 bg-black border-t border-gray-800">
           <div className="max-w-4xl mx-auto text-center">
             <AnimatedElement animation="fade-in" delay={600}>
-              <h2 className="text-2xl md:text-3xl font-bold mb-6">
-                Interested in this initiative?
-              </h2>
-              <p className="text-lg text-gray-300 mb-8">
-                Get in touch to learn more about our work and how you can get involved.
-              </p>
-              <Link 
-                href="/contact"
+              <h2 className="text-2xl md:text-3xl font-bold mb-6">{ui.ctaTitle}</h2>
+              <p className="text-lg text-gray-300 mb-8">{ui.ctaBody}</p>
+              <Link
+                href={`/${locale}/contact`}
                 className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-medium transition-colors"
               >
-                Contact Us
+                {ui.contact}
                 <ExternalLink size={16} />
               </Link>
             </AnimatedElement>

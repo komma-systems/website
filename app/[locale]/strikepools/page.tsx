@@ -1,9 +1,15 @@
 "use client"
 
 import Link from "next/link"
+import { useParams } from "next/navigation"
 import { Navigation } from "@/components/navigation"
+import { defaultLocale, isLocale, type Locale } from "@/lib/i18n"
 
 export default function StrikepoolsPage() {
+  const params = useParams()
+  const raw = params.locale as string
+  const locale: Locale = isLocale(raw) ? raw : defaultLocale
+
   return (
     <div className="min-h-screen flex flex-col bg-black text-white">
       <Navigation hideContact={false} />
@@ -25,7 +31,7 @@ export default function StrikepoolsPage() {
                   <span className="text-gray-400">Coming soon</span>
                 </p>
                 <Link
-                  href="https://komma.systems"
+                  href={`/${locale}`}
                   className="inline-block text-white/80 hover:text-white transition-colors text-base underline underline-offset-4"
                 >
                   ← Back to KOMMA
