@@ -276,7 +276,7 @@ export default function Home() {
             <div className="font-silkscreen text-base md:text-lg tracking-widest uppercase text-white filter grayscale brightness-200 contrast-50 mb-8">Partners</div>
             <div className="flex flex-wrap items-center justify-center gap-8">
               <img src="/Partners/Consensys_logo_2023.svg" alt="Consensys" className="h-8 filter grayscale brightness-200 contrast-50 opacity-80 hover:opacity-100 transition-all duration-300" />
-              <img src="/Partners/politics-for-tomorrow_logo_1.0.svg" alt="Politics for Tomorrow" className="h-8 filter grayscale brightness-200 contrast-50 opacity-80 hover:opacity-100 transition-all duration-300" />
+              {/* <img src="/Partners/politics-for-tomorrow_logo_1.0.svg" alt="Politics for Tomorrow" className="h-8 filter grayscale brightness-200 contrast-50 opacity-80 hover:opacity-100 transition-all duration-300" /> */}
               <img src="/Partners/just.svg" alt="Just" className="h-5 filter grayscale brightness-200 contrast-50 opacity-80 hover:opacity-100 transition-all duration-300" />
             </div>
           </div>
