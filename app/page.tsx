@@ -275,9 +275,19 @@ export default function Home() {
           <div className="max-w-5xl mx-auto text-center">
             <div className="font-silkscreen text-base md:text-lg tracking-widest uppercase text-white filter grayscale brightness-200 contrast-50 mb-8">Partners</div>
             <div className="flex flex-wrap items-center justify-center gap-8">
-              <img src="/Partners/Consensys_logo_2023.svg" alt="Consensys" className="h-8 filter grayscale brightness-200 contrast-50 opacity-80 hover:opacity-100 transition-all duration-300" />
-              {/* <img src="/Partners/politics-for-tomorrow_logo_1.0.svg" alt="Politics for Tomorrow" className="h-8 filter grayscale brightness-200 contrast-50 opacity-80 hover:opacity-100 transition-all duration-300" /> */}
-              <img src="/Partners/just.svg" alt="Just" className="h-5 filter grayscale brightness-200 contrast-50 opacity-80 hover:opacity-100 transition-all duration-300" />
+              <a href="http://foresight.org/" target="_blank" rel="noopener noreferrer" className="inline-flex opacity-80 hover:opacity-100 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 rounded">
+                <img src="/Partners/Vector-Foresight-Logo-dark-blue.svg.png" alt="Foresight Institute" className="h-16 filter grayscale brightness-200 contrast-50" />
+              </a>
+              <a href="https://consensys.io/" target="_blank" rel="noopener noreferrer" className="inline-flex opacity-80 hover:opacity-100 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 rounded">
+                <img src="/Partners/Consensys_logo_2023.svg" alt="Consensys" className="h-16 filter grayscale brightness-200 contrast-50" />
+              </a>
+              {/* <img src="/Partners/politics-for-tomorrow_logo_1.0.svg" alt="Politics for Tomorrow" className="h-16 filter grayscale brightness-200 contrast-50 opacity-80 hover:opacity-100 transition-all duration-300" /> */}
+              <a href="https://www.justopensource.io/" target="_blank" rel="noopener noreferrer" className="inline-flex opacity-80 hover:opacity-100 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 rounded">
+                <img src="/Partners/just.svg" alt="Just" className="h-10 filter grayscale brightness-200 contrast-50" />
+              </a>
+              <a href="https://www.cltweb.org/" target="_blank" rel="noopener noreferrer" className="inline-flex opacity-80 hover:opacity-100 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 rounded">
+                <img src="/Partners/New-CLT-Center-Text-logo.svg" alt="Community Land Trust Center" className="h-14 filter grayscale brightness-200 contrast-50" />
+              </a>
             </div>
           </div>
         </section>
