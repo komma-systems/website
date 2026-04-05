@@ -69,7 +69,7 @@ const en: HomeMessages = {
   loadingInitiatives: "Loading initiatives...",
   collective: "The Collective",
   collectiveIntro:
-    "Our collaborators bring together deep expertise across organisational design, agreements frameworks, financing tools, decentralised technologies, token engineering, and collective governance, with experience leading organisations, and working alongside leading institutions, who are advancing equitable, commons-based civic action.",
+    "Our collaborators bring together deep expertise leading organisations, and working alongside leading institutions, who are advancing equitable, commons-based civic action.",
   advisors: "Advisors",
   advisorsIntro: "Our advisory board provides strategic guidance and expertise to support our mission.",
 }
@@ -116,7 +116,7 @@ const de: HomeMessages = {
   loadingInitiatives: "Initiativen werden geladen...",
   collective: "Das Kollektiv",
   collectiveIntro:
-    "Unsere Kooperationspartnerinnen vereinen tiefe Expertise in Organisationsgestaltung, Vereinbarungsrahmen, Finanzierungsinstrumenten, dezentralen Technologien, Token-Engineering und kollektiver Governance — mit Erfahrung in Leitung von Organisationen und Zusammenarbeit mit führenden Institutionen, die eine gerechte, commons-basierte zivile Praxis voranbringen.",
+    "Unsere Kooperationspartnerinnen vereinen tiefe Expertise in der Leitung von Organisationen und arbeiten mit führenden Institutionen zusammen, die eine gerechte, commons-basierte zivile Praxis voranbringen.",
   advisors: "Beirat",
   advisorsIntro: "Unser Beirat unterstützt unsere Mission mit strategischer Begleitung und Fachwissen.",
 }

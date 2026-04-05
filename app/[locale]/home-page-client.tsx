@@ -354,7 +354,7 @@ export function HomePageClient() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {t.approachCards.map((item, idx) => (
                 <AnimatedElement animation="fade-up" delay={100 * (idx + 1)} key={item.key}>
-                  <div className="flex flex-col items-center justify-center min-h-[220px] h-full border border-white rounded-xl p-8 bg-transparent text-white transition-all duration-300">
+                  <div className="edge-lines-rounded-xl flex flex-col items-center justify-center min-h-[220px] h-full rounded-xl p-8 bg-transparent text-white transition-all duration-300">
                     <h3 className="text-2xl md:text-3xl font-bold text-center w-full mb-4">
                       {item.heading}
                     </h3>
@@ -616,7 +616,7 @@ export function HomePageClient() {
                     </div>
                   </div>
                   <p className="text-sm text-gray-500 leading-relaxed">
-                    Robert Matijević is a fullstack developer and technical lead with a decade of experience shipping software and leading engineering teams across complex, multi-layer systems. He brings a generalist depth across frontend, backend, and infrastructure that lets him move fluidly between architecture decisions and hands-on implementation with an expertise in Rust. Alongside his professional work, Robert pursues a personal fascination with the world's writing systems, which he channels into Glyf, a spaced repetition platform he built for learning scripts and alphabets from around the world. He joined Komma as Meld Initiative Technical Lead in 2025, where he leads development of the Kair platform.
+                    Robert Matijević is a fullstack developer and technical lead with a decade of experience shipping software and leading engineering teams across complex, multi-layer systems. He brings a generalist depth across frontend, backend, and infrastructure that lets him move fluidly between architecture decisions and hands-on implementation with an expertise in Rust. Alongside his professional work, Robert pursues a personal fascination with the world's writing systems. He joined Komma as Meld Initiative Technical Lead in 2025, where he leads development of the Kair platform.
                   </p>
                 </div>
               </AnimatedElement>
