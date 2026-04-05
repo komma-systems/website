@@ -42,7 +42,7 @@ const en: HomeMessages = {
   intro1:
     "is a venture collective utilising applied research, artistic inquiry and real-world demonstration to shift collective imagination on how we value, own and care for what is held in common.",
   intro2:
-    "Our action is made possible through place-based partnerships with citizens, municipalities, philanthropy and the private sector to develop experiments, products and tools that conceptualise a new civics catalysed by decentralised technology.",
+    "Our action is made possible through place-based partnerships with citizens, municipalities, philanthropy and the private sector to develop experiments, products and tools that conceptualise a new civics catalysed by relational technologies.",
   partners: "Partners",
   ourApproach: "Our Approach",
   approachCards: [
@@ -89,7 +89,7 @@ const de: HomeMessages = {
   intro1:
     "ist ein Venture-Kollektiv, das mit angewandter Forschung, künstlerischer Erkundung und realen Demonstratoren das kollektive Bild davon verschiebt, wie wir das Gemeingute schätzen, besitzen und pflegen.",
   intro2:
-    "Unser Handeln wird durch ortsbezogene Partnerschaften mit Bürgerinnen und Bürgern, Kommunen, Philanthropie und der Privatwirtschaft möglich — um Experimente, Produkte und Werkzeuge zu entwickeln, die eine neue Zivilgesellschaft denken, ausgelöst durch dezentrale Technologie.",
+    "Unser Handeln wird durch ortsbezogene Partnerschaften mit Bürgerinnen und Bürgern, Kommunen, Philanthropie und der Privatwirtschaft möglich — um Experimente, Produkte und Werkzeuge zu entwickeln, die eine neue Zivilgesellschaft denken, ausgelöst durch relationale Technologien.",
   partners: "Partner",
   ourApproach: "Unser Ansatz",
   approachCards: [

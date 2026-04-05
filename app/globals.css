@@ -76,6 +76,28 @@ body {
   animation: ripple 0.6s linear;
 }
 
+/* Partners marquee: fade logos at left/right edges (matches black section bg) */
+.partners-marquee-mask {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 8%,
+    black 92%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 8%,
+    black 92%,
+    transparent
+  );
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
 /* Animation delay utilities */
 .delay-100 {
   transition-delay: 100ms;

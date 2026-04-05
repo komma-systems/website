@@ -10,6 +10,39 @@ import { MaskedVideoText } from '@/components/MaskedVideoText'
 import { defaultLocale, isLocale, type Locale } from "@/lib/i18n"
 import { homeMessages } from "@/lib/messages/home"
 
+const PARTNER_LOGOS = [
+  {
+    href: "http://foresight.org/",
+    src: "/Partners/Vector-Foresight-Logo-dark-blue.svg.png",
+    alt: "Foresight Institute",
+    imgClassName: "h-16 filter grayscale brightness-200 contrast-50",
+  },
+  {
+    href: "https://consensys.io/",
+    src: "/Partners/Consensys_logo_2023.svg",
+    alt: "Consensys",
+    imgClassName: "h-16 filter grayscale brightness-200 contrast-50",
+  },
+  {
+    href: "https://www.justopensource.io/",
+    src: "/Partners/just.svg",
+    alt: "Just",
+    imgClassName: "h-10 filter grayscale brightness-200 contrast-50",
+  },
+  {
+    href: "https://www.cltweb.org/",
+    src: "/Partners/New-CLT-Center-Text-logo.svg",
+    alt: "Community Land Trust Center",
+    imgClassName: "h-14 filter grayscale brightness-200 contrast-50",
+  },
+  {
+    href: "https://www.curvelabs.eu/",
+    src: "/Partners/curve-labs.svg",
+    alt: "Curve Labs",
+    imgClassName: "h-14 w-auto filter grayscale brightness-200 contrast-50",
+  },
+] as const
+
 export function HomePageClient() {
   const params = useParams()
   const rawLocale = params.locale as string
@@ -285,20 +318,29 @@ export function HomePageClient() {
         <section id="partners" className="py-8 px-4 sm:px-6 md:px-8 bg-black">
           <div className="max-w-5xl mx-auto text-center">
             <div className="font-silkscreen text-base md:text-lg tracking-widest uppercase text-white filter grayscale brightness-200 contrast-50 mb-8">{t.partners}</div>
-            <div className="flex flex-wrap items-center justify-center gap-8">
-              <a href="http://foresight.org/" target="_blank" rel="noopener noreferrer" className="inline-flex opacity-80 hover:opacity-100 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 rounded">
-                <img src="/Partners/Vector-Foresight-Logo-dark-blue.svg.png" alt="Foresight Institute" className="h-16 filter grayscale brightness-200 contrast-50" />
-              </a>
-              <a href="https://consensys.io/" target="_blank" rel="noopener noreferrer" className="inline-flex opacity-80 hover:opacity-100 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 rounded">
-                <img src="/Partners/Consensys_logo_2023.svg" alt="Consensys" className="h-16 filter grayscale brightness-200 contrast-50" />
-              </a>
-              {/* <img src="/Partners/politics-for-tomorrow_logo_1.0.svg" alt="Politics for Tomorrow" className="h-16 filter grayscale brightness-200 contrast-50 opacity-80 hover:opacity-100 transition-all duration-300" /> */}
-              <a href="https://www.justopensource.io/" target="_blank" rel="noopener noreferrer" className="inline-flex opacity-80 hover:opacity-100 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 rounded">
-                <img src="/Partners/just.svg" alt="Just" className="h-10 filter grayscale brightness-200 contrast-50" />
-              </a>
-              <a href="https://www.cltweb.org/" target="_blank" rel="noopener noreferrer" className="inline-flex opacity-80 hover:opacity-100 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 rounded">
-                <img src="/Partners/New-CLT-Center-Text-logo.svg" alt="Community Land Trust Center" className="h-14 filter grayscale brightness-200 contrast-50" />
-              </a>
+            <div className="group partners-marquee-mask w-full overflow-hidden">
+              <div className="flex w-max motion-safe:animate-marquee motion-reduce:animate-none motion-reduce:translate-x-0 group-hover:[animation-play-state:paused] group-has-[:focus-visible]:[animation-play-state:paused]">
+                {[0, 1].map((copy) => (
+                  <div
+                    key={copy}
+                    className="flex shrink-0 items-center gap-14 md:gap-20 pr-14 md:pr-20"
+                    aria-hidden={copy === 1 ? true : undefined}
+                  >
+                    {PARTNER_LOGOS.map((partner) => (
+                      <a
+                        key={`${copy}-${partner.alt}`}
+                        href={partner.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        tabIndex={copy === 1 ? -1 : undefined}
+                        className="inline-flex shrink-0 opacity-80 hover:opacity-100 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 rounded"
+                      >
+                        <img src={partner.src} alt={partner.alt} className={partner.imgClassName} />
+                      </a>
+                    ))}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
