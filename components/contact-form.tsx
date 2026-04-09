@@ -30,15 +30,8 @@ export function ContactForm() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          to: "hello@komma.systems",
-          from: "KOMMA Systems <onboarding@resend.dev>",
-          subject: "New Contact Form Submission",
-          html: `
-            <h2>New Contact Form Submission</h2>
-            <p><strong>Email:</strong> ${email}</p>
-            <p><strong>Message:</strong></p>
-            <p>${message.replace(/\n/g, "<br>")}</p>
-          `,
+          email,
+          message,
         }),
       })
 
