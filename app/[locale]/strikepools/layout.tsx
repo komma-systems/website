@@ -10,7 +10,7 @@ export async function generateMetadata({
   const { locale: raw } = await params
   const locale: Locale = isLocale(raw) ? raw : defaultLocale
   return {
-    title: "Komma / Strike Pools",
+    title: "KOMMA / Strike Pools",
     description: "Strike Pools — A KOMMA initiative",
     ...localeAlternatesMetadata("/strikepools", locale),
   }

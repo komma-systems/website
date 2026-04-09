@@ -305,7 +305,7 @@ export function HomePageClient() {
           <div className="max-w-4xl mx-auto text-center">
             <AnimatedElement animation="fade-in" className="mb-12">
               <p className="text-2xl sm:text-xl md:text-2xl lg:text-3xl px-4 sm:px-0" style={{ lineHeight: 1.5 }}>
-                <span className="komma-title">Komma</span> {t.intro1}
+                <span className="komma-title">KOMMA</span> {t.intro1}
               </p>
               <p className="text-2xl sm:text-xl md:text-2xl lg:text-3xl px-4 sm:px-0 mt-6 transition-colors duration-1000" style={{ lineHeight: 1.5, color: showSecondParagraph ? (textColorWhite ? 'white' : '#333') : '#666' }}>
                 {t.intro2}
@@ -616,7 +616,7 @@ export function HomePageClient() {
                     </div>
                   </div>
                   <p className="text-sm text-gray-500 leading-relaxed">
-                    Robert Matijević is a fullstack developer and technical lead with a decade of experience shipping software and leading engineering teams across complex, multi-layer systems. He brings a generalist depth across frontend, backend, and infrastructure that lets him move fluidly between architecture decisions and hands-on implementation with an expertise in Rust. Alongside his professional work, Robert pursues a personal fascination with the world's writing systems. He joined Komma as Meld Initiative Technical Lead in 2025, where he leads development of the Kair platform.
+                    Robert Matijević is a fullstack developer and technical lead with a decade of experience shipping software and leading engineering teams across complex, multi-layer systems. He brings a generalist depth across frontend, backend, and infrastructure that lets him move fluidly between architecture decisions and hands-on implementation with an expertise in Rust. Alongside his professional work, Robert pursues a personal fascination with the world's writing systems. He joined KOMMA as Meld Initiative Technical Lead in 2025, where he leads development of the Kair platform.
                   </p>
                 </div>
               </AnimatedElement>
@@ -676,7 +676,7 @@ export function HomePageClient() {
                     </div>
                   </div>
                   <p className="text-sm text-gray-500 leading-relaxed">
-                    Dan Lewis is a software developer, cooperative entrepreneur, and business coach rooted in the Enspiral network, where he serves as a Foundation Steward. With a background spanning technical architecture, organisational design, and decentralised coordination, he brings a rare cross-disciplinary perspective to the future of collaborative work. He advises Komma Systems on the Meld Initiative.
+                    Dan Lewis is a software developer, cooperative entrepreneur, and business coach rooted in the Enspiral network, where he serves as a Foundation Steward. With a background spanning technical architecture, organisational design, and decentralised coordination, he brings a rare cross-disciplinary perspective to the future of collaborative work. He advises KOMMA Systems on the Meld Initiative.
                   </p>
                 </div>
               </AnimatedElement>

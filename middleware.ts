@@ -1,9 +1,14 @@
 import { NextResponse } from "next/server"
 import type { NextRequest } from "next/server"
+import { getToken } from "next-auth/jwt"
 import { LOCALE_HEADER, PATHNAME_HEADER } from "@/lib/request-locale"
 import { defaultLocale, isLocale, locales, type Locale } from "@/lib/i18n"
 
 const LOCALE_COOKIE = "NEXT_LOCALE"
+
+function authSecret(): string | undefined {
+  return process.env.NEXTAUTH_SECRET ?? process.env.AUTH_SECRET
+}
 
 function preferredFromAcceptLanguage(header: string | null): Locale {
   if (!header) return defaultLocale
@@ -20,7 +25,51 @@ function resolveLocale(request: NextRequest): Locale {
   return preferredFromAcceptLanguage(request.headers.get("accept-language"))
 }
 
-export function middleware(request: NextRequest) {
+async function handlePortalAndLogin(request: NextRequest): Promise<NextResponse> {
+  const { pathname } = request.nextUrl
+  const secret = authSecret()
+
+  const token = secret
+    ? await getToken({
+        req: request,
+        secret,
+      })
+    : null
+
+  if (pathname === "/login") {
+    if (token?.accessGranted === true) {
+      return NextResponse.redirect(new URL("/portal/dashboard", request.url))
+    }
+    if (token) {
+      return NextResponse.redirect(new URL("/portal/access-pending", request.url))
+    }
+    return NextResponse.next()
+  }
+
+  if (pathname.startsWith("/portal")) {
+    if (pathname === "/portal/access-pending") {
+      if (!token) {
+        return NextResponse.redirect(new URL("/login", request.url))
+      }
+      if (token.accessGranted === true) {
+        return NextResponse.redirect(new URL("/portal/dashboard", request.url))
+      }
+      return NextResponse.next()
+    }
+
+    if (!token) {
+      return NextResponse.redirect(new URL("/login", request.url))
+    }
+    if (token.accessGranted !== true) {
+      return NextResponse.redirect(new URL("/portal/access-pending", request.url))
+    }
+    return NextResponse.next()
+  }
+
+  return NextResponse.next()
+}
+
+export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
   if (
@@ -30,6 +79,28 @@ export function middleware(request: NextRequest) {
     /\.[^/]+$/.test(pathname)
   ) {
     return NextResponse.next()
+  }
+
+  if (pathname === "/login" || pathname.startsWith("/portal")) {
+    return handlePortalAndLogin(request)
+  }
+
+  // Keep the public Meld entry path locale-neutral (e.g. meld.komma.systems -> /meld).
+  // We internally rewrite to the default locale route so users are not redirected
+  // through language filtering.
+  if (pathname === "/meld" || pathname.startsWith("/meld/")) {
+    const requestHeaders = new Headers(request.headers)
+    requestHeaders.set(LOCALE_HEADER, defaultLocale)
+    requestHeaders.set(PATHNAME_HEADER, pathname)
+
+    const url = request.nextUrl.clone()
+    url.pathname = `/${defaultLocale}${pathname}`
+
+    return NextResponse.rewrite(url, {
+      request: {
+        headers: requestHeaders,
+      },
+    })
   }
 
   const pathnameLocale = locales.find(

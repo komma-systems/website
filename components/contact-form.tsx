@@ -31,7 +31,7 @@ export function ContactForm() {
         },
         body: JSON.stringify({
           to: "hello@komma.systems",
-          from: "Komma Systems <onboarding@resend.dev>",
+          from: "KOMMA Systems <onboarding@resend.dev>",
           subject: "New Contact Form Submission",
           html: `
             <h2>New Contact Form Submission</h2>

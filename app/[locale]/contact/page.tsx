@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: raw } = await params
   const locale: Locale = isLocale(raw) ? raw : defaultLocale
   return {
-    title: "Komma / Contact",
+    title: "KOMMA / Contact",
     ...localeAlternatesMetadata("/contact", locale),
   }
 }

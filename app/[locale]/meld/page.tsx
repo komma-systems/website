@@ -5,7 +5,7 @@ import { defaultLocale, isLocale, type Locale } from "@/lib/i18n"
 import { localeAlternatesMetadata } from "@/lib/metadata/locale-alternates"
 
 const meldDescription =
-  "Meld is a hardware device and spatial AI platform for civic deliberation. Built by Komma Systems."
+  "Meld is a hardware device and spatial AI platform for civic deliberation. Built by KOMMA Systems."
 
 export async function generateMetadata({
   params,
@@ -15,17 +15,17 @@ export async function generateMetadata({
   const { locale: raw } = await params
   const locale: Locale = isLocale(raw) ? raw : defaultLocale
   return {
-    title: "Komma / Meld",
+    title: "KOMMA / Meld",
     description: meldDescription,
     openGraph: {
-      title: "Komma / Meld",
+      title: "KOMMA / Meld",
       description: meldDescription,
       url: "https://meld.komma.systems",
       type: "website",
     },
     twitter: {
       card: "summary_large_image",
-      title: "Komma / Meld",
+      title: "KOMMA / Meld",
       description: meldDescription,
     },
     ...localeAlternatesMetadata("/meld", locale),
@@ -68,7 +68,7 @@ export default async function MeldPage({ params }: PageProps) {
               Governance fails because what people say
               disappears. Citizen assemblies, community consultations, and municipal workshops
               produce hours of spoken deliberation that is difficult to track, impossible to compare
-              across sessions, and rarely reflected in the decisions that follow. Meld is Komma&apos;s
+              across sessions, and rarely reflected in the decisions that follow. Meld is KOMMA&apos;s
               initiative to address that.
             </p>
             <p className={`${proseClasses} mt-6`}>
@@ -163,7 +163,7 @@ export default async function MeldPage({ params }: PageProps) {
               for Geoanthropology.
             </p> */}
             {/* <p className={`${proseClasses} mt-6`}>
-              This is the first instantiation of the Kair Network: Komma&apos;s vision for a distributed
+              This is the first instantiation of the Kair Network: KOMMA&apos;s vision for a distributed
               set of places where civic deliberation is captured, structured, and returned to
               communities as usable knowledge.
             </p> */}

@@ -11,7 +11,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: raw } = await params
   const locale: Locale = isLocale(raw) ? raw : defaultLocale
   return {
-    title: "Komma / About",
+    title: "KOMMA / About",
     ...localeAlternatesMetadata("/about", locale),
   }
 }

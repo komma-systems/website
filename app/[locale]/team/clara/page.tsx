@@ -11,7 +11,7 @@ export async function generateMetadata({
   const { locale: raw } = await params
   const locale: Locale = isLocale(raw) ? raw : defaultLocale
   return {
-    title: "Komma / Clara Gromaches",
+    title: "KOMMA / Clara Gromaches",
     ...localeAlternatesMetadata("/team/clara", locale),
   }
 }

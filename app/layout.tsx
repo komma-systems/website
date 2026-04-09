@@ -3,6 +3,7 @@ import "./globals.css"
 import type { Metadata } from "next"
 import { Source_Serif_4, Silkscreen } from "next/font/google"
 import { SiteFooter } from "@/components/site-footer"
+import { AuthProvider } from "@/app/providers"
 import { getRequestLocale } from "@/lib/request-locale"
 import { getSiteBaseUrl } from "@/lib/site-url"
 import type { Locale } from "@/lib/i18n"
@@ -26,7 +27,7 @@ const silkscreen = Silkscreen({
 
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteBaseUrl()),
-  title: "Komma / Initiative",
+  title: "KOMMA / Initiative",
   description: "A pause, transition, integration, or inflection point punctuating the dynamic relationship between sensing and action",
   generator: 'v0.dev',
   viewport: "width=device-width, initial-scale=1",
@@ -41,7 +42,7 @@ export const metadata: Metadata = {
     apple: "/favicon.svg",
   },
   openGraph: {
-    title: "Komma / Initiative",
+    title: "KOMMA / Initiative",
     description: "A pause, transition, integration, or inflection point punctuating the dynamic relationship between sensing and action",
     type: "website",
   },
@@ -62,8 +63,10 @@ export default async function RootLayout({
         <link rel="apple-touch-icon" href="/favicon.svg" />
       </head>
       <body>
-        {children}
-        <SiteFooter />
+        <AuthProvider>
+          {children}
+          <SiteFooter />
+        </AuthProvider>
       </body>
     </html>
   )

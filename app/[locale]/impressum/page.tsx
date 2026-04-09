@@ -10,7 +10,7 @@ export async function generateMetadata({
   const { locale: raw } = await params
   const locale: Locale = isLocale(raw) ? raw : defaultLocale
   return {
-    title: "Komma / Impressum",
+    title: "KOMMA / Impressum",
     ...localeAlternatesMetadata("/impressum", locale),
   }
 }
@@ -23,7 +23,7 @@ export default function ImpressumPage() {
 
         <div className="mt-12 space-y-10 text-[1.02rem] leading-[1.75] text-slate-100">
           <div>
-            <p className="font-medium text-white">Komma Genossenschaft</p>
+            <p className="font-medium text-white">KOMMA Genossenschaft</p>
             <p className="mt-3">In der Specki 3</p>
             <p>9494 Schaan</p>
             <p>Liechtenstein</p>

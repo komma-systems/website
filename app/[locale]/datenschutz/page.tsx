@@ -10,7 +10,7 @@ export async function generateMetadata({
   const { locale: raw } = await params
   const locale: Locale = isLocale(raw) ? raw : defaultLocale
   return {
-    title: "Komma / Privacy Policy",
+    title: "KOMMA / Privacy Policy",
     ...localeAlternatesMetadata("/datenschutz", locale),
   }
 }
@@ -29,7 +29,7 @@ export default function PrivacyPolicyPage() {
             <h2 className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">
               1. Data controller
             </h2>
-            <p className="mt-3 font-medium text-white">Komma Genossenschaft</p>
+            <p className="mt-3 font-medium text-white">KOMMA Genossenschaft</p>
             <p className="mt-3">In der Specki 3</p>
             <p>9494 Schaan</p>
             <p>Liechtenstein</p>
@@ -171,7 +171,7 @@ export default function PrivacyPolicyPage() {
               and, where offered, in a data processing agreement (DPA). Those instruments often
               incorporate the EU Commission&apos;s standard contractual clauses (SCCs) or another
               approved transfer mechanism for processor processing. The exact tool that governs your
-              relationship depends on the terms and DPA (if any) accepted between Komma
+              relationship depends on the terms and DPA (if any) accepted between KOMMA
               Genossenschaft and each provider. We recommend reviewing Vercel&apos;s and
               Resend&apos;s current DPA and privacy materials and confirming that you have accepted
               the processing terms that apply to your account.
