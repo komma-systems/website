@@ -12,26 +12,29 @@ export async function POST(request: Request) {
       )
     }
 
-    const { email, message } = await request.json()
+    const { name, email, message } = await request.json()
 
-    if (!email || !message) {
+    if (!name || !email || !message) {
       return NextResponse.json(
-        { error: "Missing required fields: email, message" },
+        { error: "Missing required fields: name, email, message" },
         { status: 400 }
       )
     }
 
+    const payload = new URLSearchParams({
+      name: String(name),
+      email: String(email),
+      message: String(message),
+      source: "website-contact-form",
+      sentAt: new Date().toISOString(),
+    })
+
     const scriptResponse = await fetch(googleScriptUrl, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
       },
-      body: JSON.stringify({
-        email,
-        message,
-        source: "website-contact-form",
-        sentAt: new Date().toISOString(),
-      }),
+      body: payload.toString(),
     })
 
     if (!scriptResponse.ok) {

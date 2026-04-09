@@ -12,10 +12,11 @@ export function ContactForm() {
       
       const form = event.currentTarget
       const formData = new FormData(form)
+      const name = formData.get("name") as string
       const email = formData.get("email") as string
       const message = formData.get("message") as string
 
-      if (!email || !message) {
+      if (!name || !email || !message) {
         toast({
           variant: "destructive",
           title: "Error",
@@ -30,6 +31,7 @@ export function ContactForm() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
+          name,
           email,
           message,
         }),
@@ -62,6 +64,21 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-8 font-sans">
+      <div className="space-y-4">
+        <label htmlFor="name" className="block text-sm uppercase tracking-wider text-white/60 font-silkscreen">
+          Name
+        </label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Enter your name"
+          required
+          disabled={isLoading}
+          className="w-full bg-transparent rounded-lg p-3 text-base border border-white/10 focus:border-white placeholder:text-white/40 resize-none transition-colors disabled:opacity-50"
+        />
+      </div>
+
       <div className="space-y-4">
         <label htmlFor="email" className="block text-sm uppercase tracking-wider text-white/60 font-silkscreen">
           Email Address
