@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server"
 
 export const maxDuration = 15
+export const dynamic = "force-dynamic"
 
 export async function POST(request: Request) {
   try {
@@ -38,24 +39,24 @@ export async function POST(request: Request) {
       )
     }
 
-    const payload = new URLSearchParams({
+    const payload = {
       name: String(name),
       email: String(email),
       message: String(message),
       source: "website-contact-form",
       sentAt: new Date().toISOString(),
-    })
+    }
 
     let scriptResponse: Response
     try {
       scriptResponse = await fetch(validatedScriptUrl, {
         method: "POST",
         headers: {
-          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+          "Content-Type": "application/json",
         },
         redirect: "follow",
         signal: AbortSignal.timeout(12000),
-        body: payload.toString(),
+        body: JSON.stringify(payload),
       })
     } catch (fetchError) {
       const isTimeout =

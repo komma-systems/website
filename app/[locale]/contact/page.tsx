@@ -75,7 +75,10 @@ export default async function ContactPage({ params }: Props) {
                 <div>
                   <h2 className="text-xs sm:text-sm uppercase tracking-wider text-white/60 mb-1">{t.social}</h2>
                   <div className="flex gap-4 mt-2">
-                    <a href="#" className="hover:opacity-80 transition-opacity text-base sm:text-lg">
+                    <a
+                      href="https://www.linkedin.com/company/komma-systems"
+                      className="hover:opacity-80 transition-opacity text-base sm:text-lg"
+                    >
                       LinkedIn
                     </a>
                   </div>
