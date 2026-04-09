@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server"
 
+export const maxDuration = 15
+
 export async function POST(request: Request) {
   try {
     const googleScriptUrl =
@@ -21,6 +23,21 @@ export async function POST(request: Request) {
       )
     }
 
+    const validatedScriptUrl = (() => {
+      try {
+        return new URL(googleScriptUrl).toString()
+      } catch {
+        return null
+      }
+    })()
+
+    if (!validatedScriptUrl) {
+      return NextResponse.json(
+        { error: "CONTACT_FORM_SCRIPT_URL is not a valid URL" },
+        { status: 500 }
+      )
+    }
+
     const payload = new URLSearchParams({
       name: String(name),
       email: String(email),
@@ -29,13 +46,30 @@ export async function POST(request: Request) {
       sentAt: new Date().toISOString(),
     })
 
-    const scriptResponse = await fetch(googleScriptUrl, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
-      },
-      body: payload.toString(),
-    })
+    let scriptResponse: Response
+    try {
+      scriptResponse = await fetch(validatedScriptUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+        },
+        redirect: "follow",
+        signal: AbortSignal.timeout(12000),
+        body: payload.toString(),
+      })
+    } catch (fetchError) {
+      const isTimeout =
+        fetchError instanceof DOMException && fetchError.name === "TimeoutError"
+      const isAbort = fetchError instanceof DOMException && fetchError.name === "AbortError"
+      return NextResponse.json(
+        {
+          error: isTimeout || isAbort
+            ? "Google Script request timed out"
+            : "Failed to reach Google Script endpoint",
+        },
+        { status: isTimeout || isAbort ? 504 : 502 }
+      )
+    }
 
     if (!scriptResponse.ok) {
       const errorText = await scriptResponse.text()
