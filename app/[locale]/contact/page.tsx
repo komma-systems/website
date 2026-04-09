@@ -87,7 +87,7 @@ export default async function ContactPage({ params }: Props) {
             </div>
 
             <div className="bg-[#111] p-6 rounded-lg">
-              <ContactForm />
+              <ContactForm locale={locale} />
             </div>
           </div>
         </div>

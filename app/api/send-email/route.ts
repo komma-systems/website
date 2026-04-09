@@ -3,6 +3,45 @@ import { NextResponse } from "next/server"
 export const maxDuration = 15
 export const dynamic = "force-dynamic"
 
+/** Safe, user-facing message when the Apps Script web app returns a non-OK HTTP status. */
+function messageForGoogleScriptFailure(status: number, rawText: string): string {
+  const trimmed = rawText.trim()
+  if (trimmed.startsWith("{")) {
+    try {
+      const parsed = JSON.parse(trimmed) as Record<string, unknown>
+      const fromScript =
+        (typeof parsed.error === "string" && parsed.error) ||
+        (typeof parsed.message === "string" && parsed.message) ||
+        ""
+      const text = fromScript.trim()
+      if (
+        text.length > 0 &&
+        text.length <= 280 &&
+        !/<[a-z][\s\S]*>/i.test(text)
+      ) {
+        return text
+      }
+    } catch {
+      // fall through to status-based message
+    }
+  }
+
+  switch (status) {
+    case 401:
+    case 403:
+      return "The contact form could not reach the mail service (access denied). If this persists, email us directly."
+    case 404:
+      return "The contact form endpoint was not found. The mail integration URL may need to be updated."
+    case 429:
+      return "Too many messages were sent in a short time. Please wait a moment and try again."
+    case 502:
+    case 503:
+      return "The mail service is temporarily unavailable. Please try again in a few minutes."
+    default:
+      return "We could not send your message through the mail service. Please try again or email us directly."
+  }
+}
+
 export async function POST(request: Request) {
   try {
     const googleScriptUrl =
@@ -72,24 +111,38 @@ export async function POST(request: Request) {
       )
     }
 
+    // Read body once — needed for logging and safe JSON handling
+    const rawText = await scriptResponse.text()
+    console.log("RAW GOOGLE RESPONSE:", rawText)
+
     if (!scriptResponse.ok) {
-      const errorText = await scriptResponse.text()
+      const error = messageForGoogleScriptFailure(scriptResponse.status, rawText)
+      console.error("Google Apps Script non-OK response:", {
+        status: scriptResponse.status,
+        bodyPreview: rawText.slice(0, 500),
+      })
       return NextResponse.json(
-        { error: `Google Script request failed (${scriptResponse.status}): ${errorText}` },
+        {
+          error,
+          status: scriptResponse.status,
+        },
         { status: 502 }
       )
     }
 
-    const scriptRaw = await scriptResponse.text()
-    const scriptResult = (() => {
-      try {
-        return JSON.parse(scriptRaw) as unknown
-      } catch {
-        return scriptRaw
-      }
-    })()
-
-    return NextResponse.json({ success: true, scriptResult }, { status: 200 })
+    try {
+      const result = JSON.parse(rawText) as unknown
+      return NextResponse.json({ success: true, scriptResult: result }, { status: 200 })
+    } catch {
+      console.error("Failed to parse Google response as JSON")
+      return NextResponse.json(
+        {
+          error: "Invalid JSON from Google",
+          rawText,
+        },
+        { status: 502 }
+      )
+    }
   } catch (error) {
     console.error("Error handling contact form:", error)
     return NextResponse.json(

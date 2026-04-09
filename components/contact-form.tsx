@@ -1,9 +1,34 @@
 "use client"
 import { useState } from "react"
 import { toast } from "@/components/ui/use-toast"
+import { defaultLocale, isLocale, type Locale } from "@/lib/i18n"
 
-export function ContactForm() {
+const successCopy: Record<
+  Locale,
+  { title: string; body: string; again: string }
+> = {
+  en: {
+    title: "Message sent",
+    body: "Thank you for reaching out. We will get back to you as soon as we can.",
+    again: "Send another message",
+  },
+  de: {
+    title: "Nachricht gesendet",
+    body: "Vielen Dank für Ihre Nachricht. Wir melden uns so bald wie möglich bei Ihnen.",
+    again: "Weitere Nachricht senden",
+  },
+}
+
+type ContactFormProps = {
+  locale?: string
+}
+
+export function ContactForm({ locale: localeProp }: ContactFormProps = {}) {
+  const locale: Locale =
+    localeProp !== undefined && isLocale(localeProp) ? localeProp : defaultLocale
+  const t = successCopy[locale]
   const [isLoading, setIsLoading] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     try {
@@ -37,19 +62,24 @@ export function ContactForm() {
         }),
       })
 
-      const data = await response.json()
-
-      if (!response.ok) {
-        throw new Error(data.error || "Failed to send message")
+      let data: { error?: string } = {}
+      try {
+        data = (await response.json()) as { error?: string }
+      } catch {
+        // non-JSON error body
       }
 
-      toast({
-        title: "Success",
-        description: "Message sent successfully! We'll get back to you soon.",
-      })
+      if (!response.ok) {
+        toast({
+          variant: "destructive",
+          title: "Error",
+          description: data.error || "Failed to send message. Please try again later.",
+        })
+        return
+      }
 
-      // Reset form
       form.reset()
+      setSubmitted(true)
     } catch (error) {
       console.error("Error sending message:", error)
       toast({
@@ -60,6 +90,38 @@ export function ContactForm() {
     } finally {
       setIsLoading(false)
     }
+  }
+
+  if (submitted) {
+    return (
+      <div className="space-y-6 font-sans text-center sm:text-left" role="status" aria-live="polite">
+        <div className="mx-auto sm:mx-0 flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-white/5">
+          <svg
+            className="h-6 w-6 text-white"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden
+          >
+            <path d="M20 6 9 17l-5-5" />
+          </svg>
+        </div>
+        <div className="space-y-2">
+          <h2 className="text-lg font-medium text-white font-silkscreen uppercase tracking-wider">{t.title}</h2>
+          <p className="text-base text-white/80 leading-relaxed">{t.body}</p>
+        </div>
+        <button
+          type="button"
+          onClick={() => setSubmitted(false)}
+          className="w-full sm:w-auto px-6 py-3 bg-transparent border border-white text-white rounded-lg transition-all duration-300 hover:bg-gradient-to-r hover:from-pink-500 hover:via-white hover:to-blue-500 hover:border-transparent hover:text-black"
+        >
+          {t.again}
+        </button>
+      </div>
+    )
   }
 
   return (
