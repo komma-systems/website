@@ -1,6 +1,6 @@
 import type React from "react"
 import "./globals.css"
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { Source_Serif_4, Silkscreen } from "next/font/google"
 import { SiteFooter } from "@/components/site-footer"
 import { AuthProvider } from "@/app/providers"
@@ -25,13 +25,17 @@ const silkscreen = Silkscreen({
   display: "swap",
 })
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#000000",
+}
+
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteBaseUrl()),
   title: "KOMMA / Initiative",
   description: "A pause, transition, integration, or inflection point punctuating the dynamic relationship between sensing and action",
   generator: 'v0.dev',
-  viewport: "width=device-width, initial-scale=1",
-  themeColor: "#000000",
   icons: {
     icon: [
       { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },

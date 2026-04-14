@@ -49,7 +49,9 @@ export default async function MeldPage({ params }: PageProps) {
       <main className="min-h-screen bg-black px-6 pb-14 pt-28 font-sourceSerif text-white sm:px-10 sm:pt-32">
         <div className="mx-auto max-w-[680px]">
           <header className="mb-16 pb-10">
-            <h1 className="text-6xl font-semibold tracking-tight text-white sm:text-7xl">Meld</h1>
+            <h1 className="font-silkscreen text-6xl font-semibold tracking-tight text-white sm:text-7xl">
+              Meld
+            </h1>
             <p className="mt-5 text-lg text-slate-200">
               Making physical space programmable
               <br />
