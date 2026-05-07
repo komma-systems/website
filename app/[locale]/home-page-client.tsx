@@ -369,7 +369,7 @@ export function HomePageClient() {
         </section>
 
         {/* Initiatives Section */}
-        <section id="initiatives" className="py-16 px-4 sm:px-6 md:px-8 bg-black">
+        <section id="initiatives" className="hidden py-16 px-4 sm:px-6 md:px-8 bg-black">
           <div className="max-w-7xl mx-auto">
             <AnimatedElement animation="fade-in" className="mb-16">
               <div className="flex items-center gap-2 sm:gap-4 mb-6 sm:mb-8 pb-3 sm:pb-4 border-b border-[#46403e]">
