@@ -50,7 +50,7 @@ const en: HomeMessages = {
       key: "wealth",
       heading: "Inverting Civic Wealth",
       description:
-        "Supporting communities through co-designing innovative economic tools to enhance control over housing and land ownership. Pooled funding, community-driven exit strategies, multi-capital currencies, and bioregional banking reshape how wealth flows within neighborhoods and interconnected communities.",
+        "Supporting communities through co-designing innovative economic tools to enhance control over housing and land ownership. Pooled funding, community-driven exit strategies, multi-capital currencies, and bioregional banking reshape how wealth flows within neighbourhoods and interconnected communities.",
     },
     {
       key: "agreements",
