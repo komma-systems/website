@@ -42,12 +42,6 @@ const PARTNER_LOGOS = [
     imgClassName: "h-14 w-auto filter grayscale brightness-200 contrast-50",
   },
   {
-    href: "https://www.brookes.ac.uk/",
-    src: "/Partners/oxford-brookes.svg",
-    alt: "Oxford Brookes University",
-    imgClassName: "h-14 filter grayscale brightness-200 contrast-50",
-  },
-  {
     href: "https://impacthub.net/",
     src: "/Partners/impact-hub.svg",
     alt: "Impact Hub",
