@@ -6,9 +6,31 @@ import { Navigation } from "@/components/navigation"
 import { ChevronDown } from "lucide-react"
 import { AnimatedElement } from "@/components/animated-element"
 import { RippleButton } from "@/components/ripple-button"
-import { MaskedVideoText } from '@/components/MaskedVideoText'
 import { defaultLocale, isLocale, type Locale } from "@/lib/i18n"
 import { homeMessages } from "@/lib/messages/home"
+
+const EXCLOSURE_URL =
+  "https://jessykate.medium.com/coordi-nations-a-new-institutional-structure-for-global-cooperation-3ef38d6e2cfa"
+
+function linkExclosure(text: string) {
+  const m = text.match(/exclosure/i)
+  if (!m || m.index === undefined) return text
+  const word = m[0]
+  return (
+    <>
+      {text.slice(0, m.index)}
+      <a
+        href={EXCLOSURE_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="underline underline-offset-2 hover:text-white transition-colors"
+      >
+        {word}
+      </a>
+      {text.slice(m.index + word.length)}
+    </>
+  )
+}
 
 const PARTNER_LOGOS = [
   {
@@ -62,8 +84,6 @@ export function HomePageClient() {
   const t = homeMessages[locale]
 
   const [opacity, setOpacity] = useState(0)
-  const [isActionActive, setIsActionActive] = useState(false)
-  const [actionHover, setActionHover] = useState(false)
   const [showSecondParagraph, setShowSecondParagraph] = useState(false)
   const [chevronClicked, setChevronClicked] = useState(false)
   const [textColorWhite, setTextColorWhite] = useState(false)
@@ -215,9 +235,6 @@ export function HomePageClient() {
     approachSectionRef.current?.scrollIntoView({ behavior: 'smooth' })
   }
 
-  const handleTouchStart = () => setIsActionActive(true)
-  const handleTouchEnd = () => setIsActionActive(false)
-
   return (
     <div className="min-h-screen flex flex-col bg-black text-white">
       <Navigation />
@@ -225,91 +242,20 @@ export function HomePageClient() {
 
       <main className="flex-1 flex flex-col pt-12">
         {/* Hero Section */}
-        <section className="flex items-start justify-center px-4 pt-2 min-h-screen">
+        <section className="flex items-center justify-center px-4 min-h-screen">
           <div
-            className="w-full max-w-4xl transition-opacity duration-3000 ease-in-out mt-8 md:mt-16"
+            className="w-full max-w-4xl transition-opacity duration-3000 ease-in-out text-center"
             style={{ opacity }}
           >
-            <div className="flex flex-col md:flex-row md:items-start gap-5 md:gap-16">
-              {/* KOMMA title - positioned to the left */}
-              <div className="text-left mb-5 md:mb-0 relative inline-block align-top">
-                <span className={`komma-title text-4xl md:text-5xl block transition-colors duration-300 ${actionHover ? 'text-[#222]' : 'text-white'}`}
-                  style={{ verticalAlign: 'top' }}
-                >KOMMA</span>
-              </div>
-
-              {/* Main content - description */}
-              <div className="text-lg md:text-xl lg:text-2xl leading-relaxed space-y-2">
-                <div className={`pb-16 md:pb-20 transition-colors duration-300 ${actionHover ? 'text-[#222]' : 'text-white'}`}> 
-                  {t.hero.line1}
-                  <br />
-                  {t.hero.line2}
-                  <br />
-                  {t.hero.line3}
-                  <br />
-                  {t.hero.line4}
-                  <br />
-                  {t.hero.between ? `${t.hero.between} ` : null}
-                  <span className="relative inline-block cursor-pointer align-baseline"
-                    style={{ verticalAlign: 'baseline' }}
-                    onMouseEnter={() => setActionHover(true)}
-                    onMouseLeave={() => setActionHover(false)}
-                  >
-                    {/* Sensing SVG, slightly lower */}
-                    <img
-                      src="/01Sensing.svg"
-                      alt={t.sensingAlt}
-                      className="h-[1.2em] w-auto align-bottom relative"
-                      style={{ top: '0.15em' }}
-                      draggable={false}
-                    />
-                  </span>{" "}
-                  {t.hero.and}{" "}
-                  <span
-                    className="relative inline-block cursor-pointer align-baseline"
-                    style={{ verticalAlign: 'baseline' }}
-                    onMouseEnter={() => setActionHover(true)}
-                    onMouseLeave={() => setActionHover(false)}
-                  >
-                    <MaskedVideoText
-                      svgSrc="/02Action.svg"
-                      videoSrc="/blob_video.mp4"
-                      alt={t.actionAlt}
-                      className="h-[1.2em] w-auto align-baseline"
-                      hover={actionHover}
-                    />
-                  </span>
-                </div>
-
-                <AnimatedElement animation="fade-in" delay={500}>
-                  <div>
-                    <p
-                      className={`text-lg md:text-xl lg:text-2xl leading-relaxed text-left transition-opacity duration-300 ${actionHover ? 'opacity-100' : 'opacity-0'} pointer-events-none`}
-                      style={{ color: '#e4e4e4' }}
-                    >
-                      {t.researchSubtitle.split("\n").map((line, i) => (
-                        <span key={i}>
-                          {i > 0 ? <br /> : null}
-                          {line}
-                        </span>
-                      ))}
-                    </p>
-                    <span
-                      onMouseEnter={() => setActionHover(true)}
-                      onMouseLeave={() => setActionHover(false)}
-                      className="inline-block mt-16"
-                    >
-                      <RippleButton 
-                        onClick={handleChevronClick} 
-                        className="animate-bounce p-16"
-                      >
-                        <ChevronDown size={32} className="text-white opacity-70 hover:opacity-100 transition-opacity" />
-                      </RippleButton>
-                    </span>
-                  </div>
-                </AnimatedElement>
-              </div>
-            </div>
+            <div className="komma-title text-2xl md:text-3xl mb-12 text-white/90">KOMMA</div>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl leading-[0.95] tracking-tight">
+              {t.hero.headline}
+              <br />
+              <span className="unwind-word">{t.hero.kinetic}</span>
+            </h1>
+            <p className="mt-10 text-lg md:text-2xl text-white/80 max-w-2xl mx-auto leading-relaxed">
+              {t.hero.sub}
+            </p>
           </div>
         </section>
 
@@ -317,11 +263,24 @@ export function HomePageClient() {
           <div className="max-w-4xl mx-auto text-center">
             <AnimatedElement animation="fade-in" className="mb-12">
               <p className="text-2xl sm:text-xl md:text-2xl lg:text-3xl px-4 sm:px-0" style={{ lineHeight: 1.5 }}>
-                <span className="komma-title">KOMMA</span> {t.intro1}
+                {t.intro1}
               </p>
-              <p className="text-2xl sm:text-xl md:text-2xl lg:text-3xl px-4 sm:px-0 mt-6 transition-colors duration-1000" style={{ lineHeight: 1.5, color: showSecondParagraph ? (textColorWhite ? 'white' : '#333') : '#666' }}>
+              <p className="text-2xl sm:text-xl md:text-2xl lg:text-3xl px-4 sm:px-0 mt-6" style={{ lineHeight: 1.5 }}>
                 {t.intro2}
               </p>
+            </AnimatedElement>
+          </div>
+        </section>
+
+        {/* Why — unwinding enclosures (refrain, beat 2) */}
+        <section id="why" className="py-16 px-4 sm:px-6 md:px-8 bg-black scroll-mt-48">
+          <div className="max-w-4xl mx-auto">
+            <AnimatedElement animation="fade-in" className="mb-8">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl">{t.whyHeading}</h2>
+            </AnimatedElement>
+            <AnimatedElement animation="fade-up" delay={100}>
+              <p className="text-lg md:text-xl leading-relaxed text-white/85 mb-6">{linkExclosure(t.whyBody1)}</p>
+              <p className="text-lg md:text-xl leading-relaxed text-white/85">{t.whyBody2}</p>
             </AnimatedElement>
           </div>
         </section>
@@ -349,13 +308,21 @@ export function HomePageClient() {
         <section id="approach" ref={approachSectionRef} className="py-16 px-4 sm:px-6 md:px-8 bg-black scroll-mt-48">
           <div className="max-w-7xl mx-auto">
             <AnimatedElement animation="fade-in" className="mb-12">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl text-center mb-8">{t.ourApproach}</h2>
+              <h2 className="font-silkscreen text-base md:text-lg tracking-widest uppercase text-white filter grayscale brightness-200 contrast-50 text-center mb-8">{t.ourApproach}</h2>
+              <p className="text-lg md:text-xl lg:text-2xl text-center max-w-3xl mx-auto px-4 sm:px-0" style={{ lineHeight: 1.5, color: '#cfcfcf' }}>
+                {t.ourApproachIntro}
+              </p>
+            </AnimatedElement>
+
+            <AnimatedElement animation="fade-in" className="mb-8 mt-4">
+              <h3 className="font-silkscreen text-sm md:text-base tracking-widest uppercase text-white filter grayscale brightness-200 contrast-50 text-center mb-4">{t.strategiesHeading}</h3>
+              <p className="text-base md:text-lg text-center max-w-2xl mx-auto text-white/70" style={{ lineHeight: 1.5 }}>{t.strategiesIntro}</p>
             </AnimatedElement>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {t.approachCards.map((item, idx) => (
                 <AnimatedElement animation="fade-up" delay={100 * (idx + 1)} key={item.key}>
-                  <div className="edge-lines-rounded-xl flex flex-col items-center justify-center min-h-[220px] h-full rounded-xl p-8 bg-transparent text-white transition-all duration-300">
+                  <div className="flex flex-col items-center justify-center min-h-[220px] h-full p-8 bg-transparent text-white transition-all duration-300">
                     <h3 className="text-2xl md:text-3xl font-bold text-center w-full mb-4">
                       {item.heading}
                     </h3>
@@ -366,6 +333,11 @@ export function HomePageClient() {
                 </AnimatedElement>
               ))}
             </div>
+
+            <AnimatedElement animation="fade-in" className="mt-12 max-w-2xl mx-auto">
+              <h3 className="text-2xl md:text-3xl font-bold text-center w-full mb-4">{t.technologyHeading}</h3>
+              <p className="text-base md:text-lg font-normal text-center">{t.technologyBody}</p>
+            </AnimatedElement>
           </div>
         </section>
 
@@ -443,7 +415,7 @@ export function HomePageClient() {
         <section id="team" className="py-16 px-4 sm:px-6 md:px-8 bg-white">
           <div className="max-w-7xl mx-auto">
             <AnimatedElement animation="fade-in" className="mb-16">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-left mb-8 text-black">
+              <h2 className="font-silkscreen text-base md:text-lg tracking-widest uppercase text-left mb-8 text-black">
                 {t.collective}
               </h2>
               <p className="text-lg md:text-xl text-left text-gray-600 max-w-4xl leading-relaxed">

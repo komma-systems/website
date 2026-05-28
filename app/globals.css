@@ -76,6 +76,24 @@ body {
   animation: ripple 0.6s linear;
 }
 
+/* Kinetic "unwinding" headline word: letters unspool apart, then re-gather (loops) */
+@keyframes unwind {
+  0%   { letter-spacing: 0em;    opacity: 1; }
+  45%  { letter-spacing: 0.7em;  opacity: 0.45; }
+  55%  { letter-spacing: 0.7em;  opacity: 0.45; }
+  100% { letter-spacing: 0em;    opacity: 1; }
+}
+
+.unwind-word {
+  display: inline-block;
+  animation: unwind 5s ease-in-out infinite;
+  will-change: letter-spacing, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .unwind-word { animation: none; }
+}
+
 /*
  * White frame: only straight edge segments; corners stay empty so rounded-xl
  * arcs read as “no stroke” (matches Tailwind rounded-xl = 0.75rem).
