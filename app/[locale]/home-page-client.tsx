@@ -481,8 +481,30 @@ export function HomePageClient() {
                 </div>
               </AnimatedElement>
 
-              {/* Clara Gromaches */}
+              {/* Franz Josef Allmayer */}
               <AnimatedElement animation="fade-in" delay={200}>
+                <div className="text-left">
+                  <div className="flex justify-between items-start mb-2">
+                    <h3 className="text-2xl font-bold text-black">Franz Josef Allmayer</h3>
+                    <div className="flex gap-3 ml-4">
+                      <a
+                        href="https://www.linkedin.com/in/franz-josef-allmayer"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-gray-600 hover:text-black transition-colors"
+                      >
+                        <img src="/linkedin.svg" alt="LinkedIn" className="w-5 h-5" />
+                      </a>
+                    </div>
+                  </div>
+                  <p className="text-sm text-gray-500 leading-relaxed">
+                    Franz works on digital infrastructure for decentralised governance and regenerative finance. He builds infrastructure to govern, finance, and verify impacts at internet scale at ixo, and contributes to Hypha developing tools for community-led economies and bioregional currencies such as SEEDS. He also founded Integrity.Earth, an independent think-and-do tank for regenerative development.
+                  </p>
+                </div>
+              </AnimatedElement>
+
+              {/* Clara Gromaches */}
+              <AnimatedElement animation="fade-in" delay={300}>
                 <div className="text-left">
                   <div className="flex justify-between items-start mb-2">
                     <a
@@ -501,13 +523,13 @@ export function HomePageClient() {
                     </a>
                   </div>
                   <p className="text-sm text-gray-500 leading-relaxed">
-                    Clara is a consultant, researcher and business operator on decentralised technologies. With a background in Architecture she developed regenerative housing projects, incubated cooperative housing projects, advised on affordable housing policy making to municipalities in Barcelona and manages operations at a decentralized tech workers cooperative.
+                    Clara is a consultant, researcher and business operator on decentralised technologies. With a background in Architecture she developed regenerative housing projects, incubated cooperative housing projects, advised on affordable housing policy making to municipalities in Barcelona and manages operations at a decentralised tech workers cooperative.
                   </p>
                 </div>
               </AnimatedElement>
 
               {/* Bradley C Royes */}
-              <AnimatedElement animation="fade-in" delay={300}>
+              <AnimatedElement animation="fade-in" delay={400}>
                 <div className="text-left">
                   <div className="flex justify-between items-start mb-2">
                     <h3 className="text-2xl font-bold text-black">Bradley Clark Royes</h3>
@@ -523,13 +545,13 @@ export function HomePageClient() {
                     </div>
                   </div>
                   <p className="text-sm text-gray-500 leading-relaxed">
-                    Bradley is a strategic designer and innovator working at the intersection of culture, AI-native systems, and human-centered technology. Currently the Node Manager for Foresight Institute's Berlin AI Node and leading AI Builders Berlin as Community Director, he brings experience design, blending applied research with grassroots organising and urban rituals.
+                    Bradley is a strategic designer and innovator working at the intersection of culture, AI-native systems, and human-centred technology. Currently the Node Manager for Foresight Institute's Berlin AI Node and leading AI Builders Berlin as Community Director, he brings experience design, blending applied research with grassroots organising and urban rituals.
                   </p>
                 </div>
               </AnimatedElement>
 
               {/* Livia Deschermayer */}
-              <AnimatedElement animation="fade-in" delay={400}>
+              <AnimatedElement animation="fade-in" delay={500}>
                 <div className="text-left">
                   <div className="flex justify-between items-start mb-2">
                     <h3 className="text-2xl font-bold text-black">Livia Deschermayer</h3>
@@ -545,13 +567,13 @@ export function HomePageClient() {
                     </div>
                   </div>
                   <p className="text-sm text-gray-500 leading-relaxed">
-                    Livia is an artist and published social researcher in the field of token engineering with deep practice on decentralized ecosystems within topics of governance, culture and incentivization. Her contributions include designing social system protocols and leading the Cultural Build initiative at Commons Stack.
+                    Livia is an artist and published social researcher in the field of token engineering with deep practice on decentralised ecosystems within topics of governance, culture and incentivisation. Her contributions include designing social system protocols and leading the Cultural Build initiative at Commons Stack.
                   </p>
                 </div>
               </AnimatedElement>
 
               {/* Jeff Emmett */}
-              <AnimatedElement animation="fade-in" delay={500}>
+              <AnimatedElement animation="fade-in" delay={600}>
                 <div className="text-left">
                   <div className="flex justify-between items-start mb-2">
                     <h3 className="text-2xl font-bold text-black">Jeff Emmett</h3>
@@ -575,7 +597,7 @@ export function HomePageClient() {
               </AnimatedElement>
 
               {/* Rita Palma */}
-              <AnimatedElement animation="fade-in" delay={600}>
+              <AnimatedElement animation="fade-in" delay={700}>
                 <div className="text-left">
                   <div className="flex justify-between items-start mb-2">
                     <a
@@ -594,13 +616,13 @@ export function HomePageClient() {
                     </a>
                   </div>
                   <p className="text-sm text-gray-500 leading-relaxed">
-                    Rita is an artist and researcher whose work centers on multispecies perspectives within organisational contexts. She explores the convergence of art and sustainability, developing creative and transdisciplinary experiences to challenge conventional paradigms and cultivate new imaginaries for transformative change.
+                    Rita is an artist and researcher whose work centres on multispecies perspectives within organisational contexts. She explores the convergence of art and sustainability, developing creative and transdisciplinary experiences to challenge conventional paradigms and cultivate new imaginaries for transformative change.
                   </p>
                 </div>
               </AnimatedElement>
 
               {/* Robert Matijević */}
-              <AnimatedElement animation="fade-in" delay={700}>
+              <AnimatedElement animation="fade-in" delay={800}>
                 <div className="text-left">
                   <div className="flex justify-between items-start mb-2">
                     <h3 className="text-2xl font-bold text-black">Robert Matijević</h3>

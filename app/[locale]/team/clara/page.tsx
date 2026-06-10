@@ -28,7 +28,7 @@ export default function ClaraPage() {
           <section>
             <h2 className="text-2xl font-semibold mb-4">About</h2>
             <p className="text-gray-300 mb-4">Barcelona, Spain, 1990</p>
-            <p className="text-gray-300 mb-4">With a background as regen architect and social housing incubator I leverage the power of self-organization and decentralized technology to bring housing and land commons to mainstream to advance into having more fair, regen and sovereign societies.</p>
+            <p className="text-gray-300 mb-4">With a background as regen architect and social housing incubator I leverage the power of self-organisation and decentralised technology to bring housing and land commons to mainstream to advance into having more fair, regen and sovereign societies.</p>
           </section>
 
           <section>
@@ -37,12 +37,12 @@ export default function ClaraPage() {
               <div>
                 <h3 className="text-xl font-medium">Community-Led Housing & Blockchain Consultant</h3>
                 <p className="text-gray-300">Independent, remote | Jan 2024-Present</p>
-                <p className="text-gray-300">Advising organizations, start-ups and entrepreneurs on their community-led housing (co-living, pop-up cities, permanent residences) projects using blockchain enabled mechanisms.</p>
+                <p className="text-gray-300">Advising organisations, start-ups and entrepreneurs on their community-led housing (co-living, pop-up cities, permanent residences) projects using blockchain enabled mechanisms.</p>
               </div>
               <div>
                 <h3 className="text-xl font-medium">DAO People Ops & Operations Lead</h3>
                 <p className="text-gray-300">deng service DAO, remote | December 2021-Present</p>
-                <p className="text-gray-300">Leading system improvements for enhanced member and client success, business development strategies and partnerships, org cross-team coordination, and optimizing DAO governance as organization runs as a workers co-operative.</p>
+                <p className="text-gray-300">Leading system improvements for enhanced member and client success, business development strategies and partnerships, org cross-team coordination, and optimising DAO governance as organisation runs as a workers co-operative.</p>
               </div>
               <div>
                 <h3 className="text-xl font-medium">Co-founder, Product Design</h3>

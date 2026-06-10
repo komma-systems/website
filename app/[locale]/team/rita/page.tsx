@@ -28,7 +28,7 @@ export default function RitaPage() {
           <section>
             <h2 className="text-2xl font-semibold mb-4">About</h2>
             <p className="text-gray-300 mb-4">Artist and Researcher</p>
-            <p className="text-gray-300 mb-4">Rita is an artist and researcher whose work centers on multispecies perspectives within organisational contexts. She explores the convergence of art and sustainability, developing creative and transdisciplinary experiences to challenge conventional paradigms and cultivate new imaginaries for transformative change.</p>
+            <p className="text-gray-300 mb-4">Rita is an artist and researcher whose work centres on multispecies perspectives within organisational contexts. She explores the convergence of art and sustainability, developing creative and transdisciplinary experiences to challenge conventional paradigms and cultivate new imaginaries for transformative change.</p>
           </section>
 
           <section>
