@@ -80,7 +80,7 @@ const INITIATIVES = [
     description:
       "Mechanism design for how neighbourhoods capture and circulate the value they create together.",
     stage: "Prototyping",
-    tags: ["economy", "equity", "tech"],
+    tags: ["finance", "ownership", "tech"],
     projects: [
       { name: "Overflow (threshold pools)", href: "https://luma.com/8b7u93xt?tk=zBWUVi" },
       { name: "Tourism Housing Fund", href: "https://frin.notion.site/Local-Affordable-Housing-Funded-by-Tourism-in-Catalonia-2e179ea359ae8016b8a5f2663625aa71" },
