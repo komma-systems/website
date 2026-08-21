@@ -357,6 +357,10 @@ export function HomePageClient() {
                           )}
                         </div>
 
+                        <p className="mt-2 font-mono text-[13px] text-white/50">
+                          {initiative.tags.join(" / ")}
+                        </p>
+
                         <p className="mt-3 text-base lg:text-lg text-gray-300 leading-relaxed max-w-2xl">
                           {initiative.description}
                         </p>
@@ -385,10 +389,6 @@ export function HomePageClient() {
                             )
                           )}
                         </div>
-
-                        <p className="mt-3 font-mono text-[13px] text-white/50">
-                          {initiative.tags.join(" / ")}
-                        </p>
                       </div>
 
                       <div className="flex flex-col sm:items-end gap-3.5">
