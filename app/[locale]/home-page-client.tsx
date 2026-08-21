@@ -841,7 +841,7 @@ export function HomePageClient() {
                 </a>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-[130px_1fr_auto] gap-x-9 gap-y-3 items-start border-t border-b border-white/25 py-8 px-1 sm:px-2 hover:bg-white/[0.04] transition-colors">
+              <div className="grid grid-cols-1 sm:grid-cols-[130px_1fr_auto] gap-x-9 gap-y-3 items-start border-t border-white/25 py-8 px-1 sm:px-2 hover:bg-white/[0.04] transition-colors">
                 <div>
                   <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest text-cream">Forum</p>
                   <p className="mt-1.5 font-mono text-[13px] text-white/60 leading-relaxed">
