@@ -266,8 +266,9 @@ export function HomePageClient() {
         <section id="introduction" ref={introductionSectionRef} className="py-16 px-4 sm:px-6 md:px-8 bg-black scroll-mt-48 min-h-[70vh] flex items-center justify-center">
           <div className="max-w-4xl mx-auto text-center">
             <AnimatedElement animation="fade-in" className="mb-12">
+              <span className="komma-title block text-3xl md:text-4xl mb-10">KOMMA</span>
               <p className="text-2xl sm:text-xl md:text-2xl lg:text-3xl px-4 sm:px-0" style={{ lineHeight: 1.5 }}>
-                <span className="komma-title">KOMMA</span> {t.intro1}
+                {t.intro1}
               </p>
               <p className="text-2xl sm:text-xl md:text-2xl lg:text-3xl px-4 sm:px-0 mt-6 transition-colors duration-1000" style={{ lineHeight: 1.5, color: showSecondParagraph ? (textColorWhite ? 'white' : '#333') : '#666' }}>
                 {t.intro2}
