@@ -647,7 +647,7 @@ export function HomePageClient() {
                   <p className="mt-2 text-base text-gray-300 leading-relaxed max-w-2xl">
                     A live demonstration of Meld with the{" "}
                     <a
-                      href="https://10x100.kair.is/"
+                      href="https://www.alpbach.org/blog/urban-transformation-and-bioregional-resilience-the-micro-macro-deal"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="border-b border-white/30 hover:text-cream hover:border-cream transition-colors"
@@ -659,7 +659,7 @@ export function HomePageClient() {
                   </p>
                 </div>
                 <a
-                  href="https://www.alpbach.org/blog/urban-transformation-and-bioregional-resilience-the-micro-macro-deal"
+                  href="https://10x100.kair.is/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="self-center font-mono text-[13px] text-white/70 border border-white/25 rounded-full px-4 py-2 whitespace-nowrap transition-colors hover:text-cream hover:border-cream"
