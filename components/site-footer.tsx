@@ -64,20 +64,20 @@ export async function SiteFooter() {
 
           <div className="flex flex-wrap items-center gap-4">
             <a
-              href="https://x.com/komma_systems"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white"
-            >
-              X
-            </a>
-            <a
               href="https://www.linkedin.com/company/komma-systems"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-white"
             >
               LinkedIn
+            </a>
+            <a
+              href="https://x.com/komma_systems"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white"
+            >
+              Twitter
             </a>
             <span className="text-white/40">© KOMMA 2026</span>
           </div>
