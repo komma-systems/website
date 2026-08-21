@@ -79,7 +79,7 @@ const INITIATIVES = [
     title: "Relational Wealth Flows",
     description:
       "Mechanism design for how neighbourhoods capture and circulate the value they create together.",
-    stage: "Prototyping",
+    stage: "Exploration",
     tags: ["finance", "ownership", "tech"],
     projects: [
       { name: "Overflow (threshold pools)", href: "https://luma.com/8b7u93xt?tk=zBWUVi" },
