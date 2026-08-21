@@ -19,7 +19,7 @@ export async function SiteFooter() {
     <footer className="bg-[#1c1c1c] px-6 py-14 text-white sm:px-10">
       <div className="mx-auto flex w-full max-w-[980px] flex-col gap-10">
         <div>
-          <Link href={prefix} className="komma-title inline-block text-4xl text-white md:text-5xl">
+          <Link href={prefix} className="komma-title inline-block text-2xl text-white md:text-3xl">
             KOMMA
           </Link>
 
