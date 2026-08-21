@@ -13,6 +13,7 @@ const config: Config = {
       fontFamily: {
         sourceSerif: ["var(--font-source-serif)"],
         silkscreen: ["Silkscreen", "cursive"],
+        mono: ["var(--font-plex-mono)", "ui-monospace", "Menlo", "monospace"],
       },
       colors: {
         cream: "#f5f2e8",

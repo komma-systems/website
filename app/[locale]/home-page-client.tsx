@@ -3,10 +3,7 @@
 import { useEffect, useState, useRef } from "react"
 import { useParams } from "next/navigation"
 import { Navigation } from "@/components/navigation"
-import { ChevronDown } from "lucide-react"
 import { AnimatedElement } from "@/components/animated-element"
-import { RippleButton } from "@/components/ripple-button"
-import { MaskedVideoText } from '@/components/MaskedVideoText'
 import { defaultLocale, isLocale, type Locale } from "@/lib/i18n"
 import { homeMessages } from "@/lib/messages/home"
 
@@ -68,8 +65,11 @@ const INITIATIVES = [
     description:
       "Civic deliberation infrastructure: a hardware device and privacy-preserving platform that captures deliberation in the room, processes it locally, and returns structured documentation.",
     stage: "In deployment",
-    tags: ["#governance", "#tech", "#AI"],
-    projects: ["Kair (platform)", "Nodes (hardware)"],
+    tags: ["governance", "tech", "AI"],
+    projects: [
+      { name: "Kair (platform)", href: "https://kair.is/" },
+      { name: "Device", href: "https://meld.earth/" },
+    ],
     href: "/meld",
   },
   {
@@ -78,8 +78,11 @@ const INITIATIVES = [
     description:
       "Mechanism design for how neighbourhoods capture and circulate the value they create together.",
     stage: "Prototyping",
-    tags: ["#economy", "#equity", "#tech"],
-    projects: ["Overflow (threshold pools)", "Tourism"],
+    tags: ["economy", "equity", "tech"],
+    projects: [
+      { name: "Overflow (threshold pools)", href: "https://luma.com/8b7u93xt?tk=zBWUVi" },
+      { name: "Tourism-to-housing-commons", href: null },
+    ],
     href: null,
   },
   {
@@ -88,8 +91,11 @@ const INITIATIVES = [
     description:
       "Agreements infrastructure for land: a registry that records land as relationships between people, held in modular agreements and validated together.",
     stage: "In development",
-    tags: ["#agreements", "#land", "#tech"],
-    projects: ["Land mapping", "Relational bundles"],
+    tags: ["agreements", "land", "tech"],
+    projects: [
+      { name: "Land mapping", href: null },
+      { name: "Relational bundles", href: null },
+    ],
     href: null,
   },
   {
@@ -98,8 +104,25 @@ const INITIATIVES = [
     description:
       "A practice group and pattern library for embodied governance: collective attunement, ritual openings, and decision patterns.",
     stage: "Research",
-    tags: ["#governance", "#ritual"],
-    projects: ["Pattern book", "Residencies"],
+    tags: ["governance", "ritual"],
+    projects: [
+      { name: "Pattern book", href: null },
+      { name: "Residencies", href: null },
+    ],
+    href: null,
+  },
+  {
+    id: "exclsr",
+    title: "EXCLSR",
+    description:
+      "The Unwinding Enclosure Academy: courses and masterclasses that gather the mechanisms places use to hold land and housing in common, and translate them into patterns others can adapt.",
+    stage: "Education",
+    tags: ["education", "commons"],
+    projects: [
+      { name: "A Tale of Planetary Enclosure", href: null },
+      { name: "Pattern wiki", href: null },
+      { name: "EX:CLSR fund", href: null },
+    ],
     href: null,
   },
 ] as const
@@ -110,11 +133,7 @@ export function HomePageClient() {
   const locale: Locale = isLocale(rawLocale) ? rawLocale : defaultLocale
   const t = homeMessages[locale]
 
-  const [opacity, setOpacity] = useState(0)
-  const [isActionActive, setIsActionActive] = useState(false)
-  const [actionHover, setActionHover] = useState(false)
   const [showSecondParagraph, setShowSecondParagraph] = useState(false)
-  const [chevronClicked, setChevronClicked] = useState(false)
   const [textColorWhite, setTextColorWhite] = useState(false)
   const [initiatives, setInitiatives] = useState<any[]>([])
   const [initiativesLoading, setInitiativesLoading] = useState(true)
@@ -122,40 +141,26 @@ export function HomePageClient() {
   const approachSectionRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    // Start the fade-in animation after component mounts
-    const timer = setTimeout(() => setOpacity(1), 100)
-    return () => clearTimeout(timer)
+    // Reveal the second paragraph after 5 seconds
+    const paragraphTimer = setTimeout(() => setShowSecondParagraph(true), 5000)
+    return () => clearTimeout(paragraphTimer)
   }, [])
 
   useEffect(() => {
-    // Show the second paragraph after 5 seconds only if chevron was clicked
-    if (chevronClicked) {
-      const paragraphTimer = setTimeout(() => setShowSecondParagraph(true), 5000)
-      return () => clearTimeout(paragraphTimer)
-    }
-  }, [chevronClicked])
-
-  useEffect(() => {
     // Make text white after 5 seconds OR when user starts scrolling
-    if (chevronClicked) {
-      const scrollHandler = () => {
-        setTextColorWhite(true)
-      }
-
-      // Add scroll listener
-      window.addEventListener('scroll', scrollHandler)
-
-      // Set timer for 5 seconds
-      const whiteTimer = setTimeout(() => {
-        setTextColorWhite(true)
-      }, 5000)
-
-      return () => {
-        window.removeEventListener('scroll', scrollHandler)
-        clearTimeout(whiteTimer)
-      }
+    const scrollHandler = () => {
+      setTextColorWhite(true)
     }
-  }, [chevronClicked])
+    window.addEventListener('scroll', scrollHandler)
+    const whiteTimer = setTimeout(() => {
+      setTextColorWhite(true)
+    }, 5000)
+
+    return () => {
+      window.removeEventListener('scroll', scrollHandler)
+      clearTimeout(whiteTimer)
+    }
+  }, [])
 
   useEffect(() => {
     // Fetch initiatives from Notion API
@@ -231,18 +236,6 @@ export function HomePageClient() {
     fetchInitiatives()
   }, [])
 
-  const handleChevronClick = () => {
-    setChevronClicked(true)
-    if (introductionSectionRef.current) {
-      const elementTop = introductionSectionRef.current.offsetTop
-      const offsetPosition = elementTop - 100 // Scroll 100px higher than the element
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      })
-    }
-  }
-
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault()
     const href = e.currentTarget.getAttribute('href')
@@ -264,105 +257,13 @@ export function HomePageClient() {
     approachSectionRef.current?.scrollIntoView({ behavior: 'smooth' })
   }
 
-  const handleTouchStart = () => setIsActionActive(true)
-  const handleTouchEnd = () => setIsActionActive(false)
-
   return (
     <div className="min-h-screen flex flex-col bg-black text-white">
       <Navigation />
 
 
       <main className="flex-1 flex flex-col pt-12">
-        {/* Hero Section */}
-        <section className="flex items-start justify-center px-4 pt-2 min-h-screen">
-          <div
-            className="w-full max-w-4xl transition-opacity duration-3000 ease-in-out mt-8 md:mt-16"
-            style={{ opacity }}
-          >
-            <div className="flex flex-col md:flex-row md:items-start gap-5 md:gap-16">
-              {/* KOMMA title - positioned to the left */}
-              <div className="text-left mb-5 md:mb-0 relative inline-block align-top">
-                <span className={`komma-title text-4xl md:text-5xl block transition-colors duration-300 ${actionHover ? 'text-[#222]' : 'text-white'}`}
-                  style={{ verticalAlign: 'top' }}
-                >KOMMA</span>
-              </div>
-
-              {/* Main content - description */}
-              <div className="text-lg md:text-xl lg:text-2xl leading-relaxed space-y-2">
-                <div className={`pb-16 md:pb-20 transition-colors duration-300 ${actionHover ? 'text-[#222]' : 'text-white'}`}> 
-                  {t.hero.line1}
-                  <br />
-                  {t.hero.line2}
-                  <br />
-                  {t.hero.line3}
-                  <br />
-                  {t.hero.line4}
-                  <br />
-                  {t.hero.between ? `${t.hero.between} ` : null}
-                  <span className="relative inline-block cursor-pointer align-baseline"
-                    style={{ verticalAlign: 'baseline' }}
-                    onMouseEnter={() => setActionHover(true)}
-                    onMouseLeave={() => setActionHover(false)}
-                  >
-                    {/* Sensing SVG, slightly lower */}
-                    <img
-                      src="/01Sensing.svg"
-                      alt={t.sensingAlt}
-                      className="h-[1.2em] w-auto align-bottom relative"
-                      style={{ top: '0.15em' }}
-                      draggable={false}
-                    />
-                  </span>{" "}
-                  {t.hero.and}{" "}
-                  <span
-                    className="relative inline-block cursor-pointer align-baseline"
-                    style={{ verticalAlign: 'baseline' }}
-                    onMouseEnter={() => setActionHover(true)}
-                    onMouseLeave={() => setActionHover(false)}
-                  >
-                    <MaskedVideoText
-                      svgSrc="/02Action.svg"
-                      videoSrc="/blob_video.mp4"
-                      alt={t.actionAlt}
-                      className="h-[1.2em] w-auto align-baseline"
-                      hover={actionHover}
-                    />
-                  </span>
-                </div>
-
-                <AnimatedElement animation="fade-in" delay={500}>
-                  <div>
-                    <p
-                      className={`text-lg md:text-xl lg:text-2xl leading-relaxed text-left transition-opacity duration-300 ${actionHover ? 'opacity-100' : 'opacity-0'} pointer-events-none`}
-                      style={{ color: '#e4e4e4' }}
-                    >
-                      {t.researchSubtitle.split("\n").map((line, i) => (
-                        <span key={i}>
-                          {i > 0 ? <br /> : null}
-                          {line}
-                        </span>
-                      ))}
-                    </p>
-                    <span
-                      onMouseEnter={() => setActionHover(true)}
-                      onMouseLeave={() => setActionHover(false)}
-                      className="inline-block mt-16"
-                    >
-                      <RippleButton 
-                        onClick={handleChevronClick} 
-                        className="animate-bounce p-16"
-                      >
-                        <ChevronDown size={32} className="text-white opacity-70 hover:opacity-100 transition-opacity" />
-                      </RippleButton>
-                    </span>
-                  </div>
-                </AnimatedElement>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="introduction" ref={introductionSectionRef} className="py-16 px-4 sm:px-6 md:px-8 bg-black mt-20 scroll-mt-48 min-h-[50vh] flex items-center justify-center">
+        <section id="introduction" ref={introductionSectionRef} className="py-16 px-4 sm:px-6 md:px-8 bg-black scroll-mt-48 min-h-[70vh] flex items-center justify-center">
           <div className="max-w-4xl mx-auto text-center">
             <AnimatedElement animation="fade-in" className="mb-12">
               <p className="text-2xl sm:text-xl md:text-2xl lg:text-3xl px-4 sm:px-0" style={{ lineHeight: 1.5 }}>
@@ -440,45 +341,63 @@ export function HomePageClient() {
                       {String(idx + 1).padStart(2, "0")}
                     </span>
 
-                    <div className="min-w-0">
-                      <div className="flex items-baseline gap-4">
-                        <h3 className="font-light text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-tight group-hover:translate-x-1 transition-transform duration-200">
-                          {initiative.title}
-                        </h3>
-                        {initiative.href && (
-                          <span className="text-white/40 text-xl sm:text-2xl transition-all duration-200 group-hover:text-white group-hover:translate-x-1">
-                            →
-                          </span>
-                        )}
-                      </div>
-
-                      <div className="mt-3 grid grid-cols-1 sm:grid-cols-[1fr_14rem] gap-x-6 gap-y-4 items-start">
-                        <div className="min-w-0">
-                          <p className="text-base lg:text-lg text-gray-300 leading-relaxed max-w-2xl">
-                            {initiative.description}
-                          </p>
-                          <p className="mt-4 text-sm lg:text-base leading-relaxed">
-                            <span className="font-silkscreen text-[0.65rem] uppercase tracking-widest text-white/40 mr-3 align-middle">
-                              Projects
+                    <div className="min-w-0 grid grid-cols-1 sm:grid-cols-[1fr_220px] gap-x-10 gap-y-5 items-start">
+                      <div className="min-w-0">
+                        <div className="flex items-baseline gap-4">
+                          <h3 className="font-light text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-tight group-hover:translate-x-1 transition-transform duration-200">
+                            {initiative.title}
+                          </h3>
+                          {initiative.href && (
+                            <span className="text-white/40 text-xl sm:text-2xl transition-all duration-200 group-hover:text-white group-hover:translate-x-1">
+                              →
                             </span>
-                            <span className="text-white/65">{initiative.projects.join("  ·  ")}</span>
-                          </p>
+                          )}
                         </div>
 
-                        <div className="flex flex-col sm:items-end gap-3">
-                          <span className="font-silkscreen text-xs sm:text-sm uppercase tracking-widest text-white/60">
-                            {initiative.stage}
+                        <p className="mt-3 text-base lg:text-lg text-gray-300 leading-relaxed max-w-2xl">
+                          {initiative.description}
+                        </p>
+
+                        <div className="mt-4 flex flex-wrap items-baseline gap-x-6 gap-y-2">
+                          <span className="font-silkscreen text-[0.65rem] uppercase tracking-widest text-white/40">
+                            Projects
                           </span>
-                          <div className="flex flex-wrap sm:justify-end gap-2">
-                            {initiative.tags.map((tag) => (
-                              <span
-                                key={tag}
-                                className="rounded-full border border-white/25 px-3 py-1 text-xs text-white/50 leading-none whitespace-nowrap"
+                          {initiative.projects.map((project) =>
+                            project.href ? (
+                              <a
+                                key={project.name}
+                                href={project.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={(e) => e.stopPropagation()}
+                                className="font-mono text-sm text-white/85 border-b border-white/30 pb-0.5 transition-colors hover:text-cream hover:border-cream"
                               >
-                                {tag.replace("#", "")}
+                                {project.name}
+                                <span className="text-[11px] text-white/40"> ↗</span>
+                              </a>
+                            ) : (
+                              <span key={project.name} className="font-mono text-sm text-white/60">
+                                {project.name}
                               </span>
-                            ))}
-                          </div>
+                            )
+                          )}
+                        </div>
+                      </div>
+
+                      <div className="flex flex-col sm:items-end gap-3.5">
+                        <span className="font-mono font-semibold text-[13.5px] uppercase tracking-[0.14em] text-white whitespace-nowrap">
+                          <span className="text-cream text-[9px] align-[2px] mr-2">●</span>
+                          {initiative.stage}
+                        </span>
+                        <span className="font-mono text-[13px] text-white/60 whitespace-nowrap">
+                          {initiative.tags.join(" / ")}
+                        </span>
+                        <div className="w-full aspect-[4/3] mt-1 overflow-hidden outline outline-1 outline-white/15 opacity-80 group-hover:opacity-100 transition-opacity">
+                          <img
+                            src={`/initiatives/${initiative.id}.svg`}
+                            alt=""
+                            className="w-full h-full object-cover [image-rendering:pixelated] grayscale"
+                          />
                         </div>
                       </div>
                     </div>
@@ -790,6 +709,174 @@ export function HomePageClient() {
                   </p>
                 </div>
               </AnimatedElement>
+            </div>
+          </div>
+        </section>
+
+        {/* News Section */}
+        <section id="news" className="py-16 px-4 sm:px-6 md:px-8 bg-black">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex items-center gap-2 sm:gap-4 mb-6 sm:mb-8 pb-3 sm:pb-4">
+              <h2 className="font-semibold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-tight">
+                Upcoming Events
+              </h2>
+            </div>
+
+            <div>
+              <div className="grid grid-cols-1 sm:grid-cols-[130px_1fr_auto] gap-x-9 gap-y-3 items-start border-t border-white/25 py-8 px-1 sm:px-2 hover:bg-white/[0.04] transition-colors">
+                <div>
+                  <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest text-cream">Forum</p>
+                  <p className="mt-1.5 font-mono text-[13px] text-white/60 leading-relaxed">
+                    26–30 Aug 2026
+                    <br />
+                    Alpbach, AT
+                  </p>
+                </div>
+                <div>
+                  <h3 className="font-light text-xl sm:text-2xl lg:text-3xl text-white tracking-tight">
+                    <a
+                      href="https://www.alpbach.org/blog/urban-transformation-and-bioregional-resilience-the-micro-macro-deal"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-cream transition-colors"
+                    >
+                      Meld at the European Forum Alpbach
+                    </a>
+                  </h3>
+                  <p className="mt-2 text-base text-gray-300 leading-relaxed max-w-2xl">
+                    A live demonstration of Meld with the{" "}
+                    <a
+                      href="https://www.10x100.cc/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="border-b border-white/30 hover:text-cream hover:border-cream transition-colors"
+                    >
+                      10x100 network
+                    </a>{" "}
+                    at the European Forum Alpbach: consent-first deliberation captured in the room,
+                    processed on the device, and returned to participants as structured sensemaking.
+                  </p>
+                </div>
+                <a
+                  href="https://www.alpbach.org/blog/urban-transformation-and-bioregional-resilience-the-micro-macro-deal"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="self-center font-mono text-[13px] text-white/70 border border-white/25 rounded-full px-4 py-2 whitespace-nowrap transition-colors hover:text-cream hover:border-cream"
+                >
+                  About the session →
+                </a>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-[130px_1fr_auto] gap-x-9 gap-y-3 items-start border-t border-white/25 py-8 px-1 sm:px-2 hover:bg-white/[0.04] transition-colors">
+                <div>
+                  <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest text-cream">Keynote</p>
+                  <p className="mt-1.5 font-mono text-[13px] text-white/60 leading-relaxed">
+                    10–12 Sep 2026
+                    <br />
+                    Höllental, AT
+                  </p>
+                </div>
+                <div>
+                  <h3 className="font-light text-xl sm:text-2xl lg:text-3xl text-white tracking-tight">
+                    <a
+                      href="https://valleyofthecommons.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-cream transition-colors"
+                    >
+                      KOMMA at the Valley of the Commons
+                    </a>
+                  </h3>
+                  <p className="mt-2 text-base text-gray-300 leading-relaxed max-w-2xl">
+                    Clara keynotes &ldquo;Housing as a Commons&rdquo;: how land became property, and
+                    what a century of collective housing, from Red Vienna to La Borda, teaches about
+                    owning, funding and governing in common. Charlie follows with &ldquo;Knowing at the
+                    Boundaries&rdquo;, on mapping land ownership to open sites to community-led futures.
+                  </p>
+                </div>
+                <a
+                  href="https://valleyofthecommons.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="self-center font-mono text-[13px] text-white/70 border border-white/25 rounded-full px-4 py-2 whitespace-nowrap transition-colors hover:text-cream hover:border-cream"
+                >
+                  Programme →
+                </a>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-[130px_1fr_auto] gap-x-9 gap-y-3 items-start border-t border-white/25 py-8 px-1 sm:px-2 hover:bg-white/[0.04] transition-colors">
+                <div>
+                  <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest text-cream">Workshop</p>
+                  <p className="mt-1.5 font-mono text-[13px] text-white/60 leading-relaxed">
+                    October 2026
+                    <br />
+                    Vaduz, LI
+                  </p>
+                </div>
+                <div>
+                  <h3 className="font-light text-xl sm:text-2xl lg:text-3xl text-white tracking-tight">
+                    <a
+                      href="https://luma.com/ycmcreer?tk=7ObFX9"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-cream transition-colors"
+                    >
+                      Threshold #2: Designing Progressive Housing Mechanisms
+                    </a>
+                  </h3>
+                  <p className="mt-2 text-base text-gray-300 leading-relaxed max-w-2xl">
+                    The second network gathering of practitioners, researchers and institutional actors
+                    advancing alternative housing models: diagnosing the housing system&rsquo;s structural
+                    challenges, evaluating mechanisms such as Rent Credit Obligations and Tokenised
+                    Access Rights, and identifying European demonstration sites. Organised with Autonomic.
+                  </p>
+                </div>
+                <a
+                  href="https://luma.com/ycmcreer?tk=7ObFX9"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="self-center font-mono text-[13px] text-white/70 border border-white/25 rounded-full px-4 py-2 whitespace-nowrap transition-colors hover:text-cream hover:border-cream"
+                >
+                  Register →
+                </a>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-[130px_1fr_auto] gap-x-9 gap-y-3 items-start border-t border-b border-white/25 py-8 px-1 sm:px-2 hover:bg-white/[0.04] transition-colors">
+                <div>
+                  <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest text-cream">Forum</p>
+                  <p className="mt-1.5 font-mono text-[13px] text-white/60 leading-relaxed">
+                    15–16 Sep 2026
+                    <br />
+                    Brussels, BE
+                  </p>
+                </div>
+                <div>
+                  <h3 className="font-light text-xl sm:text-2xl lg:text-3xl text-white tracking-tight">
+                    <a
+                      href="https://k-erc.eu/2026/08/horizon-europe-category/33982/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-cream transition-colors"
+                    >
+                      Korea-EU Horizon Europe Researchers Consulting Forum
+                    </a>
+                  </h3>
+                  <p className="mt-2 text-base text-gray-300 leading-relaxed max-w-2xl">
+                    Consortium building between Korean and European researchers towards the 2027
+                    Horizon Europe Cluster 4 calls (Digital, Industry and Space), organised by the
+                    Korea-EU Research Centre (KERC) and the National Research Foundation of Korea.
+                  </p>
+                </div>
+                <a
+                  href="https://k-erc.eu/2026/08/horizon-europe-category/33982/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="self-center font-mono text-[13px] text-white/70 border border-white/25 rounded-full px-4 py-2 whitespace-nowrap transition-colors hover:text-cream hover:border-cream"
+                >
+                  Details →
+                </a>
+              </div>
+
             </div>
           </div>
         </section>

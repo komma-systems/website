@@ -1,7 +1,7 @@
 import type React from "react"
 import "./globals.css"
 import type { Metadata, Viewport } from "next"
-import { Source_Serif_4, Silkscreen } from "next/font/google"
+import { Source_Serif_4, Silkscreen, IBM_Plex_Mono } from "next/font/google"
 import { SiteFooter } from "@/components/site-footer"
 import { AuthProvider } from "@/app/providers"
 import { getRequestLocale } from "@/lib/request-locale"
@@ -22,6 +22,14 @@ const silkscreen = Silkscreen({
   weight: ["400", "700"],
   variable: "--font-silkscreen",
   preload: true,
+  display: "swap",
+})
+
+const plexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-plex-mono",
+  preload: false,
   display: "swap",
 })
 
@@ -60,7 +68,7 @@ export default async function RootLayout({
   const lang: Locale = await getRequestLocale()
 
   return (
-    <html lang={lang} className={`${sourceSerif.variable} ${silkscreen.variable}`.trim()}>
+    <html lang={lang} className={`${sourceSerif.variable} ${silkscreen.variable} ${plexMono.variable}`.trim()}>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
