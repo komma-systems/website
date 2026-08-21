@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KOMMA footer variants</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,300..700;1,300..700&family=Silkscreen&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #000; color: #fff; font-family: 'Source Serif 4', serif; }
+  .label {
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.15em;
+    text-transform: uppercase; color: #888; padding: 48px 40px 12px;
+  }
+  .page-context {
+    height: 140px; display: flex; align-items: flex-end; padding: 0 40px 40px;
+    color: #444; font-size: 14px;
+  }
+  .komma { font-family: 'Silkscreen', cursive; }
+  footer { padding: 56px 40px; }
+  .inner { max-width: 980px; margin: 0 auto; }
+  .poem { font-size: 22px; line-height: 1.6; }
+  .poem img { height: 1.2em; width: auto; vertical-align: baseline; position: relative; top: 0.15em; }
+  .links { font-size: 14px; color: rgba(255,255,255,0.6); display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+  .links a { color: inherit; text-decoration: underline; text-underline-offset: 4px; }
+  .links a:hover { color: #fff; }
+  .links .social { text-decoration: none; }
+  .copyright { color: rgba(255,255,255,0.4); }
+  .spread { justify-content: space-between; width: 100%; }
+  .row { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+
+  /* Variant A */
+  .vA { background: #1c1c1c; }
+  .vA .komma-logo { font-size: 44px; }
+  .vA .poem { margin-top: 32px; }
+  .vA .bottom { margin-top: 40px; display: flex; }
+
+  /* Variant B */
+  .vB { background: #262626; text-align: center; }
+  .vB .komma-logo { font-size: 36px; }
+  .vB .poem { margin-top: 28px; }
+  .vB .links { justify-content: center; margin-top: 40px; }
+
+  /* Variant C */
+  .vC { background: #171717; }
+  .vC .inner { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+  .vC .komma-logo { font-size: 64px; line-height: 1; }
+  .vC .poem { font-size: 20px; }
+  .vC .colB { display: flex; flex-direction: column; gap: 32px; justify-content: space-between; }
+  .vC .links { flex-direction: column; align-items: flex-end; gap: 10px; }
+  @media (max-width: 700px) {
+    .vC .inner { grid-template-columns: 1fr; }
+    .vC .links { align-items: flex-start; }
+  }
+
+  /* Variant D */
+  .vD { background: #e6e6e6; color: #111; }
+  .vD .komma-logo { font-size: 44px; color: #111; }
+  .vD .poem { margin-top: 32px; color: #111; }
+  .vD .poem img { filter: invert(1); }
+  .vD .links { color: rgba(0,0,0,0.6); margin-top: 40px; }
+  .vD .links a:hover { color: #000; }
+  .vD .copyright { color: rgba(0,0,0,0.4); }
+</style>
+</head>
+<body>
+
+<div class="label">Variant A — dark grey block, poem under logo, links row split left / right (matches what is now live on :3005)</div>
+<div class="page-context">...end of last page section (black)</div>
+<footer class="vA">
+  <div class="inner">
+    <div class="komma komma-logo">KOMMA</div>
+    <div class="poem">
+      a pause, transition,<br>
+      integration, or inflection<br>
+      point punctuating the<br>
+      dynamic relationship<br>
+      between <img src="/01Sensing.svg" alt="sensing"> and <img src="/02Action.svg" alt="action">
+    </div>
+    <div class="bottom links spread">
+      <span class="row">
+        <a href="#">Contact</a><a href="#">Impressum</a><a href="#">Privacy Policy</a>
+      </span>
+      <span class="row">
+        <a class="social" href="#">X</a><a class="social" href="#">LinkedIn</a>
+        <span class="copyright">© KOMMA 2026</span>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<div class="label">Variant B — lighter grey, everything centred, poem as the focal point</div>
+<div class="page-context">...end of last page section (black)</div>
+<footer class="vB">
+  <div class="inner">
+    <div class="komma komma-logo">KOMMA</div>
+    <div class="poem">
+      a pause, transition,<br>
+      integration, or inflection<br>
+      point punctuating the<br>
+      dynamic relationship<br>
+      between <img src="/01Sensing.svg" alt="sensing"> and <img src="/02Action.svg" alt="action">
+    </div>
+    <div class="links">
+      <a href="#">Contact</a><a href="#">Impressum</a><a href="#">Privacy Policy</a>
+      <a class="social" href="#">X</a><a class="social" href="#">LinkedIn</a>
+      <span class="copyright">© KOMMA 2026</span>
+    </div>
+  </div>
+</footer>
+
+<div class="label">Variant C — two columns: big KOMMA + poem left, stacked links right (echoes the old hero layout)</div>
+<div class="page-context">...end of last page section (black)</div>
+<footer class="vC">
+  <div class="inner">
+    <div>
+      <div class="komma komma-logo">KOMMA</div>
+      <div class="poem" style="margin-top:28px">
+        a pause, transition,<br>
+        integration, or inflection<br>
+        point punctuating the<br>
+        dynamic relationship<br>
+        between <img src="/01Sensing.svg" alt="sensing"> and <img src="/02Action.svg" alt="action">
+      </div>
+    </div>
+    <div class="colB">
+      <div class="links">
+        <a href="#">Contact</a>
+        <a href="#">Impressum</a>
+        <a href="#">Privacy Policy</a>
+        <a class="social" href="#">X</a>
+        <a class="social" href="#">LinkedIn</a>
+      </div>
+      <div class="links" style="align-items:flex-end"><span class="copyright">© KOMMA 2026</span></div>
+    </div>
+  </div>
+</footer>
+
+<div class="label">Variant D — inverted: light grey footer on the black site, poem in black ink</div>
+<div class="page-context">...end of last page section (black)</div>
+<footer class="vD">
+  <div class="inner">
+    <div class="komma komma-logo">KOMMA</div>
+    <div class="poem">
+      a pause, transition,<br>
+      integration, or inflection<br>
+      point punctuating the<br>
+      dynamic relationship<br>
+      between <img src="/01Sensing.svg" alt="sensing"> and <img src="/02Action.svg" alt="action">
+    </div>
+    <div class="links">
+      <a href="#">Contact</a><a href="#">Impressum</a><a href="#">Privacy Policy</a>
+      <a class="social" href="#">X</a><a class="social" href="#">LinkedIn</a>
+      <span class="copyright">© KOMMA 2026</span>
+    </div>
+  </div>
+</footer>
+
+<div style="height:80px"></div>
+</body>
+</html>
