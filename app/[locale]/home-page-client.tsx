@@ -83,7 +83,7 @@ const INITIATIVES = [
     tags: ["finance", "ownership", "tech"],
     projects: [
       { name: "Overflow (threshold pools)", href: "https://luma.com/8b7u93xt?tk=zBWUVi" },
-      { name: "Tourism Housing Fund", href: "https://frin.notion.site/Local-Affordable-Housing-Funded-by-Tourism-in-Catalonia-2e179ea359ae8016b8a5f2663625aa71" },
+      { name: "Tourism to Housing Fund", href: "https://frin.notion.site/Local-Affordable-Housing-Funded-by-Tourism-in-Catalonia-2e179ea359ae8016b8a5f2663625aa71" },
     ],
     href: null,
   },
