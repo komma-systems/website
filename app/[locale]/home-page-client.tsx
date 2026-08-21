@@ -65,8 +65,12 @@ const INITIATIVES = [
     description:
       "Civic deliberation infrastructure: a hardware device and privacy-preserving platform that captures deliberation in the room, processes it locally, and returns structured documentation.",
     stage: "In deployment",
-    tags: ["#governance", "#tech", "#AI"],
-    projects: ["Kair (platform)", "Nodes (hardware)", "10x100"],
+    tags: ["governance", "tech", "AI"],
+    projects: [
+      { name: "Kair (platform)", href: "https://kair.is/" },
+      { name: "Device", href: "https://meld.earth/" },
+      { name: "10x100", href: "https://10x100.kair.is/" },
+    ],
     href: "/meld",
   },
   {
@@ -75,8 +79,11 @@ const INITIATIVES = [
     description:
       "Mechanism design for how neighbourhoods capture and circulate the value they create together.",
     stage: "Prototyping",
-    tags: ["#economy", "#equity", "#tech"],
-    projects: ["Overflow (threshold pools)", "Tourism"],
+    tags: ["economy", "equity", "tech"],
+    projects: [
+      { name: "Overflow (threshold pools)", href: "https://luma.com/8b7u93xt?tk=zBWUVi" },
+      { name: "Tourism-to-housing-commons", href: null },
+    ],
     href: null,
   },
   {
@@ -85,8 +92,11 @@ const INITIATIVES = [
     description:
       "Agreements infrastructure for land: a registry that records land as relationships between people, held in modular agreements and validated together.",
     stage: "In development",
-    tags: ["#agreements", "#land", "#tech"],
-    projects: ["Land mapping", "Relational bundles"],
+    tags: ["agreements", "land", "tech"],
+    projects: [
+      { name: "Land mapping", href: null },
+      { name: "Relational bundles", href: null },
+    ],
     href: null,
   },
   {
@@ -95,8 +105,25 @@ const INITIATIVES = [
     description:
       "A practice group and pattern library for embodied governance: collective attunement, ritual openings, and decision patterns.",
     stage: "Research",
-    tags: ["#governance", "#ritual"],
-    projects: ["Pattern book", "Residencies"],
+    tags: ["governance", "ritual"],
+    projects: [
+      { name: "Pattern book", href: null },
+      { name: "Residencies", href: null },
+    ],
+    href: null,
+  },
+  {
+    id: "exclsr",
+    title: "EXCLSR",
+    description:
+      "The Unwinding Enclosure Academy: courses and masterclasses that gather the mechanisms places use to hold land and housing in common, and translate them into patterns others can adapt.",
+    stage: "Education",
+    tags: ["education", "commons"],
+    projects: [
+      { name: "A Tale of Planetary Enclosure", href: null },
+      { name: "Pattern wiki", href: null },
+      { name: "EX:CLSR fund", href: null },
+    ],
     href: null,
   },
 ] as const
@@ -316,45 +343,63 @@ export function HomePageClient() {
                       {String(idx + 1).padStart(2, "0")}
                     </span>
 
-                    <div className="min-w-0">
-                      <div className="flex items-baseline gap-4">
-                        <h3 className="font-light text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-tight group-hover:translate-x-1 transition-transform duration-200">
-                          {initiative.title}
-                        </h3>
-                        {initiative.href && (
-                          <span className="text-white/40 text-xl sm:text-2xl transition-all duration-200 group-hover:text-white group-hover:translate-x-1">
-                            →
-                          </span>
-                        )}
-                      </div>
-
-                      <div className="mt-3 grid grid-cols-1 sm:grid-cols-[1fr_14rem] gap-x-6 gap-y-4 items-start">
-                        <div className="min-w-0">
-                          <p className="text-base lg:text-lg text-gray-300 leading-relaxed max-w-2xl">
-                            {initiative.description}
-                          </p>
-                          <p className="mt-4 text-sm lg:text-base leading-relaxed">
-                            <span className="font-silkscreen text-[0.65rem] uppercase tracking-widest text-white/40 mr-3 align-middle">
-                              Projects
+                    <div className="min-w-0 grid grid-cols-1 sm:grid-cols-[1fr_220px] gap-x-10 gap-y-5 items-start">
+                      <div className="min-w-0">
+                        <div className="flex items-baseline gap-4">
+                          <h3 className="font-light text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-tight group-hover:translate-x-1 transition-transform duration-200">
+                            {initiative.title}
+                          </h3>
+                          {initiative.href && (
+                            <span className="text-white/40 text-xl sm:text-2xl transition-all duration-200 group-hover:text-white group-hover:translate-x-1">
+                              →
                             </span>
-                            <span className="text-white/65">{initiative.projects.join("  ·  ")}</span>
-                          </p>
+                          )}
                         </div>
 
-                        <div className="flex flex-col sm:items-end gap-3">
-                          <span className="font-silkscreen text-xs sm:text-sm uppercase tracking-widest text-white/60">
-                            {initiative.stage}
+                        <p className="mt-3 text-base lg:text-lg text-gray-300 leading-relaxed max-w-2xl">
+                          {initiative.description}
+                        </p>
+
+                        <div className="mt-4 flex flex-wrap items-baseline gap-x-6 gap-y-2">
+                          <span className="font-silkscreen text-[0.65rem] uppercase tracking-widest text-white/40">
+                            Projects
                           </span>
-                          <div className="flex flex-wrap sm:justify-end gap-2">
-                            {initiative.tags.map((tag) => (
-                              <span
-                                key={tag}
-                                className="rounded-full border border-white/25 px-3 py-1 text-xs text-white/50 leading-none whitespace-nowrap"
+                          {initiative.projects.map((project) =>
+                            project.href ? (
+                              <a
+                                key={project.name}
+                                href={project.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={(e) => e.stopPropagation()}
+                                className="font-mono text-sm text-white/85 border-b border-white/30 pb-0.5 transition-colors hover:text-cream hover:border-cream"
                               >
-                                {tag.replace("#", "")}
+                                {project.name}
+                                <span className="text-[11px] text-white/40"> ↗</span>
+                              </a>
+                            ) : (
+                              <span key={project.name} className="font-mono text-sm text-white/60">
+                                {project.name}
                               </span>
-                            ))}
-                          </div>
+                            )
+                          )}
+                        </div>
+                      </div>
+
+                      <div className="flex flex-col sm:items-end gap-3.5">
+                        <span className="font-mono font-semibold text-[13.5px] uppercase tracking-[0.14em] text-white whitespace-nowrap">
+                          <span className="text-cream text-[9px] align-[2px] mr-2">●</span>
+                          {initiative.stage}
+                        </span>
+                        <span className="font-mono text-[13px] text-white/60 whitespace-nowrap">
+                          {initiative.tags.join(" / ")}
+                        </span>
+                        <div className="w-full aspect-[4/3] mt-1 overflow-hidden outline outline-1 outline-white/15 opacity-80 group-hover:opacity-100 transition-opacity">
+                          <img
+                            src={`/initiatives/${initiative.id}.svg`}
+                            alt=""
+                            className="w-full h-full object-cover [image-rendering:pixelated] grayscale"
+                          />
                         </div>
                       </div>
                     </div>
