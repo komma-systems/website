@@ -347,7 +347,7 @@ export function HomePageClient() {
                     <div className="min-w-0 grid grid-cols-1 sm:grid-cols-[1fr_220px] gap-x-10 gap-y-5 items-start">
                       <div className="min-w-0">
                         <div className="flex items-baseline gap-4">
-                          <h3 className="font-light text-[26px] sm:text-3xl lg:text-[40px] text-white tracking-[-0.01em] leading-tight group-hover:translate-x-1 transition-transform duration-200">
+                          <h3 className="font-extralight text-[26px] sm:text-3xl lg:text-[40px] text-white tracking-[-0.01em] leading-tight group-hover:translate-x-1 transition-transform duration-200">
                             {initiative.title}
                           </h3>
                           {initiative.href && (
