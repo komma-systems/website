@@ -664,7 +664,7 @@ export function HomePageClient() {
                   rel="noopener noreferrer"
                   className="self-center font-mono text-[13px] text-white/70 border border-white/25 rounded-full px-4 py-2 whitespace-nowrap transition-colors hover:text-cream hover:border-cream"
                 >
-                  About the session →
+                  Register →
                 </a>
               </div>
 
