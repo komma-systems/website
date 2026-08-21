@@ -11,7 +11,7 @@ import type { Locale } from "@/lib/i18n"
 // Load Source Serif Pro (Source Serif 4 is the updated version)
 const sourceSerif = Source_Serif_4({
   subsets: ["latin"],
-  weight: ["400"],
+  weight: ["300", "400"],
   variable: "--font-source-serif",
   preload: true,
   display: "swap",
