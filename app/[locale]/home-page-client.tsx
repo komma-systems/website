@@ -381,7 +381,7 @@ export function HomePageClient() {
         <section id="team" className="py-16 px-4 sm:px-6 md:px-8 bg-white">
           <div className="max-w-7xl mx-auto">
             <AnimatedElement animation="fade-in" className="mb-16">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-left mb-8 text-black">
+              <h2 className="font-semibold text-2xl sm:text-3xl lg:text-4xl tracking-tight leading-tight text-left mb-8 text-black">
                 {t.collective}
               </h2>
               <p className="text-lg md:text-xl text-left text-gray-600 max-w-4xl leading-relaxed">
