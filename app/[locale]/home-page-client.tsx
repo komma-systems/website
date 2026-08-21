@@ -70,6 +70,7 @@ const INITIATIVES = [
       { name: "Kair (platform)", href: "https://kair.is/" },
       { name: "Device", href: "https://meld.earth/" },
       { name: "10x100", href: "https://10x100.kair.is/" },
+      { name: "InnoVer", href: null },
     ],
     href: "/meld",
   },
