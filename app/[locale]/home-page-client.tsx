@@ -418,7 +418,6 @@ export function HomePageClient() {
                   </AnimatedElement>
                 )
               })}
-              <div className="border-t border-white/25" />
             </div>
           </div>
         </section>
