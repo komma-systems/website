@@ -61,6 +61,49 @@ const PARTNER_LOGOS = [
   },
 ] as const
 
+const INITIATIVES = [
+  {
+    id: "meld",
+    title: "Meld",
+    description:
+      "Civic deliberation infrastructure: a hardware device and privacy-preserving platform that captures deliberation in the room, processes it locally, and returns structured documentation.",
+    stage: "In deployment",
+    tags: ["#governance", "#tech", "#AI"],
+    projects: ["Kair (platform)", "Nodes (hardware)"],
+    href: "/meld",
+  },
+  {
+    id: "relational-wealth-flows",
+    title: "Relational Wealth Flows",
+    description:
+      "Mechanism design for how neighbourhoods capture and circulate the value they create together.",
+    stage: "Prototyping",
+    tags: ["#economy", "#equity", "#tech"],
+    projects: ["Overflow (threshold pools)", "Tourism"],
+    href: null,
+  },
+  {
+    id: "weave",
+    title: "Weve",
+    description:
+      "Agreements infrastructure for land: a registry that records land as relationships between people, held in modular agreements and validated together.",
+    stage: "In development",
+    tags: ["#agreements", "#land", "#tech"],
+    projects: ["Land mapping", "Relational bundles"],
+    href: null,
+  },
+  {
+    id: "sensed-governance",
+    title: "Sensed Governance",
+    description:
+      "A practice group and pattern library for embodied governance: collective attunement, ritual openings, and decision patterns.",
+    stage: "Research",
+    tags: ["#governance", "#ritual"],
+    projects: ["Pattern book", "Residencies"],
+    href: null,
+  },
+] as const
+
 export function HomePageClient() {
   const params = useParams()
   const rawLocale = params.locale as string
@@ -376,71 +419,84 @@ export function HomePageClient() {
         </section>
 
         {/* Initiatives Section */}
-        <section id="initiatives" className="hidden py-16 px-4 sm:px-6 md:px-8 bg-black">
+        <section id="initiatives" className="py-16 px-4 sm:px-6 md:px-8 bg-black">
           <div className="max-w-7xl mx-auto">
             <AnimatedElement animation="fade-in" className="mb-16">
-              <div className="flex items-center gap-2 sm:gap-4 mb-6 sm:mb-8 pb-3 sm:pb-4 border-b border-[#46403e]">
+              <div className="flex items-center gap-2 sm:gap-4 mb-6 sm:mb-8 pb-3 sm:pb-4">
                 <h2 className="font-semibold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-tight">
                   {t.initiatives}
                 </h2>
                 <span className="font-normal text-xs sm:text-sm text-white leading-relaxed align-super relative -top-1 sm:-top-2">
-                  {initiativesLoading ? '...' : initiatives.length}
+                  {INITIATIVES.length}
                 </span>
               </div>
             </AnimatedElement>
 
-            <div className="space-y-0">
-              {initiativesLoading ? (
-                <div className="text-center py-8">
-                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white mx-auto mb-4"></div>
-                  <p className="text-gray-400">{t.loadingInitiatives}</p>
-                </div>
-              ) : (
-                initiatives.map((project, idx) => (
-                <AnimatedElement animation="fade-up" delay={100 * (idx + 1)} key={project.id}>
-                  <a 
-                    href={`/${locale}/initiatives/${project.slug}`}
-                    className="flex flex-col sm:grid sm:grid-cols-[1fr_auto_auto_120px] lg:grid-cols-[1fr_auto_auto_150px] gap-3 sm:gap-4 lg:gap-6 items-start py-4 sm:py-6 hover:bg-[#1a1a1a] transition-colors duration-200 px-3 sm:px-4 border-b border-dashed border-[#a29f9f] last:border-b-0 cursor-pointer"
-                  >
-                    {/* Mobile: Title and Image Row */}
-                    <div className="flex justify-between items-start gap-3 w-full sm:contents">
-                      {/* Project Title */}
-                      <div className="flex-1 min-w-0 sm:col-span-1">
-                        <h3 className="font-light text-xl sm:text-2xl lg:text-3xl text-white tracking-tight leading-tight">
-                          {project.title}
+            <div>
+              {INITIATIVES.map((initiative, idx) => {
+                const Row = (
+                  <div className="group grid grid-cols-1 sm:grid-cols-[3.5rem_1fr] lg:grid-cols-[4.5rem_1fr] gap-x-10 lg:gap-x-14 border-t border-white/25 py-8 sm:py-10 px-1 sm:px-2 transition-colors duration-200 hover:bg-white/[0.04]">
+                    <span className="hidden sm:block font-silkscreen text-sm text-white/40 leading-none pt-2">
+                      {String(idx + 1).padStart(2, "0")}
+                    </span>
+
+                    <div className="min-w-0">
+                      <div className="flex items-baseline gap-4">
+                        <h3 className="font-light text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-tight group-hover:translate-x-1 transition-transform duration-200">
+                          {initiative.title}
                         </h3>
-                      </div>
-
-                      {/* Project Image - Always visible on mobile, positioned in grid on larger screens */}
-                      <div className="sm:hidden w-20 h-16 bg-left bg-no-repeat bg-cover flex-shrink-0 bg-gray-600" />
-                      <div className="hidden sm:block w-[120px] lg:w-[150px] h-20 lg:h-28 bg-left bg-no-repeat bg-cover flex-shrink-0 bg-gray-600" />
-                    </div>
-
-                    {/* Mobile: Phase and Tags Row */}
-                    <div className="flex flex-wrap items-center justify-between gap-4 w-full sm:contents">
-                      {/* Stage */}
-                      <div className="whitespace-nowrap">
-                        <span className="font-normal text-base sm:text-lg lg:text-xl text-white leading-relaxed px-2 py-1 bg-[#1a1a1a] sm:bg-transparent sm:p-0">
-                          {project.stage}
-                        </span>
-                      </div>
-
-                      {/* Tags */}
-                      <div className="flex flex-row sm:flex-col gap-2 min-w-0 sm:min-w-[120px] lg:min-w-[140px]">
-                        {project.tags.map((tag) => (
-                          <span 
-                            key={tag}
-                            className="font-normal text-sm sm:text-base lg:text-lg text-gray-300 sm:text-white leading-relaxed"
-                          >
-                            {tag}
+                        {initiative.href && (
+                          <span className="text-white/40 text-xl sm:text-2xl transition-all duration-200 group-hover:text-white group-hover:translate-x-1">
+                            →
                           </span>
-                        ))}
+                        )}
+                      </div>
+
+                      <div className="mt-3 grid grid-cols-1 sm:grid-cols-[1fr_14rem] gap-x-6 gap-y-4 items-start">
+                        <div className="min-w-0">
+                          <p className="text-base lg:text-lg text-gray-300 leading-relaxed max-w-2xl">
+                            {initiative.description}
+                          </p>
+                          <p className="mt-4 text-sm lg:text-base leading-relaxed">
+                            <span className="font-silkscreen text-[0.65rem] uppercase tracking-widest text-white/40 mr-3 align-middle">
+                              Projects
+                            </span>
+                            <span className="text-white/65">{initiative.projects.join("  ·  ")}</span>
+                          </p>
+                        </div>
+
+                        <div className="flex flex-col sm:items-end gap-3">
+                          <span className="font-silkscreen text-xs sm:text-sm uppercase tracking-widest text-white/60">
+                            {initiative.stage}
+                          </span>
+                          <div className="flex flex-wrap sm:justify-end gap-2">
+                            {initiative.tags.map((tag) => (
+                              <span
+                                key={tag}
+                                className="rounded-full border border-white/25 px-3 py-1 text-xs text-white/50 leading-none whitespace-nowrap"
+                              >
+                                {tag.replace("#", "")}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </a>
-                </AnimatedElement>
-                ))
-              )}
+                  </div>
+                )
+                return (
+                  <AnimatedElement animation="fade-up" delay={100 * (idx + 1)} key={initiative.id}>
+                    {initiative.href ? (
+                      <a href={`/${locale}${initiative.href}`} className="block cursor-pointer">
+                        {Row}
+                      </a>
+                    ) : (
+                      Row
+                    )}
+                  </AnimatedElement>
+                )
+              })}
+              <div className="border-t border-white/25" />
             </div>
           </div>
         </section>

@@ -154,8 +154,26 @@ export default async function MeldPage({ params }: PageProps) {
           </section>
 
           <section className="mb-14">
-            <p className={sectionLabelClasses}>Current Deployment</p>
-            <p className={proseClasses}>Announcement Soon</p>
+            <p className={sectionLabelClasses}>Coming Soon</p>
+            <div className="space-y-8">
+              <article>
+                <h3 className="text-base font-semibold text-white">
+                  First production deployment
+                </h3>
+                <p className={`${proseClasses} mt-2`}>
+                  Meld is entering its first production deployment through a publicly funded
+                  programme in rural Germany. Full details of the implementation, the places
+                  involved, and our partners will be announced here shortly.
+                </p>
+              </article>
+              <article>
+                <h3 className="text-base font-semibold text-white">Alpbach 10x100</h3>
+                <p className={`${proseClasses} mt-2`}>
+                  Meld will be part of Alpbach 10x100, 26 to 30 August 2026 at the European
+                  Forum Alpbach. More information to follow.
+                </p>
+              </article>
+            </div>
             {/* <p className={proseClasses}>
               Meld&apos;s first production deployment is InnoVER - a BMBF-funded public
               procurement running from 2026 to 2027 across two rural Landkreise in northern Germany:
