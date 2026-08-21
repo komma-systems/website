@@ -385,15 +385,16 @@ export function HomePageClient() {
                             )
                           )}
                         </div>
+
+                        <p className="mt-3 font-mono text-[13px] text-white/50">
+                          {initiative.tags.join(" / ")}
+                        </p>
                       </div>
 
                       <div className="flex flex-col sm:items-end gap-3.5">
                         <span className="font-mono font-semibold text-[13.5px] uppercase tracking-[0.14em] text-white whitespace-nowrap">
                           <span className="text-cream text-[9px] align-[2px] mr-2">●</span>
                           {initiative.stage}
-                        </span>
-                        <span className="font-mono text-[13px] text-white/60 whitespace-nowrap">
-                          {initiative.tags.join(" / ")}
                         </span>
                         <div className="w-full aspect-[4/3] mt-1 overflow-hidden outline outline-1 outline-white/15 opacity-80 group-hover:opacity-100 transition-opacity">
                           <img
