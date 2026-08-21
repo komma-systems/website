@@ -51,18 +51,19 @@ export async function SiteFooter() {
 
         <div className="flex flex-col gap-4 pt-2 text-sm text-white/60 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex flex-wrap items-center gap-4">
-            <Link href={`${prefix}/contact`} className="underline underline-offset-4 hover:text-white">
-              {labels.contact}
-            </Link>
             <Link href={`${prefix}/impressum`} className="underline underline-offset-4 hover:text-white">
               {labels.impressum}
             </Link>
             <Link href={`${prefix}/datenschutz`} className="underline underline-offset-4 hover:text-white">
               {labels.privacy}
             </Link>
+            <span className="text-white/40">© KOMMA 2026</span>
           </div>
 
           <div className="flex flex-wrap items-center gap-4">
+            <Link href={`${prefix}/contact`} className="underline underline-offset-4 hover:text-white">
+              {labels.contact}
+            </Link>
             <a
               href="https://www.linkedin.com/company/komma-systems"
               target="_blank"
@@ -79,7 +80,6 @@ export async function SiteFooter() {
             >
               Twitter
             </a>
-            <span className="text-white/40">© KOMMA 2026</span>
           </div>
         </div>
       </div>
