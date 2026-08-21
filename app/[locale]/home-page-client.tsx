@@ -807,6 +807,42 @@ export function HomePageClient() {
 
               <div className="grid grid-cols-1 sm:grid-cols-[130px_1fr_auto] gap-x-9 gap-y-3 items-start border-t border-white/25 py-8 px-1 sm:px-2 hover:bg-white/[0.04] transition-colors">
                 <div>
+                  <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest text-cream">Forum</p>
+                  <p className="mt-1.5 font-mono text-[13px] text-white/60 leading-relaxed">
+                    15–16 Sep 2026
+                    <br />
+                    Brussels, BE
+                  </p>
+                </div>
+                <div>
+                  <h3 className="font-light text-xl sm:text-2xl lg:text-3xl text-white tracking-tight">
+                    <a
+                      href="https://k-erc.eu/2026/08/horizon-europe-category/33982/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-cream transition-colors"
+                    >
+                      Korea-EU Horizon Europe Researchers Consulting Forum
+                    </a>
+                  </h3>
+                  <p className="mt-2 text-base text-gray-300 leading-relaxed max-w-2xl">
+                    Consortium building between Korean and European researchers towards the 2027
+                    Horizon Europe Cluster 4 calls (Digital, Industry and Space), organised by the
+                    Korea-EU Research Centre (KERC) and the National Research Foundation of Korea.
+                  </p>
+                </div>
+                <a
+                  href="https://k-erc.eu/2026/08/horizon-europe-category/33982/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="self-center font-mono text-[13px] text-white/70 border border-white/25 rounded-full px-4 py-2 whitespace-nowrap transition-colors hover:text-cream hover:border-cream"
+                >
+                  Details →
+                </a>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-[130px_1fr_auto] gap-x-9 gap-y-3 items-start border-t border-white/25 py-8 px-1 sm:px-2 hover:bg-white/[0.04] transition-colors">
+                <div>
                   <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest text-cream">Workshop</p>
                   <p className="mt-1.5 font-mono text-[13px] text-white/60 leading-relaxed">
                     October 2026
@@ -839,42 +875,6 @@ export function HomePageClient() {
                   className="self-center font-mono text-[13px] text-white/70 border border-white/25 rounded-full px-4 py-2 whitespace-nowrap transition-colors hover:text-cream hover:border-cream"
                 >
                   Register →
-                </a>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-[130px_1fr_auto] gap-x-9 gap-y-3 items-start border-t border-white/25 py-8 px-1 sm:px-2 hover:bg-white/[0.04] transition-colors">
-                <div>
-                  <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest text-cream">Forum</p>
-                  <p className="mt-1.5 font-mono text-[13px] text-white/60 leading-relaxed">
-                    15–16 Sep 2026
-                    <br />
-                    Brussels, BE
-                  </p>
-                </div>
-                <div>
-                  <h3 className="font-light text-xl sm:text-2xl lg:text-3xl text-white tracking-tight">
-                    <a
-                      href="https://k-erc.eu/2026/08/horizon-europe-category/33982/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-cream transition-colors"
-                    >
-                      Korea-EU Horizon Europe Researchers Consulting Forum
-                    </a>
-                  </h3>
-                  <p className="mt-2 text-base text-gray-300 leading-relaxed max-w-2xl">
-                    Consortium building between Korean and European researchers towards the 2027
-                    Horizon Europe Cluster 4 calls (Digital, Industry and Space), organised by the
-                    Korea-EU Research Centre (KERC) and the National Research Foundation of Korea.
-                  </p>
-                </div>
-                <a
-                  href="https://k-erc.eu/2026/08/horizon-europe-category/33982/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="self-center font-mono text-[13px] text-white/70 border border-white/25 rounded-full px-4 py-2 whitespace-nowrap transition-colors hover:text-cream hover:border-cream"
-                >
-                  Details →
                 </a>
               </div>
 
