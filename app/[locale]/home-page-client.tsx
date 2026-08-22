@@ -12,7 +12,7 @@ const PARTNER_LOGOS = [
     href: "https://www.bmbf.de/",
     src: "/Partners/bmbf.svg",
     alt: "Bundesministerium für Bildung und Forschung",
-    imgClassName: "h-20 filter grayscale brightness-200 contrast-50",
+    imgClassName: "h-28 filter grayscale brightness-200 contrast-50",
   },
   {
     href: "https://www.nextlearning.earth/",
