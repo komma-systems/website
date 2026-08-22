@@ -388,10 +388,7 @@ export function HomePageClient() {
                 {t.who.label}
               </h2>
               <p className="[text-wrap:pretty] text-lg md:text-xl text-gray-300 max-w-2xl leading-relaxed">
-                {t.who.lead1}
-              </p>
-              <p className="[text-wrap:pretty] mt-4 text-lg md:text-xl text-gray-300 max-w-2xl leading-relaxed">
-                {t.who.lead2}
+                {t.who.lead}
               </p>
             </AnimatedElement>
 

@@ -21,8 +21,7 @@ export type HomeMessages = {
   partnersIntro: string
   who: {
     label: string
-    lead1: string
-    lead2: string
+    lead: string
     paths: { title: string; body: string; action: string; cta: string }[]
   }
   howWeWork: string
@@ -64,8 +63,7 @@ const en: HomeMessages = {
   partnersIntro: "Working with organisations advancing new forms of collective action.",
   who: {
     label: "Who we work with",
-    lead1: "Different actors bring different resources, responsibilities and perspectives to the work.",
-    lead2: "We work with the people closest to a place, the institutions that shape it, and the organisations able to support or extend what is being built. Sometimes they are our partners, sometimes our funders, and often they are both.",
+    lead: "We work with the people closest to a place, the institutions that shape it, and the organisations that support or extend what is being built there. Depending on the project, they join us as partners, as funders, or as both.",
     paths: [
       {
         title: "Public institutions",
@@ -170,8 +168,7 @@ const de: HomeMessages = {
   partnersIntro: "Wir arbeiten mit Organisationen, die neue Formen kollektiven Handelns vorantreiben.",
   who: {
     label: "Mit wem wir arbeiten",
-    lead1: "Verschiedene Akteure bringen unterschiedliche Ressourcen, Verantwortungen und Perspektiven in die Arbeit ein.",
-    lead2: "Wir arbeiten mit den Menschen, die einem Ort am nächsten sind, mit den Institutionen, die ihn prägen, und mit den Organisationen, die das Entstehende stützen oder weitertragen können. Manchmal sind sie unsere Partner, manchmal unsere Förderer, und oft beides.",
+    lead: "Wir arbeiten mit den Menschen, die einem Ort am nächsten sind, mit den Institutionen, die ihn prägen, und mit den Organisationen, die das Entstehende stützen oder weitertragen. Je nach Projekt begleiten sie uns als Partner, als Förderer oder als beides.",
     paths: [
       {
         title: "Öffentliche Institutionen",
