@@ -273,10 +273,10 @@ export function HomePageClient() {
               <p className="[text-wrap:pretty] text-2xl sm:text-xl md:text-2xl lg:text-3xl px-4 sm:px-0" style={{ lineHeight: 1.5 }}>
                 {t.intro1}
               </p>
-              <p className="[text-wrap:pretty] text-2xl sm:text-xl md:text-2xl lg:text-3xl px-4 sm:px-0 mt-6 transition-colors duration-1000" style={{ lineHeight: 1.5, color: showSecondParagraph ? (textColorWhite ? 'white' : '#333') : '#666' }}>
+              <p className="[text-wrap:pretty] text-2xl sm:text-xl md:text-2xl lg:text-3xl px-4 sm:px-0 mt-6" style={{ lineHeight: 1.5, color: '#9a9a9a' }}>
                 {t.intro2}
               </p>
-              <p className="[text-wrap:pretty] text-2xl sm:text-xl md:text-2xl lg:text-3xl px-4 sm:px-0 mt-6 transition-colors duration-1000" style={{ lineHeight: 1.5, color: showSecondParagraph ? (textColorWhite ? 'white' : '#333') : '#666' }}>
+              <p className="[text-wrap:pretty] text-2xl sm:text-xl md:text-2xl lg:text-3xl px-4 sm:px-0 mt-6" style={{ lineHeight: 1.5, color: '#9a9a9a' }}>
                 {t.intro3}
               </p>
             </AnimatedElement>
