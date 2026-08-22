@@ -39,16 +39,16 @@ const PARTNER_LOGOS = [
     imgClassName: "h-14 filter grayscale brightness-200 contrast-50",
   },
   {
-    href: "https://ethereum.foundation/",
-    src: "/Partners/ethereum-foundation-wordmark.svg",
-    alt: "Ethereum Foundation",
-    imgClassName: "h-12 w-auto filter grayscale brightness-200 contrast-50",
-  },
-  {
     href: "https://soam.earth/",
     src: "/Partners/soam.svg",
     alt: "SOAM",
     imgClassName: "h-12 filter grayscale brightness-200 contrast-50",
+  },
+  {
+    href: "https://ethereum.foundation/",
+    src: "/Partners/ethereum-foundation-wordmark.svg",
+    alt: "Ethereum Foundation",
+    imgClassName: "h-12 w-auto filter grayscale brightness-200 contrast-50",
   },
   {
     href: "https://www.justopensource.io/",
