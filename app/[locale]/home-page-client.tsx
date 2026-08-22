@@ -288,8 +288,7 @@ export function HomePageClient() {
         {/* Partners Section */}
         <section id="partners" className="py-8 px-4 sm:px-6 md:px-8 bg-black">
           <div className="max-w-5xl mx-auto text-center">
-            <div className="font-silkscreen text-base md:text-lg tracking-widest uppercase text-white filter grayscale brightness-200 contrast-50 mb-4">{t.partners}</div>
-            <p className="[text-wrap:pretty] text-lg md:text-xl text-white/70 max-w-2xl mx-auto mb-10">{t.partnersIntro}</p>
+            <div className="font-silkscreen text-base md:text-lg tracking-widest uppercase text-white filter grayscale brightness-200 contrast-50 mb-8">{t.partners}</div>
             <div className="flex flex-wrap items-center justify-center gap-x-16 gap-y-12 md:gap-x-24">
               {PARTNER_LOGOS.map((partner) => (
                 <a
