@@ -270,13 +270,13 @@ export function HomePageClient() {
           <div className="max-w-4xl mx-auto text-center">
             <AnimatedElement animation="fade-in" className="mb-12">
               <span className="komma-title block text-3xl md:text-4xl mb-10">KOMMA</span>
-              <p className="[text-wrap:pretty] text-2xl sm:text-xl md:text-2xl lg:text-3xl px-4 sm:px-0" style={{ lineHeight: 1.5 }}>
+              <p className="[text-wrap:pretty] text-xl sm:text-lg md:text-xl lg:text-2xl px-4 sm:px-0" style={{ lineHeight: 1.5 }}>
                 {t.intro1}
               </p>
-              <p className="[text-wrap:pretty] text-2xl sm:text-xl md:text-2xl lg:text-3xl px-4 sm:px-0 mt-6" style={{ lineHeight: 1.5, color: '#9a9a9a' }}>
+              <p className="[text-wrap:pretty] text-xl sm:text-lg md:text-xl lg:text-2xl px-4 sm:px-0 mt-6" style={{ lineHeight: 1.5, color: '#9a9a9a' }}>
                 {t.intro2}
               </p>
-              <p className="[text-wrap:pretty] text-2xl sm:text-xl md:text-2xl lg:text-3xl px-4 sm:px-0 mt-6" style={{ lineHeight: 1.5, color: '#9a9a9a' }}>
+              <p className="[text-wrap:pretty] text-xl sm:text-lg md:text-xl lg:text-2xl px-4 sm:px-0 mt-6" style={{ lineHeight: 1.5, color: '#9a9a9a' }}>
                 {t.intro3}
               </p>
             </AnimatedElement>
