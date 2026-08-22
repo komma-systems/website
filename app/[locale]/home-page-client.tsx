@@ -12,7 +12,7 @@ const PARTNER_LOGOS = [
     href: "https://www.bmbf.de/",
     src: "/Partners/bmbf.svg",
     alt: "Bundesministerium für Bildung und Forschung",
-    imgClassName: "h-28 filter brightness-0 invert opacity-90",
+    imgClassName: "h-32 -mx-6 -my-4 filter brightness-0 invert opacity-90",
   },
   {
     href: "https://www.nextlearning.earth/",
@@ -33,21 +33,21 @@ const PARTNER_LOGOS = [
     imgClassName: "h-14 filter invert grayscale opacity-80",
   },
   {
-    href: "https://consensys.io/",
-    src: "/Partners/Consensys_logo_2023.svg",
-    alt: "Consensys",
-    imgClassName: "h-12 filter grayscale brightness-200 contrast-50",
-  },
-  {
     href: "https://www.cltweb.org/",
     src: "/Partners/clt-center.svg",
     alt: "International Center for Community Land Trusts",
     imgClassName: "h-14 filter grayscale brightness-200 contrast-50",
   },
   {
-    href: "https://www.curvelabs.eu/",
-    src: "/Partners/curve-labs-wordmark.svg",
-    alt: "Curve Labs",
+    href: "https://consensys.io/",
+    src: "/Partners/Consensys_logo_2023.svg",
+    alt: "Consensys",
+    imgClassName: "h-12 filter grayscale brightness-200 contrast-50",
+  },
+  {
+    href: "https://ethereum.foundation/",
+    src: "/Partners/ethereum-foundation-wordmark.svg",
+    alt: "Ethereum Foundation",
     imgClassName: "h-12 w-auto filter grayscale brightness-200 contrast-50",
   },
   {
@@ -63,9 +63,9 @@ const PARTNER_LOGOS = [
     imgClassName: "h-12 filter grayscale brightness-200 contrast-50",
   },
   {
-    href: "https://ethereum.foundation/",
-    src: "/Partners/ethereum-foundation-wordmark.svg",
-    alt: "Ethereum Foundation",
+    href: "https://www.curvelabs.eu/",
+    src: "/Partners/curve-labs-wordmark.svg",
+    alt: "Curve Labs",
     imgClassName: "h-12 w-auto filter grayscale brightness-200 contrast-50",
   },
   {
