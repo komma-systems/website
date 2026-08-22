@@ -23,7 +23,7 @@ export type HomeMessages = {
     label: string
     lead: string
     cta: string
-    paths: { title: string; body: string; action: string; cta: string }[]
+    paths: { title: string; body: string }[]
   }
   howWeWork: string
   howWeWorkLead: string
@@ -68,42 +68,12 @@ const en: HomeMessages = {
     lead: "Our work is made possible through place-based partnerships. We work with the people closest to the ground, the institutions that shape the territory, and the organisations that can help new models take root and be adapted in new contexts.",
     cta: "Let\u2019s talk",
     paths: [
-      {
-        title: "Public institutions",
-        body: "Municipalities, districts and public agencies facing housing, participation and other collective challenges within real institutional constraints.",
-        action: "We work alongside existing teams to understand the conditions, design new mechanisms and test them in practice.",
-        cta: "Talk to us about your process",
-      },
-      {
-        title: "Funders and philanthropy",
-        body: "Foundations, philanthropies and public funding programmes looking to turn research and capital into practical experiments with wider relevance.",
-        action: "We connect funding to real places, producing demonstrators, evidence and tools that can inform what comes next.",
-        cta: "Talk to us about funding a project",
-      },
-      {
-        title: "Private businesses",
-        body: "Developers, operators, tourism actors and technology companies whose work shapes a place or depends on it.",
-        action: "We design partnerships and mechanisms that connect commercial activity with the long-term value and care of a place.",
-        cta: "Talk to us about a partnership",
-      },
-      {
-        title: "Communities and land projects",
-        body: "Cooperatives, land trusts, tenant groups and neighbourhood initiatives building new forms of collective ownership and care.",
-        action: "We help turn a shared ambition into the relationships, mechanisms and infrastructure needed to make it viable.",
-        cta: "Talk to us about your project",
-      },
-      {
-        title: "Researchers and\ninstitutional partners",
-        body: "Universities, institutes and practices exploring new approaches to land, housing, governance and civic technology.",
-        action: "We bring applied research into contact with real places, combining different forms of knowledge to develop and test new approaches.",
-        cta: "Talk to us about collaborating",
-      },
-      {
-        title: "European consortia",
-        body: "Coordinators and partners assembling European research and innovation projects, from Horizon Europe to EIT and Erasmus+.",
-        action: "We contribute live pilots, civic technology expertise, community relationships and deployment experience, grounding proposals in real places and practical work.",
-        cta: "Talk to us about your consortium",
-      },
+      { title: "Public institutions", body: "We work with public institutions to develop and test new approaches to collective challenges." },
+      { title: "Funders and philanthropy", body: "We work with funders to turn research and capital into practical experiments with potential beyond a single place." },
+      { title: "Private businesses", body: "We work with businesses to develop partnerships that connect economic activity with the long-term value and care of a place." },
+      { title: "Communities and land projects", body: "We work with communities to develop the mechanisms and infrastructure needed to make collective ownership and care viable." },
+      { title: "Researchers and\ninstitutional partners", body: "We work with researchers and institutions to bring applied research into contact with real places and practical experimentation." },
+      { title: "European consortia", body: "We join European research and innovation consortia as a practice partner, bringing live pilots, civic technology and experience from the ground." },
     ],
   },
   howWeWork: "How we work",
@@ -181,42 +151,12 @@ const de: HomeMessages = {
     lead: "Unsere Arbeit wird durch ortsbezogene Partnerschaften möglich. Wir arbeiten mit den Menschen vor Ort, mit den Institutionen, die das Territorium prägen, und mit den Organisationen, die neuen Modellen helfen können, Wurzeln zu schlagen und in neuen Kontexten Anwendung zu finden.",
     cta: "Sprechen Sie mit uns",
     paths: [
-      {
-        title: "Öffentliche Institutionen",
-        body: "Kommunen, Landkreise und Behörden, die Wohnen, Beteiligung und andere kollektive Aufgaben innerhalb realer institutioneller Zwänge bewältigen.",
-        action: "Wir arbeiten an der Seite bestehender Teams, um die Bedingungen zu verstehen, neue Mechanismen zu entwerfen und sie in der Praxis zu erproben.",
-        cta: "Sprechen Sie mit uns über Ihren Prozess",
-      },
-      {
-        title: "Förderer und Philanthropie",
-        body: "Stiftungen, Philanthropie und öffentliche Förderprogramme, die Forschung und Kapital in praktische Experimente mit größerer Relevanz verwandeln wollen.",
-        action: "Wir verbinden Förderung mit realen Orten und schaffen Demonstratoren, Evidenz und Werkzeuge, die prägen können, was als Nächstes kommt.",
-        cta: "Sprechen Sie mit uns über eine Förderung",
-      },
-      {
-        title: "Privatwirtschaft",
-        body: "Entwickler, Betreiber, Tourismusakteure und Technologieunternehmen, deren Arbeit einen Ort prägt oder von ihm abhängt.",
-        action: "Wir gestalten Partnerschaften und Mechanismen, die wirtschaftliche Aktivität mit dem langfristigen Wert und der Pflege eines Ortes verbinden.",
-        cta: "Sprechen Sie mit uns über eine Partnerschaft",
-      },
-      {
-        title: "Gemeinschaften und Landprojekte",
-        body: "Genossenschaften, Land-Trusts, Mietergruppen und Nachbarschaftsinitiativen, die neue Formen kollektiven Eigentums und kollektiver Sorge aufbauen.",
-        action: "Wir helfen, aus einer geteilten Ambition die Beziehungen, Mechanismen und Infrastruktur zu entwickeln, die sie tragfähig machen.",
-        cta: "Sprechen Sie mit uns über Ihr Projekt",
-      },
-      {
-        title: "Forschende und\ninstitutionelle Partner",
-        body: "Universitäten, Institute und Praxen, die neue Ansätze zu Land, Wohnen, Governance und ziviler Technologie erproben.",
-        action: "Wir bringen angewandte Forschung in Kontakt mit realen Orten und verbinden unterschiedliche Formen von Wissen, um neue Ansätze zu entwickeln und zu erproben.",
-        cta: "Sprechen Sie mit uns über eine Zusammenarbeit",
-      },
-      {
-        title: "Europäische Konsortien",
-        body: "Koordinatoren und Partner, die europäische Forschungs- und Innovationsprojekte aufbauen, von Horizon Europe bis EIT und Erasmus+.",
-        action: "Wir bringen laufende Piloten, Expertise in ziviler Technologie, Beziehungen zu Gemeinschaften und Einsatzerfahrung ein und verankern Anträge in realen Orten und praktischer Arbeit.",
-        cta: "Sprechen Sie mit uns über Ihr Konsortium",
-      },
+      { title: "Öffentliche Institutionen", body: "Wir arbeiten mit öffentlichen Institutionen, um neue Ansätze für kollektive Aufgaben zu entwickeln und zu erproben." },
+      { title: "Förderer und Philanthropie", body: "Wir arbeiten mit Förderern, um Forschung und Kapital in praktische Experimente zu verwandeln, deren Potenzial über einen einzelnen Ort hinausreicht." },
+      { title: "Privatwirtschaft", body: "Wir arbeiten mit Unternehmen an Partnerschaften, die wirtschaftliche Aktivität mit dem langfristigen Wert und der Pflege eines Ortes verbinden." },
+      { title: "Gemeinschaften und Landprojekte", body: "Wir arbeiten mit Gemeinschaften an den Mechanismen und der Infrastruktur, die kollektives Eigentum und kollektive Sorge tragfähig machen." },
+      { title: "Forschende und\ninstitutionelle Partner", body: "Wir arbeiten mit Forschenden und Institutionen, um angewandte Forschung in Kontakt mit realen Orten und praktischem Experimentieren zu bringen." },
+      { title: "Europäische Konsortien", body: "Wir treten europäischen Forschungs- und Innovationskonsortien als Praxispartner bei, mit laufenden Piloten, ziviler Technologie und Erfahrung vor Ort." },
     ],
   },
   howWeWork: "Wie wir arbeiten",

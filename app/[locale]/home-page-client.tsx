@@ -411,11 +411,8 @@ export function HomePageClient() {
                       </span>
                     ))}
                   </h3>
-                  <p className="[text-wrap:pretty] mt-4 text-[15px] leading-relaxed text-gray-500">
+                  <p className="[text-wrap:pretty] mt-4 flex-1 text-[15px] leading-relaxed text-gray-800">
                     {path.body}
-                  </p>
-                  <p className="[text-wrap:pretty] mt-3 flex-1 text-[15px] leading-relaxed text-black">
-                    {path.action}
                   </p>
                 </div>
               ))}
