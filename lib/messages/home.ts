@@ -65,7 +65,7 @@ const en: HomeMessages = {
   partnersIntro: "Working with organisations advancing new forms of collective action.",
   who: {
     label: "Who we work with",
-    lead: "Our work is made possible through place-based partnerships. We work with the people closest to the ground, the institutions that shape the territory, and the organisations that can help new models take root and travel.",
+    lead: "Our work is made possible through place-based partnerships. We work with the people closest to the ground, the institutions that shape the territory, and the organisations that can help new models take root and be adapted in new contexts.",
     cta: "Let\u2019s talk",
     paths: [
       {
@@ -178,7 +178,7 @@ const de: HomeMessages = {
   partnersIntro: "Wir arbeiten mit Organisationen, die neue Formen kollektiven Handelns vorantreiben.",
   who: {
     label: "Mit wem wir arbeiten",
-    lead: "Unsere Arbeit wird durch ortsbezogene Partnerschaften möglich. Wir arbeiten mit den Menschen vor Ort, mit den Institutionen, die das Territorium prägen, und mit den Organisationen, die neuen Modellen helfen können, Wurzeln zu schlagen und zu wandern.",
+    lead: "Unsere Arbeit wird durch ortsbezogene Partnerschaften möglich. Wir arbeiten mit den Menschen vor Ort, mit den Institutionen, die das Territorium prägen, und mit den Organisationen, die neuen Modellen helfen können, Wurzeln zu schlagen und in neuen Kontexten Anwendung zu finden.",
     cta: "Sprechen Sie mit uns",
     paths: [
       {
