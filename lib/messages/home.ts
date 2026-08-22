@@ -15,6 +15,7 @@ export type HomeMessages = {
   actionAlt: string
   researchSubtitle: string
   intro1: string
+  heroSecondary: string
   intro2: string
   intro3: string
   partners: string
@@ -55,6 +56,7 @@ const en: HomeMessages = {
   sensingAlt: "sensing",
   actionAlt: "action",
   researchSubtitle: "Research and strategy to \nforge a new civics",
+  heroSecondary: "Explore the initiatives",
   intro1:
     "A research and\ncivic technology studio using\nartistic inquiry and real-world demonstration to shift collective imagination around how we value, own, govern and care for what we hold in common, beginning with land and housing.",
   intro2:
@@ -138,6 +140,7 @@ const de: HomeMessages = {
   sensingAlt: "Wahrnehmen",
   actionAlt: "Handeln",
   researchSubtitle: "Forschung und Strategie für \neine neue Zivilgesellschaft",
+  heroSecondary: "Initiativen entdecken",
   intro1:
     "Ein Studio für Forschung und\nzivilgesellschaftliche Technologie,\ndas mit künstlerischer Erkundung und realen Demonstratoren das kollektive Bild davon verschiebt, wie wir das gemeinsam Gehaltene schätzen, besitzen, verwalten und pflegen, beginnend mit Boden und Wohnen.",
   intro2:

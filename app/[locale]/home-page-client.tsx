@@ -285,12 +285,20 @@ export function HomePageClient() {
                   </span>
                 ))}
               </p>
-              <a
-                href={`/${locale}/contact`}
-                className="btn-field mt-10 inline-block rounded-full px-6 py-3 font-mono text-[13px] font-semibold text-white transition-[filter] hover:brightness-110"
-              >
-                {t.who.cta} →
-              </a>
+              <div className="mt-10 flex flex-wrap items-center gap-4">
+                <a
+                  href="#initiatives"
+                  className="btn-field-outline inline-block rounded-full px-6 py-3 font-mono text-[13px] transition-[filter] hover:brightness-125"
+                >
+                  {t.heroSecondary} ↓
+                </a>
+                <a
+                  href={`/${locale}/contact`}
+                  className="btn-field inline-block rounded-full px-6 py-3 font-mono text-[13px] font-semibold text-white transition-[filter] hover:brightness-110"
+                >
+                  {t.who.cta} →
+                </a>
+              </div>
             </AnimatedElement>
           </div>
         </section>
