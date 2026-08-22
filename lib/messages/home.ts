@@ -120,7 +120,7 @@ const en: HomeMessages = {
   howClosing: "A mechanism proven in one place can be picked up in another, with each place starting further ahead.",
   ourApproach: "Areas of practice",
   areasHeading: "Areas of practice",
-  areasIntro: "Each mechanism draws its own mix from these four areas. Some need only a legal form, some only the technology, and many combine two or three, depending on what the place requires.",
+  areasIntro: "The mechanisms we develop respond to the specific conditions of each place. They might change how resources are financed, how ownership and governance are structured, how people coordinate, or the infrastructure through which they act together. Rather than applying a fixed model, we combine these different levers to build what the situation requires.",
   approachCards: [
     {
       key: "wealth",
@@ -233,7 +233,7 @@ const de: HomeMessages = {
   howClosing: "Ein Mechanismus, der sich an einem Ort bewährt hat, kann am nächsten aufgegriffen werden, und jeder Ort beginnt ein Stück weiter vorn.",
   ourApproach: "Praxisfelder",
   areasHeading: "Praxisfelder",
-  areasIntro: "Jeder Mechanismus zieht seine eigene Mischung aus diesen vier Feldern. Manche brauchen nur eine Rechtsform, manche nur die Technologie, und viele verbinden zwei oder drei, je nachdem, was der Ort verlangt.",
+  areasIntro: "Die Mechanismen, die wir entwickeln, antworten auf die spezifischen Bedingungen jedes Ortes. Sie können verändern, wie Ressourcen finanziert werden, wie Eigentum und Governance strukturiert sind, wie Menschen sich koordinieren oder über welche Infrastruktur sie gemeinsam handeln. Wir kombinieren diese Hebel, um zu bauen, was die Situation verlangt.",
   approachCards: [
     {
       key: "wealth",
