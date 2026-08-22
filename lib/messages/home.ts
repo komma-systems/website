@@ -96,7 +96,7 @@ const en: HomeMessages = {
         cta: "Talk to us about collaborating",
       },
       {
-        title: "Consortia",
+        title: "Consortium",
         body: "Coordinators and partners assembling European bids, from Horizon Europe to EIT and Erasmus+, who need a practice partner with live pilots on the ground.",
         action: "We join consortia as the partner that grounds a proposal in real places, bringing demonstrators, communities and deployment experience to the work programme.",
         cta: "Talk to us about your consortium",
@@ -207,7 +207,7 @@ const de: HomeMessages = {
         cta: "Sprechen Sie mit uns über eine Zusammenarbeit",
       },
       {
-        title: "Konsortien",
+        title: "Konsortium",
         body: "Koordinatoren und Partner, die europäische Anträge aufbauen, von Horizon Europe bis EIT und Erasmus+, und einen Praxispartner mit laufenden Piloten vor Ort brauchen.",
         action: "Wir treten Konsortien als der Partner bei, der einen Antrag in realen Orten verankert, mit Demonstratoren, Gemeinschaften und Einsatzerfahrung.",
         cta: "Sprechen Sie mit uns über Ihr Konsortium",
