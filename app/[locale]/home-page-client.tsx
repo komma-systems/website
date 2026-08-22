@@ -91,7 +91,7 @@ const INITIATIVES = [
     id: "weave",
     title: "Weve",
     description:
-      "Agreements infrastructure beginning with land: a registry that records land as the relationships between the people who hold it, validated together by many parties, from formal titles to customary claims. It grows toward the registry layer for community land trusts.",
+      "A registry that records land as the relationships between the people who hold it, validated together by many parties, from formal titles to customary claims. It grows toward the registry layer for community land trusts.",
     stage: "In development",
     tags: ["agreements", "land", "tech"],
     projects: [
