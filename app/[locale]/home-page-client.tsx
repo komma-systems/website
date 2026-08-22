@@ -363,7 +363,7 @@ export function HomePageClient() {
                     >
                       {item.heading}
                     </h3>
-                    <p className="[text-wrap:pretty] mt-4 text-base lg:text-lg text-gray-400 leading-relaxed">
+                    <p className="[text-wrap:pretty] mt-4 text-base lg:text-lg text-white leading-relaxed">
                       {item.description}
                     </p>
                   </div>
