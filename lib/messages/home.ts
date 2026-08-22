@@ -59,7 +59,7 @@ const en: HomeMessages = {
   howSteps: [
     { key: "research", label: "Research", description: "Understand the conditions, relationships and systems shaping what is possible in a place." },
     { key: "design", label: "Design", description: "Develop new mechanisms of governance, finance, relations and technology with the people involved." },
-    { key: "demonstrate", label: "Demonstrate", description: "Build and test them in real places." },
+    { key: "demonstrate", label: "Demonstrate", description: "Build and test them in real places, with the communities and institutions who will carry them forward." },
     { key: "learn", label: "Learn", description: "Document what works, what doesn't, and why." },
     { key: "adapt", label: "Adapt", description: "Turn what is learned into patterns, models and tools that other places can use and adapt." },
   ],
@@ -126,7 +126,7 @@ const de: HomeMessages = {
   howSteps: [
     { key: "research", label: "Erforschen", description: "Die Bedingungen, Beziehungen und Systeme verstehen, die bestimmen, was an einem Ort möglich ist." },
     { key: "design", label: "Entwerfen", description: "Neue Mechanismen für Governance, Finanzen, Beziehungen und Technologie gemeinsam mit den Beteiligten entwickeln." },
-    { key: "demonstrate", label: "Demonstrieren", description: "Sie an realen Orten bauen und erproben." },
+    { key: "demonstrate", label: "Demonstrieren", description: "Sie an realen Orten bauen und erproben, mit den Gemeinschaften und Institutionen, die sie weitertragen." },
     { key: "learn", label: "Lernen", description: "Dokumentieren, was funktioniert, was nicht, und warum." },
     { key: "adapt", label: "Anpassen", description: "Das Gelernte in Muster, Modelle und Werkzeuge übersetzen, die andere Orte nutzen und anpassen können." },
   ],
