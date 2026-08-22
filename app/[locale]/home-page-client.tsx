@@ -328,12 +328,12 @@ export function HomePageClient() {
                     <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest text-white/40">
                       {String(idx + 1).padStart(2, "0")}
                     </p>
-                    <div className="mt-3 flex items-baseline gap-3">
+                    <div className="mt-3 flex items-baseline justify-between gap-3">
                       <h3 className="font-silkscreen text-sm md:text-base uppercase tracking-wider text-white">
                         {step.label}
                       </h3>
                       {idx < t.howSteps.length - 1 && (
-                        <span className="hidden md:inline text-white/30">→</span>
+                        <span className="hidden md:inline text-white/30 pr-1">→</span>
                       )}
                     </div>
                     <p className="[text-wrap:pretty] mt-3 text-sm lg:text-base text-gray-400 leading-relaxed">
