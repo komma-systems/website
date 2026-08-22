@@ -18,6 +18,12 @@ export type HomeMessages = {
   intro2: string
   intro3: string
   partners: string
+  partnersIntro: string
+  howWeWork: string
+  howWeWorkLead: string
+  howSteps: { key: string; label: string; description: string }[]
+  howClosingLead: string
+  howClosing: string
   ourApproach: string
   approachCards: ApproachCard[]
   initiatives: string
@@ -47,7 +53,19 @@ const en: HomeMessages = {
   intro3:
     "We demonstrate them in real places, document what works as patterns, and turn those patterns into models, tools and civic technologies that others can use and adapt.",
   partners: "Partners",
-  ourApproach: "Our Approach",
+  partnersIntro: "Working with organisations advancing new forms of collective action.",
+  howWeWork: "How we work",
+  howWeWorkLead: "We work from the realities of a place, with the people and institutions already shaping it.",
+  howSteps: [
+    { key: "research", label: "Research", description: "Understand the conditions, relationships and systems shaping what is possible in a place." },
+    { key: "design", label: "Design", description: "Develop new mechanisms of governance, finance, relations and technology with the people involved." },
+    { key: "demonstrate", label: "Demonstrate", description: "Build and test them in real places." },
+    { key: "learn", label: "Learn", description: "Document what works, what doesn't, and why." },
+    { key: "adapt", label: "Adapt", description: "Turn what is learned into patterns, models and tools that other places can use and adapt." },
+  ],
+  howClosingLead: "One place informs the next.",
+  howClosing: "A mechanism proven in one place can be picked up in another, with each place starting further ahead.",
+  ourApproach: "Areas of practice",
   approachCards: [
     {
       key: "wealth",
@@ -96,7 +114,19 @@ const de: HomeMessages = {
   intro3:
     "Wir demonstrieren sie an realen Orten, dokumentieren als Muster, was funktioniert, und übersetzen diese Muster in Modelle, Werkzeuge und zivilgesellschaftliche Technologien, die andere nutzen und anpassen können.",
   partners: "Partner",
-  ourApproach: "Unser Ansatz",
+  partnersIntro: "Wir arbeiten mit Organisationen, die neue Formen kollektiven Handelns vorantreiben.",
+  howWeWork: "Wie wir arbeiten",
+  howWeWorkLead: "Wir arbeiten von den Realitäten eines Ortes aus, mit den Menschen und Institutionen, die ihn bereits prägen.",
+  howSteps: [
+    { key: "research", label: "Erforschen", description: "Die Bedingungen, Beziehungen und Systeme verstehen, die bestimmen, was an einem Ort möglich ist." },
+    { key: "design", label: "Entwerfen", description: "Neue Mechanismen für Governance, Finanzen, Beziehungen und Technologie gemeinsam mit den Beteiligten entwickeln." },
+    { key: "demonstrate", label: "Demonstrieren", description: "Sie an realen Orten bauen und erproben." },
+    { key: "learn", label: "Lernen", description: "Dokumentieren, was funktioniert, was nicht, und warum." },
+    { key: "adapt", label: "Anpassen", description: "Das Gelernte in Muster, Modelle und Werkzeuge übersetzen, die andere Orte nutzen und anpassen können." },
+  ],
+  howClosingLead: "Ein Ort informiert den nächsten.",
+  howClosing: "Ein Mechanismus, der sich an einem Ort bewährt hat, kann am nächsten aufgegriffen werden, und jeder Ort beginnt ein Stück weiter vorn.",
+  ourApproach: "Praxisfelder",
   approachCards: [
     {
       key: "wealth",

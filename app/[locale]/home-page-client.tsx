@@ -288,7 +288,8 @@ export function HomePageClient() {
         {/* Partners Section */}
         <section id="partners" className="py-8 px-4 sm:px-6 md:px-8 bg-black">
           <div className="max-w-5xl mx-auto text-center">
-            <div className="font-silkscreen text-base md:text-lg tracking-widest uppercase text-white filter grayscale brightness-200 contrast-50 mb-8">{t.partners}</div>
+            <div className="font-silkscreen text-base md:text-lg tracking-widest uppercase text-white filter grayscale brightness-200 contrast-50 mb-4">{t.partners}</div>
+            <p className="[text-wrap:pretty] text-lg md:text-xl text-white/70 max-w-2xl mx-auto mb-10">{t.partnersIntro}</p>
             <div className="flex flex-wrap items-center justify-center gap-x-16 gap-y-12 md:gap-x-24">
               {PARTNER_LOGOS.map((partner) => (
                 <a
@@ -302,6 +303,52 @@ export function HomePageClient() {
                 </a>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* How we work */}
+        <section id="how-we-work" className="py-16 px-4 sm:px-6 md:px-8 bg-black">
+          <div className="max-w-7xl mx-auto">
+            <AnimatedElement animation="fade-in" className="mb-10">
+              <h2 className="font-semibold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-tight mb-6">
+                {t.howWeWork}
+              </h2>
+              <p className="[text-wrap:pretty] text-lg md:text-xl text-gray-300 max-w-2xl leading-relaxed">
+                {t.howWeWorkLead}
+              </p>
+            </AnimatedElement>
+
+            <div className="grid grid-cols-1 md:grid-cols-5 border-t border-white/25">
+              {t.howSteps.map((step, idx) => (
+                <AnimatedElement animation="fade-up" delay={100 * (idx + 1)} key={step.key}>
+                  <div className="relative h-full py-8 pr-6 md:border-r md:border-white/10 md:last:border-r-0">
+                    <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest text-white/40">
+                      {String(idx + 1).padStart(2, "0")}
+                    </p>
+                    <div className="mt-3 flex items-baseline gap-3">
+                      <h3 className="font-mono font-semibold text-sm uppercase tracking-[0.14em] text-white">
+                        {step.label}
+                      </h3>
+                      {idx < t.howSteps.length - 1 && (
+                        <span className="hidden md:inline text-white/30">→</span>
+                      )}
+                    </div>
+                    <p className="[text-wrap:pretty] mt-3 text-sm lg:text-base text-gray-400 leading-relaxed">
+                      {step.description}
+                    </p>
+                  </div>
+                </AnimatedElement>
+              ))}
+            </div>
+
+            <AnimatedElement animation="fade-in">
+              <div className="border-t border-white/25 pt-8 mt-2">
+                <p className="[text-wrap:pretty] text-lg md:text-xl leading-relaxed max-w-3xl">
+                  <span className="text-white">{t.howClosingLead}</span>{" "}
+                  <span className="text-gray-400">{t.howClosing}</span>
+                </p>
+              </div>
+            </AnimatedElement>
           </div>
         </section>
 
