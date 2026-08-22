@@ -21,12 +21,6 @@ const PARTNER_LOGOS = [
     imgClassName: "h-12 filter grayscale brightness-200 contrast-50",
   },
   {
-    href: "https://www.justopensource.io/",
-    src: "/Partners/just.svg",
-    alt: "Just",
-    imgClassName: "h-10 filter grayscale brightness-200 contrast-50",
-  },
-  {
     href: "https://www.cltweb.org/",
     src: "/Partners/clt-center.svg",
     alt: "International Center for Community Land Trusts",
@@ -55,6 +49,12 @@ const PARTNER_LOGOS = [
     src: "/Partners/soam.svg",
     alt: "SOAM",
     imgClassName: "h-12 filter grayscale brightness-200 contrast-50",
+  },
+  {
+    href: "https://www.justopensource.io/",
+    src: "/Partners/just.svg",
+    alt: "Just",
+    imgClassName: "h-10 filter grayscale brightness-200 contrast-50",
   },
 ] as const
 
@@ -289,17 +289,21 @@ export function HomePageClient() {
         <section id="partners" className="pt-2 pb-16 px-4 sm:px-6 md:px-8 bg-black">
           <div className="max-w-7xl mx-auto">
             <div className="font-silkscreen text-sm md:text-base tracking-widest uppercase text-white/60 mb-8 text-left">{t.partners}</div>
-            <div className="flex flex-wrap items-center justify-start gap-x-16 gap-y-12 md:gap-x-20">
-              {PARTNER_LOGOS.map((partner) => (
-                <a
-                  key={partner.alt}
-                  href={partner.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex opacity-80 hover:opacity-100 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 rounded"
-                >
-                  <img src={partner.src} alt={partner.alt} className={partner.imgClassName} />
-                </a>
+            <div className="flex flex-col gap-y-12">
+              {[PARTNER_LOGOS.slice(0, 3), PARTNER_LOGOS.slice(3)].map((row, rowIdx) => (
+                <div key={rowIdx} className="flex flex-wrap items-center justify-start gap-x-16 gap-y-12 md:gap-x-20">
+                  {row.map((partner) => (
+                    <a
+                      key={partner.alt}
+                      href={partner.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex opacity-80 hover:opacity-100 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 rounded"
+                    >
+                      <img src={partner.src} alt={partner.alt} className={partner.imgClassName} />
+                    </a>
+                  ))}
+                </div>
               ))}
             </div>
           </div>
