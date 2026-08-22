@@ -305,66 +305,20 @@ export function HomePageClient() {
           </div>
         </section>
 
-        {/* How we work */}
-        <section id="how-we-work" className="py-16 px-4 sm:px-6 md:px-8 bg-black">
-          <div className="max-w-7xl mx-auto">
-            <AnimatedElement animation="fade-in" className="mb-10">
-              <h2 className="font-semibold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-tight mb-6">
-                {t.howWeWork}
-              </h2>
-              <p className="[text-wrap:pretty] text-lg md:text-xl text-gray-300 max-w-2xl leading-relaxed">
-                {t.howWeWorkLead}
-              </p>
-            </AnimatedElement>
-
-            <div className="grid grid-cols-1 md:grid-cols-5 border-t border-white/25">
-              {t.howSteps.map((step, idx) => (
-                <AnimatedElement animation="fade-up" delay={100 * (idx + 1)} key={step.key}>
-                  <div className="relative h-full py-8 pr-6 md:border-r md:border-white/10 md:last:border-r-0">
-                    <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest text-white/40">
-                      {String(idx + 1).padStart(2, "0")}
-                    </p>
-                    <div className="mt-3 flex items-baseline gap-3">
-                      <h3 className="font-mono font-semibold text-sm uppercase tracking-[0.14em] text-white">
-                        {step.label}
-                      </h3>
-                      {idx < t.howSteps.length - 1 && (
-                        <span className="hidden md:inline text-white/30">→</span>
-                      )}
-                    </div>
-                    <p className="[text-wrap:pretty] mt-3 text-sm lg:text-base text-gray-400 leading-relaxed">
-                      {step.description}
-                    </p>
-                  </div>
-                </AnimatedElement>
-              ))}
-            </div>
-
-            <AnimatedElement animation="fade-in">
-              <div className="border-t border-white/25 pt-8 mt-2">
-                <p className="[text-wrap:pretty] text-lg md:text-xl leading-relaxed max-w-3xl">
-                  <span className="text-white">{t.howClosingLead}</span>{" "}
-                  <span className="text-gray-400">{t.howClosing}</span>
-                </p>
-              </div>
-            </AnimatedElement>
-          </div>
-        </section>
-
         <section id="approach" ref={approachSectionRef} className="py-16 px-4 sm:px-6 md:px-8 bg-black scroll-mt-48">
           <div className="max-w-7xl mx-auto">
             <AnimatedElement animation="fade-in" className="mb-12">
-              <h2 className="font-semibold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-tight mb-8">{t.ourApproach}</h2>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl text-center mb-8">{t.ourApproach}</h2>
             </AnimatedElement>
 
-            <div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {t.approachCards.map((item, idx) => (
                 <AnimatedElement animation="fade-up" delay={100 * (idx + 1)} key={item.key}>
-                  <div className="grid grid-cols-1 md:grid-cols-[1fr_1.1fr] gap-y-3 gap-x-14 border-t border-white/25 py-10 px-1 sm:px-2 transition-colors duration-200 hover:bg-white/[0.04]">
-                    <h3 className="font-light text-[26px] sm:text-3xl lg:text-[34px] text-white tracking-[-0.01em] leading-tight">
+                  <div className="edge-lines-rounded-xl flex flex-col items-center justify-center min-h-[220px] h-full rounded-xl p-8 bg-transparent text-white transition-all duration-300">
+                    <h3 className="text-2xl md:text-3xl font-bold text-center w-full mb-4">
                       {item.heading}
                     </h3>
-                    <p className="[text-wrap:pretty] text-base lg:text-lg text-gray-400 leading-relaxed">
+                    <p className="[text-wrap:pretty] text-base md:text-lg font-normal text-center">
                       {item.description}
                     </p>
                   </div>
