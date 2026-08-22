@@ -42,14 +42,6 @@ const sideValue = "font-mono text-[13.5px] leading-7 text-white/80"
 const sideLink =
   "font-mono text-[13px] leading-7 text-white border-b border-white/30 hover:text-cream hover:border-cream transition-colors"
 
-const TAG_COLORS: Record<string, string> = {
-  Forum: "#b5502a",
-  Event: "#d99a4e",
-  Veranstaltung: "#d99a4e",
-  Participate: "#c07b3a",
-  Mitmachen: "#c07b3a",
-}
-
 type PageProps = { params: Promise<{ locale: string }> }
 
 export default async function MeldPage({ params }: PageProps) {
@@ -71,7 +63,7 @@ export default async function MeldPage({ params }: PageProps) {
             >
               {t.back}
             </Link>
-            <h1 className="tf-0 font-silkscreen text-5xl tracking-tight sm:text-6xl">Meld</h1>
+            <h1 className="font-silkscreen text-5xl tracking-tight text-white sm:text-6xl">Meld</h1>
             <p className="mt-5 text-lg text-slate-200">
               {t.tagline[0]}
               <br />
@@ -154,10 +146,7 @@ export default async function MeldPage({ params }: PageProps) {
                 {t.what.map((step, i) => (
                   <div key={step.title} className="relative grid grid-cols-1 sm:grid-cols-[9.5rem_1fr] gap-x-5 gap-y-1 pl-5">
                     <div className="absolute left-0 top-0 h-full w-[3px]" style={{ background: "linear-gradient(180deg,#7e3319,#b5502a 40%,#c07b3a 75%,#d99a4e)" }} />
-                    <p
-                      className="font-mono text-[14px] font-semibold uppercase tracking-[0.14em] pt-1"
-                      style={{ color: ["#b5502a", "#c07b3a", "#d99a4e"][i] }}
-                    >
+                    <p className="font-mono text-[14px] font-semibold uppercase tracking-[0.14em] text-white pt-1">
                       {String(i + 1).padStart(2, "0")} {step.title}
                     </p>
                     <p className="[text-wrap:pretty] text-[1.1rem] leading-[1.75] text-gray-200">
@@ -193,7 +182,7 @@ export default async function MeldPage({ params }: PageProps) {
                     className="w-full"
                   />
                   <div className="p-7 sm:p-9 sm:pt-7">
-                    <span className="btn-field-outline inline-block rounded-full px-3 py-1 font-mono text-[11px] uppercase tracking-[0.12em]">
+                    <span className="inline-block rounded-full border border-cream/40 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.12em] text-cream">
                       {t.featured.pill}
                     </span>
                     <h3 className="mt-3 text-2xl font-light tracking-tight text-white sm:text-3xl">
@@ -219,7 +208,7 @@ export default async function MeldPage({ params }: PageProps) {
                         <p className="font-silkscreen text-[0.7rem] uppercase tracking-widest text-white/40">
                           {card.tag}
                         </p>
-                        <h3 className="text-field-wide mt-3 text-2xl font-light tracking-tight sm:text-3xl">
+                        <h3 className="mt-3 text-2xl font-light tracking-tight text-white sm:text-3xl">
                           {card.title}
                           <span className="ml-3 text-white/40 transition-colors group-hover:text-cream">
                             →
@@ -242,10 +231,7 @@ export default async function MeldPage({ params }: PageProps) {
                     const Row = (
                       <div className="grid grid-cols-1 gap-x-9 gap-y-3 border-t border-white/25 py-8 transition-colors hover:bg-white/[0.04] sm:grid-cols-[130px_1fr]">
                         <div>
-                          <p
-                            className="font-silkscreen text-[0.65rem] uppercase tracking-widest"
-                            style={{ color: TAG_COLORS[item.tag] ?? "#f5f2e8" }}
-                          >
+                          <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest text-cream">
                             {item.tag}
                           </p>
                           <p className="mt-1.5 font-mono text-[13px] leading-relaxed text-white/60">
@@ -266,7 +252,7 @@ export default async function MeldPage({ params }: PageProps) {
                           </p>
                           {item.cta && (
                             <p className="mt-4">
-                              <span className="btn-field-outline inline-block rounded-full px-4 py-2 font-mono text-[13px] transition-[filter] group-hover:brightness-125">
+                              <span className="inline-block rounded-full border border-white/25 px-4 py-2 font-mono text-[13px] text-white/70 transition-colors group-hover:border-cream">
                                 {item.cta}
                               </span>
                             </p>
