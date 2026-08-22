@@ -124,7 +124,7 @@ const de: HomeMessages = {
   partners: "Partner",
   partnersIntro: "Wir arbeiten mit Organisationen, die neue Formen kollektiven Handelns vorantreiben.",
   howWeWork: "Wie wir arbeiten",
-  howWeWorkLead: "Wir beginnen bei den Realitäten eines Ortes und arbeiten mit den Menschen und Institutionen, die ihn bereits prägen. Was wir an einem Ort lernen, kann prägen, was an einem anderen entsteht.",
+  howWeWorkLead: "Wir beginnen bei den Realitäten eines Ortes und arbeiten mit den Menschen und Institutionen, die ihn bereits prägen. Was wir an einem Ort lernen, kann einfließen in das, was an einem anderen entsteht.",
   howSteps: [
     { key: "research", label: "Forschung", description: "Die Bedingungen, Beziehungen und Systeme verstehen, die bestimmen, was an einem Ort möglich ist." },
     { key: "design", label: "Mechanismus-Design", description: "Neue Mechanismen für Governance, Finanzen, Beziehungen und Technologie gemeinsam mit den Beteiligten entwickeln." },
