@@ -19,6 +19,12 @@ export type HomeMessages = {
   intro3: string
   partners: string
   partnersIntro: string
+  who: {
+    label: string
+    heading: string
+    lead: string
+    paths: { title: string; body: string; cta: string }[]
+  }
   howWeWork: string
   howWeWorkLead: string
   howSteps: { key: string; label: string; description: string }[]
@@ -56,6 +62,33 @@ const en: HomeMessages = {
     "We demonstrate them in real places, document what works as patterns, and turn those patterns into models, tools and civic technologies that others can use and adapt.",
   partners: "Partners",
   partnersIntro: "Working with organisations advancing new forms of collective action.",
+  who: {
+    label: "Who we work with",
+    heading: "Four ways in.",
+    lead: "The people we help and the people who pay us are frequently not the same people. Each path says plainly which one you are, and how the work gets funded.",
+    paths: [
+      {
+        title: "For public institutions",
+        body: "Municipalities, districts and public agencies running participation processes or facing a housing shortage, under real constraints: data protection, procurement, and a team already fully committed.",
+        cta: "What we do for public institutions",
+      },
+      {
+        title: "For funders and philanthropy",
+        body: "Foundations and research funders who want field research that ends in an instrument someone can use, not a report that ends in a PDF.",
+        cta: "What a Komma grant buys",
+      },
+      {
+        title: "For communities and land projects",
+        body: "Cooperatives, land trusts, tenant groups and neighbourhood initiatives with a site, a group, and no structure yet that holds.",
+        cta: "Where groups get stuck, and what helps",
+      },
+      {
+        title: "For researchers and partners",
+        body: "Universities, institutes and practices working on land, housing, governance or civic technology.",
+        cta: "How we collaborate",
+      },
+    ],
+  },
   howWeWork: "How we work",
   howWeWorkLead: "We start from the realities of a place, working with the people and institutions already shaping it. What we learn in one place can inform what is built in another.",
   howSteps: [
@@ -125,6 +158,33 @@ const de: HomeMessages = {
     "Wir demonstrieren sie an realen Orten, dokumentieren als Muster, was funktioniert, und übersetzen diese Muster in Modelle, Werkzeuge und zivilgesellschaftliche Technologien, die andere nutzen und anpassen können.",
   partners: "Partner",
   partnersIntro: "Wir arbeiten mit Organisationen, die neue Formen kollektiven Handelns vorantreiben.",
+  who: {
+    label: "Mit wem wir arbeiten",
+    heading: "Vier Wege hinein.",
+    lead: "Die Menschen, denen wir helfen, und die Menschen, die uns bezahlen, sind oft nicht dieselben. Jeder Weg sagt klar, wer Sie sind und wie die Arbeit finanziert wird.",
+    paths: [
+      {
+        title: "Für öffentliche Institutionen",
+        body: "Kommunen, Landkreise und Behörden, die Beteiligungsprozesse durchführen oder Wohnungsnot begegnen, unter realen Zwängen wie Datenschutz, Vergaberecht und voll ausgelasteten Teams.",
+        cta: "Was wir für öffentliche Institutionen tun",
+      },
+      {
+        title: "Für Förderer und Philanthropie",
+        body: "Stiftungen und Forschungsförderer, die Feldforschung wollen, die in einem nutzbaren Instrument endet.",
+        cta: "Was eine Komma-Förderung leistet",
+      },
+      {
+        title: "Für Gemeinschaften und Landprojekte",
+        body: "Genossenschaften, Land-Trusts, Mietergruppen und Nachbarschaftsinitiativen mit einem Ort, einer Gruppe und noch keiner Struktur, die trägt.",
+        cta: "Wo Gruppen stecken bleiben, und was hilft",
+      },
+      {
+        title: "Für Forschende und Partner",
+        body: "Universitäten, Institute und Praxen, die zu Land, Wohnen, Governance oder ziviler Technologie arbeiten.",
+        cta: "Wie wir zusammenarbeiten",
+      },
+    ],
+  },
   howWeWork: "Wie wir arbeiten",
   howWeWorkLead: "Wir beginnen bei den Realitäten eines Ortes und arbeiten mit den Menschen und Institutionen, die ihn bereits prägen. Was wir an einem Ort lernen, kann einfließen in das, was an einem anderen entsteht.",
   howSteps: [

@@ -314,8 +314,48 @@ export function HomePageClient() {
           </div>
         </section>
 
+        {/* Who we work with */}
+        <section id="who" className="py-20 px-4 sm:px-6 md:px-8 bg-grain pill-bg-grain">
+          <div className="max-w-7xl mx-auto">
+            <AnimatedElement animation="fade-in" className="mb-10">
+              <p className="mb-5 font-silkscreen text-xs uppercase tracking-[0.24em] text-white/50">
+                {t.who.label}
+              </p>
+              <h2 className="font-semibold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-tight mb-6">
+                {t.who.heading}
+              </h2>
+              <p className="[text-wrap:pretty] text-lg md:text-xl text-gray-300 max-w-3xl leading-relaxed">
+                {t.who.lead}
+              </p>
+            </AnimatedElement>
+
+            <div className="grid grid-cols-1 border-t border-l border-white/20 sm:grid-cols-2 lg:grid-cols-4">
+              {t.who.paths.map((path) => (
+                <div
+                  key={path.title}
+                  className="flex flex-col border-b border-r border-white/20 p-7 transition-colors hover:bg-white/[0.03]"
+                >
+                  <h3 className="text-xl font-light tracking-tight text-white sm:text-2xl">
+                    {path.title}
+                  </h3>
+                  <p className="[text-wrap:pretty] mt-4 flex-1 text-[15px] leading-relaxed text-gray-300">
+                    {path.body}
+                  </p>
+                  <a
+                    href={`/${locale}/contact`}
+                    className="mt-6 inline-block font-mono text-[13px] leading-snug transition-[filter] hover:brightness-125"
+                    style={{ color: "#c07b3a" }}
+                  >
+                    {path.cta} →
+                  </a>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* How we work */}
-        <section id="how-we-work" className="pt-20 pb-12 px-4 sm:px-6 md:px-8 bg-grain">
+        <section id="how-we-work" className="pt-20 pb-12 px-4 sm:px-6 md:px-8 bg-black">
           <div className="max-w-7xl mx-auto">
             <AnimatedElement animation="fade-in" className="mb-10">
               <h2 className="font-semibold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-tight mb-4">
