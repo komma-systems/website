@@ -231,9 +231,14 @@ export default async function MeldPage({ params }: PageProps) {
                 {/* InnoVER: the featured deployment, full width */}
                 <div className="border border-white/25 p-7 sm:p-9">
                   <img src="/meld/innover.svg" alt="" className="mb-6 w-full outline outline-1 outline-white/10" />
-                  <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest text-cream">
-                    Deployment
-                  </p>
+                  <div className="flex flex-wrap items-center gap-3">
+                    <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest text-cream">
+                      Deployment
+                    </p>
+                    <span className="rounded-full border border-cream/40 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.12em] text-cream">
+                      Announcement coming soon
+                    </span>
+                  </div>
                   <h3 className="mt-3 text-2xl font-light tracking-tight text-white sm:text-3xl">
                     First production deployment
                   </h3>
