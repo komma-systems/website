@@ -283,7 +283,7 @@ export function HomePageClient() {
         <section id="partners" className="pt-2 pb-16 px-4 sm:px-6 md:px-8 bg-black">
           <div className="max-w-7xl mx-auto">
             <div className="font-silkscreen text-sm md:text-base tracking-widest uppercase text-white/60 mb-8 text-left">{t.partners}</div>
-            <div className="flex flex-col gap-y-12">
+            <div className="flex flex-col gap-y-7">
               {[PARTNER_LOGOS.slice(0, 4), PARTNER_LOGOS.slice(4, 8), PARTNER_LOGOS.slice(8)].map((row, rowIdx) => (
                 <div key={rowIdx} className="flex flex-wrap items-center justify-start gap-x-16 gap-y-12 md:gap-x-20">
                   {row.map((partner) => (
