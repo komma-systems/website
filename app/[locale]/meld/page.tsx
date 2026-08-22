@@ -161,14 +161,9 @@ export default async function MeldPage({ params }: PageProps) {
                     className="w-full"
                   />
                   <div className="p-7 sm:p-9 sm:pt-7">
-                    <div className="flex flex-wrap items-center gap-3">
-                      <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest text-cream">
-                        {t.featured.tag}
-                      </p>
-                      <span className="rounded-full border border-cream/40 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.12em] text-cream">
-                        {t.featured.pill}
-                      </span>
-                    </div>
+                    <span className="inline-block rounded-full border border-cream/40 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.12em] text-cream">
+                      {t.featured.pill}
+                    </span>
                     <h3 className="mt-3 text-2xl font-light tracking-tight text-white sm:text-3xl">
                       {t.featured.title}
                     </h3>
