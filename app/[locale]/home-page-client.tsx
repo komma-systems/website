@@ -150,6 +150,8 @@ const INITIATIVES = [
 
 const noOrphan = (text: string) => text.replace(/ (\S+)$/, "\u00A0$1")
 
+const STEP_COLORS = ["#b5502a", "#c9673a", "#c07b3a", "#d99a4e", "#f5f2e8"]
+
 const STAGE_COLORS: Record<string, string> = {
   "In deployment": "#b5502a",
   "In development": "#c07b3a",
@@ -327,7 +329,10 @@ export function HomePageClient() {
                 <AnimatedElement animation="fade-up" delay={100 * (idx + 1)} key={step.key}>
                   <div className="relative h-full py-8">
                     <div className="flex items-baseline justify-between gap-3">
-                      <h3 className="font-silkscreen text-sm md:text-base uppercase tracking-wider text-white">
+                      <h3
+                        className="font-silkscreen text-sm md:text-base uppercase tracking-wider"
+                        style={{ color: STEP_COLORS[idx] }}
+                      >
                         {step.label}
                       </h3>
                       {idx < t.howSteps.length - 1 && (
@@ -384,7 +389,7 @@ export function HomePageClient() {
                     <div className="min-w-0 grid grid-cols-1 sm:grid-cols-[1fr_220px] gap-x-10 gap-y-5 items-start">
                       <div className="min-w-0">
                         <div className="flex items-baseline gap-4">
-                          <h3 className="text-field font-extralight text-[26px] sm:text-3xl lg:text-[40px] tracking-[-0.01em] leading-tight group-hover:translate-x-1 transition-transform duration-200">
+                          <h3 className={`tf-${idx % 5} font-extralight text-[26px] sm:text-3xl lg:text-[40px] tracking-[-0.01em] leading-tight group-hover:translate-x-1 transition-transform duration-200`}>
                             {initiative.title}
                           </h3>
                           {initiative.href && (
@@ -770,7 +775,7 @@ export function HomePageClient() {
             <div>
               <div className="grid grid-cols-1 sm:grid-cols-[130px_1fr_auto] gap-x-9 gap-y-3 items-start border-t border-white/25 py-8 px-1 sm:px-2 hover:bg-white/[0.04] transition-colors">
                 <div>
-                  <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest text-cream">Forum</p>
+                  <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest" style={{ color: "#b5502a" }}>Forum</p>
                   <p className="mt-1.5 font-mono text-[13px] text-white/60 leading-relaxed">
                     26–30 Aug 2026
                     <br />
@@ -783,7 +788,7 @@ export function HomePageClient() {
                       href="https://www.alpbach.org/blog/urban-transformation-and-bioregional-resilience-the-micro-macro-deal"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-field transition-[filter] hover:brightness-125"
+                      className="hover:text-cream transition-colors"
                     >
                       Meld at the European Forum Alpbach
                     </a>
@@ -814,7 +819,7 @@ export function HomePageClient() {
 
               <div className="grid grid-cols-1 sm:grid-cols-[130px_1fr_auto] gap-x-9 gap-y-3 items-start border-t border-white/25 py-8 px-1 sm:px-2 hover:bg-white/[0.04] transition-colors">
                 <div>
-                  <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest text-cream">Keynote</p>
+                  <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest" style={{ color: "#c07b3a" }}>Keynote</p>
                   <p className="mt-1.5 font-mono text-[13px] text-white/60 leading-relaxed">
                     10–12 Sep 2026
                     <br />
@@ -827,7 +832,7 @@ export function HomePageClient() {
                       href="https://valleyofthecommons.com/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-field transition-[filter] hover:brightness-125"
+                      className="hover:text-cream transition-colors"
                     >
                       KOMMA at the Valley of the Commons
                     </a>
@@ -851,7 +856,7 @@ export function HomePageClient() {
 
               <div className="grid grid-cols-1 sm:grid-cols-[130px_1fr_auto] gap-x-9 gap-y-3 items-start border-t border-white/25 py-8 px-1 sm:px-2 hover:bg-white/[0.04] transition-colors">
                 <div>
-                  <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest text-cream">Forum</p>
+                  <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest" style={{ color: "#b5502a" }}>Forum</p>
                   <p className="mt-1.5 font-mono text-[13px] text-white/60 leading-relaxed">
                     15–16 Sep 2026
                     <br />
@@ -864,7 +869,7 @@ export function HomePageClient() {
                       href="https://k-erc.eu/2026/08/horizon-europe-category/33982/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-field transition-[filter] hover:brightness-125"
+                      className="hover:text-cream transition-colors"
                     >
                       Korea-EU Horizon Europe Researchers Consulting Forum
                     </a>
@@ -887,7 +892,7 @@ export function HomePageClient() {
 
               <div className="grid grid-cols-1 sm:grid-cols-[130px_1fr_auto] gap-x-9 gap-y-3 items-start border-t border-white/25 py-8 px-1 sm:px-2 hover:bg-white/[0.04] transition-colors">
                 <div>
-                  <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest text-cream">Workshop</p>
+                  <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest" style={{ color: "#d99a4e" }}>Workshop</p>
                   <p className="mt-1.5 font-mono text-[13px] text-white/60 leading-relaxed">
                     October 2026
                     <br />
@@ -900,7 +905,7 @@ export function HomePageClient() {
                       href="https://luma.com/ycmcreer?tk=7ObFX9"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-field transition-[filter] hover:brightness-125"
+                      className="hover:text-cream transition-colors"
                     >
                       Threshold #2: Designing Progressive Housing Mechanisms
                     </a>
