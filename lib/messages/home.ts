@@ -68,8 +68,8 @@ const en: HomeMessages = {
   howClosingLead: "One place informs the next.",
   howClosing: "A mechanism proven in one place can be picked up in another, with each place starting further ahead.",
   ourApproach: "Areas of practice",
-  areasHeading: "Where we intervene",
-  areasIntro: "We develop these mechanisms across four interconnected areas of practice.",
+  areasHeading: "Areas of practice",
+  areasIntro: "We develop these mechanisms across four interconnected areas.",
   approachCards: [
     {
       key: "wealth",
@@ -137,8 +137,8 @@ const de: HomeMessages = {
   howClosingLead: "Ein Ort informiert den nächsten.",
   howClosing: "Ein Mechanismus, der sich an einem Ort bewährt hat, kann am nächsten aufgegriffen werden, und jeder Ort beginnt ein Stück weiter vorn.",
   ourApproach: "Praxisfelder",
-  areasHeading: "Wo wir ansetzen",
-  areasIntro: "Wir entwickeln diese Mechanismen in vier miteinander verbundenen Praxisfeldern.",
+  areasHeading: "Praxisfelder",
+  areasIntro: "Wir entwickeln diese Mechanismen in vier miteinander verbundenen Feldern.",
   approachCards: [
     {
       key: "wealth",
