@@ -21,9 +21,9 @@ export type HomeMessages = {
   partnersIntro: string
   who: {
     label: string
-    heading: string
-    lead: string
-    paths: { title: string; body: string; cta: string }[]
+    lead1: string
+    lead2: string
+    paths: { title: string; body: string; action: string; cta: string }[]
   }
   howWeWork: string
   howWeWorkLead: string
@@ -64,28 +64,32 @@ const en: HomeMessages = {
   partnersIntro: "Working with organisations advancing new forms of collective action.",
   who: {
     label: "Who we work with",
-    heading: "Four ways in.",
-    lead: "The people we help and the people who pay us are frequently not the same people. Each path says plainly which one you are, and how the work gets funded.",
+    lead1: "Different actors bring different resources, responsibilities and perspectives to the work.",
+    lead2: "We work with the people closest to a place, the institutions that shape it, and the organisations able to support or extend what is being built. Sometimes they are our partners, sometimes our funders, and often they are both.",
     paths: [
       {
-        title: "For public institutions",
-        body: "Municipalities, districts and public agencies running participation processes or facing a housing shortage, under real constraints: data protection, procurement, and a team already fully committed.",
-        cta: "What we do for public institutions",
+        title: "Public institutions",
+        body: "Municipalities, districts and public agencies navigating housing, participation and other collective challenges within real institutional constraints.",
+        action: "We work alongside existing teams to research conditions, design new mechanisms and test them in practice.",
+        cta: "Working with public institutions",
       },
       {
-        title: "For funders and philanthropy",
-        body: "Foundations and research funders who want field research that ends in an instrument someone can use, not a report that ends in a PDF.",
-        cta: "What a Komma grant buys",
+        title: "Funders and philanthropy",
+        body: "Foundations and research funders looking to turn knowledge and capital into practical experiments with wider potential.",
+        action: "We connect research and funding to real places, building demonstrators, evidence and tools rather than research that ends with a report.",
+        cta: "Funding a KOMMA project",
       },
       {
-        title: "For communities and land projects",
-        body: "Cooperatives, land trusts, tenant groups and neighbourhood initiatives with a site, a group, and no structure yet that holds.",
-        cta: "Where groups get stuck, and what helps",
+        title: "Communities and land projects",
+        body: "Cooperatives, land trusts, tenant groups and neighbourhood initiatives building new forms of collective ownership and care.",
+        action: "We help turn a shared ambition into the mechanisms, relationships and infrastructure needed to make it viable.",
+        cta: "Working with communities",
       },
       {
-        title: "For researchers and partners",
-        body: "Universities, institutes and practices working on land, housing, governance or civic technology.",
-        cta: "How we collaborate",
+        title: "Researchers and partners",
+        body: "Universities, institutes, practices and organisations exploring new approaches to land, housing, governance and civic technology.",
+        action: "We bring research, fieldwork and experimentation together, collaborating where different forms of knowledge and capability can produce something neither could build alone.",
+        cta: "Collaborating with KOMMA",
       },
     ],
   },
@@ -160,28 +164,32 @@ const de: HomeMessages = {
   partnersIntro: "Wir arbeiten mit Organisationen, die neue Formen kollektiven Handelns vorantreiben.",
   who: {
     label: "Mit wem wir arbeiten",
-    heading: "Vier Wege hinein.",
-    lead: "Die Menschen, denen wir helfen, und die Menschen, die uns bezahlen, sind oft nicht dieselben. Jeder Weg sagt klar, wer Sie sind und wie die Arbeit finanziert wird.",
+    lead1: "Verschiedene Akteure bringen unterschiedliche Ressourcen, Verantwortungen und Perspektiven in die Arbeit ein.",
+    lead2: "Wir arbeiten mit den Menschen, die einem Ort am nächsten sind, mit den Institutionen, die ihn prägen, und mit den Organisationen, die das Entstehende stützen oder weitertragen können. Manchmal sind sie unsere Partner, manchmal unsere Förderer, und oft beides.",
     paths: [
       {
-        title: "Für öffentliche Institutionen",
-        body: "Kommunen, Landkreise und Behörden, die Beteiligungsprozesse durchführen oder Wohnungsnot begegnen, unter realen Zwängen wie Datenschutz, Vergaberecht und voll ausgelasteten Teams.",
-        cta: "Was wir für öffentliche Institutionen tun",
+        title: "Öffentliche Institutionen",
+        body: "Kommunen, Landkreise und Behörden, die Wohnen, Beteiligung und andere kollektive Aufgaben innerhalb realer institutioneller Zwänge bewältigen.",
+        action: "Wir arbeiten an der Seite bestehender Teams, erforschen Bedingungen, entwerfen neue Mechanismen und erproben sie in der Praxis.",
+        cta: "Mit öffentlichen Institutionen arbeiten",
       },
       {
-        title: "Für Förderer und Philanthropie",
-        body: "Stiftungen und Forschungsförderer, die Feldforschung wollen, die in einem nutzbaren Instrument endet.",
-        cta: "Was eine Komma-Förderung leistet",
+        title: "Förderer und Philanthropie",
+        body: "Stiftungen und Forschungsförderer, die Wissen und Kapital in praktische Experimente mit größerem Potenzial verwandeln wollen.",
+        action: "Wir verbinden Forschung und Förderung mit realen Orten und bauen Demonstratoren, Evidenz und Werkzeuge, nicht Forschung, die mit einem Bericht endet.",
+        cta: "Ein KOMMA-Projekt fördern",
       },
       {
-        title: "Für Gemeinschaften und Landprojekte",
-        body: "Genossenschaften, Land-Trusts, Mietergruppen und Nachbarschaftsinitiativen mit einem Ort, einer Gruppe und noch keiner Struktur, die trägt.",
-        cta: "Wo Gruppen stecken bleiben, und was hilft",
+        title: "Gemeinschaften und Landprojekte",
+        body: "Genossenschaften, Land-Trusts, Mietergruppen und Nachbarschaftsinitiativen, die neue Formen kollektiven Eigentums und kollektiver Sorge aufbauen.",
+        action: "Wir helfen, aus einer geteilten Ambition die Mechanismen, Beziehungen und Infrastruktur zu entwickeln, die sie tragfähig machen.",
+        cta: "Mit Gemeinschaften arbeiten",
       },
       {
-        title: "Für Forschende und Partner",
-        body: "Universitäten, Institute und Praxen, die zu Land, Wohnen, Governance oder ziviler Technologie arbeiten.",
-        cta: "Wie wir zusammenarbeiten",
+        title: "Forschende und Partner",
+        body: "Universitäten, Institute, Praxen und Organisationen, die neue Ansätze zu Land, Wohnen, Governance und ziviler Technologie erproben.",
+        action: "Wir bringen Forschung, Feldarbeit und Experiment zusammen und kooperieren dort, wo unterschiedliche Formen von Wissen und Können etwas hervorbringen, das keine Seite allein bauen könnte.",
+        cta: "Mit KOMMA kooperieren",
       },
     ],
   },

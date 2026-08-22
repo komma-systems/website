@@ -321,11 +321,11 @@ export function HomePageClient() {
               <p className="mb-5 font-silkscreen text-xs uppercase tracking-[0.24em] text-white/50">
                 {t.who.label}
               </p>
-              <h2 className="font-semibold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-tight mb-6">
-                {t.who.heading}
-              </h2>
+              <p className="[text-wrap:pretty] text-xl md:text-2xl text-white max-w-3xl leading-relaxed mb-5">
+                {t.who.lead1}
+              </p>
               <p className="[text-wrap:pretty] text-lg md:text-xl text-gray-300 max-w-3xl leading-relaxed">
-                {t.who.lead}
+                {t.who.lead2}
               </p>
             </AnimatedElement>
 
@@ -338,8 +338,11 @@ export function HomePageClient() {
                   <h3 className="text-xl font-light tracking-tight text-white sm:text-2xl">
                     {path.title}
                   </h3>
-                  <p className="[text-wrap:pretty] mt-4 flex-1 text-[15px] leading-relaxed text-gray-300">
+                  <p className="[text-wrap:pretty] mt-4 text-[15px] leading-relaxed text-gray-400">
                     {path.body}
+                  </p>
+                  <p className="[text-wrap:pretty] mt-3 flex-1 text-[15px] leading-relaxed text-white">
+                    {path.action}
                   </p>
                   <a
                     href={`/${locale}/contact`}
