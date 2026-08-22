@@ -83,7 +83,7 @@ const en: HomeMessages = {
       key: "rituals",
       heading: "Cultivating Playful Rituals",
       description:
-        "Integrating governance into everyday life through the human-centric design. Including sociocratic decision-making, digital coordination tools, and innovative hardware to enhance collective collaboration by smoothly connecting digital and physical spaces.",
+        "Integrating governance into everyday life through human-centric design. Including sociocratic decision-making, digital coordination tools, and innovative hardware to enhance collective collaboration by smoothly connecting digital and physical spaces.",
     },
     {
       key: "technology",

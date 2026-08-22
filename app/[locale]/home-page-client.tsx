@@ -138,34 +138,10 @@ export function HomePageClient() {
   const locale: Locale = isLocale(rawLocale) ? rawLocale : defaultLocale
   const t = homeMessages[locale]
 
-  const [showSecondParagraph, setShowSecondParagraph] = useState(false)
-  const [textColorWhite, setTextColorWhite] = useState(false)
   const [initiatives, setInitiatives] = useState<any[]>([])
   const [initiativesLoading, setInitiativesLoading] = useState(true)
   const introductionSectionRef = useRef<HTMLDivElement>(null)
   const approachSectionRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    // Reveal the second paragraph after 5 seconds
-    const paragraphTimer = setTimeout(() => setShowSecondParagraph(true), 5000)
-    return () => clearTimeout(paragraphTimer)
-  }, [])
-
-  useEffect(() => {
-    // Make text white after 5 seconds OR when user starts scrolling
-    const scrollHandler = () => {
-      setTextColorWhite(true)
-    }
-    window.addEventListener('scroll', scrollHandler)
-    const whiteTimer = setTimeout(() => {
-      setTextColorWhite(true)
-    }, 5000)
-
-    return () => {
-      window.removeEventListener('scroll', scrollHandler)
-      clearTimeout(whiteTimer)
-    }
-  }, [])
 
   useEffect(() => {
     // Fetch initiatives from Notion API
