@@ -326,7 +326,7 @@ export function HomePageClient() {
               </p>
             </AnimatedElement>
 
-            <div className="grid grid-cols-1 md:grid-cols-5 gap-x-10">
+            <div className="mt-12 grid grid-cols-1 md:grid-cols-5 gap-x-10 border-t border-white/15 pt-12">
               {t.howSteps.map((step, idx) => (
                 <AnimatedElement animation="fade-up" delay={100 * (idx + 1)} key={step.key}>
                   <div className="relative h-full py-8">
