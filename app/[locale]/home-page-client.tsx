@@ -350,6 +350,9 @@ export function HomePageClient() {
             </div>
 
             <div id="approach" ref={approachSectionRef} className="mt-20 pt-14 border-t border-white/15 scroll-mt-48">
+              <h3 className="font-semibold text-xl sm:text-2xl text-white tracking-tight leading-tight mb-4">
+                {t.areasHeading}
+              </h3>
               <p className="[text-wrap:pretty] text-lg md:text-xl text-gray-300 max-w-2xl leading-relaxed mb-12">
                 {t.areasIntro}
               </p>
