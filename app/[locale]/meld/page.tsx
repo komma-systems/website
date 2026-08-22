@@ -34,7 +34,7 @@ export async function generateMetadata({
 }
 
 const proseClasses = "[text-wrap:pretty] text-[1.125rem] leading-[1.8] text-slate-100"
-const labelClasses = "mb-4 mt-12 font-silkscreen text-[0.7rem] uppercase tracking-[0.24em] text-cream"
+const labelClasses = "mb-5 mt-14 font-silkscreen text-base sm:text-lg uppercase tracking-[0.18em] text-cream"
 
 const sideLabel =
   "mt-6 block font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-white/40 first:mt-0"
@@ -166,7 +166,7 @@ export default async function MeldPage({ params }: PageProps) {
 
               {/* Inside the initiative */}
               <div className="mt-20">
-                <p className="mb-6 font-silkscreen text-[0.7rem] uppercase tracking-[0.24em] text-white/45">
+                <p className="mb-6 font-silkscreen text-base sm:text-lg uppercase tracking-[0.18em] text-cream">
                   {t.insideLabel}
                 </p>
 
@@ -218,7 +218,7 @@ export default async function MeldPage({ params }: PageProps) {
 
               {/* From the field */}
               <div className="mt-20">
-                <p className="mb-2 font-silkscreen text-[0.7rem] uppercase tracking-[0.24em] text-white/45">
+                <p className="mb-4 font-silkscreen text-base sm:text-lg uppercase tracking-[0.18em] text-cream">
                   {t.fieldLabel}
                 </p>
                 <div>

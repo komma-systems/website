@@ -54,7 +54,7 @@ const en: MeldMessages = {
   ],
   problemLabel: "The Problem",
   problem: [
-    "Existing tools either send audio to commercial cloud AI, which public-sector settings cannot accept, or produce flat transcripts that demand hours of manual analysis. And the knowledge citizens generate has no durable form. It does not accumulate, travel, or inform the next decision. Each assembly starts from scratch.",
+    "The tools available today force a bad choice. Either the audio goes to commercial cloud AI, which public-sector settings cannot responsibly accept, or it becomes a flat transcript that someone spends hours analysing by hand. Either way, the knowledge citizens generate never takes a durable form that could accumulate, travel between places, or inform the next decision, so each assembly starts over from the beginning.",
   ],
   whatLabel: "What Meld Does",
   what: [
@@ -141,7 +141,7 @@ const de: MeldMessages = {
   ],
   problemLabel: "Das Problem",
   problem: [
-    "Bestehende Werkzeuge schicken Audio entweder an kommerzielle Cloud-KI, was der öffentliche Sektor nicht verantworten kann, oder erzeugen flache Transkripte, die Stunden manueller Auswertung verlangen. Und das Wissen, das Bürgerinnen und Bürger erzeugen, hat keine dauerhafte Form. Es sammelt sich nicht an, wandert nicht und informiert nicht die nächste Entscheidung. Jede Versammlung beginnt bei null.",
+    "Die heutigen Werkzeuge erzwingen eine schlechte Wahl. Entweder geht das Audio an kommerzielle Cloud-KI, was der öffentliche Sektor nicht verantworten kann, oder es wird zu einem flachen Transkript, das jemand in stundenlanger Handarbeit auswertet. So oder so gewinnt das Wissen, das Bürgerinnen und Bürger erzeugen, nie eine dauerhafte Form, die sich ansammeln, zwischen Orten wandern oder die nächste Entscheidung informieren könnte, und jede Versammlung beginnt wieder von vorn.",
   ],
   whatLabel: "Was Meld macht",
   what: [
