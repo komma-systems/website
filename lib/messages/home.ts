@@ -73,7 +73,7 @@ const en: HomeMessages = {
       },
       {
         title: "Funders and philanthropy",
-        body: "Foundations and research funders looking to turn knowledge and capital into practical experiments with wider potential.",
+        body: "Foundations, philanthropies and public funding programmes, from local grants to EU instruments, looking to turn knowledge and capital into practical experiments with wider potential.",
         action: "We connect research and funding to real places, building demonstrators, evidence and tools rather than research that ends with a report.",
         cta: "Talk to us about funding a project",
       },
@@ -92,7 +92,7 @@ const en: HomeMessages = {
       {
         title: "Researchers and partners",
         body: "Universities, institutes, practices and organisations exploring new approaches to land, housing, governance and civic technology.",
-        action: "We bring research, fieldwork and experimentation together, collaborating where different forms of knowledge and capability can produce something neither could build alone.",
+        action: "We bring research, fieldwork and experimentation together, in direct collaborations and as partners in European consortia, where different forms of knowledge and capability produce something neither could build alone.",
         cta: "Talk to us about collaborating",
       },
     ],
@@ -178,7 +178,7 @@ const de: HomeMessages = {
       },
       {
         title: "Förderer und Philanthropie",
-        body: "Stiftungen und Forschungsförderer, die Wissen und Kapital in praktische Experimente mit größerem Potenzial verwandeln wollen.",
+        body: "Stiftungen, Philanthropie und öffentliche Förderprogramme, von lokalen Zuschüssen bis zu EU-Instrumenten, die Wissen und Kapital in praktische Experimente mit größerem Potenzial verwandeln wollen.",
         action: "Wir verbinden Forschung und Förderung mit realen Orten und bauen Demonstratoren, Evidenz und Werkzeuge, nicht Forschung, die mit einem Bericht endet.",
         cta: "Sprechen Sie mit uns über eine Förderung",
       },
@@ -197,7 +197,7 @@ const de: HomeMessages = {
       {
         title: "Forschende und Partner",
         body: "Universitäten, Institute, Praxen und Organisationen, die neue Ansätze zu Land, Wohnen, Governance und ziviler Technologie erproben.",
-        action: "Wir bringen Forschung, Feldarbeit und Experiment zusammen und kooperieren dort, wo unterschiedliche Formen von Wissen und Können etwas hervorbringen, das keine Seite allein bauen könnte.",
+        action: "Wir bringen Forschung, Feldarbeit und Experiment zusammen, in direkten Kooperationen und als Partner in europäischen Konsortien, wo unterschiedliche Formen von Wissen und Können etwas hervorbringen, das keine Seite allein bauen könnte.",
         cta: "Sprechen Sie mit uns über eine Zusammenarbeit",
       },
     ],
