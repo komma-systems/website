@@ -98,7 +98,7 @@ const en: HomeMessages = {
       {
         title: "Consortium",
         body: "Coordinators and partners assembling European bids, from Horizon Europe to EIT and Erasmus+, who need a practice partner with live pilots on the ground.",
-        action: "We join consortia as the partner that grounds a proposal in real places, bringing demonstrators, communities and deployment experience to the work programme.",
+        action: "We join consortia as the partner that grounds a proposal in real places, contributing civic technology expertise, working demonstrators, community relationships and deployment experience to the work programme.",
         cta: "Talk to us about your consortium",
       },
     ],
@@ -209,7 +209,7 @@ const de: HomeMessages = {
       {
         title: "Konsortium",
         body: "Koordinatoren und Partner, die europäische Anträge aufbauen, von Horizon Europe bis EIT und Erasmus+, und einen Praxispartner mit laufenden Piloten vor Ort brauchen.",
-        action: "Wir treten Konsortien als der Partner bei, der einen Antrag in realen Orten verankert, mit Demonstratoren, Gemeinschaften und Einsatzerfahrung.",
+        action: "Wir treten Konsortien als der Partner bei, der einen Antrag in realen Orten verankert, und bringen Expertise in ziviler Technologie, funktionierende Demonstratoren, Beziehungen zu Gemeinschaften und Einsatzerfahrung ein.",
         cta: "Sprechen Sie mit uns über Ihr Konsortium",
       },
     ],
