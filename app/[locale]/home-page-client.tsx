@@ -30,7 +30,7 @@ const PARTNER_LOGOS = [
     href: "https://www.10x100.cc/",
     src: "/Partners/10x100.svg",
     alt: "10x100",
-    imgClassName: "h-10 filter brightness-0 invert opacity-80",
+    imgClassName: "h-10 filter invert grayscale opacity-80",
   },
   {
     href: "https://consensys.io/",
