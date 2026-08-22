@@ -144,7 +144,8 @@ export default async function MeldPage({ params }: PageProps) {
               <p className={`${proseClasses} mb-7 text-white`}>{t.whatLead}</p>
               <div className="space-y-5">
                 {t.what.map((step, i) => (
-                  <div key={step.title} className="grid grid-cols-1 sm:grid-cols-[9.5rem_1fr] gap-x-5 gap-y-1 border-l border-white/20 pl-5">
+                  <div key={step.title} className="relative grid grid-cols-1 sm:grid-cols-[9.5rem_1fr] gap-x-5 gap-y-1 pl-5">
+                    <div className="absolute left-0 top-0 h-full w-[3px]" style={{ background: "linear-gradient(180deg,#7e3319,#b5502a 40%,#c07b3a 75%,#d99a4e)" }} />
                     <p className="font-mono text-[14px] font-semibold uppercase tracking-[0.14em] text-white pt-1">
                       {String(i + 1).padStart(2, "0")} {step.title}
                     </p>
@@ -158,7 +159,8 @@ export default async function MeldPage({ params }: PageProps) {
               <p className={labelClasses}>{t.principlesLabel}</p>
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
                 {t.principles.map((pr) => (
-                  <article key={pr.title} className="border-t-2 border-cream/60 pt-4">
+                  <article key={pr.title}>
+                    <div className="rule-field mb-4" />
                     <h3 className="text-lg font-semibold leading-snug text-white">{pr.title}</h3>
                     <p className="[text-wrap:pretty] mt-3 text-[0.95rem] leading-relaxed text-gray-300">
                       {pr.body}

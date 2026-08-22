@@ -314,9 +314,10 @@ export function HomePageClient() {
         <section id="how-we-work" className="pt-20 pb-12 px-4 sm:px-6 md:px-8 bg-grain-warm film-grain">
           <div className="max-w-7xl mx-auto">
             <AnimatedElement animation="fade-in" className="mb-10">
-              <h2 className="font-semibold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-tight mb-6">
+              <h2 className="font-semibold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-tight mb-4">
                 {t.howWeWork}
               </h2>
+              <div className="rule-field w-16 mb-8" />
               <p className="[text-wrap:pretty] text-lg md:text-xl text-gray-300 max-w-2xl leading-relaxed">
                 {t.howWeWorkLead}
               </p>
@@ -342,7 +343,8 @@ export function HomePageClient() {
               ))}
             </div>
 
-            <div id="approach" ref={approachSectionRef} className="mt-20 pt-14 border-t border-white/15 scroll-mt-48">
+            <div id="approach" ref={approachSectionRef} className="mt-20 scroll-mt-48">
+              <div className="hairline-field mb-14" />
               <p className="[text-wrap:pretty] text-lg md:text-xl text-gray-300 max-w-2xl leading-relaxed mb-12">
                 {t.areasIntro}
               </p>
@@ -374,6 +376,7 @@ export function HomePageClient() {
                 <h2 className="font-semibold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-tight">
                   {t.initiatives}
                 </h2>
+                <div className="rule-field w-16 mt-4" />
               </div>
             </AnimatedElement>
 
@@ -469,9 +472,10 @@ export function HomePageClient() {
         <section id="team" className="py-16 px-4 sm:px-6 md:px-8 bg-white">
           <div className="max-w-7xl mx-auto">
             <AnimatedElement animation="fade-in" className="mb-16">
-              <h2 className="font-semibold text-2xl sm:text-3xl lg:text-4xl tracking-tight leading-tight text-left mb-8 text-black">
+              <h2 className="font-semibold text-2xl sm:text-3xl lg:text-4xl tracking-tight leading-tight text-left mb-4 text-black">
                 {t.collective}
               </h2>
+              <div className="rule-field w-16 mb-8" />
               <p className="text-lg md:text-xl text-left text-gray-600 max-w-4xl leading-relaxed">
                 {t.collectiveIntro}
               </p>
@@ -765,6 +769,7 @@ export function HomePageClient() {
               <h2 className="font-semibold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-tight">
                 Upcoming Events
               </h2>
+              <div className="rule-field w-16 mt-4" />
             </div>
 
             <div>
