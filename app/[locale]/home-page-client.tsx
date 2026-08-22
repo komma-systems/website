@@ -398,7 +398,7 @@ export function HomePageClient() {
                             {initiative.title}
                           </h3>
                           {initiative.href && (
-                            <span className="text-white/40 text-xl sm:text-2xl transition-all duration-200 group-hover:text-white group-hover:translate-x-1">
+                            <span className={`tf-${idx % 5} inline-block text-xl sm:text-2xl transition-transform duration-200 group-hover:translate-x-1`}>
                               →
                             </span>
                           )}
