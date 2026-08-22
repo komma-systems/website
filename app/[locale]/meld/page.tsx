@@ -63,7 +63,7 @@ export default async function MeldPage({ params }: PageProps) {
             >
               {t.back}
             </Link>
-            <h1 className="font-silkscreen text-5xl tracking-tight text-white sm:text-6xl">Meld</h1>
+            <h1 className="tf-0 font-silkscreen text-5xl tracking-tight sm:text-6xl">Meld</h1>
             <p className="mt-5 text-lg text-slate-200">
               {t.tagline[0]}
               <br />
@@ -144,8 +144,7 @@ export default async function MeldPage({ params }: PageProps) {
               <p className={`${proseClasses} mb-7 text-white`}>{t.whatLead}</p>
               <div className="space-y-5">
                 {t.what.map((step, i) => (
-                  <div key={step.title} className="relative grid grid-cols-1 sm:grid-cols-[9.5rem_1fr] gap-x-5 gap-y-1 pl-5">
-                    <div className="absolute left-0 top-0 h-full w-[3px]" style={{ background: "linear-gradient(180deg,#7e3319,#b5502a 40%,#c07b3a 75%,#d99a4e)" }} />
+                  <div key={step.title} className="grid grid-cols-1 sm:grid-cols-[9.5rem_1fr] gap-x-5 gap-y-1 border-l border-white/20 pl-5">
                     <p className="font-mono text-[14px] font-semibold uppercase tracking-[0.14em] text-white pt-1">
                       {String(i + 1).padStart(2, "0")} {step.title}
                     </p>
@@ -159,8 +158,7 @@ export default async function MeldPage({ params }: PageProps) {
               <p className={labelClasses}>{t.principlesLabel}</p>
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
                 {t.principles.map((pr) => (
-                  <article key={pr.title}>
-                    <div className="rule-field mb-4" />
+                  <article key={pr.title} className="border-t-2 border-cream/60 pt-4">
                     <h3 className="text-lg font-semibold leading-snug text-white">{pr.title}</h3>
                     <p className="[text-wrap:pretty] mt-3 text-[0.95rem] leading-relaxed text-gray-300">
                       {pr.body}
@@ -182,7 +180,7 @@ export default async function MeldPage({ params }: PageProps) {
                     className="w-full"
                   />
                   <div className="p-7 sm:p-9 sm:pt-7">
-                    <span className="inline-block rounded-full border border-cream/40 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.12em] text-cream">
+                    <span className="btn-field-outline inline-block rounded-full px-3 py-1 font-mono text-[11px] uppercase tracking-[0.12em]">
                       {t.featured.pill}
                     </span>
                     <h3 className="mt-3 text-2xl font-light tracking-tight text-white sm:text-3xl">
@@ -252,7 +250,7 @@ export default async function MeldPage({ params }: PageProps) {
                           </p>
                           {item.cta && (
                             <p className="mt-4">
-                              <span className="inline-block rounded-full border border-white/25 px-4 py-2 font-mono text-[13px] text-white/70 transition-colors group-hover:border-cream">
+                              <span className="btn-field-outline inline-block rounded-full px-4 py-2 font-mono text-[13px] transition-[filter] group-hover:brightness-125">
                                 {item.cta}
                               </span>
                             </p>
