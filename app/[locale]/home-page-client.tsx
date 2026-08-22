@@ -329,7 +329,7 @@ export function HomePageClient() {
                       {String(idx + 1).padStart(2, "0")}
                     </p>
                     <div className="mt-3 flex items-baseline gap-3">
-                      <h3 className="font-mono font-semibold text-sm uppercase tracking-[0.14em] text-white">
+                      <h3 className="font-silkscreen text-sm md:text-base uppercase tracking-wider text-white">
                         {step.label}
                       </h3>
                       {idx < t.howSteps.length - 1 && (
