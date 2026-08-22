@@ -156,7 +156,8 @@ export default async function MeldPage({ params }: PageProps) {
                 new kind of civic listening.
               </p>
 
-              <p className={`${proseClasses} mt-10`}>
+              <p className="mb-4 mt-12 font-silkscreen text-[0.7rem] uppercase tracking-[0.24em] text-cream">The Problem</p>
+              <p className={proseClasses}>
                 Public deliberation sits at the heart of democratic renewal, but the tools available
                 to it are broken. Existing approaches either rely on commercial cloud AI that creates
                 unacceptable data sovereignty and privacy risks in public sector settings, or they
@@ -172,7 +173,8 @@ export default async function MeldPage({ params }: PageProps) {
                 or the next decision. Each assembly starts from scratch.
               </p>
 
-              <p className={`${proseClasses} mt-10`}>
+              <p className="mb-4 mt-12 font-silkscreen text-[0.7rem] uppercase tracking-[0.24em] text-cream">What Meld Does</p>
+              <p className={proseClasses}>
                 The Meld device sits in the room during civic assemblies and public workshops.
                 Participants register consent through a physical NFC tap before their voice enters
                 the pipeline. Transcription, anonymisation, and initial sensemaking happen locally on
@@ -193,7 +195,8 @@ export default async function MeldPage({ params }: PageProps) {
                 life.
               </p>
 
-              <div className="mt-12 space-y-8">
+              <p className="mb-4 mt-12 font-silkscreen text-[0.7rem] uppercase tracking-[0.24em] text-cream">Design Principles</p>
+              <div className="space-y-8">
                 <article>
                   <h3 className="text-base font-semibold text-white">Consent as action</h3>
                   <p className={`${proseClasses} mt-2`}>
@@ -230,7 +233,9 @@ export default async function MeldPage({ params }: PageProps) {
 
                 {/* InnoVER: the featured deployment, full width */}
                 <div className="border border-white/25 p-7 sm:p-9">
-                  <img src="/meld/innover.svg" alt="" className="mb-6 w-full outline outline-1 outline-white/10" />
+                  <div className="mb-6 bg-white p-4 sm:p-6">
+                    <img src="/meld/innover-kit.png" alt="The Meld device and the Kair app" className="mx-auto max-h-[340px] w-auto" />
+                  </div>
                   <div className="flex flex-wrap items-center gap-3">
                     <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest text-cream">
                       Deployment
