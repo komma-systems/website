@@ -152,7 +152,7 @@ const noOrphan = (text: string) => text.replace(/ (\S+)$/, "\u00A0$1")
 
 const AREA_COLORS = ["#b5502a", "#c9673a", "#c07b3a", "#d99a4e"]
 
-const STEP_COLORS = ["#b5502a", "#c9673a", "#c07b3a", "#d99a4e", "#f5f2e8"]
+const STEP_COLORS = ["#b5502a", "#c9673a", "#c07b3a", "#d99a4e", "#e9c07f"]
 
 const STAGE_COLORS: Record<string, string> = {
   "In deployment": "#b5502a",
