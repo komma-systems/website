@@ -54,6 +54,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "KOMMA",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "KOMMA" }],
     description: "A venture collective using applied research, artistic inquiry and real-world demonstration to shift how we value, own, govern and care for what we hold in common, beginning with land and housing.",
     type: "website",
   },
