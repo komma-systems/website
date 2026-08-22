@@ -104,7 +104,7 @@ const INITIATIVES = [
     id: "sensed-governance",
     title: "Sensed Governance",
     description:
-      "A collective rehabilitating embodied, relational governance: helping communities and networks navigate their differences by starting from what can be felt, in the body, before it hardens into process. Its library of 32 sensed governance patterns travels through workshops, trainings, research, and residencies.",
+      "A collective rehabilitating embodied, relational governance: helping communities and networks navigate their differences by starting from what can be felt, in the body, before it hardens into process.",
     stage: "Research",
     tags: ["governance", "ritual"],
     projects: [
