@@ -338,7 +338,7 @@ export function HomePageClient() {
             <div className="mt-10 grid grid-cols-1 md:grid-cols-5 gap-x-10 border-t border-white/15 pt-8">
               {t.howSteps.map((step, idx) => (
                 <AnimatedElement animation="fade-up" delay={100 * (idx + 1)} key={step.key}>
-                  <div className="relative h-full py-8">
+                  <div className="relative h-full">
                     <div className="flex items-baseline justify-between gap-3">
                       <h3
                         className="font-silkscreen text-sm md:text-base uppercase tracking-wider"
