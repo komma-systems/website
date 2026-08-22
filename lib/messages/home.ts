@@ -78,12 +78,6 @@ const en: HomeMessages = {
         cta: "Talk to us about funding a project",
       },
       {
-        title: "Communities and land projects",
-        body: "Cooperatives, land trusts, tenant groups and neighbourhood initiatives building new forms of collective ownership and care.",
-        action: "We help turn a shared ambition into the mechanisms, relationships and infrastructure needed to make it viable.",
-        cta: "Talk to us about your project",
-      },
-      {
         title: "Private businesses",
         body: "Companies whose work shapes a place or depends on it: developers, operators, tourism actors and technology firms.",
         action: "We design mechanisms and partnerships through which commercial activity contributes to what a place holds in common.",
@@ -94,6 +88,12 @@ const en: HomeMessages = {
         body: "Universities, institutes, practices and organisations exploring new approaches to land, housing, governance and civic technology.",
         action: "We bring research, fieldwork and experimentation together, collaborating where different forms of knowledge and capability can produce something neither could build alone.",
         cta: "Talk to us about collaborating",
+      },
+      {
+        title: "Communities and land projects",
+        body: "Cooperatives, land trusts, tenant groups and neighbourhood initiatives building new forms of collective ownership and care.",
+        action: "We help turn a shared ambition into the mechanisms, relationships and infrastructure needed to make it viable.",
+        cta: "Talk to us about your project",
       },
       {
         title: "Consortium",
@@ -189,12 +189,6 @@ const de: HomeMessages = {
         cta: "Sprechen Sie mit uns über eine Förderung",
       },
       {
-        title: "Gemeinschaften und Landprojekte",
-        body: "Genossenschaften, Land-Trusts, Mietergruppen und Nachbarschaftsinitiativen, die neue Formen kollektiven Eigentums und kollektiver Sorge aufbauen.",
-        action: "Wir helfen, aus einer geteilten Ambition die Mechanismen, Beziehungen und Infrastruktur zu entwickeln, die sie tragfähig machen.",
-        cta: "Sprechen Sie mit uns über Ihr Projekt",
-      },
-      {
         title: "Privatwirtschaft",
         body: "Unternehmen, deren Arbeit einen Ort prägt oder von ihm abhängt: Entwickler, Betreiber, Tourismusakteure und Technologiefirmen.",
         action: "Wir gestalten Mechanismen und Partnerschaften, durch die wirtschaftliche Aktivität zu dem beiträgt, was ein Ort gemeinsam hält.",
@@ -205,6 +199,12 @@ const de: HomeMessages = {
         body: "Universitäten, Institute, Praxen und Organisationen, die neue Ansätze zu Land, Wohnen, Governance und ziviler Technologie erproben.",
         action: "Wir bringen Forschung, Feldarbeit und Experiment zusammen und kooperieren dort, wo unterschiedliche Formen von Wissen und Können etwas hervorbringen, das keine Seite allein bauen könnte.",
         cta: "Sprechen Sie mit uns über eine Zusammenarbeit",
+      },
+      {
+        title: "Gemeinschaften und Landprojekte",
+        body: "Genossenschaften, Land-Trusts, Mietergruppen und Nachbarschaftsinitiativen, die neue Formen kollektiven Eigentums und kollektiver Sorge aufbauen.",
+        action: "Wir helfen, aus einer geteilten Ambition die Mechanismen, Beziehungen und Infrastruktur zu entwickeln, die sie tragfähig machen.",
+        cta: "Sprechen Sie mit uns über Ihr Projekt",
       },
       {
         title: "Konsortium",
