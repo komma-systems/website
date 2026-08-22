@@ -153,7 +153,10 @@ export default async function MeldPage({ params }: PageProps) {
               <div className="space-y-5">
                 {t.what.map((step, i) => (
                   <div key={step.title} className="grid grid-cols-1 sm:grid-cols-[9.5rem_1fr] gap-x-5 gap-y-1 border-l border-white/20 pl-5">
-                    <p className="font-mono text-[14px] font-semibold uppercase tracking-[0.14em] text-white pt-1">
+                    <p
+                      className="font-mono text-[14px] font-semibold uppercase tracking-[0.14em] pt-1"
+                      style={{ color: ["#b5502a", "#c07b3a", "#d99a4e"][i] }}
+                    >
                       {String(i + 1).padStart(2, "0")} {step.title}
                     </p>
                     <p className="[text-wrap:pretty] text-[1.1rem] leading-[1.75] text-gray-200">
