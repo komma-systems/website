@@ -92,7 +92,7 @@ const en: HomeMessages = {
         cta: "Talk to us about your project",
       },
       {
-        title: "Researchers and institutional partners",
+        title: "Researchers and\ninstitutional partners",
         body: "Universities, institutes and practices exploring new approaches to land, housing, governance and civic technology.",
         action: "We bring applied research into contact with real places, combining different forms of knowledge to develop and test new approaches.",
         cta: "Talk to us about collaborating",
@@ -204,7 +204,7 @@ const de: HomeMessages = {
         cta: "Sprechen Sie mit uns über Ihr Projekt",
       },
       {
-        title: "Forschende und institutionelle Partner",
+        title: "Forschende und\ninstitutionelle Partner",
         body: "Universitäten, Institute und Praxen, die neue Ansätze zu Land, Wohnen, Governance und ziviler Technologie erproben.",
         action: "Wir bringen angewandte Forschung in Kontakt mit realen Orten und verbinden unterschiedliche Formen von Wissen, um neue Ansätze zu entwickeln und zu erproben.",
         cta: "Sprechen Sie mit uns über eine Zusammenarbeit",

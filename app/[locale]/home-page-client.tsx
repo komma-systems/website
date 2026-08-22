@@ -396,7 +396,12 @@ export function HomePageClient() {
               {t.who.paths.map((path) => (
                 <div key={path.title} className="flex flex-col">
                   <h3 className="text-xl font-semibold tracking-tight text-black sm:text-2xl">
-                    {path.title}
+                    {path.title.split("\n").map((line, i) => (
+                      <span key={line}>
+                        {i > 0 ? <br /> : null}
+                        {line}
+                      </span>
+                    ))}
                   </h3>
                   <p className="[text-wrap:pretty] mt-4 text-[15px] leading-relaxed text-gray-500">
                     {path.body}
