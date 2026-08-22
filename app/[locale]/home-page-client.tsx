@@ -383,11 +383,7 @@ export function HomePageClient() {
             <div>
               {INITIATIVES.map((initiative, idx) => {
                 const Row = (
-                  <div className="group grid grid-cols-1 sm:grid-cols-[3.5rem_1fr] lg:grid-cols-[4.5rem_1fr] gap-x-10 lg:gap-x-14 border-t border-white/25 py-8 sm:py-10 px-1 sm:px-2 transition-colors duration-200 hover:bg-white/[0.04]">
-                    <span className="hidden sm:block font-silkscreen text-sm text-white/40 leading-none pt-2">
-                      {String(idx + 1).padStart(2, "0")}
-                    </span>
-
+                  <div className="group border-t border-white/25 py-8 sm:py-10 px-1 sm:px-2 transition-colors duration-200 hover:bg-white/[0.04]">
                     <div className="min-w-0 grid grid-cols-1 sm:grid-cols-[1fr_220px] gap-x-10 gap-y-5 items-start">
                       <div className="min-w-0">
                         <div className="flex items-baseline gap-4">
