@@ -426,6 +426,13 @@ export function HomePageClient() {
                 )
               })}
             </div>
+
+            <AnimatedElement animation="fade-in">
+              <p className="[text-wrap:pretty] mt-12 text-lg md:text-xl leading-relaxed max-w-3xl">
+                <span className="text-white">{t.howClosingLead}</span>{" "}
+                <span className="text-gray-400">{t.howClosing}</span>
+              </p>
+            </AnimatedElement>
           </div>
         </section>
 

@@ -96,7 +96,7 @@ const en: HomeMessages = {
   loadingInitiatives: "Loading initiatives...",
   collective: "The Collective",
   collectiveIntro:
-    "Our collaborators bring together deep expertise leading organisations, and working alongside leading institutions, who are advancing equitable, commons-based civic action.",
+    "Our collaborators bring deep expertise from leading organisations and institutions advancing equitable, commons-based civic action.",
   advisors: "Advisors",
   advisorsIntro: "Our advisory board provides strategic guidance and expertise to support our mission.",
 }
