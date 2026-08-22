@@ -65,7 +65,7 @@ const fieldItems = [
     title: "Bring Meld to your process",
     body:
       "We work with municipalities, assemblies, and facilitators who want their deliberation captured on their own terms. Get in touch to talk about a session or a pilot.",
-    cta: "Contact →",
+    cta: "Talk to us about a pilot →",
     href: "/contact",
   },
 ] as const
