@@ -150,23 +150,25 @@ const INITIATIVES = [
 
 const noOrphan = (text: string) => text.replace(/ (\S+)$/, "\u00A0$1")
 
-const AREA_INITIATIVES: Record<string, { name: string; anchor: string }[]> = {
-  wealth: [
-    { name: "Relational Wealth Flows", anchor: "relational-wealth-flows" },
-    { name: "EXCLSR", anchor: "exclsr" },
+const INITIATIVE_AREAS: Record<string, { label: string; color: string }[]> = {
+  "meld": [
+    { label: "Cultivating Playful Rituals", color: "#c07b3a" },
+    { label: "Building Civic Technology", color: "#d99a4e" },
   ],
-  agreements: [
-    { name: "Weve", anchor: "weave" },
-    { name: "EXCLSR", anchor: "exclsr" },
+  "relational-wealth-flows": [
+    { label: "Inverting Civic Wealth", color: "#b5502a" },
+    { label: "Building Civic Technology", color: "#d99a4e" },
   ],
-  rituals: [
-    { name: "Meld", anchor: "meld" },
-    { name: "Sensed Governance", anchor: "sensed-governance" },
+  "weave": [
+    { label: "Modernising Agreements", color: "#c9673a" },
+    { label: "Building Civic Technology", color: "#d99a4e" },
   ],
-  technology: [
-    { name: "Meld", anchor: "meld" },
-    { name: "Weve", anchor: "weave" },
-    { name: "Relational Wealth Flows", anchor: "relational-wealth-flows" },
+  "sensed-governance": [
+    { label: "Cultivating Playful Rituals", color: "#c07b3a" },
+  ],
+  "exclsr": [
+    { label: "Inverting Civic Wealth", color: "#b5502a" },
+    { label: "Modernising Agreements", color: "#c9673a" },
   ],
 }
 
@@ -390,19 +392,6 @@ export function HomePageClient() {
                     <p className="[text-wrap:pretty] mt-4 text-base lg:text-lg text-gray-300 leading-relaxed">
                       {item.description}
                     </p>
-                    <p className="mt-4 font-mono text-[13px] leading-relaxed">
-                      {(AREA_INITIATIVES[item.key] ?? []).map((ini, i) => (
-                        <span key={ini.name}>
-                          {i > 0 ? <span className="text-white/30">{"  ·  "}</span> : null}
-                          <a
-                            href={`#${ini.anchor}`}
-                            className="text-white/60 underline underline-offset-4 decoration-white/25 transition-colors hover:text-cream hover:decoration-cream"
-                          >
-                            {ini.name}
-                          </a>
-                        </span>
-                      ))}
-                    </p>
                   </div>
                 </AnimatedElement>
               ))}
@@ -483,8 +472,19 @@ export function HomePageClient() {
                           )}
                         </div>
 
-                        <p className="mt-3 font-mono text-[13px] text-white/50">
-                          {initiative.tags.join(" / ")}
+                        <p className="mt-3 font-mono text-[13px]">
+                          {(INITIATIVE_AREAS[initiative.id] ?? []).map((area, i) => (
+                            <span key={area.label}>
+                              {i > 0 ? <span className="text-white/30">{" / "}</span> : null}
+                              <a
+                                href="#approach"
+                                className="transition-[filter] hover:brightness-125"
+                                style={{ color: area.color }}
+                              >
+                                {area.label}
+                              </a>
+                            </span>
+                          ))}
                         </p>
 
                         <p className="mt-5 text-base lg:text-lg text-gray-300 leading-relaxed max-w-2xl">
