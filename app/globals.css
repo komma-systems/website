@@ -292,7 +292,11 @@ body {
 .tf-1 { background-image: var(--tgrain), linear-gradient(100deg, #b5502a, #c07b3a 65%, #d18f45); }
 .tf-2 { background-image: var(--tgrain), linear-gradient(100deg, #c07b3a, #d99a4e 70%, #e8b46a); }
 .tf-3 { background-image: var(--tgrain), linear-gradient(100deg, #d99a4e, #e8b46a 55%, #f5f2e8); }
-.tf-4 { background-image: var(--tgrain), linear-gradient(100deg, #8f2f1c, #c07b3a 50%, #f5f2e8); }
+.tf-4 {
+  background-image: var(--tgrain), linear-gradient(100deg, #8f2f1c, #c07b3a 50%, #f5f2e8);
+  background-size: auto, 340% 100%;
+  background-position: left center;
+}
 .tf-0, .tf-1, .tf-2, .tf-3, .tf-4 {
   -webkit-background-clip: text;
   background-clip: text;
