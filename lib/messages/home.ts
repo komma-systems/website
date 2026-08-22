@@ -92,8 +92,14 @@ const en: HomeMessages = {
       {
         title: "Researchers and partners",
         body: "Universities, institutes, practices and organisations exploring new approaches to land, housing, governance and civic technology.",
-        action: "We bring research, fieldwork and experimentation together, in direct collaborations and as partners in European consortia, where different forms of knowledge and capability produce something neither could build alone.",
+        action: "We bring research, fieldwork and experimentation together, collaborating where different forms of knowledge and capability can produce something neither could build alone.",
         cta: "Talk to us about collaborating",
+      },
+      {
+        title: "Consortia",
+        body: "Coordinators and partners assembling European bids, from Horizon Europe to EIT and Erasmus+, who need a practice partner with live pilots on the ground.",
+        action: "We join consortia as the partner that grounds a proposal in real places, bringing demonstrators, communities and deployment experience to the work programme.",
+        cta: "Talk to us about your consortium",
       },
     ],
   },
@@ -197,8 +203,14 @@ const de: HomeMessages = {
       {
         title: "Forschende und Partner",
         body: "Universitäten, Institute, Praxen und Organisationen, die neue Ansätze zu Land, Wohnen, Governance und ziviler Technologie erproben.",
-        action: "Wir bringen Forschung, Feldarbeit und Experiment zusammen, in direkten Kooperationen und als Partner in europäischen Konsortien, wo unterschiedliche Formen von Wissen und Können etwas hervorbringen, das keine Seite allein bauen könnte.",
+        action: "Wir bringen Forschung, Feldarbeit und Experiment zusammen und kooperieren dort, wo unterschiedliche Formen von Wissen und Können etwas hervorbringen, das keine Seite allein bauen könnte.",
         cta: "Sprechen Sie mit uns über eine Zusammenarbeit",
+      },
+      {
+        title: "Konsortien",
+        body: "Koordinatoren und Partner, die europäische Anträge aufbauen, von Horizon Europe bis EIT und Erasmus+, und einen Praxispartner mit laufenden Piloten vor Ort brauchen.",
+        action: "Wir treten Konsortien als der Partner bei, der einen Antrag in realen Orten verankert, mit Demonstratoren, Gemeinschaften und Einsatzerfahrung.",
+        cta: "Sprechen Sie mit uns über Ihr Konsortium",
       },
     ],
   },
