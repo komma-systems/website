@@ -120,7 +120,7 @@ const en: HomeMessages = {
   howClosing: "A mechanism proven in one place can be picked up in another, with each place starting further ahead.",
   ourApproach: "Areas of practice",
   areasHeading: "Areas of practice",
-  areasIntro: "We develop these mechanisms across four interconnected areas.",
+  areasIntro: "Each mechanism draws its own mix from these four areas. Some need only a legal form, some only the technology, and many combine two or three, depending on what the place requires.",
   approachCards: [
     {
       key: "wealth",
@@ -233,7 +233,7 @@ const de: HomeMessages = {
   howClosing: "Ein Mechanismus, der sich an einem Ort bewährt hat, kann am nächsten aufgegriffen werden, und jeder Ort beginnt ein Stück weiter vorn.",
   ourApproach: "Praxisfelder",
   areasHeading: "Praxisfelder",
-  areasIntro: "Wir entwickeln diese Mechanismen in vier miteinander verbundenen Feldern.",
+  areasIntro: "Jeder Mechanismus zieht seine eigene Mischung aus diesen vier Feldern. Manche brauchen nur eine Rechtsform, manche nur die Technologie, und viele verbinden zwei oder drei, je nachdem, was der Ort verlangt.",
   approachCards: [
     {
       key: "wealth",
