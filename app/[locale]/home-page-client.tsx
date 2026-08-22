@@ -118,7 +118,7 @@ const INITIATIVES = [
     id: "exclsr",
     title: "EXCLSR",
     description:
-      "An academy for unwinding enclosure. Courses, masterclasses and an open pattern wiki gather the mechanisms places use to hold land and housing in common, so what one place invents, another can read, adapt and replicate. Each cohort writes its own local reality back into the library.",
+      "An academy for unwinding enclosure. A course, a masterclass and an open pattern wiki gather the mechanisms places use to hold land and housing in common, so what one place invents, another can read, adapt and replicate. Each cohort writes its own local reality back into the library.",
     stage: "Education",
     tags: ["education", "commons"],
     projects: [
