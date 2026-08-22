@@ -288,7 +288,7 @@ export function HomePageClient() {
         {/* Partners Section */}
         <section id="partners" className="py-8 px-4 sm:px-6 md:px-8 bg-black">
           <div className="max-w-7xl mx-auto">
-            <div className="font-silkscreen text-base md:text-lg tracking-widest uppercase text-white filter grayscale brightness-200 contrast-50 mb-8 text-left">{t.partners}</div>
+            <h2 className="font-semibold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-tight mb-10 text-left">{t.partners}</h2>
             <div className="flex flex-wrap items-center justify-center gap-x-16 gap-y-12 md:gap-x-24">
               {PARTNER_LOGOS.map((partner) => (
                 <a
@@ -311,14 +311,14 @@ export function HomePageClient() {
               <h2 className="font-semibold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-tight mb-8">{t.ourApproach}</h2>
             </AnimatedElement>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 border-t border-l border-white/25">
               {t.approachCards.map((item, idx) => (
-                <AnimatedElement animation="fade-up" delay={100 * (idx + 1)} key={item.key}>
-                  <div className="edge-lines-rounded-xl flex flex-col items-center justify-center min-h-[220px] h-full rounded-xl p-8 bg-transparent text-white transition-all duration-300">
-                    <h3 className="text-2xl md:text-3xl font-bold text-center w-full mb-4">
+                <AnimatedElement animation="fade-up" delay={100 * (idx + 1)} key={item.key} className="h-full">
+                  <div className="h-full border-r border-b border-white/25 p-8 lg:p-10 transition-colors duration-200 hover:bg-white/[0.04]">
+                    <h3 className="font-light text-[26px] sm:text-3xl lg:text-[34px] text-white tracking-[-0.01em] leading-tight">
                       {item.heading}
                     </h3>
-                    <p className="[text-wrap:pretty] text-base md:text-lg font-normal text-center">
+                    <p className="[text-wrap:pretty] mt-4 text-base lg:text-lg text-gray-400 leading-relaxed">
                       {item.description}
                     </p>
                   </div>
