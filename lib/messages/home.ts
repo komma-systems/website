@@ -47,7 +47,7 @@ const en: HomeMessages = {
   actionAlt: "action",
   researchSubtitle: "Research and strategy to \nforge a new civics",
   intro1:
-    "A venture collective using applied research, artistic inquiry and real-world demonstration to shift collective imagination around how we value, own, govern and care for what we hold in common, beginning with land and housing.",
+    "A research and civic technology studio using artistic inquiry and real-world demonstration to shift collective imagination around how we value, own, govern and care for what we hold in common, beginning with land and housing.",
   intro2:
     "Our action is made possible through place-based partnerships with citizens, municipalities, philanthropy and the private sector. Together, we research, design and test new mechanisms across governance, finance, relations and technology.",
   intro3:
@@ -114,7 +114,7 @@ const de: HomeMessages = {
   actionAlt: "Handeln",
   researchSubtitle: "Forschung und Strategie für \neine neue Zivilgesellschaft",
   intro1:
-    "Ein Venture-Kollektiv, das mit angewandter Forschung, künstlerischer Erkundung und realen Demonstratoren das kollektive Bild davon verschiebt, wie wir das gemeinsam Gehaltene schätzen, besitzen, verwalten und pflegen, beginnend mit Boden und Wohnen.",
+    "Ein Studio für Forschung und zivilgesellschaftliche Technologie, das mit künstlerischer Erkundung und realen Demonstratoren das kollektive Bild davon verschiebt, wie wir das gemeinsam Gehaltene schätzen, besitzen, verwalten und pflegen, beginnend mit Boden und Wohnen.",
   intro2:
     "Unser Handeln wird durch ortsbezogene Partnerschaften mit Bürgerinnen und Bürgern, Kommunen, Philanthropie und der Privatwirtschaft möglich. Gemeinsam erforschen, entwerfen und erproben wir neue Mechanismen in Governance, Finanzen, Beziehungen und Technologie.",
   intro3:
