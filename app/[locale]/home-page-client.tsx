@@ -326,7 +326,7 @@ export function HomePageClient() {
               </p>
             </AnimatedElement>
 
-            <div className="mt-12 grid grid-cols-1 md:grid-cols-5 gap-x-10 border-t border-white/15 pt-12">
+            <div className="mt-10 grid grid-cols-1 md:grid-cols-5 gap-x-10 border-t border-white/15 pt-8">
               {t.howSteps.map((step, idx) => (
                 <AnimatedElement animation="fade-up" delay={100 * (idx + 1)} key={step.key}>
                   <div className="relative h-full py-8">
@@ -349,7 +349,7 @@ export function HomePageClient() {
               ))}
             </div>
 
-            <div id="approach" ref={approachSectionRef} className="mt-20 pt-14 border-t border-white/15 scroll-mt-48">
+            <div id="approach" ref={approachSectionRef} className="mt-10 pt-14 border-t border-white/15 scroll-mt-48">
               <h3 className="font-semibold text-xl sm:text-2xl text-white tracking-tight leading-tight mb-4">
                 {t.areasHeading}
               </h3>
