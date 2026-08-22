@@ -150,6 +150,13 @@ const INITIATIVES = [
 
 const noOrphan = (text: string) => text.replace(/ (\S+)$/, "\u00A0$1")
 
+const STAGE_COLORS: Record<string, string> = {
+  "In deployment": "#b5502a",
+  "In development": "#c07b3a",
+  "Exploration": "#c9873f",
+  "Research": "#d99a4e",
+}
+
 export function HomePageClient() {
   const params = useParams()
   const rawLocale = params.locale as string
@@ -262,17 +269,17 @@ export function HomePageClient() {
 
 
       <main className="flex-1 flex flex-col pt-12">
-        <section id="introduction" ref={introductionSectionRef} className="py-16 px-4 sm:px-6 md:px-8 bg-black scroll-mt-48 min-h-[70vh] flex items-center">
+        <section id="introduction" ref={introductionSectionRef} className="py-16 px-4 sm:px-6 md:px-8 bg-field film-grain scroll-mt-48 min-h-[70vh] flex items-center">
           <div className="max-w-7xl mx-auto w-full">
             <AnimatedElement animation="fade-in" className="mb-12 max-w-3xl">
               <span className="komma-title block text-3xl md:text-4xl mb-10">KOMMA</span>
               <p className="[text-wrap:pretty] text-xl sm:text-lg md:text-xl lg:text-2xl px-4 sm:px-0" style={{ lineHeight: 1.5 }}>
                 {noOrphan(t.intro1)}
               </p>
-              <p className="[text-wrap:pretty] text-xl sm:text-lg md:text-xl lg:text-2xl px-4 sm:px-0 mt-6" style={{ lineHeight: 1.5, color: '#9a9a9a' }}>
+              <p className="[text-wrap:pretty] text-xl sm:text-lg md:text-xl lg:text-2xl px-4 sm:px-0 mt-6" style={{ lineHeight: 1.5, color: 'rgba(255,244,230,0.78)' }}>
                 {noOrphan(t.intro2)}
               </p>
-              <p className="[text-wrap:pretty] text-xl sm:text-lg md:text-xl lg:text-2xl px-4 sm:px-0 mt-6" style={{ lineHeight: 1.5, color: '#9a9a9a' }}>
+              <p className="[text-wrap:pretty] text-xl sm:text-lg md:text-xl lg:text-2xl px-4 sm:px-0 mt-6" style={{ lineHeight: 1.5, color: 'rgba(255,244,230,0.78)' }}>
                 {noOrphan(t.intro3)}
               </p>
             </AnimatedElement>
@@ -304,7 +311,7 @@ export function HomePageClient() {
         </section>
 
         {/* How we work */}
-        <section id="how-we-work" className="pt-20 pb-12 px-4 sm:px-6 md:px-8 bg-grain">
+        <section id="how-we-work" className="pt-20 pb-12 px-4 sm:px-6 md:px-8 bg-grain-warm film-grain">
           <div className="max-w-7xl mx-auto">
             <AnimatedElement animation="fade-in" className="mb-10">
               <h2 className="font-semibold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-tight mb-6">
@@ -423,7 +430,12 @@ export function HomePageClient() {
 
                       <div className="flex flex-col sm:items-end gap-3.5">
                         <span className="font-mono font-semibold text-[13.5px] uppercase tracking-[0.14em] text-white whitespace-nowrap">
-                          <span className="text-cream text-[9px] align-[2px] mr-2">●</span>
+                          <span
+                            className="text-[9px] align-[2px] mr-2"
+                            style={{ color: STAGE_COLORS[initiative.stage] ?? "#f5f2e8" }}
+                          >
+                            ●
+                          </span>
                           {initiative.stage}
                         </span>
                         <div className="w-full aspect-[4/3] mt-1 overflow-hidden outline outline-1 outline-white/15 opacity-80 group-hover:opacity-100 transition-opacity">
@@ -747,7 +759,7 @@ export function HomePageClient() {
         </section>
 
         {/* News Section */}
-        <section id="news" className="py-20 px-4 sm:px-6 md:px-8 bg-grain">
+        <section id="news" className="py-20 px-4 sm:px-6 md:px-8 bg-grain-warm film-grain">
           <div className="max-w-7xl mx-auto">
             <div className="flex items-center gap-2 sm:gap-4 mb-6 sm:mb-8 pb-3 sm:pb-4">
               <h2 className="font-semibold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-tight">
