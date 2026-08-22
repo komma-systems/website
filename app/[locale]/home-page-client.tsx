@@ -108,8 +108,8 @@ const INITIATIVES = [
     stage: "Research",
     tags: ["governance", "ritual"],
     projects: [
-      { name: "Pattern book", href: null },
       { name: "Gravity and Grace (residency)", href: "https://www.gravitygrace.quest/berlin" },
+      { name: "Pattern book", href: null },
     ],
     href: null,
   },
