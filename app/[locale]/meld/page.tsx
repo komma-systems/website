@@ -194,7 +194,7 @@ export default async function MeldPage({ params }: PageProps) {
                     <span className="btn-field-outline inline-block rounded-full px-3 py-1 font-mono text-[11px] uppercase tracking-[0.12em]">
                       {t.featured.pill}
                     </span>
-                    <h3 className="mt-3 text-2xl font-light tracking-tight text-white sm:text-3xl">
+                    <h3 className="text-field mt-3 text-2xl font-light tracking-tight sm:text-3xl">
                       {t.featured.title}
                     </h3>
                     <p className={`${proseClasses} mt-3 text-gray-300`}>
@@ -217,7 +217,7 @@ export default async function MeldPage({ params }: PageProps) {
                         <p className="font-silkscreen text-[0.7rem] uppercase tracking-widest text-white/40">
                           {card.tag}
                         </p>
-                        <h3 className="mt-3 text-2xl font-light tracking-tight text-white sm:text-3xl">
+                        <h3 className="text-field-wide mt-3 text-2xl font-light tracking-tight sm:text-3xl">
                           {card.title}
                           <span className="ml-3 text-white/40 transition-colors group-hover:text-cream">
                             →
