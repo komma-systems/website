@@ -321,10 +321,10 @@ export function HomePageClient() {
               </p>
             </AnimatedElement>
 
-            <div className="grid grid-cols-1 md:grid-cols-5 border-t border-white/25">
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-x-10 border-t border-white/25">
               {t.howSteps.map((step, idx) => (
                 <AnimatedElement animation="fade-up" delay={100 * (idx + 1)} key={step.key}>
-                  <div className="relative h-full py-8 pr-6 md:border-r md:border-white/10 md:last:border-r-0">
+                  <div className="relative h-full py-8">
                     <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest text-white/40">
                       {String(idx + 1).padStart(2, "0")}
                     </p>
