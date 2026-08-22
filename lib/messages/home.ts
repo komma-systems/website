@@ -22,6 +22,7 @@ export type HomeMessages = {
   who: {
     label: string
     lead: string
+    cta: string
     paths: { title: string; body: string; action: string; cta: string }[]
   }
   howWeWork: string
@@ -64,6 +65,7 @@ const en: HomeMessages = {
   who: {
     label: "Who we work with",
     lead: "We work with the people closest to a place, the institutions that shape it, and the organisations that can help new models take root and travel.",
+    cta: "Explore how we work together",
     paths: [
       {
         title: "Public institutions",
@@ -175,6 +177,7 @@ const de: HomeMessages = {
   who: {
     label: "Mit wem wir arbeiten",
     lead: "Wir arbeiten mit den Menschen, die einem Ort am nächsten sind, mit den Institutionen, die ihn prägen, und mit den Organisationen, die neuen Modellen helfen können, Wurzeln zu schlagen und zu wandern.",
+    cta: "Entdecken Sie, wie wir zusammenarbeiten",
     paths: [
       {
         title: "Öffentliche Institutionen",

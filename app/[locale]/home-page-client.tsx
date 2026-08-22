@@ -404,16 +404,16 @@ export function HomePageClient() {
                   <p className="[text-wrap:pretty] mt-3 flex-1 text-[15px] leading-relaxed text-black">
                     {path.action}
                   </p>
-                  <a
-                    href={`/${locale}/contact`}
-                    className="mt-6 inline-block font-mono text-[13px] leading-snug transition-[filter] hover:brightness-125"
-                    style={{ color: "#a4531f" }}
-                  >
-                    {path.cta} →
-                  </a>
                 </div>
               ))}
             </div>
+
+            <a
+              href={`/${locale}/contact`}
+              className="btn-field mt-12 inline-block rounded-full px-6 py-3 font-mono text-[13px] font-semibold text-white transition-[filter] hover:brightness-110"
+            >
+              {t.who.cta} →
+            </a>
           </div>
         </section>
 
