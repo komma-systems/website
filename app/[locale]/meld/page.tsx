@@ -85,7 +85,10 @@ export default async function MeldPage({ params }: PageProps) {
               <span className={sideLabel}>{t.side.initiative}</span>
               <span className={sideValue}>Meld</span>
               <span className={sideLabel}>{t.side.stage}</span>
-              <span className={sideValue}>{t.side.stageValue}</span>
+              <span className={sideValue}>
+                <span className="mr-2 align-[1px] text-[8px]" style={{ color: "#b5502a" }}>●</span>
+                {t.side.stageValue}
+              </span>
               <span className={sideLabel}>{t.side.places}</span>
               <span className={sideValue}>
                 {t.side.placesValue.map((pl, i) => (
@@ -170,7 +173,7 @@ export default async function MeldPage({ params }: PageProps) {
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
                 {t.principles.map((pr) => (
                   <article key={pr.title}>
-                    <h3 className="text-lg font-semibold leading-snug text-white">{pr.title}</h3>
+                    <h3 className="text-lg font-semibold leading-snug text-cream/90">{pr.title}</h3>
                     <p className="[text-wrap:pretty] mt-3 text-[0.95rem] leading-relaxed text-gray-300">
                       {pr.body}
                     </p>
