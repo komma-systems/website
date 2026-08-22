@@ -222,7 +222,7 @@ export default async function MeldPage({ params }: PageProps) {
                         </p>
                         <h3 className="text-field-wide mt-3 text-2xl font-light tracking-tight sm:text-3xl">
                           {card.title}
-                          <span className="ml-3 text-white/40 transition-colors group-hover:text-cream">
+                          <span className="ml-3 inline-block transition-transform group-hover:translate-x-1">
                             →
                           </span>
                         </h3>
