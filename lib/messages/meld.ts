@@ -54,7 +54,7 @@ const en: MeldMessages = {
   ],
   problemLabel: "The Problem",
   problem: [
-    "The tools available today force a bad choice. Either the audio goes to commercial cloud AI, which public-sector settings cannot responsibly accept, or it becomes a flat transcript that someone spends hours analysing by hand. Either way, the knowledge citizens generate never takes a durable form that could accumulate, travel between places, or inform the next decision, so each assembly starts over from the beginning.",
+    "The tools available today force a bad choice. Either the audio goes to commercial cloud AI, which public-sector settings cannot responsibly accept, or it becomes a flat transcript that someone spends hours analysing by hand. Either way, the knowledge citizens generate never takes a durable form that could accumulate, travel between places, or inform the next decision, so each assembly starts over from the beginning without the accumulated context.",
   ],
   whatLabel: "What Meld Does",
   what: [
@@ -141,7 +141,7 @@ const de: MeldMessages = {
   ],
   problemLabel: "Das Problem",
   problem: [
-    "Die heutigen Werkzeuge erzwingen eine schlechte Wahl. Entweder geht das Audio an kommerzielle Cloud-KI, was der öffentliche Sektor nicht verantworten kann, oder es wird zu einem flachen Transkript, das jemand in stundenlanger Handarbeit auswertet. So oder so gewinnt das Wissen, das Bürgerinnen und Bürger erzeugen, nie eine dauerhafte Form, die sich ansammeln, zwischen Orten wandern oder die nächste Entscheidung informieren könnte, und jede Versammlung beginnt wieder von vorn.",
+    "Die heutigen Werkzeuge erzwingen eine schlechte Wahl. Entweder geht das Audio an kommerzielle Cloud-KI, was der öffentliche Sektor nicht verantworten kann, oder es wird zu einem flachen Transkript, das jemand in stundenlanger Handarbeit auswertet. So oder so gewinnt das Wissen, das Bürgerinnen und Bürger erzeugen, nie eine dauerhafte Form, die sich ansammeln, zwischen Orten wandern oder die nächste Entscheidung informieren könnte, und jede Versammlung beginnt wieder von vorn, ohne den angesammelten Kontext.",
   ],
   whatLabel: "Was Meld macht",
   what: [
