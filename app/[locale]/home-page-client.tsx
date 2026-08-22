@@ -122,7 +122,7 @@ const INITIATIVES = [
     stage: "Research",
     tags: ["education", "commons"],
     projects: [
-      { name: "A Tale of Planetary Enclosure", href: null },
+      { name: "A Tale of Planetary Enclosure", href: "https://www.exclosu.re/" },
       { name: "Pattern wiki", href: null },
       { name: "EX:CLSR fund", href: null },
     ],
