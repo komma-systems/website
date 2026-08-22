@@ -106,7 +106,7 @@ const en: MeldMessages = {
       meta: ["26–30 Aug 2026", "Alpbach, AT"],
       title: "Meld at the European Forum Alpbach",
       body: "A live demonstration of Meld with the 10x100 network at the European Forum Alpbach: consent-first deliberation captured in the room, processed on the device, and returned to participants as structured sensemaking.",
-      cta: "Register →",
+      cta: "Request access →",
       href: "https://10x100.kair.is/",
     },
     {
@@ -202,7 +202,7 @@ const de: MeldMessages = {
       meta: ["26.–30. Aug 2026", "Alpbach, AT"],
       title: "Meld beim Europäischen Forum Alpbach",
       body: "Eine Live-Demonstration von Meld mit dem 10x100-Netzwerk beim Europäischen Forum Alpbach. Deliberation wird mit Einwilligung im Raum erfasst, auf dem Gerät verarbeitet und den Teilnehmenden als strukturierte Auswertung zurückgegeben.",
-      cta: "Anmelden →",
+      cta: "Zugang anfragen →",
       href: "https://10x100.kair.is/",
     },
     {
