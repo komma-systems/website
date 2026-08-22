@@ -129,7 +129,18 @@ export default async function MeldPage({ params }: PageProps) {
                 Robert Matijevic (Technical Lead)
               </span>
               <span className={sideLabel}>Partners</span>
-              <span className={sideValue}>NextLearning e.V.</span>
+              <a
+                href="https://www.nextlearning.earth/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-2 inline-flex opacity-80 transition-opacity hover:opacity-100"
+              >
+                <img
+                  src="/Partners/nextlearning.svg"
+                  alt="nextlearning e.V."
+                  className="h-7 w-auto brightness-0 invert opacity-80"
+                />
+              </a>
               <span className={sideLabel}>Contact</span>
               <p className="leading-7">
                 <Link href={`/${locale}/contact`} className={sideLink}>
