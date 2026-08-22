@@ -110,6 +110,14 @@ const en: MeldMessages = {
       href: "https://10x100.kair.is/",
     },
     {
+      tag: "Event",
+      meta: ["7 Sep 2026", "Kiel, DE"],
+      title: "Meld in Kiel",
+      body: "An in-person session in Kiel, in collaboration with nextlearning. More details to follow here.",
+      cta: null,
+      href: null,
+    },
+    {
       tag: "Participate",
       meta: ["Ongoing"],
       title: "Bring Meld to your process",
@@ -196,6 +204,14 @@ const de: MeldMessages = {
       body: "Eine Live-Demonstration von Meld mit dem 10x100-Netzwerk beim Europäischen Forum Alpbach. Deliberation wird mit Einwilligung im Raum erfasst, auf dem Gerät verarbeitet und den Teilnehmenden als strukturierte Auswertung zurückgegeben.",
       cta: "Anmelden →",
       href: "https://10x100.kair.is/",
+    },
+    {
+      tag: "Veranstaltung",
+      meta: ["7. Sep 2026", "Kiel, DE"],
+      title: "Meld in Kiel",
+      body: "Eine Veranstaltung vor Ort in Kiel, in Zusammenarbeit mit nextlearning. Weitere Einzelheiten folgen hier.",
+      cta: null,
+      href: null,
     },
     {
       tag: "Mitmachen",
