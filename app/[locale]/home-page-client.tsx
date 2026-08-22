@@ -287,8 +287,8 @@ export function HomePageClient() {
 
         {/* Partners Section */}
         <section id="partners" className="py-8 px-4 sm:px-6 md:px-8 bg-black">
-          <div className="max-w-5xl mx-auto text-center">
-            <div className="font-silkscreen text-base md:text-lg tracking-widest uppercase text-white filter grayscale brightness-200 contrast-50 mb-8">{t.partners}</div>
+          <div className="max-w-7xl mx-auto">
+            <div className="font-silkscreen text-base md:text-lg tracking-widest uppercase text-white filter grayscale brightness-200 contrast-50 mb-8 text-left">{t.partners}</div>
             <div className="flex flex-wrap items-center justify-center gap-x-16 gap-y-12 md:gap-x-24">
               {PARTNER_LOGOS.map((partner) => (
                 <a
@@ -308,7 +308,7 @@ export function HomePageClient() {
         <section id="approach" ref={approachSectionRef} className="py-16 px-4 sm:px-6 md:px-8 bg-black scroll-mt-48">
           <div className="max-w-7xl mx-auto">
             <AnimatedElement animation="fade-in" className="mb-12">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl text-center mb-8">{t.ourApproach}</h2>
+              <h2 className="font-semibold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-tight mb-8">{t.ourApproach}</h2>
             </AnimatedElement>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
