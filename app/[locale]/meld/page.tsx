@@ -42,6 +42,14 @@ const sideValue = "font-mono text-[13.5px] leading-7 text-white/80"
 const sideLink =
   "font-mono text-[13px] leading-7 text-white border-b border-white/30 hover:text-cream hover:border-cream transition-colors"
 
+const TAG_COLORS: Record<string, string> = {
+  Forum: "#b5502a",
+  Event: "#d99a4e",
+  Veranstaltung: "#d99a4e",
+  Participate: "#c07b3a",
+  Mitmachen: "#c07b3a",
+}
+
 type PageProps = { params: Promise<{ locale: string }> }
 
 export default async function MeldPage({ params }: PageProps) {
@@ -158,7 +166,7 @@ export default async function MeldPage({ params }: PageProps) {
               <p className={labelClasses}>{t.principlesLabel}</p>
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
                 {t.principles.map((pr) => (
-                  <article key={pr.title} className="border-t-2 border-cream/60 pt-4">
+                  <article key={pr.title}>
                     <h3 className="text-lg font-semibold leading-snug text-white">{pr.title}</h3>
                     <p className="[text-wrap:pretty] mt-3 text-[0.95rem] leading-relaxed text-gray-300">
                       {pr.body}
@@ -229,7 +237,10 @@ export default async function MeldPage({ params }: PageProps) {
                     const Row = (
                       <div className="grid grid-cols-1 gap-x-9 gap-y-3 border-t border-white/25 py-8 transition-colors hover:bg-white/[0.04] sm:grid-cols-[130px_1fr]">
                         <div>
-                          <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest text-cream">
+                          <p
+                            className="font-silkscreen text-[0.65rem] uppercase tracking-widest"
+                            style={{ color: TAG_COLORS[item.tag] ?? "#f5f2e8" }}
+                          >
                             {item.tag}
                           </p>
                           <p className="mt-1.5 font-mono text-[13px] leading-relaxed text-white/60">
