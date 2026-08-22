@@ -302,12 +302,6 @@ export function HomePageClient() {
               <p className="[text-wrap:pretty] text-xl sm:text-lg md:text-xl lg:text-2xl px-4 sm:px-0" style={{ lineHeight: 1.5 }}>
                 {noOrphan(t.intro1)}
               </p>
-              <p className="[text-wrap:pretty] text-xl sm:text-lg md:text-xl lg:text-2xl px-4 sm:px-0 mt-6" style={{ lineHeight: 1.5, color: '#9a9a9a' }}>
-                {noOrphan(t.intro2)}
-              </p>
-              <p className="[text-wrap:pretty] text-xl sm:text-lg md:text-xl lg:text-2xl px-4 sm:px-0 mt-6" style={{ lineHeight: 1.5, color: '#9a9a9a' }}>
-                {noOrphan(t.intro3)}
-              </p>
               <a
                 href={`/${locale}/contact`}
                 className="btn-field mt-10 inline-block rounded-full px-6 py-3 font-mono text-[13px] font-semibold text-white transition-[filter] hover:brightness-110"
@@ -352,6 +346,9 @@ export function HomePageClient() {
               </h2>
               <p className="[text-wrap:pretty] text-lg md:text-xl text-gray-300 max-w-2xl leading-relaxed">
                 {t.howWeWorkLead}
+              </p>
+              <p className="[text-wrap:pretty] mt-4 text-lg md:text-xl text-gray-300 max-w-2xl leading-relaxed">
+                {t.howWeWorkLead2}
               </p>
             </AnimatedElement>
 

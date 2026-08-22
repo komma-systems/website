@@ -27,6 +27,7 @@ export type HomeMessages = {
   }
   howWeWork: string
   howWeWorkLead: string
+  howWeWorkLead2: string
   howSteps: { key: string; label: string; description: string }[]
   howClosingLead: string
   howClosing: string
@@ -64,7 +65,7 @@ const en: HomeMessages = {
   partnersIntro: "Working with organisations advancing new forms of collective action.",
   who: {
     label: "Who we work with",
-    lead: "We work with the people closest to a place, the institutions that shape it, and the organisations that can help new models take root and travel.",
+    lead: "Our work is made possible through place-based partnerships. We work with the people closest to a place, the institutions that shape it, and the organisations that can help new models take root and travel.",
     cta: "Let\u2019s talk",
     paths: [
       {
@@ -106,7 +107,8 @@ const en: HomeMessages = {
     ],
   },
   howWeWork: "How we work",
-  howWeWorkLead: "We start from the realities of a place, working with the people and institutions already shaping it. What we learn in one place can inform what is built in another.",
+  howWeWorkLead: "We start from the realities of a place, working with the people and institutions already shaping it. Together, we research, design and test new mechanisms across governance, finance, relations and technology.",
+  howWeWorkLead2: "We demonstrate them in real places, document what works as patterns, and turn those patterns into models, tools and civic technologies that others can use and adapt. What we learn in one place can inform what is built in another.",
   howSteps: [
     { key: "research", label: "Research", description: "Understand the conditions, relationships and systems shaping what is possible in a place." },
     { key: "design", label: "Mechanism Design", description: "Develop new mechanisms of governance, finance, relations and technology with the people involved." },
@@ -176,7 +178,7 @@ const de: HomeMessages = {
   partnersIntro: "Wir arbeiten mit Organisationen, die neue Formen kollektiven Handelns vorantreiben.",
   who: {
     label: "Mit wem wir arbeiten",
-    lead: "Wir arbeiten mit den Menschen, die einem Ort am nächsten sind, mit den Institutionen, die ihn prägen, und mit den Organisationen, die neuen Modellen helfen können, Wurzeln zu schlagen und zu wandern.",
+    lead: "Unsere Arbeit wird durch ortsbezogene Partnerschaften möglich. Wir arbeiten mit den Menschen, die einem Ort am nächsten sind, mit den Institutionen, die ihn prägen, und mit den Organisationen, die neuen Modellen helfen können, Wurzeln zu schlagen und zu wandern.",
     cta: "Sprechen Sie mit uns",
     paths: [
       {
@@ -218,7 +220,8 @@ const de: HomeMessages = {
     ],
   },
   howWeWork: "Wie wir arbeiten",
-  howWeWorkLead: "Wir beginnen bei den Realitäten eines Ortes und arbeiten mit den Menschen und Institutionen, die ihn bereits prägen. Was wir an einem Ort lernen, kann einfließen in das, was an einem anderen entsteht.",
+  howWeWorkLead: "Wir beginnen bei den Realitäten eines Ortes und arbeiten mit den Menschen und Institutionen, die ihn bereits prägen. Gemeinsam erforschen, entwerfen und erproben wir neue Mechanismen in Governance, Finanzen, Beziehungen und Technologie.",
+  howWeWorkLead2: "Wir demonstrieren sie an realen Orten, dokumentieren als Muster, was funktioniert, und übersetzen diese Muster in Modelle, Werkzeuge und zivilgesellschaftliche Technologien, die andere nutzen und anpassen können. Was wir an einem Ort lernen, kann einfließen in das, was an einem anderen entsteht.",
   howSteps: [
     { key: "research", label: "Forschung", description: "Die Bedingungen, Beziehungen und Systeme verstehen, die bestimmen, was an einem Ort möglich ist." },
     { key: "design", label: "Mechanismus-Design", description: "Neue Mechanismen für Governance, Finanzen, Beziehungen und Technologie gemeinsam mit den Beteiligten entwickeln." },
