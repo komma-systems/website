@@ -311,10 +311,10 @@ export function HomePageClient() {
               <h2 className="font-semibold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-tight mb-8">{t.ourApproach}</h2>
             </AnimatedElement>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 border-t border-l border-white/25">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-14 gap-y-14">
               {t.approachCards.map((item, idx) => (
-                <AnimatedElement animation="fade-up" delay={100 * (idx + 1)} key={item.key} className="h-full">
-                  <div className="h-full border-r border-b border-white/25 p-8 lg:p-10 transition-colors duration-200 hover:bg-white/[0.04]">
+                <AnimatedElement animation="fade-up" delay={100 * (idx + 1)} key={item.key}>
+                  <div className="text-left">
                     <h3 className="font-light text-[26px] sm:text-3xl lg:text-[34px] text-white tracking-[-0.01em] leading-tight">
                       {item.heading}
                     </h3>
