@@ -269,17 +269,17 @@ export function HomePageClient() {
 
 
       <main className="flex-1 flex flex-col pt-12">
-        <section id="introduction" ref={introductionSectionRef} className="py-16 px-4 sm:px-6 md:px-8 bg-field film-grain scroll-mt-48 min-h-[70vh] flex items-center">
+        <section id="introduction" ref={introductionSectionRef} className="py-16 px-4 sm:px-6 md:px-8 bg-black scroll-mt-48 min-h-[70vh] flex items-center">
           <div className="max-w-7xl mx-auto w-full">
             <AnimatedElement animation="fade-in" className="mb-12 max-w-3xl">
               <span className="komma-title block text-3xl md:text-4xl mb-10">KOMMA</span>
               <p className="[text-wrap:pretty] text-xl sm:text-lg md:text-xl lg:text-2xl px-4 sm:px-0" style={{ lineHeight: 1.5 }}>
                 {noOrphan(t.intro1)}
               </p>
-              <p className="[text-wrap:pretty] text-xl sm:text-lg md:text-xl lg:text-2xl px-4 sm:px-0 mt-6" style={{ lineHeight: 1.5, color: 'rgba(255,244,230,0.78)' }}>
+              <p className="[text-wrap:pretty] text-xl sm:text-lg md:text-xl lg:text-2xl px-4 sm:px-0 mt-6" style={{ lineHeight: 1.5, color: '#9a9a9a' }}>
                 {noOrphan(t.intro2)}
               </p>
-              <p className="[text-wrap:pretty] text-xl sm:text-lg md:text-xl lg:text-2xl px-4 sm:px-0 mt-6" style={{ lineHeight: 1.5, color: 'rgba(255,244,230,0.78)' }}>
+              <p className="[text-wrap:pretty] text-xl sm:text-lg md:text-xl lg:text-2xl px-4 sm:px-0 mt-6" style={{ lineHeight: 1.5, color: '#9a9a9a' }}>
                 {noOrphan(t.intro3)}
               </p>
             </AnimatedElement>
@@ -311,13 +311,12 @@ export function HomePageClient() {
         </section>
 
         {/* How we work */}
-        <section id="how-we-work" className="pt-20 pb-12 px-4 sm:px-6 md:px-8 bg-grain-warm film-grain">
+        <section id="how-we-work" className="pt-20 pb-12 px-4 sm:px-6 md:px-8 bg-grain">
           <div className="max-w-7xl mx-auto">
             <AnimatedElement animation="fade-in" className="mb-10">
               <h2 className="font-semibold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-tight mb-4">
                 {t.howWeWork}
               </h2>
-              <div className="rule-field w-16 mb-8" />
               <p className="[text-wrap:pretty] text-lg md:text-xl text-gray-300 max-w-2xl leading-relaxed">
                 {t.howWeWorkLead}
               </p>
@@ -343,8 +342,7 @@ export function HomePageClient() {
               ))}
             </div>
 
-            <div id="approach" ref={approachSectionRef} className="mt-20 scroll-mt-48">
-              <div className="hairline-field mb-14" />
+            <div id="approach" ref={approachSectionRef} className="mt-20 pt-14 border-t border-white/15 scroll-mt-48">
               <p className="[text-wrap:pretty] text-lg md:text-xl text-gray-300 max-w-2xl leading-relaxed mb-12">
                 {t.areasIntro}
               </p>
@@ -376,7 +374,6 @@ export function HomePageClient() {
                 <h2 className="font-semibold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-tight">
                   {t.initiatives}
                 </h2>
-                <div className="rule-field w-16 mt-4" />
               </div>
             </AnimatedElement>
 
@@ -387,7 +384,7 @@ export function HomePageClient() {
                     <div className="min-w-0 grid grid-cols-1 sm:grid-cols-[1fr_220px] gap-x-10 gap-y-5 items-start">
                       <div className="min-w-0">
                         <div className="flex items-baseline gap-4">
-                          <h3 className="font-extralight text-[26px] sm:text-3xl lg:text-[40px] text-white tracking-[-0.01em] leading-tight group-hover:translate-x-1 transition-transform duration-200">
+                          <h3 className="text-field font-extralight text-[26px] sm:text-3xl lg:text-[40px] tracking-[-0.01em] leading-tight group-hover:translate-x-1 transition-transform duration-200">
                             {initiative.title}
                           </h3>
                           {initiative.href && (
@@ -417,13 +414,13 @@ export function HomePageClient() {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 onClick={(e) => e.stopPropagation()}
-                                className="font-mono text-sm text-white/85 border-b border-white/30 pb-0.5 transition-colors hover:text-cream hover:border-cream"
+                                className="text-field-wide font-mono text-sm border-b border-white/30 pb-0.5 transition-[filter] hover:brightness-125"
                               >
                                 {project.name}
                                 <span className="text-[11px] text-white/40"> ↗</span>
                               </a>
                             ) : (
-                              <span key={project.name} className="font-mono text-sm text-white/60">
+                              <span key={project.name} className="text-field-wide font-mono text-sm opacity-80">
                                 {project.name}
                               </span>
                             )
@@ -475,7 +472,6 @@ export function HomePageClient() {
               <h2 className="font-semibold text-2xl sm:text-3xl lg:text-4xl tracking-tight leading-tight text-left mb-4 text-black">
                 {t.collective}
               </h2>
-              <div className="rule-field w-16 mb-8" />
               <p className="text-lg md:text-xl text-left text-gray-600 max-w-4xl leading-relaxed">
                 {t.collectiveIntro}
               </p>
@@ -763,13 +759,12 @@ export function HomePageClient() {
         </section>
 
         {/* News Section */}
-        <section id="news" className="py-20 px-4 sm:px-6 md:px-8 bg-grain-warm film-grain">
+        <section id="news" className="py-20 px-4 sm:px-6 md:px-8 bg-grain">
           <div className="max-w-7xl mx-auto">
             <div className="flex items-center gap-2 sm:gap-4 mb-6 sm:mb-8 pb-3 sm:pb-4">
               <h2 className="font-semibold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-tight">
                 Upcoming Events
               </h2>
-              <div className="rule-field w-16 mt-4" />
             </div>
 
             <div>
@@ -788,7 +783,7 @@ export function HomePageClient() {
                       href="https://www.alpbach.org/blog/urban-transformation-and-bioregional-resilience-the-micro-macro-deal"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="hover:text-cream transition-colors"
+                      className="text-field transition-[filter] hover:brightness-125"
                     >
                       Meld at the European Forum Alpbach
                     </a>
@@ -811,7 +806,7 @@ export function HomePageClient() {
                   href="https://10x100.kair.is/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="self-center font-mono text-[13px] text-white/70 border border-white/25 rounded-full px-4 py-2 whitespace-nowrap transition-colors hover:text-cream hover:border-cream"
+                  className="btn-field self-center font-mono text-[13px] font-semibold text-white rounded-full px-5 py-2.5 whitespace-nowrap transition-[filter] hover:brightness-110"
                 >
                   Register →
                 </a>
@@ -832,7 +827,7 @@ export function HomePageClient() {
                       href="https://valleyofthecommons.com/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="hover:text-cream transition-colors"
+                      className="text-field transition-[filter] hover:brightness-125"
                     >
                       KOMMA at the Valley of the Commons
                     </a>
@@ -848,7 +843,7 @@ export function HomePageClient() {
                   href="https://valleyofthecommons.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="self-center font-mono text-[13px] text-white/70 border border-white/25 rounded-full px-4 py-2 whitespace-nowrap transition-colors hover:text-cream hover:border-cream"
+                  className="btn-field self-center font-mono text-[13px] font-semibold text-white rounded-full px-5 py-2.5 whitespace-nowrap transition-[filter] hover:brightness-110"
                 >
                   Programme →
                 </a>
@@ -869,7 +864,7 @@ export function HomePageClient() {
                       href="https://k-erc.eu/2026/08/horizon-europe-category/33982/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="hover:text-cream transition-colors"
+                      className="text-field transition-[filter] hover:brightness-125"
                     >
                       Korea-EU Horizon Europe Researchers Consulting Forum
                     </a>
@@ -884,7 +879,7 @@ export function HomePageClient() {
                   href="https://k-erc.eu/2026/08/horizon-europe-category/33982/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="self-center font-mono text-[13px] text-white/70 border border-white/25 rounded-full px-4 py-2 whitespace-nowrap transition-colors hover:text-cream hover:border-cream"
+                  className="btn-field self-center font-mono text-[13px] font-semibold text-white rounded-full px-5 py-2.5 whitespace-nowrap transition-[filter] hover:brightness-110"
                 >
                   Details →
                 </a>
@@ -905,7 +900,7 @@ export function HomePageClient() {
                       href="https://luma.com/ycmcreer?tk=7ObFX9"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="hover:text-cream transition-colors"
+                      className="text-field transition-[filter] hover:brightness-125"
                     >
                       Threshold #2: Designing Progressive Housing Mechanisms
                     </a>
@@ -921,7 +916,7 @@ export function HomePageClient() {
                   href="https://luma.com/ycmcreer?tk=7ObFX9"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="self-center font-mono text-[13px] text-white/70 border border-white/25 rounded-full px-4 py-2 whitespace-nowrap transition-colors hover:text-cream hover:border-cream"
+                  className="btn-field self-center font-mono text-[13px] font-semibold text-white rounded-full px-5 py-2.5 whitespace-nowrap transition-[filter] hover:brightness-110"
                 >
                   Register →
                 </a>
