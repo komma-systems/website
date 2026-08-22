@@ -174,7 +174,7 @@ export default async function MeldPage({ params }: PageProps) {
                 {t.principles.map((pr) => (
                   <article key={pr.title}>
                     <h3 className="text-lg font-semibold leading-snug text-white/60">{pr.title}</h3>
-                    <p className="[text-wrap:pretty] mt-3 text-[0.95rem] leading-relaxed text-gray-300">
+                    <p className="[text-wrap:pretty] mt-3 text-[0.95rem] leading-relaxed text-white">
                       {pr.body}
                     </p>
                   </article>
