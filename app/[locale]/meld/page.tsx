@@ -190,7 +190,7 @@ export default async function MeldPage({ params }: PageProps) {
                   </div>
                 </div>
 
-                <div className="mt-4 space-y-4">
+                <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
                   {t.cards.map((card, i) => (
                     <a
                       key={card.title}
@@ -200,7 +200,7 @@ export default async function MeldPage({ params }: PageProps) {
                       className="group block border border-white/25 transition-colors hover:bg-white/[0.04]"
                     >
                       <img src={cardImgs[i]} alt={card.title} className="w-full" />
-                      <div className="p-7 sm:p-9 sm:pt-6">
+                      <div className="p-6 sm:p-7 sm:pt-5">
                         <p className="font-silkscreen text-[0.7rem] uppercase tracking-widest text-white/40">
                           {card.tag}
                         </p>
