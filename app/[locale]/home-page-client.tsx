@@ -104,7 +104,7 @@ const INITIATIVES = [
     id: "sensed-governance",
     title: "Sensed Governance",
     description:
-      "A practice group and pattern library for embodied governance: how groups sense together before they decide together. Rooted in social ritual and the role of the body in decision-making, it develops attunement practices, ritual openings, and decision patterns for the same rooms where Meld listens.",
+      "A collective rehabilitating embodied, relational governance: helping communities and networks navigate their differences by starting from what can be felt, in the body, before it hardens into process. Its library of 32 sensed governance patterns travels through workshops, trainings, research, and residencies.",
     stage: "Research",
     tags: ["governance", "ritual"],
     projects: [
