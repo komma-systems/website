@@ -314,45 +314,6 @@ export function HomePageClient() {
           </div>
         </section>
 
-        {/* Who we work with */}
-        <section id="who" className="py-20 px-4 sm:px-6 md:px-8 bg-grain pill-bg-grain">
-          <div className="max-w-7xl mx-auto">
-            <AnimatedElement animation="fade-in">
-              <h2 className="font-semibold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-tight mb-6">
-                {t.who.label}
-              </h2>
-              <p className="[text-wrap:pretty] text-lg md:text-xl text-gray-300 max-w-2xl leading-relaxed">
-                {t.who.lead1}
-              </p>
-              <p className="[text-wrap:pretty] mt-4 text-lg md:text-xl text-gray-300 max-w-2xl leading-relaxed">
-                {t.who.lead2}
-              </p>
-            </AnimatedElement>
-
-            <div className="mt-10 grid grid-cols-1 gap-x-10 gap-y-10 border-t border-b border-white/15 py-8 pb-10 sm:grid-cols-2 lg:grid-cols-4">
-              {t.who.paths.map((path) => (
-                <div key={path.title} className="flex flex-col">
-                  <h3 className="text-xl font-light tracking-tight text-white sm:text-2xl">
-                    {path.title}
-                  </h3>
-                  <p className="[text-wrap:pretty] mt-4 text-[15px] leading-relaxed text-gray-400">
-                    {path.body}
-                  </p>
-                  <p className="[text-wrap:pretty] mt-3 flex-1 text-[15px] leading-relaxed text-white">
-                    {path.action}
-                  </p>
-                  <a
-                    href={`/${locale}/contact`}
-                    className="mt-6 inline-block font-mono text-[13px] leading-snug transition-[filter] hover:brightness-125"
-                    style={{ color: "#c07b3a" }}
-                  >
-                    {path.cta} →
-                  </a>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
 
         {/* How we work */}
         <section id="how-we-work" className="pt-20 pb-12 px-4 sm:px-6 md:px-8 bg-black">
@@ -418,6 +379,46 @@ export function HomePageClient() {
         </section>
 
 
+
+        {/* Who we work with */}
+        <section id="who" className="py-20 px-4 sm:px-6 md:px-8 bg-grain pill-bg-grain">
+          <div className="max-w-7xl mx-auto">
+            <AnimatedElement animation="fade-in">
+              <h2 className="font-semibold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-tight mb-6">
+                {t.who.label}
+              </h2>
+              <p className="[text-wrap:pretty] text-lg md:text-xl text-gray-300 max-w-2xl leading-relaxed">
+                {t.who.lead1}
+              </p>
+              <p className="[text-wrap:pretty] mt-4 text-lg md:text-xl text-gray-300 max-w-2xl leading-relaxed">
+                {t.who.lead2}
+              </p>
+            </AnimatedElement>
+
+            <div className="mt-10 grid grid-cols-1 gap-x-10 gap-y-10 border-t border-b border-white/15 py-8 pb-10 sm:grid-cols-2 lg:grid-cols-3">
+              {t.who.paths.map((path) => (
+                <div key={path.title} className="flex flex-col">
+                  <h3 className="text-xl font-light tracking-tight text-white sm:text-2xl">
+                    {path.title}
+                  </h3>
+                  <p className="[text-wrap:pretty] mt-4 text-[15px] leading-relaxed text-gray-400">
+                    {path.body}
+                  </p>
+                  <p className="[text-wrap:pretty] mt-3 flex-1 text-[15px] leading-relaxed text-white">
+                    {path.action}
+                  </p>
+                  <a
+                    href={`/${locale}/contact`}
+                    className="mt-6 inline-block font-mono text-[13px] leading-snug transition-[filter] hover:brightness-125"
+                    style={{ color: "#c07b3a" }}
+                  >
+                    {path.cta} →
+                  </a>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
 
         {/* Initiatives Section */}
         <section id="initiatives" className="py-16 px-4 sm:px-6 md:px-8 bg-black">
