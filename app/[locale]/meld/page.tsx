@@ -42,15 +42,6 @@ const sideLink =
 
 const fieldItems = [
   {
-    tag: "Announcement",
-    meta: ["2026", "Rural Germany"],
-    title: "First production deployment",
-    body:
-      "Meld is entering its first production deployment through a publicly funded programme in rural Germany. Full details of the implementation, the places involved, and our partners will be announced here shortly.",
-    cta: null,
-    href: null,
-  },
-  {
     tag: "Forum",
     meta: ["26–30 Aug 2026", "Alpbach, AT"],
     title: "Meld at the European Forum Alpbach",
@@ -229,6 +220,84 @@ export default async function MeldPage({ params }: PageProps) {
                     attributable.
                   </p>
                 </article>
+              </div>
+
+              {/* The system: featured projects inside Meld */}
+              <div className="mt-20">
+                <p className="mb-6 font-silkscreen text-[0.7rem] uppercase tracking-[0.24em] text-white/45">
+                  Inside the initiative
+                </p>
+
+                {/* InnoVER: the featured deployment, full width */}
+                <div className="border border-white/25 p-7 sm:p-9">
+                  <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest text-cream">
+                    Deployment
+                  </p>
+                  <h3 className="mt-3 text-2xl font-light tracking-tight text-white sm:text-3xl">
+                    First production deployment
+                  </h3>
+                  <p className={`${proseClasses} mt-3 !text-[0.98rem] text-gray-300`}>
+                    Meld is entering its first production deployment through a publicly funded
+                    programme in rural Germany. Full details of the implementation, the places
+                    involved, and our partners will be announced here shortly.
+                  </p>
+                </div>
+
+                {/* The parts of the system */}
+                <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
+                  <a
+                    href="https://kair.is/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group border border-white/25 p-6 transition-colors hover:bg-white/[0.04]"
+                  >
+                    <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest text-white/40">
+                      Platform
+                    </p>
+                    <h3 className="mt-3 text-xl font-light tracking-tight text-white">
+                      Kair
+                      <span className="ml-2 text-white/40 transition-colors group-hover:text-cream">→</span>
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-gray-400">
+                      Structures deliberation into a queryable knowledge graph, with an open API to
+                      build on.
+                    </p>
+                  </a>
+                  <a
+                    href="https://meld.earth/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group border border-white/25 p-6 transition-colors hover:bg-white/[0.04]"
+                  >
+                    <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest text-white/40">
+                      Hardware
+                    </p>
+                    <h3 className="mt-3 text-xl font-light tracking-tight text-white">
+                      Device
+                      <span className="ml-2 text-white/40 transition-colors group-hover:text-cream">→</span>
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-gray-400">
+                      Captures and processes deliberation in the room. Raw audio never leaves it.
+                    </p>
+                  </a>
+                  <a
+                    href="https://10x100.kair.is/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group border border-white/25 p-6 transition-colors hover:bg-white/[0.04]"
+                  >
+                    <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest text-white/40">
+                      Network
+                    </p>
+                    <h3 className="mt-3 text-xl font-light tracking-tight text-white">
+                      10x100
+                      <span className="ml-2 text-white/40 transition-colors group-hover:text-cream">→</span>
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-gray-400">
+                      Meld live with the 10x100 network, demonstrated at the European Forum Alpbach.
+                    </p>
+                  </a>
+                </div>
               </div>
 
               {/* From the field */}
