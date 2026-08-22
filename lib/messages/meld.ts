@@ -21,6 +21,7 @@ export type MeldMessages = {
   problemLabel: string
   problem: string[]
   whatLabel: string
+  whatLead: string
   what: { title: string; body: string }[]
   principlesLabel: string
   principles: { title: string; body: string }[]
@@ -57,6 +58,7 @@ const en: MeldMessages = {
     "The tools available today force a bad choice. Either the audio goes to commercial cloud AI, which public-sector settings cannot responsibly accept, or it becomes a flat transcript that someone spends hours analysing by hand. Either way, the knowledge citizens generate never takes a durable form that could accumulate, travel between places, or inform the next decision, so each assembly starts over from the beginning without the accumulated context.",
   ],
   whatLabel: "What Meld Does",
+  whatLead: "The whole pipeline is anonymous and private by design. No voice is ever tied to a name, and nothing leaves the room that could be.",
   what: [
     { title: "Capture", body: "The device sits in the room. Participants consent with a physical NFC tap, and transcription and anonymisation happen privately on the device itself, running KairOS." },
     { title: "Structure", body: "After each session, a knowledge graph maps the themes, the relationships between contributions, and how positions shift from one session to the next." },
@@ -144,6 +146,7 @@ const de: MeldMessages = {
     "Die heutigen Werkzeuge erzwingen eine schlechte Wahl. Entweder geht das Audio an kommerzielle Cloud-KI, was der öffentliche Sektor nicht verantworten kann, oder es wird zu einem flachen Transkript, das jemand in stundenlanger Handarbeit auswertet. So oder so gewinnt das Wissen, das Bürgerinnen und Bürger erzeugen, nie eine dauerhafte Form, die sich ansammeln, zwischen Orten wandern oder die nächste Entscheidung informieren könnte, und jede Versammlung beginnt wieder von vorn, ohne den angesammelten Kontext.",
   ],
   whatLabel: "Was Meld macht",
+  whatLead: "Der gesamte Ablauf ist von Grund auf anonym und privat. Keine Stimme wird je einem Namen zugeordnet, und nichts verlässt den Raum, das es könnte.",
   what: [
     { title: "Erfassen", body: "Das Gerät steht im Raum. Teilnehmende willigen per NFC-Tippen ein; Transkription und Anonymisierung geschehen privat direkt auf dem Gerät, das auf KairOS läuft." },
     { title: "Strukturieren", body: "Nach jeder Sitzung bildet ein Wissensgraph die Themen ab, die Beziehungen zwischen Beiträgen, und wie sich Positionen von Sitzung zu Sitzung verschieben." },

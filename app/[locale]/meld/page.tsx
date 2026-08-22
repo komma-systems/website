@@ -141,6 +141,7 @@ export default async function MeldPage({ params }: PageProps) {
               ))}
 
               <p className={labelClasses}>{t.whatLabel}</p>
+              <p className={`${proseClasses} mb-7 text-white`}>{t.whatLead}</p>
               <div className="space-y-5">
                 {t.what.map((step, i) => (
                   <div key={step.title} className="grid grid-cols-1 sm:grid-cols-[9.5rem_1fr] gap-x-5 gap-y-1 border-l border-white/20 pl-5">
