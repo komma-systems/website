@@ -150,28 +150,6 @@ const INITIATIVES = [
 
 const noOrphan = (text: string) => text.replace(/ (\S+)$/, "\u00A0$1")
 
-const INITIATIVE_AREAS: Record<string, { label: string; color: string }[]> = {
-  "meld": [
-    { label: "Cultivating Playful Rituals", color: "#c07b3a" },
-    { label: "Building Civic Technology", color: "#d99a4e" },
-  ],
-  "relational-wealth-flows": [
-    { label: "Inverting Civic Wealth", color: "#b5502a" },
-    { label: "Building Civic Technology", color: "#d99a4e" },
-  ],
-  "weave": [
-    { label: "Modernising Agreements", color: "#c9673a" },
-    { label: "Building Civic Technology", color: "#d99a4e" },
-  ],
-  "sensed-governance": [
-    { label: "Cultivating Playful Rituals", color: "#c07b3a" },
-  ],
-  "exclsr": [
-    { label: "Inverting Civic Wealth", color: "#b5502a" },
-    { label: "Modernising Agreements", color: "#c9673a" },
-  ],
-}
-
 const AREA_COLORS = ["#b5502a", "#c9673a", "#c07b3a", "#d99a4e"]
 
 const STEP_COLORS = ["#b5502a", "#c9673a", "#c07b3a", "#d99a4e", "#e9c07f"]
@@ -483,19 +461,8 @@ export function HomePageClient() {
                           )}
                         </div>
 
-                        <p className="mt-3 font-mono text-[13px]">
-                          {(INITIATIVE_AREAS[initiative.id] ?? []).map((area, i) => (
-                            <span key={area.label}>
-                              {i > 0 ? <span className="text-white/30">{" / "}</span> : null}
-                              <a
-                                href="#approach"
-                                className="transition-[filter] hover:brightness-125"
-                                style={{ color: area.color }}
-                              >
-                                {area.label}
-                              </a>
-                            </span>
-                          ))}
+                        <p className="mt-3 font-mono text-[13px] text-white/50">
+                          {initiative.tags.join(" / ")}
                         </p>
 
                         <p className="mt-5 text-base lg:text-lg text-gray-300 leading-relaxed max-w-2xl">
