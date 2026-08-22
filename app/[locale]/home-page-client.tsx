@@ -119,7 +119,7 @@ const INITIATIVES = [
     title: "EXCLSR",
     description:
       "An academy for unwinding enclosure. A course, a masterclass and an open pattern wiki gather the mechanisms places use to hold land and housing in common, so what one place invents, another can read, adapt and replicate. Each cohort writes its own local reality back into the library.",
-    stage: "Education",
+    stage: "Research",
     tags: ["education", "commons"],
     projects: [
       { name: "A Tale of Planetary Enclosure", href: null },
