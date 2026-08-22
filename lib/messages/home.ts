@@ -34,6 +34,7 @@ export type HomeMessages = {
   ourApproach: string
   areasHeading: string
   areasIntro: string
+  areasIntro2: string
   approachCards: ApproachCard[]
   initiatives: string
   loadingInitiatives: string
@@ -121,6 +122,7 @@ const en: HomeMessages = {
   ourApproach: "Areas of practice",
   areasHeading: "Areas of practice",
   areasIntro: "The mechanisms we develop respond to the specific conditions of each place. They might change how resources are financed, how ownership and governance are structured, how people coordinate, or the infrastructure through which they act together. Rather than applying a fixed model, we combine these different levers to build what the situation requires.",
+  areasIntro2: "Our work currently spans four interconnected areas of practice. Each offers a different way to change how collective resources are valued, owned, governed and cared for.",
   approachCards: [
     {
       key: "wealth",
@@ -234,6 +236,7 @@ const de: HomeMessages = {
   ourApproach: "Praxisfelder",
   areasHeading: "Praxisfelder",
   areasIntro: "Die Mechanismen, die wir entwickeln, antworten auf die spezifischen Bedingungen jedes Ortes. Sie können verändern, wie Ressourcen finanziert werden, wie Eigentum und Governance strukturiert sind, wie Menschen sich koordinieren oder über welche Infrastruktur sie gemeinsam handeln. Wir kombinieren diese Hebel, um zu bauen, was die Situation verlangt.",
+  areasIntro2: "Unsere Arbeit erstreckt sich derzeit über vier miteinander verbundene Praxisfelder. Jedes bietet einen anderen Weg, zu verändern, wie kollektive Ressourcen geschätzt, besessen, verwaltet und gepflegt werden.",
   approachCards: [
     {
       key: "wealth",

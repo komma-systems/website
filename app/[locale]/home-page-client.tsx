@@ -384,8 +384,11 @@ export function HomePageClient() {
               <h3 className="font-semibold text-xl sm:text-2xl text-white tracking-tight leading-tight mb-4">
                 {t.areasHeading}
               </h3>
-              <p className="[text-wrap:pretty] text-lg md:text-xl text-gray-300 max-w-2xl leading-relaxed mb-12">
+              <p className="[text-wrap:pretty] text-lg md:text-xl text-gray-300 max-w-2xl leading-relaxed">
                 {t.areasIntro}
+              </p>
+              <p className="[text-wrap:pretty] mt-4 text-lg md:text-xl text-gray-300 max-w-2xl leading-relaxed mb-12">
+                {t.areasIntro2}
               </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-14 gap-y-14">
               {t.approachCards.map((item, idx) => (
