@@ -242,6 +242,38 @@ export default async function MeldPage({ params }: PageProps) {
                     programme in rural Germany. Full details of the implementation, the places
                     involved, and our partners will be announced here shortly.
                   </p>
+                  <div className="mt-6 flex flex-wrap items-center gap-x-8 gap-y-4">
+                    <a
+                      href="https://www.nextlearning.earth/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="opacity-70 transition-opacity hover:opacity-100"
+                    >
+                      <img
+                        src="/Partners/nextlearning.svg"
+                        alt="nextlearning e.V."
+                        className="h-6 w-auto brightness-0 invert"
+                      />
+                    </a>
+                    <a
+                      href="https://www.10x100.cc/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="opacity-70 transition-opacity hover:opacity-100"
+                    >
+                      <img
+                        src="/Partners/10x100.svg"
+                        alt="10x100"
+                        className="h-6 w-auto brightness-0 invert"
+                      />
+                    </a>
+                    <span className="font-mono text-[12px] uppercase tracking-[0.12em] text-white/50">
+                      Max Planck Institute
+                    </span>
+                    <span className="font-mono text-[12px] uppercase tracking-[0.12em] text-white/50">
+                      BMBF · WIR!
+                    </span>
+                  </div>
                 </div>
 
                 {/* The parts of the system */}
