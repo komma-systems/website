@@ -12,7 +12,7 @@ const PARTNER_LOGOS = [
     href: "https://www.bmbf.de/",
     src: "/Partners/bmbf.svg",
     alt: "Bundesministerium für Bildung und Forschung",
-    imgClassName: "h-14 filter grayscale brightness-200 contrast-50",
+    imgClassName: "h-20 filter grayscale brightness-200 contrast-50",
   },
   {
     href: "https://www.nextlearning.earth/",
@@ -30,7 +30,7 @@ const PARTNER_LOGOS = [
     href: "https://www.10x100.cc/",
     src: "/Partners/10x100.svg",
     alt: "10x100",
-    imgClassName: "h-10 filter invert grayscale opacity-80",
+    imgClassName: "h-14 filter invert grayscale opacity-80",
   },
   {
     href: "https://consensys.io/",
