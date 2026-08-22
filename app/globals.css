@@ -324,10 +324,10 @@ body {
   background: linear-gradient(
     180deg,
     #000 0%,
-    #0b0605 38%,
-    #2a140c 66%,
-    #58281542 82%,
-    #7e3319 130%
-  ), #000;
-  background-blend-mode: normal;
+    #150b07 30%,
+    #351a0e 55%,
+    #5c2a15 75%,
+    #8a4220 92%,
+    #a05a28 100%
+  );
 }
