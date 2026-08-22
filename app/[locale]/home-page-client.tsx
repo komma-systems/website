@@ -300,7 +300,12 @@ export function HomePageClient() {
             <AnimatedElement animation="fade-in" className="mb-12 max-w-3xl">
               <span className="komma-title block text-3xl md:text-4xl mb-10">KOMMA</span>
               <p className="[text-wrap:pretty] font-light text-2xl md:text-3xl lg:text-[38px]" style={{ lineHeight: 1.35 }}>
-                {noOrphan(t.intro1)}
+                {t.intro1.split("\n").map((line, i, arr) => (
+                  <span key={i}>
+                    {i > 0 ? <br /> : null}
+                    {i === arr.length - 1 ? noOrphan(line) : line}
+                  </span>
+                ))}
               </p>
               <a
                 href={`/${locale}/contact`}
