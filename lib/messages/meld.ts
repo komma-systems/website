@@ -49,7 +49,7 @@ const en: MeldMessages = {
     contactCta: "Work with Meld →",
   },
   intro: [
-    "Governance fails because what people say disappears. Assemblies, consultations, and workshops produce hours of spoken deliberation that is hard to track, harder to compare, and rarely reflected in the decisions that follow.",
+    "Assemblies, consultations, and workshops produce hours of spoken deliberation that is hard to track, harder to compare, and rarely reflected in the decisions that follow. Governance fails because what people say disappears.",
     "Meld is KOMMA's answer. A hardware device and privacy-preserving platform that captures deliberation in the room, processes it locally, and returns it to the people who spoke, without raw audio ever leaving the space.",
   ],
   problemLabel: "The Problem",
@@ -136,7 +136,7 @@ const de: MeldMessages = {
     contactCta: "Mit Meld arbeiten →",
   },
   intro: [
-    "Governance scheitert, weil verschwindet, was Menschen sagen. Versammlungen, Beteiligungsverfahren und Workshops erzeugen Stunden gesprochener Deliberation, die schwer nachzuverfolgen ist, sich kaum vergleichen lässt und sich selten in den Entscheidungen widerspiegelt, die darauf folgen.",
+    "Versammlungen, Beteiligungsverfahren und Workshops erzeugen Stunden gesprochener Deliberation, die schwer nachzuverfolgen ist, sich kaum vergleichen lässt und sich selten in den Entscheidungen widerspiegelt, die darauf folgen. Governance scheitert, weil verschwindet, was Menschen sagen.",
     "Meld ist KOMMAs Antwort. Ein Hardware-Gerät und eine datenschutzfreundliche Plattform, die Deliberation im Raum erfasst, lokal verarbeitet und den Menschen zurückgibt, die gesprochen haben, ohne dass Rohaudio jemals den Raum verlässt.",
   ],
   problemLabel: "Das Problem",

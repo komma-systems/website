@@ -33,7 +33,7 @@ export async function generateMetadata({
   }
 }
 
-const proseClasses = "[text-wrap:pretty] text-[1.06rem] leading-[1.75] text-slate-100"
+const proseClasses = "[text-wrap:pretty] text-[1.125rem] leading-[1.8] text-slate-100"
 const labelClasses = "mb-4 mt-12 font-silkscreen text-[0.7rem] uppercase tracking-[0.24em] text-cream"
 
 const sideLabel =
@@ -49,7 +49,7 @@ export default async function MeldPage({ params }: PageProps) {
   const locale: Locale = isLocale(raw) ? raw : defaultLocale
   const t = meldMessages[locale]
   const cardHrefs = ["https://kair.is/", "https://meld.earth/"]
-  const cardImgs = ["/meld/kair.svg", "/meld/device.svg"]
+  const cardImgs = ["/meld/kair.png", "/meld/device.png"]
 
   return (
     <>
@@ -144,10 +144,10 @@ export default async function MeldPage({ params }: PageProps) {
               <div className="space-y-5">
                 {t.what.map((step, i) => (
                   <div key={step.title} className="grid grid-cols-1 sm:grid-cols-[9.5rem_1fr] gap-x-5 gap-y-1 border-l border-white/20 pl-5">
-                    <p className="font-mono text-[13.5px] font-semibold uppercase tracking-[0.14em] text-white pt-0.5">
+                    <p className="font-mono text-[14px] font-semibold uppercase tracking-[0.14em] text-white pt-1">
                       {String(i + 1).padStart(2, "0")} {step.title}
                     </p>
-                    <p className="[text-wrap:pretty] text-[1.02rem] leading-[1.7] text-gray-200">
+                    <p className="[text-wrap:pretty] text-[1.1rem] leading-[1.75] text-gray-200">
                       {step.body}
                     </p>
                   </div>
@@ -183,36 +183,34 @@ export default async function MeldPage({ params }: PageProps) {
                     <h3 className="mt-3 text-2xl font-light tracking-tight text-white sm:text-3xl">
                       {t.featured.title}
                     </h3>
-                    <p className={`${proseClasses} mt-3 !text-[0.98rem] text-gray-300`}>
+                    <p className={`${proseClasses} mt-3 text-gray-300`}>
                       {t.featured.body}
                     </p>
                   </div>
                 </div>
 
-                <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <div className="mt-4 space-y-4">
                   {t.cards.map((card, i) => (
                     <a
                       key={card.title}
                       href={cardHrefs[i]}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group border border-white/25 p-6 transition-colors hover:bg-white/[0.04]"
+                      className="group block border border-white/25 transition-colors hover:bg-white/[0.04]"
                     >
-                      <img
-                        src={cardImgs[i]}
-                        alt=""
-                        className="mb-4 w-full outline outline-1 outline-white/10"
-                      />
-                      <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest text-white/40">
-                        {card.tag}
-                      </p>
-                      <h3 className="mt-3 text-xl font-light tracking-tight text-white">
-                        {card.title}
-                        <span className="ml-2 text-white/40 transition-colors group-hover:text-cream">
-                          →
-                        </span>
-                      </h3>
-                      <p className="mt-2 text-sm leading-relaxed text-gray-400">{card.desc}</p>
+                      <img src={cardImgs[i]} alt={card.title} className="w-full" />
+                      <div className="p-7 sm:p-9 sm:pt-6">
+                        <p className="font-silkscreen text-[0.7rem] uppercase tracking-widest text-white/40">
+                          {card.tag}
+                        </p>
+                        <h3 className="mt-3 text-2xl font-light tracking-tight text-white sm:text-3xl">
+                          {card.title}
+                          <span className="ml-3 text-white/40 transition-colors group-hover:text-cream">
+                            →
+                          </span>
+                        </h3>
+                        <p className={`${proseClasses} mt-3 text-gray-300`}>{card.desc}</p>
+                      </div>
                     </a>
                   ))}
                 </div>
@@ -244,7 +242,7 @@ export default async function MeldPage({ params }: PageProps) {
                           <h3 className="text-xl font-light tracking-tight text-white sm:text-2xl">
                             {item.title}
                           </h3>
-                          <p className={`${proseClasses} mt-2 !text-[0.98rem] text-gray-300`}>
+                          <p className={`${proseClasses} mt-2 text-gray-300`}>
                             {item.body}
                           </p>
                           {item.cta && (
