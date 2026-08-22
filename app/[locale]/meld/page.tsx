@@ -66,7 +66,7 @@ export default async function MeldPage({ params }: PageProps) {
         <div className="mx-auto max-w-6xl">
           <header className="mb-24">
             <Link
-              href={`/${locale}`}
+              href={`/${locale}#initiatives`}
               className="mb-8 inline-block font-silkscreen text-xs uppercase tracking-wider text-white/60 transition-colors hover:text-cream"
             >
               {t.back}
@@ -297,7 +297,7 @@ export default async function MeldPage({ params }: PageProps) {
                   })}
                 </div>
                 <Link
-                  href={`/${locale}`}
+                  href={`/${locale}#initiatives`}
                   className="mt-14 inline-block font-silkscreen text-xs uppercase tracking-wider text-white/60 transition-colors hover:text-cream"
                 >
                   {t.back}
