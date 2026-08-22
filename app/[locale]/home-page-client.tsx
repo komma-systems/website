@@ -290,7 +290,7 @@ export function HomePageClient() {
           <div className="max-w-7xl mx-auto">
             <div className="font-silkscreen text-sm md:text-base tracking-widest uppercase text-white/60 mb-8 text-left">{t.partners}</div>
             <div className="flex flex-col gap-y-12">
-              {[PARTNER_LOGOS.slice(0, 3), PARTNER_LOGOS.slice(3)].map((row, rowIdx) => (
+              {[PARTNER_LOGOS.slice(0, 4), PARTNER_LOGOS.slice(4)].map((row, rowIdx) => (
                 <div key={rowIdx} className="flex flex-wrap items-center justify-start gap-x-16 gap-y-12 md:gap-x-20">
                   {row.map((partner) => (
                     <a
