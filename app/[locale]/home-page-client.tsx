@@ -422,7 +422,7 @@ export function HomePageClient() {
               </p>
             </AnimatedElement>
 
-            <div className="mt-10 grid grid-cols-1 gap-x-10 gap-y-10 border-t border-b border-black/15 py-8 pb-10 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-12 grid grid-cols-1 gap-x-10 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
               {t.who.paths.map((path) => (
                 <div key={path.title} className="flex flex-col">
                   <h3 className="text-xl font-semibold tracking-tight text-black sm:text-2xl">
