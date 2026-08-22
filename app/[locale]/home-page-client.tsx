@@ -56,6 +56,18 @@ const PARTNER_LOGOS = [
     alt: "Just",
     imgClassName: "h-10 filter grayscale brightness-200 contrast-50",
   },
+  {
+    href: "https://www.nextlearning.earth/",
+    src: "/Partners/nextlearning.svg",
+    alt: "nextlearning e.V.",
+    imgClassName: "h-8 filter brightness-0 invert opacity-80",
+  },
+  {
+    href: "https://www.10x100.cc/",
+    src: "/Partners/10x100.svg",
+    alt: "10x100",
+    imgClassName: "h-10 filter brightness-0 invert opacity-80",
+  },
 ] as const
 
 const INITIATIVES = [
@@ -266,7 +278,7 @@ export function HomePageClient() {
           <div className="max-w-7xl mx-auto">
             <div className="font-silkscreen text-sm md:text-base tracking-widest uppercase text-white/60 mb-8 text-left">{t.partners}</div>
             <div className="flex flex-col gap-y-12">
-              {[PARTNER_LOGOS.slice(0, 4), PARTNER_LOGOS.slice(4)].map((row, rowIdx) => (
+              {[PARTNER_LOGOS.slice(0, 5), PARTNER_LOGOS.slice(5)].map((row, rowIdx) => (
                 <div key={rowIdx} className="flex flex-wrap items-center justify-start gap-x-16 gap-y-12 md:gap-x-20">
                   {row.map((partner) => (
                     <a
