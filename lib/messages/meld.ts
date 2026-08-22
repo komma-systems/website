@@ -2,6 +2,7 @@ import type { Locale } from "@/lib/i18n"
 
 export type MeldMessages = {
   tagline: [string, string]
+  back: string
   side: {
     initiative: string
     stage: string
@@ -31,13 +32,14 @@ export type MeldMessages = {
 }
 
 const en: MeldMessages = {
+  back: "← Back to KOMMA",
   tagline: ["Making physical space programmable", "at the threshold of shared memory"],
   side: {
     initiative: "Initiative",
     stage: "Stage",
     stageValue: "In deployment",
     places: "Places",
-    placesValue: ["Rural Germany", "Alpbach, AT"],
+    placesValue: ["Herzogtum Lauenburg, DE", "Ludwigslust-Parchim, DE", "Alpbach, AT"],
     projects: "Projects",
     device: "Device",
     team: "Team",
@@ -117,13 +119,14 @@ const en: MeldMessages = {
 }
 
 const de: MeldMessages = {
+  back: "← Zurück zu KOMMA",
   tagline: ["Physischen Raum programmierbar machen,", "an der Schwelle des gemeinsamen Gedächtnisses"],
   side: {
     initiative: "Initiative",
     stage: "Phase",
     stageValue: "Im Einsatz",
     places: "Orte",
-    placesValue: ["Ländliches Deutschland", "Alpbach, AT"],
+    placesValue: ["Herzogtum Lauenburg, DE", "Ludwigslust-Parchim, DE", "Alpbach, AT"],
     projects: "Projekte",
     device: "Gerät",
     team: "Team",

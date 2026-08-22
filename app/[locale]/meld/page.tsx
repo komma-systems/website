@@ -38,7 +38,7 @@ const labelClasses = "mb-4 mt-12 font-silkscreen text-[0.7rem] uppercase trackin
 
 const sideLabel =
   "mt-6 block font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-white/40 first:mt-0"
-const sideValue = "font-mono text-[13px] leading-7 text-white/70"
+const sideValue = "font-mono text-[13.5px] leading-7 text-white/80"
 const sideLink =
   "font-mono text-[13px] leading-7 text-white border-b border-white/30 hover:text-cream hover:border-cream transition-colors"
 
@@ -57,6 +57,12 @@ export default async function MeldPage({ params }: PageProps) {
       <main className="min-h-screen bg-black px-6 pb-20 pt-28 font-sourceSerif text-white sm:px-10 sm:pt-32">
         <div className="mx-auto max-w-6xl">
           <header className="mb-14">
+            <Link
+              href={`/${locale}`}
+              className="mb-8 inline-block font-silkscreen text-xs uppercase tracking-wider text-white/60 transition-colors hover:text-cream"
+            >
+              {t.back}
+            </Link>
             <h1 className="font-silkscreen text-5xl tracking-tight text-white sm:text-6xl">Meld</h1>
             <p className="mt-5 text-lg text-slate-200">
               {t.tagline[0]}
@@ -74,9 +80,12 @@ export default async function MeldPage({ params }: PageProps) {
               <span className={sideValue}>{t.side.stageValue}</span>
               <span className={sideLabel}>{t.side.places}</span>
               <span className={sideValue}>
-                {t.side.placesValue[0]}
-                <br />
-                {t.side.placesValue[1]}
+                {t.side.placesValue.map((pl, i) => (
+                  <span key={pl}>
+                    {i > 0 ? <br /> : null}
+                    {pl}
+                  </span>
+                ))}
               </span>
               <span className={sideLabel}>{t.side.projects}</span>
               <p className="leading-7">
@@ -134,11 +143,11 @@ export default async function MeldPage({ params }: PageProps) {
               <p className={labelClasses}>{t.whatLabel}</p>
               <div className="space-y-5">
                 {t.what.map((step, i) => (
-                  <div key={step.title} className="grid grid-cols-[7.5rem_1fr] gap-x-5 border-l border-white/20 pl-5">
-                    <p className="font-mono text-[12px] font-semibold uppercase tracking-[0.14em] text-white pt-1">
+                  <div key={step.title} className="grid grid-cols-1 sm:grid-cols-[9.5rem_1fr] gap-x-5 gap-y-1 border-l border-white/20 pl-5">
+                    <p className="font-mono text-[13.5px] font-semibold uppercase tracking-[0.14em] text-white pt-0.5">
                       {String(i + 1).padStart(2, "0")} {step.title}
                     </p>
-                    <p className="[text-wrap:pretty] text-[0.98rem] leading-relaxed text-gray-300">
+                    <p className="[text-wrap:pretty] text-[1.02rem] leading-[1.7] text-gray-200">
                       {step.body}
                     </p>
                   </div>
@@ -263,6 +272,12 @@ export default async function MeldPage({ params }: PageProps) {
                     )
                   })}
                 </div>
+                <Link
+                  href={`/${locale}`}
+                  className="mt-14 inline-block font-silkscreen text-xs uppercase tracking-wider text-white/60 transition-colors hover:text-cream"
+                >
+                  {t.back}
+                </Link>
               </div>
             </div>
           </div>
