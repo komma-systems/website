@@ -108,7 +108,7 @@ const en: HomeMessages = {
   },
   howWeWork: "How we work",
   howWeWorkLead: "We start from the realities of a place, working with the people and institutions already shaping it. Together, we research, design and test new mechanisms across governance, finance, relations and technology.",
-  howWeWorkLead2: "We demonstrate them in real places, document what works as patterns, and turn those patterns into models, tools and civic technologies that others can use and adapt. What we learn in one place can inform what is built in another.",
+  howWeWorkLead2: "We demonstrate them, document what works as patterns, and turn those patterns into models, tools and civic technologies that others can use and adapt. What we learn in one place can inform what is built in another.",
   howSteps: [
     { key: "research", label: "Research", description: "Understand the conditions, relationships and systems shaping what is possible in a place." },
     { key: "design", label: "Mechanism Design", description: "Develop new mechanisms of governance, finance, relations and technology with the people involved." },
@@ -221,7 +221,7 @@ const de: HomeMessages = {
   },
   howWeWork: "Wie wir arbeiten",
   howWeWorkLead: "Wir beginnen bei den Realitäten eines Ortes und arbeiten mit den Menschen und Institutionen, die ihn bereits prägen. Gemeinsam erforschen, entwerfen und erproben wir neue Mechanismen in Governance, Finanzen, Beziehungen und Technologie.",
-  howWeWorkLead2: "Wir demonstrieren sie an realen Orten, dokumentieren als Muster, was funktioniert, und übersetzen diese Muster in Modelle, Werkzeuge und zivilgesellschaftliche Technologien, die andere nutzen und anpassen können. Was wir an einem Ort lernen, kann einfließen in das, was an einem anderen entsteht.",
+  howWeWorkLead2: "Wir demonstrieren sie, dokumentieren als Muster, was funktioniert, und übersetzen diese Muster in Modelle, Werkzeuge und zivilgesellschaftliche Technologien, die andere nutzen und anpassen können. Was wir an einem Ort lernen, kann einfließen in das, was an einem anderen entsteht.",
   howSteps: [
     { key: "research", label: "Forschung", description: "Die Bedingungen, Beziehungen und Systeme verstehen, die bestimmen, was an einem Ort möglich ist." },
     { key: "design", label: "Mechanismus-Design", description: "Neue Mechanismen für Governance, Finanzen, Beziehungen und Technologie gemeinsam mit den Beteiligten entwickeln." },
