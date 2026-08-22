@@ -89,7 +89,7 @@ const en: HomeMessages = {
       key: "technology",
       heading: "Building Civic Technology",
       description:
-        "Developing the decentralised technologies these mechanisms run on: AI that processes deliberation on the device, hardware built for the room, knowledge graphs that keep collective positions traceable, and registries grounded in distributed validation. Prototyped in real deployments and designed to stay in the hands of the communities using them.",
+        "We build the technology these mechanisms run on. AI that processes deliberation on the device, hardware built for the room, knowledge graphs that keep collective positions traceable, and decentralised registries validated by many hands. Prototyped in real deployments and designed to stay with the communities using them.",
     },
   ],
   initiatives: "Initiatives",
@@ -156,7 +156,7 @@ const de: HomeMessages = {
       key: "technology",
       heading: "Zivilgesellschaftliche Technologie bauen",
       description:
-        "Wir entwickeln die dezentralen Technologien, auf denen diese Mechanismen laufen: KI, die Deliberation direkt auf dem Gerät verarbeitet, Hardware für den Raum, Wissensgraphen, die kollektive Positionen nachvollziehbar halten, und Register auf Basis verteilter Validierung. Erprobt in realen Einsätzen und so gestaltet, dass sie in den Händen der Gemeinschaften bleiben, die sie nutzen.",
+        "Wir bauen die Technologie, auf der diese Mechanismen laufen. KI, die Deliberation direkt auf dem Gerät verarbeitet, Hardware für den Raum, Wissensgraphen, die kollektive Positionen nachvollziehbar halten, und dezentrale Register, die von vielen Händen validiert werden. Erprobt in realen Einsätzen und so gestaltet, dass sie bei den Gemeinschaften bleibt, die sie nutzen.",
     },
   ],
   initiatives: "Initiativen",
