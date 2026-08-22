@@ -56,7 +56,7 @@ const en: HomeMessages = {
   partners: "Partners",
   partnersIntro: "Working with organisations advancing new forms of collective action.",
   howWeWork: "How we work",
-  howWeWorkLead: "We start from the realities of a place, working with the people and institutions already shaping it. A mechanism proven in one place can be picked up in the next, with each place starting further ahead.",
+  howWeWorkLead: "We start from the realities of a place, working with the people and institutions already shaping it. What we learn in one place can inform what is built in another.",
   howSteps: [
     { key: "research", label: "Research", description: "Understand the conditions, relationships and systems shaping what is possible in a place." },
     { key: "design", label: "Mechanism Design", description: "Develop new mechanisms of governance, finance, relations and technology with the people involved." },
@@ -124,7 +124,7 @@ const de: HomeMessages = {
   partners: "Partner",
   partnersIntro: "Wir arbeiten mit Organisationen, die neue Formen kollektiven Handelns vorantreiben.",
   howWeWork: "Wie wir arbeiten",
-  howWeWorkLead: "Wir beginnen bei den Realitäten eines Ortes und arbeiten mit den Menschen und Institutionen, die ihn bereits prägen. Ein Mechanismus, der sich an einem Ort bewährt hat, kann am nächsten aufgegriffen werden, und jeder Ort beginnt ein Stück weiter vorn.",
+  howWeWorkLead: "Wir beginnen bei den Realitäten eines Ortes und arbeiten mit den Menschen und Institutionen, die ihn bereits prägen. Was wir an einem Ort lernen, kann prägen, was an einem anderen entsteht.",
   howSteps: [
     { key: "research", label: "Forschung", description: "Die Bedingungen, Beziehungen und Systeme verstehen, die bestimmen, was an einem Ort möglich ist." },
     { key: "design", label: "Mechanismus-Design", description: "Neue Mechanismen für Governance, Finanzen, Beziehungen und Technologie gemeinsam mit den Beteiligten entwickeln." },
