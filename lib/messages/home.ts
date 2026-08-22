@@ -63,7 +63,7 @@ const en: HomeMessages = {
   partnersIntro: "Working with organisations advancing new forms of collective action.",
   who: {
     label: "Who we work with",
-    lead: "We work with the people closest to a place, the institutions that shape it, and the organisations that support or extend what is being built there. Depending on the project, they join us as partners, as funders, or as both.",
+    lead: "We work with the people closest to a place, the institutions that shape it, and the organisations that support or extend what is being built there.",
     paths: [
       {
         title: "Public institutions",
@@ -174,7 +174,7 @@ const de: HomeMessages = {
   partnersIntro: "Wir arbeiten mit Organisationen, die neue Formen kollektiven Handelns vorantreiben.",
   who: {
     label: "Mit wem wir arbeiten",
-    lead: "Wir arbeiten mit den Menschen, die einem Ort am nächsten sind, mit den Institutionen, die ihn prägen, und mit den Organisationen, die das Entstehende stützen oder weitertragen. Je nach Projekt begleiten sie uns als Partner, als Förderer oder als beides.",
+    lead: "Wir arbeiten mit den Menschen, die einem Ort am nächsten sind, mit den Institutionen, die ihn prägen, und mit den Organisationen, die das Entstehende stützen oder weitertragen.",
     paths: [
       {
         title: "Öffentliche Institutionen",
