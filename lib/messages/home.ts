@@ -55,7 +55,7 @@ const en: HomeMessages = {
   partners: "Partners",
   partnersIntro: "Working with organisations advancing new forms of collective action.",
   howWeWork: "How we work",
-  howWeWorkLead: "We work from the realities of a place, with the people and institutions already shaping it.",
+  howWeWorkLead: "We work from place-based realities, with the people and institutions already shaping them.",
   howSteps: [
     { key: "research", label: "Research", description: "Understand the conditions, relationships and systems shaping what is possible in a place." },
     { key: "design", label: "Design", description: "Develop new mechanisms of governance, finance, relations and technology with the people involved." },
