@@ -187,13 +187,13 @@ export default async function MeldPage({ params }: PageProps) {
                   {t.insideLabel}
                 </p>
 
-                <div className="border border-white/25">
+                <div className="border-t border-b border-white/15 pb-2">
                   <img
                     src="/meld/innover-slide.png"
                     alt={t.featured.imageAlt}
                     className="w-full"
                   />
-                  <div className="p-7 sm:p-9 sm:pt-7">
+                  <div className="pt-7">
                     <span className="btn-field-outline inline-block rounded-full px-3 py-1 font-mono text-[11px] uppercase tracking-[0.12em]">
                       {t.featured.pill}
                     </span>
@@ -213,10 +213,10 @@ export default async function MeldPage({ params }: PageProps) {
                       href={cardHrefs[i]}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group block border border-white/25 transition-colors hover:bg-white/[0.04]"
+                      className="group block"
                     >
                       <img src={cardImgs[i]} alt={card.title} className="w-full" />
-                      <div className="p-6 sm:p-7 sm:pt-5">
+                      <div className="pt-5">
                         <p className="font-silkscreen text-[0.7rem] uppercase tracking-widest text-white/40">
                           {card.tag}
                         </p>
