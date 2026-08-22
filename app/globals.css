@@ -310,7 +310,7 @@ body {
 .btn-field-outline {
   border: 1px solid transparent;
   background:
-    linear-gradient(#161616, #161616) padding-box,
+    linear-gradient(#000, #000) padding-box,
     linear-gradient(100deg, #8f2f1c, #b5502a 40%, #c07b3a 80%, #d99a4e) border-box;
   color: rgba(255, 255, 255, 0.85);
 }
