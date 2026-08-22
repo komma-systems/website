@@ -58,7 +58,7 @@ const en: MeldMessages = {
   ],
   whatLabel: "What Meld Does",
   what: [
-    { title: "Capture", body: "The device sits in the room. Participants consent with a physical NFC tap, and transcription and anonymisation happen on the device itself, running KairOS." },
+    { title: "Capture", body: "The device sits in the room. Participants consent with a physical NFC tap, and transcription and anonymisation happen privately on the device itself, running KairOS." },
     { title: "Structure", body: "After each session, a knowledge graph maps the themes, the relationships between contributions, and how positions shift from one session to the next." },
     { title: "Return", body: "Through the Kair platform, facilitators and participants receive the conversation back, legible, comparable, and ready to act on." },
   ],
@@ -145,7 +145,7 @@ const de: MeldMessages = {
   ],
   whatLabel: "Was Meld macht",
   what: [
-    { title: "Erfassen", body: "Das Gerät steht im Raum. Teilnehmende willigen per NFC-Tippen ein; Transkription und Anonymisierung geschehen direkt auf dem Gerät, das auf KairOS läuft." },
+    { title: "Erfassen", body: "Das Gerät steht im Raum. Teilnehmende willigen per NFC-Tippen ein; Transkription und Anonymisierung geschehen privat direkt auf dem Gerät, das auf KairOS läuft." },
     { title: "Strukturieren", body: "Nach jeder Sitzung bildet ein Wissensgraph die Themen ab, die Beziehungen zwischen Beiträgen, und wie sich Positionen von Sitzung zu Sitzung verschieben." },
     { title: "Zurückgeben", body: "Über die Kair-Plattform erhalten Moderierende und Teilnehmende das Gespräch zurück, lesbar, vergleichbar und handlungsfähig." },
   ],
