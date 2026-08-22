@@ -818,7 +818,7 @@ export function HomePageClient() {
                   rel="noopener noreferrer"
                   className="btn-field-outline self-center font-mono text-[13px] rounded-full px-5 py-2.5 whitespace-nowrap transition-[filter]"
                 >
-                  Register →
+                  Request access →
                 </a>
               </div>
 
