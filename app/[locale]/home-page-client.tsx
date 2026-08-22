@@ -150,6 +150,8 @@ const INITIATIVES = [
 
 const noOrphan = (text: string) => text.replace(/ (\S+)$/, "\u00A0$1")
 
+const AREA_COLORS = ["#b5502a", "#c9673a", "#c07b3a", "#d99a4e"]
+
 const STEP_COLORS = ["#b5502a", "#c9673a", "#c07b3a", "#d99a4e", "#f5f2e8"]
 
 const STAGE_COLORS: Record<string, string> = {
@@ -355,7 +357,10 @@ export function HomePageClient() {
               {t.approachCards.map((item, idx) => (
                 <AnimatedElement animation="fade-up" delay={100 * (idx + 1)} key={item.key}>
                   <div className="text-left">
-                    <h3 className="font-light text-[22px] sm:text-2xl lg:text-[28px] text-white tracking-[-0.01em] leading-tight">
+                    <h3
+                      className="font-light text-[22px] sm:text-2xl lg:text-[28px] tracking-[-0.01em] leading-tight"
+                      style={{ color: AREA_COLORS[idx] }}
+                    >
                       {item.heading}
                     </h3>
                     <p className="[text-wrap:pretty] mt-4 text-base lg:text-lg text-gray-400 leading-relaxed">
