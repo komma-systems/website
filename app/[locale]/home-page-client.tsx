@@ -377,9 +377,6 @@ export function HomePageClient() {
                 <h2 className="font-semibold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-tight">
                   {t.initiatives}
                 </h2>
-                <span className="font-normal text-xs sm:text-sm text-white leading-relaxed align-super relative -top-1 sm:-top-2">
-                  {INITIATIVES.length}
-                </span>
               </div>
             </AnimatedElement>
 
