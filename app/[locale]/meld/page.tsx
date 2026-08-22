@@ -250,7 +250,13 @@ export default async function MeldPage({ params }: PageProps) {
                           </p>
                           {item.cta && (
                             <p className="mt-4">
-                              <span className="btn-field-outline inline-block rounded-full px-4 py-2 font-mono text-[13px] transition-[filter] group-hover:brightness-125">
+                              <span
+                                className={
+                                  item.tag === "Participate" || item.tag === "Mitmachen"
+                                    ? "btn-field inline-block rounded-full px-5 py-2.5 font-mono text-[13px] font-semibold text-white transition-[filter] group-hover:brightness-110"
+                                    : "btn-field-outline inline-block rounded-full px-4 py-2 font-mono text-[13px] transition-[filter] group-hover:brightness-125"
+                                }
+                              >
                                 {item.cta}
                               </span>
                             </p>
