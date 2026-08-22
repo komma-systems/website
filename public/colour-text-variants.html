@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KOMMA — colour on text and CTAs: 5 treatments</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200;0,8..60,300;0,8..60,400;0,8..60,600&family=Silkscreen&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --terra:#b5502a; --rust:#8f2f1c; --ochre:#c07b3a; --amber:#d99a4e; --cream:#f5f2e8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#000;color:#fff;font-family:'Source Serif 4',serif}
+  p{text-wrap:pretty}
+  .lab{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:#000;background:var(--cream);padding:12px 24px;position:sticky;top:0;z-index:50;display:flex;justify-content:space-between}
+  .lab small{text-transform:none;letter-spacing:0}
+  section{padding:60px 40px 90px}
+  .inner{max-width:1000px;margin:0 auto}
+  .pix{font-family:'Silkscreen',cursive}
+  h2{font-weight:600;font-size:34px;margin-bottom:26px;letter-spacing:-.01em}
+  .row{display:grid;grid-template-columns:1fr 230px;gap:40px;border-top:1px solid rgba(255,255,255,.25);padding:28px 6px;align-items:start}
+  .row h3{font-weight:300;font-size:30px}
+  .row .tags{font-family:'IBM Plex Mono',monospace;font-size:13px;color:rgba(255,255,255,.5);margin-top:8px}
+  .row .desc{font-size:16px;color:#b5b5b5;margin-top:12px;line-height:1.65;max-width:540px}
+  .stage{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#fff}
+  .dot{font-size:9px;vertical-align:2px;margin-right:8px}
+  .cta{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:13px;border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:9px 20px;color:#fff;text-decoration:none}
+  .hero p{font-size:22px;line-height:1.6;max-width:720px}
+  .hero .komma{font-size:32px;display:block;margin-bottom:28px}
+  .grain-svg{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E")}
+
+  /* gradient-in-text helper (with grain baked into the fill) */
+  .gtext{
+    background:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.28'/%3E%3C/svg%3E"),
+      linear-gradient(100deg, #8f2f1c, #b5502a 35%, #c07b3a 70%, #d99a4e);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  .gfill{
+    background:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.3'/%3E%3C/svg%3E"),
+      linear-gradient(100deg, #8f2f1c, #b5502a 40%, #c07b3a 80%, #d99a4e);
+    border:0; color:#fff;
+  }
+</style>
+</head>
+<body>
+
+<div class="lab"><span>A — gradient headings</span><small>section titles carry the field (granular gradient clipped into the letters); all else stays white/cream</small></div>
+<section><div class="inner">
+  <h2 class="gtext">Initiatives</h2>
+  <div class="row"><div><h3>Meld</h3><p class="tags">governance / tech / AI</p><p class="desc">Civic deliberation infrastructure: a hardware device and privacy-preserving platform.</p></div>
+  <div><span class="stage"><span class="dot" style="color:var(--cream)">●</span>IN DEPLOYMENT</span></div></div>
+  <h2 class="gtext" style="margin-top:56px">Upcoming Events</h2>
+  <div class="row"><div><h3>Meld at the European Forum Alpbach</h3><p class="desc">A live demonstration with the 10x100 network.</p></div>
+  <div><span class="cta">Register →</span></div></div>
+</div></section>
+
+<div class="lab"><span>B — solid terracotta accents</span><small>one colour, used sparingly: headings terracotta, dots + hovers terracotta, CTAs outlined terracotta</small></div>
+<section><div class="inner">
+  <h2 style="color:var(--terra)">Initiatives</h2>
+  <div class="row"><div><h3>Meld</h3><p class="tags">governance / tech / AI</p><p class="desc">Civic deliberation infrastructure: a hardware device and privacy-preserving platform.</p></div>
+  <div><span class="stage"><span class="dot" style="color:var(--terra)">●</span>IN DEPLOYMENT</span></div></div>
+  <h2 style="margin-top:56px;color:var(--terra)">Upcoming Events</h2>
+  <div class="row"><div><h3>Meld at the European Forum Alpbach</h3><p class="desc">A live demonstration with the 10x100 network.</p></div>
+  <div><span class="cta" style="border-color:var(--terra);color:var(--terra)">Register →</span></div></div>
+</div></section>
+
+<div class="lab"><span>C — colour only on actions</span><small>headings stay white; every clickable thing is fire: filled gradient CTAs, terracotta links, ramp dots</small></div>
+<section><div class="inner">
+  <h2>Initiatives</h2>
+  <div class="row"><div><h3>Meld <span style="color:var(--terra)">→</span></h3><p class="tags">governance / tech / AI</p><p class="desc">Civic deliberation infrastructure with <a href="#" style="color:var(--ochre);text-decoration:none;border-bottom:1px solid var(--ochre)">Kair</a> and the <a href="#" style="color:var(--ochre);text-decoration:none;border-bottom:1px solid var(--ochre)">Device</a>.</p></div>
+  <div><span class="stage"><span class="dot" style="color:var(--terra)">●</span>IN DEPLOYMENT</span></div></div>
+  <h2 style="margin-top:56px">Upcoming Events</h2>
+  <div class="row"><div><h3>Meld at the European Forum Alpbach</h3><p class="desc">A live demonstration with the 10x100 network.</p></div>
+  <div><span class="cta gfill">Register →</span></div></div>
+</div></section>
+
+<div class="lab"><span>D — key words carry the field</span><small>the load-bearing phrases in gradient text; headings white; CTAs gradient-filled</small></div>
+<section><div class="inner hero">
+  <span class="pix komma">KOMMA</span>
+  <p>A research and civic technology studio using artistic inquiry and real-world demonstration to shift collective imagination around how we value, own, govern and care for what we hold in common, beginning with <span class="gtext" style="font-weight:600">land and housing</span>.</p>
+  <p style="margin-top:22px;color:#9a9a9a;font-size:19px">We demonstrate them in real places, document what works as <span class="gtext" style="font-weight:600">patterns</span>, and turn those patterns into models, tools and civic technologies that others can use and adapt.</p>
+  <p style="margin-top:34px"><span class="cta gfill">Talk to us about a pilot →</span></p>
+</div></section>
+
+<div class="lab"><span>E — the KOMMA wordmark itself</span><small>the pixel wordmark as the single colour moment, in the granular field; everything else monochrome</small></div>
+<section><div class="inner hero">
+  <span class="pix komma gtext" style="font-size:56px">KOMMA</span>
+  <p>A research and civic technology studio using artistic inquiry and real-world demonstration to shift collective imagination around how we value, own, govern and care for what we hold in common, beginning with land and housing.</p>
+  <p style="margin-top:34px"><span class="cta">Register →</span>&nbsp;&nbsp;<span class="cta gfill">Talk to us about a pilot →</span></p>
+  <h2 style="margin-top:70px">Initiatives</h2>
+  <div class="row"><div><h3>Meld</h3><p class="tags">governance / tech / AI</p><p class="desc">The section system stays black and white; the wordmark holds all the fire.</p></div>
+  <div><span class="stage"><span class="dot" style="color:var(--cream)">●</span>IN DEPLOYMENT</span></div></div>
+</div></section>
+
+<div style="height:90px"></div>
+</body>
+</html>
