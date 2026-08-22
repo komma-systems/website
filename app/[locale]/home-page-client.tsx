@@ -286,9 +286,9 @@ export function HomePageClient() {
         </section>
 
         {/* Partners Section */}
-        <section id="partners" className="py-8 px-4 sm:px-6 md:px-8 bg-black">
-          <div className="max-w-7xl mx-auto">
-            <h2 className="font-semibold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-tight mb-10 text-left">{t.partners}</h2>
+        <section id="partners" className="pt-2 pb-16 px-4 sm:px-6 md:px-8 bg-black">
+          <div className="max-w-5xl mx-auto text-center">
+            <div className="font-silkscreen text-sm md:text-base tracking-widest uppercase text-white/60 mb-8">{t.partners}</div>
             <div className="flex flex-wrap items-center justify-center gap-x-16 gap-y-12 md:gap-x-24">
               {PARTNER_LOGOS.map((partner) => (
                 <a
