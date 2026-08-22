@@ -285,3 +285,19 @@ body {
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.3'/%3E%3C/svg%3E"),
     linear-gradient(100deg, #8f2f1c, #b5502a 40%, #c07b3a 80%, #d99a4e);
 }
+
+
+/* Five slices of the field, one per initiative */
+.tf-0 { background-image: var(--tgrain), linear-gradient(100deg, #8f2f1c, #b5502a 60%, #c9673a); }
+.tf-1 { background-image: var(--tgrain), linear-gradient(100deg, #b5502a, #c07b3a 65%, #d18f45); }
+.tf-2 { background-image: var(--tgrain), linear-gradient(100deg, #c07b3a, #d99a4e 70%, #e8b46a); }
+.tf-3 { background-image: var(--tgrain), linear-gradient(100deg, #d99a4e, #e8b46a 55%, #f5f2e8); }
+.tf-4 { background-image: var(--tgrain), linear-gradient(100deg, #8f2f1c, #c07b3a 50%, #f5f2e8); }
+.tf-0, .tf-1, .tf-2, .tf-3, .tf-4 {
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+:root {
+  --tgrain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.28'/%3E%3C/svg%3E");
+}
