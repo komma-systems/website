@@ -132,11 +132,18 @@ export default async function MeldPage({ params }: PageProps) {
               ))}
 
               <p className={labelClasses}>{t.whatLabel}</p>
-              {t.what.map((para, i) => (
-                <p key={i} className={`${proseClasses}${i > 0 ? " mt-6" : ""}`}>
-                  {para}
-                </p>
-              ))}
+              <div className="space-y-5">
+                {t.what.map((step, i) => (
+                  <div key={step.title} className="grid grid-cols-[7.5rem_1fr] gap-x-5 border-l border-white/20 pl-5">
+                    <p className="font-mono text-[12px] font-semibold uppercase tracking-[0.14em] text-white pt-1">
+                      {String(i + 1).padStart(2, "0")} {step.title}
+                    </p>
+                    <p className="[text-wrap:pretty] text-[0.98rem] leading-relaxed text-gray-300">
+                      {step.body}
+                    </p>
+                  </div>
+                ))}
+              </div>
 
               <p className={labelClasses}>{t.principlesLabel}</p>
               <div className="space-y-8">

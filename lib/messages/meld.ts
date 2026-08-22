@@ -20,7 +20,7 @@ export type MeldMessages = {
   problemLabel: string
   problem: string[]
   whatLabel: string
-  what: string[]
+  what: { title: string; body: string }[]
   principlesLabel: string
   principles: { title: string; body: string }[]
   insideLabel: string
@@ -47,33 +47,32 @@ const en: MeldMessages = {
     contactCta: "Work with Meld →",
   },
   intro: [
-    "Governance fails because what people say disappears. Citizen assemblies, community consultations, and municipal workshops produce hours of spoken deliberation that is difficult to track, impossible to compare across sessions, and rarely reflected in the decisions that follow. Meld is KOMMA's initiative to address that.",
-    "Meld is a hardware device and spatial AI platform designed for deployment in civic settings. It captures spoken deliberation in the room, processes it locally, and returns structured sensemaking outputs to facilitators and participants without raw audio ever leaving the space. It is the physical and technical infrastructure for a new kind of civic listening.",
+    "Governance fails because what people say disappears. Assemblies, consultations, and workshops produce hours of spoken deliberation that is hard to track, harder to compare, and rarely reflected in the decisions that follow.",
+    "Meld is KOMMA's answer. A hardware device and privacy-preserving platform that captures deliberation in the room, processes it locally, and returns it to the people who spoke, without raw audio ever leaving the space.",
   ],
   problemLabel: "The Problem",
   problem: [
-    "Public deliberation sits at the heart of democratic renewal, but the tools available to it are broken. Existing approaches either rely on commercial cloud AI that creates unacceptable data sovereignty and privacy risks in public sector settings, or they produce flat transcripts that demand hours of manual analysis. Neither is fit for deployment in the places that need participatory tools most: under-resourced municipalities, rural communities, and administrations without specialist technical capacity.",
-    "Beneath this is a deeper structural problem. Democratic processes generate rich, layered knowledge from citizens and communities, but that knowledge has no durable form. It does not accumulate. It does not travel. It does not inform the next session or the next decision. Each assembly starts from scratch.",
+    "Existing tools either send audio to commercial cloud AI, which public-sector settings cannot accept, or produce flat transcripts that demand hours of manual analysis. And the knowledge citizens generate has no durable form. It does not accumulate, travel, or inform the next decision. Each assembly starts from scratch.",
   ],
   whatLabel: "What Meld Does",
   what: [
-    "The Meld device sits in the room during civic assemblies and public workshops. Participants register consent through a physical NFC tap before their voice enters the pipeline. Transcription, anonymisation, and initial sensemaking happen locally on the device, powered by KairOS, the operating system for relational technology developed within the initiative.",
-    "After each session, the Embers Engine constructs a knowledge graph from the discussion: extracting themes, relationships, and patterns across contributions, and connecting them to prior sessions through a Temporal Deliberation Graph. Facilitators receive structured outputs that make the conversation legible, comparable, and actionable.",
-    "The underlying platform is Kair, named for Kairos, the Greek concept of qualitative or relational time. Where Chronos measures the passing of moments, Kairos names the moment when something shifts. Kair is built to locate and hold those moments in civic life.",
+    { title: "Capture", body: "The device sits in the room. Participants consent with a physical NFC tap, and transcription and anonymisation happen on the device itself, running KairOS." },
+    { title: "Structure", body: "After each session, a knowledge graph maps the themes, the relationships between contributions, and how positions shift from one session to the next." },
+    { title: "Return", body: "Through the Kair platform, facilitators and participants receive the conversation back, legible, comparable, and ready to act on." },
   ],
   principlesLabel: "Design Principles",
   principles: [
     {
       title: "Consent as action",
-      body: "Participation in the pipeline is an active, physical choice. Each participant taps an NFC tag before their contributions are captured. Withdrawal is possible at any time, at the level of a session or a single exchange, without requiring identification.",
+      body: "Nothing is captured before an NFC tap, and anyone can withdraw at any time without identifying themselves.",
     },
     {
       title: "Edge-first",
-      body: "Raw audio stays on local hardware. Only de-identified transcripts and structured graph outputs leave the device. The platform operates without internet connectivity, which is essential for deployment in rural and low-connectivity settings.",
+      body: "Raw audio stays on local hardware, and the system runs without internet, built for rural and low-connectivity settings.",
     },
     {
       title: "Minimal trace by default",
-      body: "Exports contain graph structures and metadata only. The system is designed so that the outputs of deliberation are useful without being personally attributable.",
+      body: "Exports carry graph structures and metadata only, useful without being personally attributable.",
     },
   ],
   insideLabel: "Inside the initiative",
@@ -134,33 +133,32 @@ const de: MeldMessages = {
     contactCta: "Mit Meld arbeiten →",
   },
   intro: [
-    "Governance scheitert, weil verschwindet, was Menschen sagen. Bürgerversammlungen, Beteiligungsverfahren und kommunale Workshops erzeugen Stunden gesprochener Deliberation, die schwer nachzuverfolgen ist, sich über Sitzungen hinweg kaum vergleichen lässt und sich selten in den Entscheidungen widerspiegelt, die darauf folgen. Meld ist KOMMAs Initiative, um das zu ändern.",
-    "Meld ist ein Hardware-Gerät und eine räumliche KI-Plattform für den Einsatz in zivilgesellschaftlichen Kontexten. Es erfasst gesprochene Deliberation im Raum, verarbeitet sie lokal und gibt strukturierte Auswertungen an Moderierende und Teilnehmende zurück, ohne dass Rohaudio jemals den Raum verlässt. Es ist die physische und technische Infrastruktur für eine neue Art des zivilen Zuhörens.",
+    "Governance scheitert, weil verschwindet, was Menschen sagen. Versammlungen, Beteiligungsverfahren und Workshops erzeugen Stunden gesprochener Deliberation, die schwer nachzuverfolgen ist, sich kaum vergleichen lässt und sich selten in den Entscheidungen widerspiegelt, die darauf folgen.",
+    "Meld ist KOMMAs Antwort. Ein Hardware-Gerät und eine datenschutzfreundliche Plattform, die Deliberation im Raum erfasst, lokal verarbeitet und den Menschen zurückgibt, die gesprochen haben, ohne dass Rohaudio jemals den Raum verlässt.",
   ],
   problemLabel: "Das Problem",
   problem: [
-    "Öffentliche Deliberation steht im Zentrum demokratischer Erneuerung, doch die verfügbaren Werkzeuge versagen. Bestehende Ansätze stützen sich entweder auf kommerzielle Cloud-KI, die im öffentlichen Sektor inakzeptable Risiken für Datensouveränität und Privatsphäre schafft, oder sie erzeugen flache Transkripte, die Stunden manueller Auswertung verlangen. Beides taugt nicht für die Orte, die Beteiligungswerkzeuge am dringendsten brauchen: unterfinanzierte Kommunen, ländliche Gemeinden und Verwaltungen ohne eigene technische Kapazitäten.",
-    "Darunter liegt ein tieferes strukturelles Problem. Demokratische Prozesse erzeugen reiches, vielschichtiges Wissen von Bürgerinnen, Bürgern und Gemeinschaften, aber dieses Wissen hat keine dauerhafte Form. Es sammelt sich nicht an. Es wandert nicht. Es informiert weder die nächste Sitzung noch die nächste Entscheidung. Jede Versammlung beginnt bei null.",
+    "Bestehende Werkzeuge schicken Audio entweder an kommerzielle Cloud-KI, was der öffentliche Sektor nicht verantworten kann, oder erzeugen flache Transkripte, die Stunden manueller Auswertung verlangen. Und das Wissen, das Bürgerinnen und Bürger erzeugen, hat keine dauerhafte Form. Es sammelt sich nicht an, wandert nicht und informiert nicht die nächste Entscheidung. Jede Versammlung beginnt bei null.",
   ],
   whatLabel: "Was Meld macht",
   what: [
-    "Das Meld-Gerät steht während Bürgerversammlungen und öffentlichen Workshops im Raum. Teilnehmende erklären ihre Einwilligung durch ein physisches NFC-Tippen, bevor ihre Stimme in die Verarbeitung gelangt. Transkription, Anonymisierung und erste Auswertung geschehen lokal auf dem Gerät, betrieben von KairOS, dem in der Initiative entwickelten Betriebssystem für relationale Technologie.",
-    "Nach jeder Sitzung baut die Embers Engine einen Wissensgraphen aus der Diskussion. Sie extrahiert Themen, Beziehungen und Muster über die Beiträge hinweg und verbindet sie über einen Temporal Deliberation Graph mit früheren Sitzungen. Moderierende erhalten strukturierte Ergebnisse, die das Gespräch lesbar, vergleichbar und handlungsfähig machen.",
-    "Die zugrunde liegende Plattform ist Kair, benannt nach Kairos, dem griechischen Begriff für qualitative, relationale Zeit. Wo Chronos das Verstreichen der Momente misst, benennt Kairos den Moment, in dem sich etwas verschiebt. Kair ist gebaut, um diese Momente im zivilen Leben zu finden und zu halten.",
+    { title: "Erfassen", body: "Das Gerät steht im Raum. Teilnehmende willigen per NFC-Tippen ein; Transkription und Anonymisierung geschehen direkt auf dem Gerät, das auf KairOS läuft." },
+    { title: "Strukturieren", body: "Nach jeder Sitzung bildet ein Wissensgraph die Themen ab, die Beziehungen zwischen Beiträgen, und wie sich Positionen von Sitzung zu Sitzung verschieben." },
+    { title: "Zurückgeben", body: "Über die Kair-Plattform erhalten Moderierende und Teilnehmende das Gespräch zurück, lesbar, vergleichbar und handlungsfähig." },
   ],
   principlesLabel: "Gestaltungsprinzipien",
   principles: [
     {
       title: "Einwilligung als Handlung",
-      body: "Die Teilnahme an der Verarbeitung ist eine aktive, physische Entscheidung. Jede Person tippt einen NFC-Tag, bevor ihre Beiträge erfasst werden. Ein Rückzug ist jederzeit möglich, für eine Sitzung oder einen einzelnen Wortbeitrag, ohne dass eine Identifizierung nötig wäre.",
+      body: "Nichts wird erfasst, bevor ein NFC-Tag getippt wurde, und jede Person kann sich jederzeit zurückziehen, ohne sich zu identifizieren.",
     },
     {
       title: "Edge-first",
-      body: "Rohaudio bleibt auf der lokalen Hardware. Nur de-identifizierte Transkripte und strukturierte Graph-Ergebnisse verlassen das Gerät. Die Plattform funktioniert ohne Internetverbindung, was für den Einsatz in ländlichen Regionen mit schwacher Anbindung entscheidend ist.",
+      body: "Rohaudio bleibt auf der lokalen Hardware, und das System läuft ohne Internet, gebaut für ländliche Regionen mit schwacher Anbindung.",
     },
     {
       title: "Minimale Spuren als Standard",
-      body: "Exporte enthalten ausschließlich Graphstrukturen und Metadaten. Das System ist so gestaltet, dass die Ergebnisse der Deliberation nützlich sind, ohne einzelnen Personen zugeordnet werden zu können.",
+      body: "Exporte enthalten nur Graphstrukturen und Metadaten, nützlich, ohne einzelnen Personen zuzuordnen zu sein.",
     },
   ],
   insideLabel: "In der Initiative",
