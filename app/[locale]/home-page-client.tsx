@@ -97,6 +97,7 @@ const INITIATIVES = [
     projects: [
       { name: "Land mapping", href: null },
       { name: "Kair (relational bundles)", href: "https://kair.is/" },
+      { name: "Silt (KommaOS)", href: null },
     ],
     href: null,
   },
