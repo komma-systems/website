@@ -317,24 +317,21 @@ export function HomePageClient() {
         {/* Who we work with */}
         <section id="who" className="py-20 px-4 sm:px-6 md:px-8 bg-grain pill-bg-grain">
           <div className="max-w-7xl mx-auto">
-            <AnimatedElement animation="fade-in" className="mb-10">
-              <p className="mb-5 font-silkscreen text-xs uppercase tracking-[0.24em] text-white/50">
+            <AnimatedElement animation="fade-in">
+              <h2 className="font-semibold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-tight mb-6">
                 {t.who.label}
-              </p>
-              <p className="[text-wrap:pretty] text-xl md:text-2xl text-white max-w-3xl leading-relaxed mb-5">
+              </h2>
+              <p className="[text-wrap:pretty] text-lg md:text-xl text-gray-300 max-w-2xl leading-relaxed">
                 {t.who.lead1}
               </p>
-              <p className="[text-wrap:pretty] text-lg md:text-xl text-gray-300 max-w-3xl leading-relaxed">
+              <p className="[text-wrap:pretty] mt-4 text-lg md:text-xl text-gray-300 max-w-2xl leading-relaxed">
                 {t.who.lead2}
               </p>
             </AnimatedElement>
 
-            <div className="grid grid-cols-1 border-t border-l border-white/20 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-10 grid grid-cols-1 gap-x-10 gap-y-10 border-t border-b border-white/15 py-8 pb-10 sm:grid-cols-2 lg:grid-cols-4">
               {t.who.paths.map((path) => (
-                <div
-                  key={path.title}
-                  className="flex flex-col border-b border-r border-white/20 p-7 transition-colors hover:bg-white/[0.03]"
-                >
+                <div key={path.title} className="flex flex-col">
                   <h3 className="text-xl font-light tracking-tight text-white sm:text-2xl">
                     {path.title}
                   </h3>
