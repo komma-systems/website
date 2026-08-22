@@ -318,3 +318,16 @@ body {
   color: #fff;
   filter: brightness(1.25);
 }
+
+/* Footer: the site exhales into the field, very softly */
+.bg-footer-field {
+  background: linear-gradient(
+    180deg,
+    #000 0%,
+    #0b0605 38%,
+    #2a140c 66%,
+    #58281542 82%,
+    #7e3319 130%
+  ), #000;
+  background-blend-mode: normal;
+}

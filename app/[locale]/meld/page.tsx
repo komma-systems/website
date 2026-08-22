@@ -296,15 +296,16 @@ export default async function MeldPage({ params }: PageProps) {
                     )
                   })}
                 </div>
-                <Link
-                  href={`/${locale}#initiatives`}
-                  className="mt-14 inline-block font-silkscreen text-xs uppercase tracking-wider text-white/60 transition-colors hover:text-cream"
-                >
-                  {t.back}
-                </Link>
               </div>
             </div>
           </div>
+
+          <Link
+            href={`/${locale}#initiatives`}
+            className="mt-16 inline-block font-silkscreen text-xs uppercase tracking-wider text-white/60 transition-colors hover:text-cream"
+          >
+            {t.back}
+          </Link>
         </div>
       </main>
     </>
