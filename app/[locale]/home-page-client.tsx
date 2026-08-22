@@ -109,7 +109,7 @@ const INITIATIVES = [
     tags: ["governance", "ritual"],
     projects: [
       { name: "Pattern book", href: null },
-      { name: "Residencies", href: null },
+      { name: "Gravity and Grace (residency)", href: "https://www.gravitygrace.quest/berlin" },
     ],
     href: null,
   },
