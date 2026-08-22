@@ -85,6 +85,12 @@ const en: HomeMessages = {
       description:
         "Integrating governance into everyday life through the human-centric design. Including sociocratic decision-making, digital coordination tools, and innovative hardware to enhance collective collaboration by smoothly connecting digital and physical spaces.",
     },
+    {
+      key: "technology",
+      heading: "Building Civic Technology",
+      description:
+        "Developing the software these mechanisms run on: land registries, pooled-commitment tools and deliberation infrastructure. Designed to process locally and remain in the hands of the communities using them.",
+    },
   ],
   initiatives: "Initiatives",
   loadingInitiatives: "Loading initiatives...",
@@ -145,6 +151,12 @@ const de: HomeMessages = {
       heading: "Spielerische Rituale kultivieren",
       description:
         "Governance in den Alltag integrieren — humanzentriert gestaltet. Mit sociokratischer Entscheidungsfindung, digitalen Koordinationswerkzeugen und innovativer Hardware, die kollektive Zusammenarbeit verbindet und digitale und physische Räume nahtlos verzahnt.",
+    },
+    {
+      key: "technology",
+      heading: "Zivilgesellschaftliche Technologie bauen",
+      description:
+        "Wir entwickeln die Software, auf der diese Mechanismen laufen: Landregister, Werkzeuge für gebündelte Zusagen und Deliberationsinfrastruktur. Gestaltet für lokale Verarbeitung, damit sie in den Händen der Gemeinschaften bleibt, die sie nutzen.",
     },
   ],
   initiatives: "Initiativen",

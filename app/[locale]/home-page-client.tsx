@@ -354,17 +354,17 @@ export function HomePageClient() {
         <section id="approach" ref={approachSectionRef} className="py-16 px-4 sm:px-6 md:px-8 bg-black scroll-mt-48">
           <div className="max-w-7xl mx-auto">
             <AnimatedElement animation="fade-in" className="mb-12">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl text-center mb-8">{t.ourApproach}</h2>
+              <h2 className="font-semibold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-tight mb-8">{t.ourApproach}</h2>
             </AnimatedElement>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
               {t.approachCards.map((item, idx) => (
                 <AnimatedElement animation="fade-up" delay={100 * (idx + 1)} key={item.key}>
-                  <div className="edge-lines-rounded-xl flex flex-col items-center justify-center min-h-[220px] h-full rounded-xl p-8 bg-transparent text-white transition-all duration-300">
-                    <h3 className="text-2xl md:text-3xl font-bold text-center w-full mb-4">
+                  <div className="grid grid-cols-1 md:grid-cols-[1fr_1.1fr] gap-y-3 gap-x-14 border-t border-white/25 py-10 px-1 sm:px-2 transition-colors duration-200 hover:bg-white/[0.04]">
+                    <h3 className="font-light text-[26px] sm:text-3xl lg:text-[34px] text-white tracking-[-0.01em] leading-tight">
                       {item.heading}
                     </h3>
-                    <p className="text-base md:text-lg font-normal text-center">
+                    <p className="[text-wrap:pretty] text-base lg:text-lg text-gray-400 leading-relaxed">
                       {item.description}
                     </p>
                   </div>
