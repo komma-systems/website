@@ -230,6 +230,7 @@ export default async function MeldPage({ params }: PageProps) {
 
                 {/* InnoVER: the featured deployment, full width */}
                 <div className="border border-white/25 p-7 sm:p-9">
+                  <img src="/meld/innover.svg" alt="" className="mb-6 w-full outline outline-1 outline-white/10" />
                   <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest text-cream">
                     Deployment
                   </p>
@@ -251,6 +252,7 @@ export default async function MeldPage({ params }: PageProps) {
                     rel="noopener noreferrer"
                     className="group border border-white/25 p-6 transition-colors hover:bg-white/[0.04]"
                   >
+                    <img src="/meld/kair.svg" alt="" className="mb-4 w-full outline outline-1 outline-white/10" />
                     <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest text-white/40">
                       Platform
                     </p>
@@ -269,6 +271,7 @@ export default async function MeldPage({ params }: PageProps) {
                     rel="noopener noreferrer"
                     className="group border border-white/25 p-6 transition-colors hover:bg-white/[0.04]"
                   >
+                    <img src="/meld/device.svg" alt="" className="mb-4 w-full outline outline-1 outline-white/10" />
                     <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest text-white/40">
                       Hardware
                     </p>
@@ -286,6 +289,7 @@ export default async function MeldPage({ params }: PageProps) {
                     rel="noopener noreferrer"
                     className="group border border-white/25 p-6 transition-colors hover:bg-white/[0.04]"
                   >
+                    <img src="/meld/10x100.svg" alt="" className="mb-4 w-full outline outline-1 outline-white/10" />
                     <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest text-white/40">
                       Network
                     </p>
