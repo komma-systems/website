@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KOMMA — colour accent tests (terres / rogencs / grocs / taronges)</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200;0,8..60,300;0,8..60,400;0,8..60,600&family=Silkscreen&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --terra:#b5502a;   /* terracotta */
+    --rust:#8f2f1c;    /* rogenc fosc */
+    --ochre:#c07b3a;   /* terra ocre */
+    --amber:#d99a4e;   /* groc torrat */
+    --warmgrey:#1a1715;
+    --coolgrey:#161616;
+    --cream:#f5f2e8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#000;color:#fff;font-family:'Source Serif 4',serif}
+  p{text-wrap:pretty}
+  .lab{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:#000;background:var(--cream);padding:12px 24px;position:sticky;top:0;z-index:50;display:flex;justify-content:space-between}
+  .lab small{text-transform:none;letter-spacing:0}
+  section{padding:64px 40px 90px}
+  .inner{max-width:1000px;margin:0 auto}
+  .pix{font-family:'Silkscreen',cursive}
+  .mono{font-family:'IBM Plex Mono',monospace}
+  h2{font-weight:600;font-size:30px;margin-bottom:28px}
+  .row{display:grid;grid-template-columns:1fr 240px;gap:40px;border-top:1px solid rgba(255,255,255,.25);padding:30px 6px;align-items:start}
+  .row h3{font-weight:300;font-size:30px}
+  .row .tags{font-family:'IBM Plex Mono',monospace;font-size:13px;color:rgba(255,255,255,.5);margin-top:8px}
+  .row .desc{font-size:16px;color:#b5b5b5;margin-top:14px;line-height:1.65;max-width:560px}
+  .stage{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+  .dot{font-size:9px;vertical-align:2px;margin-right:8px}
+  .grain-overlay{position:relative}
+  .grain-overlay::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.07 0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E")}
+  .swatches{display:flex;gap:0;margin:20px 0 40px;height:56px}
+  .swatches div{flex:1;display:flex;align-items:flex-end;padding:6px;font-family:'IBM Plex Mono',monospace;font-size:10px;color:rgba(255,255,255,.8)}
+  .cta{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:13px;border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:8px 18px;color:#fff;text-decoration:none}
+
+  /* B — warm charcoal sections, terracotta accent */
+  .vB{background:var(--warmgrey)}
+  .vB .stage{color:#fff}
+  .vB .dot{color:var(--terra)}
+  .vB .pixlabel{color:var(--terra)}
+  .vB .cta:hover{border-color:var(--terra);color:var(--terra)}
+
+  /* C — granular colour field panels */
+  .field{
+    background:
+      radial-gradient(ellipse 60% 80% at 15% 85%, rgba(143,47,28,.55), transparent 60%),
+      radial-gradient(ellipse 50% 70% at 80% 20%, rgba(192,123,58,.45), transparent 65%),
+      radial-gradient(ellipse 70% 60% at 60% 90%, rgba(181,80,42,.4), transparent 60%),
+      radial-gradient(ellipse 40% 50% at 40% 30%, rgba(217,154,78,.28), transparent 70%),
+      #232021;
+  }
+  .vC .panel{padding:56px 48px;position:relative}
+  .vC .panel h1{font-size:44px}
+
+  /* D — accent ramp per stage, black stays */
+  .vD .r1 .dot{color:var(--terra)} .vD .r1 .stage{color:var(--terra)}
+  .vD .r2 .dot{color:var(--ochre)} .vD .r2 .stage{color:var(--ochre)}
+  .vD .r3 .dot{color:var(--amber)} .vD .r3 .stage{color:var(--amber)}
+  .vD .pixlabel{color:var(--terra)}
+
+  /* E — granular hero band */
+  .vE .hero{padding:110px 48px;text-align:left;position:relative}
+  .vE .hero h1{font-size:38px;max-width:700px;line-height:1.35;font-weight:300}
+  .vE .hero .pix{display:block;font-size:30px;margin-bottom:30px}
+  .pixlabel{font-family:'Silkscreen',cursive;font-size:15px;letter-spacing:.18em;text-transform:uppercase;display:block;margin-bottom:18px}
+</style>
+</head>
+<body>
+
+<div class="lab"><span>Palette</span><small>from the Meld Core reference (p-23): terres, rogencs, ocres, grocs torrats on warm grey</small></div>
+<section style="padding-bottom:20px"><div class="inner">
+  <div class="swatches">
+    <div style="background:#8f2f1c">#8f2f1c rust</div>
+    <div style="background:#b5502a">#b5502a terra</div>
+    <div style="background:#c07b3a">#c07b3a ochre</div>
+    <div style="background:#d99a4e;color:#3a2a12">#d99a4e amber</div>
+    <div style="background:#1a1715">#1a1715 warm grey</div>
+    <div style="background:#f5f2e8;color:#333">#f5f2e8 cream (current)</div>
+  </div>
+</div></section>
+
+<div class="lab"><span>A — baseline</span><small>current: black, cream accent, white grain — for comparison</small></div>
+<section class="grain-overlay" style="background:var(--coolgrey)"><div class="inner">
+  <span class="pixlabel" style="color:var(--cream)">Initiatives</span>
+  <div class="row"><div><h3>Meld</h3><p class="tags">governance / tech / AI</p><p class="desc">Civic deliberation infrastructure: a hardware device and privacy-preserving platform that captures deliberation in the room.</p></div>
+  <div><span class="stage" style="color:#fff"><span class="dot" style="color:var(--cream)">●</span>IN DEPLOYMENT</span></div></div>
+</div></section>
+
+<div class="lab"><span>B — warm ground</span><small>backgrounds shift from cool to warm charcoal; terracotta replaces cream as the single accent</small></div>
+<section class="vB grain-overlay"><div class="inner">
+  <span class="pixlabel">Initiatives</span>
+  <div class="row"><div><h3>Meld</h3><p class="tags">governance / tech / AI</p><p class="desc">Civic deliberation infrastructure: a hardware device and privacy-preserving platform that captures deliberation in the room.</p></div>
+  <div><span class="stage"><span class="dot">●</span>IN DEPLOYMENT</span></div></div>
+  <div class="row"><div><h3>Relational Wealth Flows</h3><p class="tags">finance / ownership / tech</p><p class="desc">Mechanism design for how neighbourhoods capture and circulate the value they create together.</p></div>
+  <div><span class="stage"><span class="dot">●</span>EXPLORATION</span></div></div>
+  <p style="margin-top:36px"><a class="cta" href="#">Register →</a></p>
+</div></section>
+
+<div class="lab"><span>C — colour fields</span><small>granular earth-blend panels for hero moments and featured cards; grey holds the contrast</small></div>
+<section class="vC" style="background:var(--coolgrey)"><div class="inner">
+  <div class="panel field grain-overlay">
+    <span class="pix" style="font-size:26px">KOMMA</span>
+    <h1 style="font-weight:300;margin-top:24px;max-width:640px">A research and civic technology studio, beginning with land and housing.</h1>
+  </div>
+  <p style="margin-top:18px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#777">same field as a featured-card banner:</p>
+  <div style="border:1px solid rgba(255,255,255,.25);margin-top:10px">
+    <div class="field grain-overlay" style="height:150px"></div>
+    <div style="padding:26px"><h3 style="font-weight:300;font-size:26px">First production deployment</h3>
+    <p class="desc">Meld is entering its first production deployment through a publicly funded programme in rural Germany.</p></div>
+  </div>
+</div></section>
+
+<div class="lab"><span>D — accent ramp</span><small>black stays; each stage gets its own earth tone (terra → ochre → amber), like heat levels</small></div>
+<section class="vD grain-overlay" style="background:var(--coolgrey)"><div class="inner">
+  <span class="pixlabel">Initiatives</span>
+  <div class="row r1"><div><h3>Meld</h3><p class="tags">governance / tech / AI</p><p class="desc">Civic deliberation infrastructure, in live deployment.</p></div>
+  <div><span class="stage"><span class="dot">●</span>IN DEPLOYMENT</span></div></div>
+  <div class="row r2"><div><h3>Weve</h3><p class="tags">agreements / land / tech</p><p class="desc">A registry that records land as the relationships between the people who hold it.</p></div>
+  <div><span class="stage"><span class="dot">●</span>IN DEVELOPMENT</span></div></div>
+  <div class="row r3"><div><h3>Sensed Governance</h3><p class="tags">governance / ritual</p><p class="desc">A collective rehabilitating embodied, relational governance.</p></div>
+  <div><span class="stage"><span class="dot">●</span>RESEARCH</span></div></div>
+</div></section>
+
+<div class="lab"><span>E — granular hero</span><small>the colour field as the site's opening moment; everything after returns to black</small></div>
+<section class="vE" style="padding:0;background:#000">
+  <div class="hero field grain-overlay">
+    <span class="pix">KOMMA</span>
+    <h1>A research and civic technology studio using artistic inquiry and real-world demonstration to shift collective imagination around how we value, own, govern and care for what we hold in common, beginning with land and housing.</h1>
+  </div>
+  <div class="inner" style="padding:56px 0">
+    <span class="pixlabel" style="color:var(--cream)">How we work</span>
+    <p class="desc" style="max-width:640px">The sections after the hero stay exactly as they are today: black, hairlines, cream. The colour lives only in the opening field and, optionally, the footer.</p>
+  </div>
+</section>
+
+<div style="height:90px"></div>
+</body>
+</html>
