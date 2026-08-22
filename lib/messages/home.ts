@@ -65,7 +65,7 @@ const en: HomeMessages = {
   who: {
     label: "Who we work with",
     lead: "We work with the people closest to a place, the institutions that shape it, and the organisations that can help new models take root and travel.",
-    cta: "Explore how we work together",
+    cta: "Let\u2019s talk",
     paths: [
       {
         title: "Public institutions",
@@ -177,7 +177,7 @@ const de: HomeMessages = {
   who: {
     label: "Mit wem wir arbeiten",
     lead: "Wir arbeiten mit den Menschen, die einem Ort am nächsten sind, mit den Institutionen, die ihn prägen, und mit den Organisationen, die neuen Modellen helfen können, Wurzeln zu schlagen und zu wandern.",
-    cta: "Entdecken Sie, wie wir zusammenarbeiten",
+    cta: "Sprechen Sie mit uns",
     paths: [
       {
         title: "Öffentliche Institutionen",
