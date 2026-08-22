@@ -306,7 +306,7 @@ export function HomePageClient() {
         </section>
 
         {/* How we work */}
-        <section id="how-we-work" className="py-16 px-4 sm:px-6 md:px-8 bg-black">
+        <section id="how-we-work" className="pt-20 pb-12 px-4 sm:px-6 md:px-8 bg-grain">
           <div className="max-w-7xl mx-auto">
             <AnimatedElement animation="fade-in" className="mb-10">
               <h2 className="font-semibold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-tight mb-6">
@@ -342,7 +342,7 @@ export function HomePageClient() {
           </div>
         </section>
 
-        <section id="approach" ref={approachSectionRef} className="py-20 px-4 sm:px-6 md:px-8 bg-grain scroll-mt-48">
+        <section id="approach" ref={approachSectionRef} className="pt-12 pb-20 px-4 sm:px-6 md:px-8 bg-grain scroll-mt-48">
           <div className="max-w-7xl mx-auto">
             <AnimatedElement animation="fade-in" className="mb-12">
               <h2 className="font-semibold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-tight mb-8">{t.ourApproach}</h2>
