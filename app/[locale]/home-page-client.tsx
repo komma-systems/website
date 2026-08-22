@@ -769,7 +769,7 @@ export function HomePageClient() {
         </section>
 
         {/* News Section */}
-        <section id="news" className="py-16 px-4 sm:px-6 md:px-8 bg-black">
+        <section id="news" className="py-20 px-4 sm:px-6 md:px-8 bg-grain pill-bg-grain">
           <div className="max-w-7xl mx-auto">
             <div className="flex items-center gap-2 sm:gap-4 mb-6 sm:mb-8 pb-3 sm:pb-4">
               <h2 className="font-semibold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-tight">

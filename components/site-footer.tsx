@@ -16,7 +16,7 @@ export async function SiteFooter() {
   const prefix = `/${locale}`
 
   return (
-    <footer className="bg-footer-field film-grain px-4 py-14 text-white sm:px-6 md:px-8">
+    <footer className="bg-black px-4 py-14 text-white sm:px-6 md:px-8">
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-10">
         <div>
           <Link href={prefix} className="komma-title inline-block text-2xl text-white md:text-3xl">
