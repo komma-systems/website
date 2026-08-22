@@ -267,11 +267,23 @@ export default async function MeldPage({ params }: PageProps) {
                         className="h-6 w-auto brightness-0 invert"
                       />
                     </a>
+                    <a
+                      href="https://foresight.org/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="opacity-70 transition-opacity hover:opacity-100"
+                    >
+                      <img
+                        src="/Partners/Vector-Foresight-Logo-dark-blue.svg.png"
+                        alt="Foresight Institute"
+                        className="h-8 w-auto brightness-0 invert"
+                      />
+                    </a>
                     <span className="font-mono text-[12px] uppercase tracking-[0.12em] text-white/50">
-                      Max Planck Institute
+                      Max Planck Institute of Geoanthropology
                     </span>
                     <span className="font-mono text-[12px] uppercase tracking-[0.12em] text-white/50">
-                      BMBF · WIR!
+                      Bundesministerium für Bildung und Forschung
                     </span>
                   </div>
                 </div>
