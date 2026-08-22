@@ -277,15 +277,15 @@ export function HomePageClient() {
           <div className="max-w-7xl mx-auto w-full">
             <AnimatedElement animation="fade-in" className="mb-12 max-w-3xl">
               <span className="komma-title block text-3xl md:text-4xl mb-10">KOMMA</span>
-              <p className="[text-wrap:pretty] text-xl sm:text-lg md:text-xl lg:text-2xl px-4 sm:px-0" style={{ lineHeight: 1.5 }}>
+              <p className="[text-wrap:pretty] font-light text-2xl md:text-3xl lg:text-[38px]" style={{ lineHeight: 1.35 }}>
                 {noOrphan(t.intro1)}
               </p>
-              <p className="[text-wrap:pretty] text-xl sm:text-lg md:text-xl lg:text-2xl px-4 sm:px-0 mt-6" style={{ lineHeight: 1.5, color: '#9a9a9a' }}>
-                {noOrphan(t.intro2)}
-              </p>
-              <p className="[text-wrap:pretty] text-xl sm:text-lg md:text-xl lg:text-2xl px-4 sm:px-0 mt-6" style={{ lineHeight: 1.5, color: '#9a9a9a' }}>
-                {noOrphan(t.intro3)}
-              </p>
+              <a
+                href={`/${locale}/contact`}
+                className="btn-field mt-10 inline-block rounded-full px-6 py-3 font-mono text-[13px] font-semibold text-white transition-[filter] hover:brightness-110"
+              >
+                {t.who.cta} →
+              </a>
             </AnimatedElement>
           </div>
         </section>
