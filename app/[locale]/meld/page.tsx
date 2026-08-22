@@ -56,7 +56,7 @@ export default async function MeldPage({ params }: PageProps) {
       <Navigation />
       <main className="min-h-screen bg-black px-6 pb-20 pt-28 font-sourceSerif text-white sm:px-10 sm:pt-32">
         <div className="mx-auto max-w-6xl">
-          <header className="mb-14">
+          <header className="mb-24">
             <Link
               href={`/${locale}`}
               className="mb-8 inline-block font-silkscreen text-xs uppercase tracking-wider text-white/60 transition-colors hover:text-cream"
@@ -71,7 +71,7 @@ export default async function MeldPage({ params }: PageProps) {
             </p>
           </header>
 
-          <div className="grid grid-cols-1 gap-x-16 gap-y-12 md:grid-cols-[240px_1fr]">
+          <div className="grid grid-cols-1 gap-x-24 gap-y-12 md:grid-cols-[240px_1fr]">
             {/* Metadata sidebar */}
             <aside className="md:sticky md:top-28 md:self-start">
               <span className={sideLabel}>{t.side.initiative}</span>
