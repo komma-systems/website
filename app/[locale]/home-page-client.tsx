@@ -78,7 +78,7 @@ const INITIATIVES = [
     id: "relational-wealth-flows",
     title: "Relational Wealth Flows",
     description:
-      "Mechanism design for how neighbourhoods capture and circulate the value they create together.",
+      "Mechanism design for how neighbourhoods capture and circulate the value they create together. A year of research and workshops in Berlin distilled the design principles that now drive threshold pools for small investor groups and a pilot routing tourism value into affordable housing.",
     stage: "Exploration",
     tags: ["finance", "ownership", "tech"],
     projects: [
