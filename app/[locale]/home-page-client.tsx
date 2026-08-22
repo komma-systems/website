@@ -301,10 +301,7 @@ export function HomePageClient() {
               {t.howSteps.map((step, idx) => (
                 <AnimatedElement animation="fade-up" delay={100 * (idx + 1)} key={step.key}>
                   <div className="relative h-full py-8">
-                    <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest text-white/40">
-                      {String(idx + 1).padStart(2, "0")}
-                    </p>
-                    <div className="mt-3 flex items-baseline justify-between gap-3">
+                    <div className="flex items-baseline justify-between gap-3">
                       <h3 className="font-silkscreen text-sm md:text-base uppercase tracking-wider text-white">
                         {step.label}
                       </h3>
@@ -320,7 +317,7 @@ export function HomePageClient() {
               ))}
             </div>
 
-            <div id="approach" ref={approachSectionRef} className="mt-16 scroll-mt-48">
+            <div id="approach" ref={approachSectionRef} className="mt-20 pt-14 border-t border-white/15 scroll-mt-48">
               <p className="[text-wrap:pretty] text-lg md:text-xl text-gray-300 max-w-2xl leading-relaxed mb-12">
                 {t.areasIntro}
               </p>
@@ -328,7 +325,7 @@ export function HomePageClient() {
               {t.approachCards.map((item, idx) => (
                 <AnimatedElement animation="fade-up" delay={100 * (idx + 1)} key={item.key}>
                   <div className="text-left">
-                    <h3 className="font-light text-[26px] sm:text-3xl lg:text-[34px] text-white tracking-[-0.01em] leading-tight">
+                    <h3 className="font-light text-[22px] sm:text-2xl lg:text-[28px] text-white tracking-[-0.01em] leading-tight">
                       {item.heading}
                     </h3>
                     <p className="[text-wrap:pretty] mt-4 text-base lg:text-lg text-gray-400 leading-relaxed">
