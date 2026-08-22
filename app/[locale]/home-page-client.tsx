@@ -150,6 +150,26 @@ const INITIATIVES = [
 
 const noOrphan = (text: string) => text.replace(/ (\S+)$/, "\u00A0$1")
 
+const AREA_INITIATIVES: Record<string, { name: string; anchor: string }[]> = {
+  wealth: [
+    { name: "Relational Wealth Flows", anchor: "relational-wealth-flows" },
+    { name: "EXCLSR", anchor: "exclsr" },
+  ],
+  agreements: [
+    { name: "Weve", anchor: "weave" },
+    { name: "EXCLSR", anchor: "exclsr" },
+  ],
+  rituals: [
+    { name: "Meld", anchor: "meld" },
+    { name: "Sensed Governance", anchor: "sensed-governance" },
+  ],
+  technology: [
+    { name: "Meld", anchor: "meld" },
+    { name: "Weve", anchor: "weave" },
+    { name: "Relational Wealth Flows", anchor: "relational-wealth-flows" },
+  ],
+}
+
 const AREA_COLORS = ["#b5502a", "#c9673a", "#c07b3a", "#d99a4e"]
 
 const STEP_COLORS = ["#b5502a", "#c9673a", "#c07b3a", "#d99a4e", "#e9c07f"]
@@ -370,6 +390,19 @@ export function HomePageClient() {
                     <p className="[text-wrap:pretty] mt-4 text-base lg:text-lg text-gray-300 leading-relaxed">
                       {item.description}
                     </p>
+                    <p className="mt-4 font-mono text-[13px] leading-relaxed">
+                      {(AREA_INITIATIVES[item.key] ?? []).map((ini, i) => (
+                        <span key={ini.name}>
+                          {i > 0 ? <span className="text-white/30">{"  ·  "}</span> : null}
+                          <a
+                            href={`#${ini.anchor}`}
+                            className="text-white/60 underline underline-offset-4 decoration-white/25 transition-colors hover:text-cream hover:decoration-cream"
+                          >
+                            {ini.name}
+                          </a>
+                        </span>
+                      ))}
+                    </p>
                   </div>
                 </AnimatedElement>
               ))}
@@ -436,7 +469,7 @@ export function HomePageClient() {
             <div>
               {INITIATIVES.map((initiative, idx) => {
                 const Row = (
-                  <div className="group border-t border-white/25 py-8 sm:py-10 px-1 sm:px-2 transition-colors duration-200 hover:bg-white/[0.04]">
+                  <div id={initiative.id} className="group scroll-mt-28 border-t border-white/25 py-8 sm:py-10 px-1 sm:px-2 transition-colors duration-200 hover:bg-white/[0.04]">
                     <div className="min-w-0 grid grid-cols-1 sm:grid-cols-[1fr_220px] gap-x-10 gap-y-5 items-start">
                       <div className="min-w-0">
                         <div className="flex items-baseline gap-4">
