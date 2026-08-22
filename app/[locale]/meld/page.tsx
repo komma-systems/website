@@ -173,8 +173,8 @@ export default async function MeldPage({ params }: PageProps) {
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
                 {t.principles.map((pr) => (
                   <article key={pr.title}>
-                    <h3 className="text-lg font-semibold leading-snug text-cream/90">{pr.title}</h3>
-                    <p className="[text-wrap:pretty] mt-3 text-[0.95rem] leading-relaxed text-gray-300">
+                    <h3 className="text-lg font-semibold leading-snug text-white/60">{pr.title}</h3>
+                    <p className="[text-wrap:pretty] mt-3 text-[0.95rem] leading-relaxed text-gray-400">
                       {pr.body}
                     </p>
                   </article>
