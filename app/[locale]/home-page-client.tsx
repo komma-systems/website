@@ -357,15 +357,15 @@ export function HomePageClient() {
                           )}
                         </div>
 
-                        <p className="mt-2 font-mono text-[13px] text-white/50">
+                        <p className="mt-3 font-mono text-[13px] text-white/50">
                           {initiative.tags.join(" / ")}
                         </p>
 
-                        <p className="mt-3 text-base lg:text-lg text-gray-300 leading-relaxed max-w-2xl">
+                        <p className="mt-5 text-base lg:text-lg text-gray-300 leading-relaxed max-w-2xl">
                           {initiative.description}
                         </p>
 
-                        <div className="mt-4 flex flex-wrap items-baseline gap-x-6 gap-y-2">
+                        <div className="mt-6 flex flex-wrap items-baseline gap-x-6 gap-y-2">
                           <span className="font-silkscreen text-[0.65rem] uppercase tracking-widest text-white/40">
                             Projects
                           </span>
