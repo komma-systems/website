@@ -811,7 +811,7 @@ export function HomePageClient() {
                   href="https://10x100.kair.is/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-field self-center font-mono text-[13px] font-semibold text-white rounded-full px-5 py-2.5 whitespace-nowrap transition-[filter] hover:brightness-110"
+                  className="btn-field-outline self-center font-mono text-[13px] rounded-full px-5 py-2.5 whitespace-nowrap transition-[filter]"
                 >
                   Register →
                 </a>
@@ -848,7 +848,7 @@ export function HomePageClient() {
                   href="https://valleyofthecommons.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-field self-center font-mono text-[13px] font-semibold text-white rounded-full px-5 py-2.5 whitespace-nowrap transition-[filter] hover:brightness-110"
+                  className="btn-field-outline self-center font-mono text-[13px] rounded-full px-5 py-2.5 whitespace-nowrap transition-[filter]"
                 >
                   Programme →
                 </a>
@@ -884,7 +884,7 @@ export function HomePageClient() {
                   href="https://k-erc.eu/2026/08/horizon-europe-category/33982/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-field self-center font-mono text-[13px] font-semibold text-white rounded-full px-5 py-2.5 whitespace-nowrap transition-[filter] hover:brightness-110"
+                  className="btn-field-outline self-center font-mono text-[13px] rounded-full px-5 py-2.5 whitespace-nowrap transition-[filter]"
                 >
                   Details →
                 </a>
@@ -921,7 +921,7 @@ export function HomePageClient() {
                   href="https://luma.com/ycmcreer?tk=7ObFX9"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-field self-center font-mono text-[13px] font-semibold text-white rounded-full px-5 py-2.5 whitespace-nowrap transition-[filter] hover:brightness-110"
+                  className="btn-field-outline self-center font-mono text-[13px] rounded-full px-5 py-2.5 whitespace-nowrap transition-[filter]"
                 >
                   Register →
                 </a>
