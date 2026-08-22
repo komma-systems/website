@@ -25,6 +25,7 @@ export type HomeMessages = {
   howClosingLead: string
   howClosing: string
   ourApproach: string
+  areasIntro: string
   approachCards: ApproachCard[]
   initiatives: string
   loadingInitiatives: string
@@ -66,6 +67,7 @@ const en: HomeMessages = {
   howClosingLead: "One place informs the next.",
   howClosing: "A mechanism proven in one place can be picked up in another, with each place starting further ahead.",
   ourApproach: "Areas of practice",
+  areasIntro: "The mechanisms we design draw on four areas of practice.",
   approachCards: [
     {
       key: "wealth",
@@ -133,6 +135,7 @@ const de: HomeMessages = {
   howClosingLead: "Ein Ort informiert den nächsten.",
   howClosing: "Ein Mechanismus, der sich an einem Ort bewährt hat, kann am nächsten aufgegriffen werden, und jeder Ort beginnt ein Stück weiter vorn.",
   ourApproach: "Praxisfelder",
+  areasIntro: "Die Mechanismen, die wir entwerfen, schöpfen aus vier Praxisfeldern.",
   approachCards: [
     {
       key: "wealth",

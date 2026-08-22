@@ -319,15 +319,11 @@ export function HomePageClient() {
                 </AnimatedElement>
               ))}
             </div>
-          </div>
-        </section>
 
-        <section id="approach" ref={approachSectionRef} className="pt-12 pb-20 px-4 sm:px-6 md:px-8 bg-grain scroll-mt-48">
-          <div className="max-w-7xl mx-auto">
-            <AnimatedElement animation="fade-in" className="mb-12">
-              <h2 className="font-semibold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-tight mb-8">{t.ourApproach}</h2>
-            </AnimatedElement>
-
+            <div id="approach" ref={approachSectionRef} className="mt-16 scroll-mt-48">
+              <p className="[text-wrap:pretty] text-lg md:text-xl text-gray-300 max-w-2xl leading-relaxed mb-12">
+                {t.areasIntro}
+              </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-14 gap-y-14">
               {t.approachCards.map((item, idx) => (
                 <AnimatedElement animation="fade-up" delay={100 * (idx + 1)} key={item.key}>
@@ -342,8 +338,11 @@ export function HomePageClient() {
                 </AnimatedElement>
               ))}
             </div>
+            </div>
           </div>
         </section>
+
+
 
         {/* Initiatives Section */}
         <section id="initiatives" className="py-16 px-4 sm:px-6 md:px-8 bg-black">
