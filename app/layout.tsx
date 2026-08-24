@@ -42,7 +42,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteBaseUrl()),
   title: "KOMMA",
-  description: "A research and civic technology studio using artistic inquiry and real-world demonstration to shift how we value, own, govern and care for what we hold in common, beginning with land and housing.",
+  description: "A research and relational technology studio using artistic inquiry and real-world demonstration to shift how we value, own, govern and care for what we hold in common, beginning with land and housing.",
   icons: {
     icon: [
       { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "KOMMA",
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "KOMMA" }],
-    description: "A research and civic technology studio using artistic inquiry and real-world demonstration to shift how we value, own, govern and care for what we hold in common, beginning with land and housing.",
+    description: "A research and relational technology studio using artistic inquiry and real-world demonstration to shift how we value, own, govern and care for what we hold in common, beginning with land and housing.",
     type: "website",
   },
 }

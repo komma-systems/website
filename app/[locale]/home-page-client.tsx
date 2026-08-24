@@ -72,7 +72,7 @@ const PARTNER_LOGOS = [
     href: "https://www.justopensource.io/",
     src: "/Partners/just.svg",
     alt: "Just",
-    imgClassName: "h-10 filter grayscale brightness-200 contrast-50",
+    imgClassName: "h-6 filter grayscale brightness-200 contrast-50",
   },
 ] as const
 
@@ -82,7 +82,7 @@ const INITIATIVES = [
     title: "Meld",
     description:
       "Civic deliberation infrastructure: a hardware device and privacy-preserving platform that captures deliberation in the room, processes it locally, and returns structured documentation.",
-    stage: "In deployment",
+    stage: "Demonstrating",
     tags: ["governance", "tech", "AI"],
     projects: [
       { name: "Kair (platform)", href: "https://kair.is/" },
@@ -123,7 +123,7 @@ const INITIATIVES = [
     id: "sensed-governance",
     title: "Sensed Governance",
     description:
-      "A collective rehabilitating embodied, relational governance: helping communities and networks navigate their differences by starting from what can be felt, in the body, before it hardens into process.",
+      "A collective rehabilitating embodied, relational governance: helping communities and networks navigate their differences by starting from what can be felt, in the body, before it hardens into process. We organise residencies on this practice.",
     stage: "Research",
     tags: ["governance", "ritual"],
     projects: [
@@ -150,15 +150,15 @@ const INITIATIVES = [
 
 const noOrphan = (text: string) => text.replace(/ (\S+)$/, "\u00A0$1")
 
-const AREA_COLORS = ["#b5502a", "#c9673a", "#c07b3a", "#d99a4e"]
+const AREA_COLORS = ["#17877a", "#2b9c8c", "#34a294", "#5fc0ae"]
 
-const STEP_COLORS = ["#b5502a", "#c9673a", "#c07b3a", "#d99a4e", "#e9c07f"]
+const STEP_COLORS = ["#17877a", "#2b9c8c", "#34a294", "#5fc0ae", "#a5dfd1"]
 
 const STAGE_COLORS: Record<string, string> = {
-  "In deployment": "#b5502a",
-  "In development": "#c07b3a",
-  "Exploration": "#c9873f",
-  "Research": "#d99a4e",
+  "Demonstrating": "#17877a",
+  "In development": "#34a294",
+  "Exploration": "#3aa595",
+  "Research": "#5fc0ae",
 }
 
 export function HomePageClient() {
@@ -308,8 +308,8 @@ export function HomePageClient() {
           <div className="max-w-7xl mx-auto">
             <div className="font-silkscreen text-sm md:text-base tracking-widest uppercase text-white/60 mb-8 text-left">{t.partners}</div>
             <div className="flex flex-col gap-y-7">
-              {[PARTNER_LOGOS.slice(0, 4), PARTNER_LOGOS.slice(4, 8), PARTNER_LOGOS.slice(8)].map((row, rowIdx) => (
-                <div key={rowIdx} className={`flex flex-wrap items-center justify-start gap-x-16 gap-y-12 md:gap-x-20${rowIdx === 2 ? " mt-4" : ""}`}>
+              {[PARTNER_LOGOS.slice(0, 6), PARTNER_LOGOS.slice(6)].map((row, rowIdx) => (
+                <div key={rowIdx} className="flex flex-wrap items-center justify-start gap-x-16 gap-y-12 md:gap-x-20">
                   {row.map((partner) => (
                     <a
                       key={partner.alt}
@@ -411,7 +411,7 @@ export function HomePageClient() {
             <div className="mt-12 grid grid-cols-1 gap-x-10 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
               {t.who.paths.map((path) => (
                 <div key={path.title} className="flex flex-col">
-                  <h3 className="text-xl font-semibold tracking-tight text-black sm:text-2xl">
+                  <h3 className="text-xl font-semibold tracking-tight text-black sm:text-2xl sm:min-h-16">
                     {path.title.split("\n").map((line, i) => (
                       <span key={line}>
                         {i > 0 ? <br /> : null}
@@ -839,7 +839,7 @@ export function HomePageClient() {
             <div>
               <div className="grid grid-cols-1 sm:grid-cols-[130px_1fr_auto] gap-x-9 gap-y-3 items-start border-t border-white/25 py-8 px-1 sm:px-2 hover:bg-white/[0.04] transition-colors">
                 <div>
-                  <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest" style={{ color: "#b5502a" }}>Forum</p>
+                  <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest" style={{ color: "#17877a" }}>Forum</p>
                   <p className="mt-1.5 font-mono text-[13px] text-white/60 leading-relaxed">
                     26–30 Aug 2026
                     <br />
@@ -883,7 +883,7 @@ export function HomePageClient() {
 
               <div className="grid grid-cols-1 sm:grid-cols-[130px_1fr_auto] gap-x-9 gap-y-3 items-start border-t border-white/25 py-8 px-1 sm:px-2 hover:bg-white/[0.04] transition-colors">
                 <div>
-                  <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest" style={{ color: "#c07b3a" }}>Keynote</p>
+                  <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest" style={{ color: "#34a294" }}>Keynote</p>
                   <p className="mt-1.5 font-mono text-[13px] text-white/60 leading-relaxed">
                     10–12 Sep 2026
                     <br />
@@ -920,7 +920,7 @@ export function HomePageClient() {
 
               <div className="grid grid-cols-1 sm:grid-cols-[130px_1fr_auto] gap-x-9 gap-y-3 items-start border-t border-white/25 py-8 px-1 sm:px-2 hover:bg-white/[0.04] transition-colors">
                 <div>
-                  <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest" style={{ color: "#b5502a" }}>Forum</p>
+                  <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest" style={{ color: "#17877a" }}>Forum</p>
                   <p className="mt-1.5 font-mono text-[13px] text-white/60 leading-relaxed">
                     15–16 Sep 2026
                     <br />
@@ -956,7 +956,7 @@ export function HomePageClient() {
 
               <div className="grid grid-cols-1 sm:grid-cols-[130px_1fr_auto] gap-x-9 gap-y-3 items-start border-t border-white/25 py-8 px-1 sm:px-2 hover:bg-white/[0.04] transition-colors">
                 <div>
-                  <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest" style={{ color: "#d99a4e" }}>Workshop</p>
+                  <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest" style={{ color: "#5fc0ae" }}>Workshop</p>
                   <p className="mt-1.5 font-mono text-[13px] text-white/60 leading-relaxed">
                     October 2026
                     <br />

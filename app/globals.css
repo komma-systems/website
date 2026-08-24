@@ -231,12 +231,12 @@ body {
 .bg-field {
   background:
     radial-gradient(ellipse 70% 90% at 12% 88%, rgba(95,28,16,.95), transparent 62%),
-    radial-gradient(ellipse 60% 80% at 85% 15%, rgba(170,115,55,.9), transparent 65%),
-    radial-gradient(ellipse 75% 70% at 65% 85%, rgba(138,56,28,.9), transparent 62%),
-    radial-gradient(ellipse 55% 65% at 35% 25%, rgba(145,89,40,.9), transparent 68%),
-    linear-gradient(130deg, #7e3319, #94551f 55%, #a8722f);
+    radial-gradient(ellipse 60% 80% at 85% 15%, rgba(42,143,126,.9), transparent 65%),
+    radial-gradient(ellipse 75% 70% at 65% 85%, rgba(20,101,91,.9), transparent 62%),
+    radial-gradient(ellipse 55% 65% at 35% 25%, rgba(26,117,104,.9), transparent 68%),
+    linear-gradient(130deg, #115850, #1a7568 55%, #2a8f7e);
 }
-.bg-grain-warm { background-color: #1a1715; }
+.bg-grain-warm { background-color: #151a19; }
 
 /* Analog film grain overlay */
 .film-grain { position: relative; }
@@ -254,18 +254,18 @@ body {
 /* Slivers of the field: thin gradient rules through the dark */
 .rule-field {
   height: 3px;
-  background: linear-gradient(90deg, #7e3319, #b5502a 35%, #c07b3a 70%, #d99a4e);
+  background: linear-gradient(90deg, #115850, #17877a 35%, #34a294 70%, #5fc0ae);
 }
 .hairline-field {
   height: 1px;
-  background: linear-gradient(90deg, rgba(126,51,25,.9), rgba(181,80,42,.8) 35%, rgba(192,123,58,.7) 70%, rgba(217,154,78,.5));
+  background: linear-gradient(90deg, rgba(17,88,80,.9), rgba(23,135,122,.8) 35%, rgba(52,162,148,.7) 70%, rgba(95,192,174,.5));
 }
 
 /* F: the field lives in type and actions */
 .text-field {
   background-image:
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.28'/%3E%3C/svg%3E"),
-    linear-gradient(100deg, #8f2f1c, #b5502a 35%, #c07b3a 70%, #d99a4e);
+    linear-gradient(100deg, #106257, #17877a 35%, #34a294 70%, #5fc0ae);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -274,7 +274,7 @@ body {
 .text-field-wide {
   background-image:
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.28'/%3E%3C/svg%3E"),
-    linear-gradient(100deg, #8f2f1c, #b5502a 30%, #c07b3a 60%, #d99a4e 90%);
+    linear-gradient(100deg, #106257, #17877a 30%, #34a294 60%, #5fc0ae 90%);
   background-size: auto, 640px 100%;
   -webkit-background-clip: text;
   background-clip: text;
@@ -283,17 +283,17 @@ body {
 .btn-field {
   background-image:
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.3'/%3E%3C/svg%3E"),
-    linear-gradient(100deg, #8f2f1c, #b5502a 40%, #c07b3a 80%, #d99a4e);
+    linear-gradient(100deg, #106257, #17877a 40%, #34a294 80%, #5fc0ae);
 }
 
 
 /* Five slices of the field, one per initiative */
-.tf-0 { background-image: var(--tgrain), linear-gradient(100deg, #8f2f1c, #b5502a 60%, #c9673a); }
-.tf-1 { background-image: var(--tgrain), linear-gradient(100deg, #b5502a, #c07b3a 65%, #d18f45); }
-.tf-2 { background-image: var(--tgrain), linear-gradient(100deg, #c07b3a, #d99a4e 70%, #e8b46a); }
-.tf-3 { background-image: var(--tgrain), linear-gradient(100deg, #d99a4e, #e8b46a 55%, #f5f2e8); }
+.tf-0 { background-image: var(--tgrain), linear-gradient(100deg, #106257, #17877a 60%, #2b9c8c); }
+.tf-1 { background-image: var(--tgrain), linear-gradient(100deg, #17877a, #34a294 65%, #4fb3a2); }
+.tf-2 { background-image: var(--tgrain), linear-gradient(100deg, #34a294, #5fc0ae 70%, #8dd4c4); }
+.tf-3 { background-image: var(--tgrain), linear-gradient(100deg, #5fc0ae, #8dd4c4 55%, #f5f2e8); }
 .tf-4 {
-  background-image: var(--tgrain), linear-gradient(100deg, #8f2f1c, #c07b3a 50%, #f5f2e8);
+  background-image: var(--tgrain), linear-gradient(100deg, #106257, #34a294 50%, #f5f2e8);
   background-size: auto, 340% 100%;
   background-position: left center;
 }
@@ -311,7 +311,7 @@ body {
   border: 1px solid transparent;
   background:
     linear-gradient(var(--pill-bg, #000), var(--pill-bg, #000)) padding-box,
-    linear-gradient(100deg, #8f2f1c, #b5502a 40%, #c07b3a 80%, #d99a4e) border-box;
+    linear-gradient(100deg, #106257, #17877a 40%, #34a294 80%, #5fc0ae) border-box;
   color: rgba(255, 255, 255, 0.85);
 }
 .btn-field-outline:hover {
@@ -324,11 +324,11 @@ body {
   background: linear-gradient(
     180deg,
     #000 0%,
-    #150b07 30%,
-    #351a0e 55%,
-    #5c2a15 75%,
-    #8a4220 92%,
-    #a05a28 100%
+    #041614 30%,
+    #0b2d29 55%,
+    #0f403a 75%,
+    #14655b 92%,
+    #1f8172 100%
   );
 }
 

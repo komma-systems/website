@@ -38,7 +38,7 @@ const en: MeldMessages = {
   side: {
     initiative: "Initiative",
     stage: "Stage",
-    stageValue: "In deployment",
+    stageValue: "Demonstrating",
     places: "Places",
     placesValue: ["Herzogtum Lauenburg, DE", "Ludwigslust-Parchim, DE", "Alpbach, AT"],
     projects: "Projects",

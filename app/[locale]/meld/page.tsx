@@ -43,11 +43,11 @@ const sideLink =
   "font-mono text-[13px] leading-7 text-white border-b border-white/30 hover:text-cream hover:border-cream transition-colors"
 
 const TAG_COLORS: Record<string, string> = {
-  Forum: "#b5502a",
-  Event: "#d99a4e",
-  Veranstaltung: "#d99a4e",
-  Participate: "#c07b3a",
-  Mitmachen: "#c07b3a",
+  Forum: "#17877a",
+  Event: "#5fc0ae",
+  Veranstaltung: "#5fc0ae",
+  Participate: "#34a294",
+  Mitmachen: "#34a294",
 }
 
 type PageProps = { params: Promise<{ locale: string }> }
@@ -86,7 +86,7 @@ export default async function MeldPage({ params }: PageProps) {
               <span className={sideValue}>Meld</span>
               <span className={sideLabel}>{t.side.stage}</span>
               <span className={sideValue}>
-                <span className="mr-2 align-[1px] text-[8px]" style={{ color: "#b5502a" }}>●</span>
+                <span className="mr-2 align-[1px] text-[8px]" style={{ color: "#17877a" }}>●</span>
                 {t.side.stageValue}
               </span>
               <span className={sideLabel}>{t.side.places}</span>
@@ -158,7 +158,7 @@ export default async function MeldPage({ params }: PageProps) {
                   <div key={step.title} className="grid grid-cols-1 sm:grid-cols-[9.5rem_1fr] gap-x-5 gap-y-1 border-l border-white/20 pl-5">
                     <p
                       className="font-mono text-[14px] font-semibold uppercase tracking-[0.14em] pt-1"
-                      style={{ color: ["#b5502a", "#c07b3a", "#d99a4e"][i] }}
+                      style={{ color: ["#17877a", "#34a294", "#5fc0ae"][i] }}
                     >
                       {String(i + 1).padStart(2, "0")} {step.title}
                     </p>

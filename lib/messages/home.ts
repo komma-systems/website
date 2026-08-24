@@ -58,7 +58,7 @@ const en: HomeMessages = {
   researchSubtitle: "Research and strategy to \nforge a new civics",
   heroSecondary: "Explore the initiatives",
   intro1:
-    "A research and\ncivic technology studio using\nartistic inquiry and real-world demonstration to shift collective imagination around how we value, own, govern and care for what we hold in common, beginning with land and housing.",
+    "A research and\nrelational technology studio using\nartistic inquiry and real-world demonstration to shift collective imagination around how we value, own, govern and care for what we hold in common, beginning with land and housing.",
   intro2:
     "Our action is made possible through place-based partnerships with citizens, municipalities, philanthropy and the private sector. Together, we research, design and test new mechanisms across governance, finance, relations and technology.",
   intro3:
