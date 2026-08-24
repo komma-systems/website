@@ -150,15 +150,15 @@ const INITIATIVES = [
 
 const noOrphan = (text: string) => text.replace(/ (\S+)$/, "\u00A0$1")
 
-const AREA_COLORS = ["#17877a", "#2b9c8c", "#34a294", "#5fc0ae"]
+const AREA_COLORS = ["#575757", "#6b6b6b", "#737373", "#9c9c9c"]
 
-const STEP_COLORS = ["#17877a", "#2b9c8c", "#34a294", "#5fc0ae", "#a5dfd1"]
+const STEP_COLORS = ["#575757", "#6b6b6b", "#737373", "#9c9c9c", "#d4d4d4"]
 
 const STAGE_COLORS: Record<string, string> = {
-  "Demonstrating": "#17877a",
-  "In development": "#34a294",
-  "Exploration": "#3aa595",
-  "Research": "#5fc0ae",
+  "Demonstrating": "#575757",
+  "In development": "#737373",
+  "Exploration": "#787878",
+  "Research": "#9c9c9c",
 }
 
 export function HomePageClient() {
@@ -839,7 +839,7 @@ export function HomePageClient() {
             <div>
               <div className="grid grid-cols-1 sm:grid-cols-[130px_1fr_auto] gap-x-9 gap-y-3 items-start border-t border-white/25 py-8 px-1 sm:px-2 hover:bg-white/[0.04] transition-colors">
                 <div>
-                  <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest" style={{ color: "#17877a" }}>Forum</p>
+                  <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest" style={{ color: "#575757" }}>Forum</p>
                   <p className="mt-1.5 font-mono text-[13px] text-white/60 leading-relaxed">
                     26–30 Aug 2026
                     <br />
@@ -883,7 +883,7 @@ export function HomePageClient() {
 
               <div className="grid grid-cols-1 sm:grid-cols-[130px_1fr_auto] gap-x-9 gap-y-3 items-start border-t border-white/25 py-8 px-1 sm:px-2 hover:bg-white/[0.04] transition-colors">
                 <div>
-                  <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest" style={{ color: "#34a294" }}>Keynote</p>
+                  <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest" style={{ color: "#737373" }}>Keynote</p>
                   <p className="mt-1.5 font-mono text-[13px] text-white/60 leading-relaxed">
                     10–12 Sep 2026
                     <br />
@@ -920,7 +920,7 @@ export function HomePageClient() {
 
               <div className="grid grid-cols-1 sm:grid-cols-[130px_1fr_auto] gap-x-9 gap-y-3 items-start border-t border-white/25 py-8 px-1 sm:px-2 hover:bg-white/[0.04] transition-colors">
                 <div>
-                  <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest" style={{ color: "#17877a" }}>Forum</p>
+                  <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest" style={{ color: "#575757" }}>Forum</p>
                   <p className="mt-1.5 font-mono text-[13px] text-white/60 leading-relaxed">
                     15–16 Sep 2026
                     <br />
@@ -956,7 +956,7 @@ export function HomePageClient() {
 
               <div className="grid grid-cols-1 sm:grid-cols-[130px_1fr_auto] gap-x-9 gap-y-3 items-start border-t border-white/25 py-8 px-1 sm:px-2 hover:bg-white/[0.04] transition-colors">
                 <div>
-                  <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest" style={{ color: "#5fc0ae" }}>Workshop</p>
+                  <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest" style={{ color: "#9c9c9c" }}>Workshop</p>
                   <p className="mt-1.5 font-mono text-[13px] text-white/60 leading-relaxed">
                     October 2026
                     <br />
