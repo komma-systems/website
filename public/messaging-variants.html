@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KOMMA — intro messaging: 6 treatments</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200;0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&family=Silkscreen&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#000;color:#fff;font-family:'Source Serif 4',serif}
+  p{text-wrap:pretty}
+  .label{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:#888;padding:56px 40px 16px;border-top:1px solid #222}
+  section{padding:60px 40px 110px}
+  .inner{max-width:900px;margin:0 auto}
+  .komma{font-family:'Silkscreen',cursive}
+  .mono{font-family:'IBM Plex Mono',monospace}
+
+  /* A — current baseline */
+  .vA{text-align:center}
+  .vA .komma{font-size:34px;margin-bottom:40px;display:block}
+  .vA p{font-size:26px;line-height:1.5;margin-top:24px}
+  .vA p:nth-of-type(2){color:#9a9a9a}
+  .vA p:nth-of-type(3){color:#9a9a9a}
+
+  /* B — weighted emphasis: 1 and 3 carry, 2 recedes */
+  .vB{text-align:center}
+  .vB .komma{font-size:34px;margin-bottom:44px;display:block}
+  .vB p.lead{font-size:30px;line-height:1.45;font-weight:300}
+  .vB p.mid{font-size:20px;line-height:1.6;color:#8f8f8f;max-width:640px;margin:36px auto 0}
+  .vB p.close{font-size:26px;line-height:1.5;font-weight:300;margin-top:36px;color:#f5f2e8}
+
+  /* C — editorial left, oversized opening line */
+  .vC .komma{font-size:26px;display:block;margin-bottom:56px}
+  .vC .big{font-size:44px;line-height:1.25;font-weight:200;letter-spacing:-.01em;max-width:860px}
+  .vC .big em{font-style:italic;font-weight:300;color:#f5f2e8}
+  .vC .cols{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:56px}
+  .vC .cols p{font-size:18px;line-height:1.65;color:#c9c9c9}
+  @media(max-width:700px){.vC .cols{grid-template-columns:1fr}}
+
+  /* D — key words highlighted */
+  .vD{text-align:center}
+  .vD .komma{font-size:34px;margin-bottom:44px;display:block}
+  .vD p{font-size:26px;line-height:1.6;margin-top:26px;color:#b5b5b5}
+  .vD .hl{color:#fff;border-bottom:1px solid rgba(245,242,232,.45);padding-bottom:1px}
+  .vD .hl2{font-family:'IBM Plex Mono',monospace;font-size:.78em;letter-spacing:.04em;color:#f5f2e8}
+
+  /* E — descending scale, one thought per stage */
+  .vE{text-align:left}
+  .vE .inner{max-width:820px}
+  .vE .komma{font-size:26px;display:block;margin-bottom:48px}
+  .vE p:nth-of-type(1){font-size:36px;line-height:1.35;font-weight:200}
+  .vE p:nth-of-type(2){font-size:24px;line-height:1.5;color:#cfcfcf;margin-top:40px;padding-left:56px}
+  .vE p:nth-of-type(3){font-size:18px;line-height:1.65;color:#9a9a9a;margin-top:40px;padding-left:112px}
+  .vE .marker{font-family:'IBM Plex Mono',monospace;font-size:12px;color:#f5f2e8;letter-spacing:.2em;text-transform:uppercase;display:block;margin-bottom:10px}
+
+  /* F — numbered stanzas with hairlines (echoes initiatives rows) */
+  .vF .komma{font-size:30px;display:block;margin-bottom:24px;text-align:center}
+  .vF .stanza{display:grid;grid-template-columns:3.5rem 1fr;gap:0 40px;border-top:1px solid rgba(255,255,255,.25);padding:34px 8px}
+  .vF .n{font-family:'Silkscreen',cursive;font-size:14px;color:rgba(255,255,255,.4);padding-top:6px}
+  .vF p{font-size:24px;line-height:1.55;font-weight:300}
+  .vF .stanza:nth-child(3) p{color:#b5b5b5}
+</style>
+</head>
+<body>
+
+<div class="label">A — current: centred, uniform size, paragraphs 2+3 dimmed</div>
+<section class="vA"><div class="inner">
+  <span class="komma">KOMMA</span>
+  <p>A venture collective using applied research, artistic inquiry and real-world demonstration to shift collective imagination around how we value, own, govern and care for what we hold in common.</p>
+  <p>Our action is made possible through place-based partnerships with citizens, municipalities, philanthropy and the private sector. Together, we research, design and test new mechanisms across governance, finance, relations and technology.</p>
+  <p>We demonstrate them in real places, document what works as patterns, and turn those patterns into models, tools and civic technologies that others can use and adapt.</p>
+</div></section>
+
+<div class="label">B — weighted: statement large, method quiet, promise in cream (matches your bold/plain/bold draft)</div>
+<section class="vB"><div class="inner">
+  <span class="komma">KOMMA</span>
+  <p class="lead">A venture collective using applied research, artistic inquiry and real-world demonstration to shift collective imagination around how we value, own, govern and care for what we hold in common.</p>
+  <p class="mid">Our action is made possible through place-based partnerships with citizens, municipalities, philanthropy and the private sector. Together, we research, design and test new mechanisms across governance, finance, relations and technology.</p>
+  <p class="close">We demonstrate them in real places, document what works as patterns, and turn those patterns into models, tools and civic technologies that others can use and adapt.</p>
+</div></section>
+
+<div class="label">C — editorial: oversized opening statement, method + promise as two columns below</div>
+<section class="vC"><div class="inner">
+  <span class="komma">KOMMA</span>
+  <p class="big">A venture collective shifting collective imagination around how we <em>value</em>, <em>own</em>, <em>govern</em> and <em>care</em> for what we hold in common.</p>
+  <div class="cols">
+    <p>Our action is made possible through place-based partnerships with citizens, municipalities, philanthropy and the private sector. Together, we research, design and test new mechanisms across governance, finance, relations and technology.</p>
+    <p>We demonstrate them in real places, document what works as patterns, and turn those patterns into models, tools and civic technologies that others can use and adapt.</p>
+  </div>
+</div></section>
+
+<div class="label">D — key words carried: verbs underlined, the four levers in mono (echoes the tags line)</div>
+<section class="vD"><div class="inner">
+  <span class="komma">KOMMA</span>
+  <p>A venture collective using applied research, artistic inquiry and real-world demonstration to shift collective imagination around how we <span class="hl">value</span>, <span class="hl">own</span>, <span class="hl">govern</span> and <span class="hl">care</span> for what we hold in common.</p>
+  <p>Place-based partnerships with citizens, municipalities, philanthropy and the private sector let us research, design and test new mechanisms across <span class="hl2">governance / finance / relations / technology</span>.</p>
+  <p>We demonstrate them in real places, document what works as <span class="hl">patterns</span>, and turn those patterns into models, tools and civic technologies that others can use and adapt.</p>
+</div></section>
+
+<div class="label">E — cascade: three thoughts stepping down and inward (what → how → so that)</div>
+<section class="vE"><div class="inner">
+  <span class="komma">KOMMA</span>
+  <p><span class="marker">What</span>A venture collective using applied research, artistic inquiry and real-world demonstration to shift collective imagination around how we value, own, govern and care for what we hold in common.</p>
+  <p><span class="marker">How</span>Place-based partnerships with citizens, municipalities, philanthropy and the private sector: together we research, design and test new mechanisms across governance, finance, relations and technology.</p>
+  <p><span class="marker">So that</span>We demonstrate them in real places, document what works as patterns, and turn those patterns into models, tools and civic technologies that others can use and adapt.</p>
+</div></section>
+
+<div class="label">F — stanzas: numbered rows with hairlines, same system as the initiatives section</div>
+<section class="vF"><div class="inner">
+  <span class="komma">KOMMA</span>
+  <div class="stanza"><span class="n">01</span><p>A venture collective using applied research, artistic inquiry and real-world demonstration to shift collective imagination around how we value, own, govern and care for what we hold in common.</p></div>
+  <div class="stanza"><span class="n">02</span><p>Our action is made possible through place-based partnerships with citizens, municipalities, philanthropy and the private sector. Together, we research, design and test new mechanisms across governance, finance, relations and technology.</p></div>
+  <div class="stanza"><span class="n">03</span><p>We demonstrate them in real places, document what works as patterns, and turn those patterns into models, tools and civic technologies that others can use and adapt.</p></div>
+</section>
+
+<div style="height:100px"></div>
+</body>
+</html>

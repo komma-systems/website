@@ -3,6 +3,8 @@ import Link from "next/link"
 import { Navigation } from "@/components/navigation"
 import { defaultLocale, isLocale, type Locale } from "@/lib/i18n"
 import { localeAlternatesMetadata } from "@/lib/metadata/locale-alternates"
+import { meldMessages } from "@/lib/messages/meld"
+import { FieldEvents } from "@/components/field-events"
 
 const meldDescription =
   "Meld is a hardware device and spatial AI platform for civic deliberation. Built by KOMMA Systems."
@@ -32,167 +34,222 @@ export async function generateMetadata({
   }
 }
 
-const sectionLabelClasses =
-  "mb-4 text-xs font-semibold uppercase tracking-[0.14em] text-slate-400"
+const proseClasses = "[text-wrap:pretty] text-[1.125rem] leading-[1.8] text-slate-100"
+const labelClasses = "mb-5 mt-14 font-silkscreen text-base sm:text-lg uppercase tracking-[0.18em] text-cream"
 
-const proseClasses = "text-[1.06rem] leading-[1.75] text-slate-100"
+const sideLabel =
+  "mt-6 block font-grotesk text-[11px] font-medium uppercase tracking-[0.2em] text-white/40 first:mt-0"
+const sideValue = "font-grotesk text-[14.5px] font-light leading-7 text-white/85"
+const sideLink =
+  "font-grotesk text-[14px] font-light leading-7 text-white border-b border-white/30 hover:text-cream hover:border-cream transition-colors"
+
+const TAG_COLORS: Record<string, string> = {
+  Forum: "#575757",
+  Event: "#9c9c9c",
+  Veranstaltung: "#9c9c9c",
+  Participate: "#737373",
+  Mitmachen: "#737373",
+}
 
 type PageProps = { params: Promise<{ locale: string }> }
 
 export default async function MeldPage({ params }: PageProps) {
   const { locale: raw } = await params
   const locale: Locale = isLocale(raw) ? raw : defaultLocale
+  const t = meldMessages[locale]
+  const cardHrefs = ["https://kair.is/", "https://meld.earth/"]
+  const cardImgs = ["/meld/kair.png", "/meld/device.png"]
 
   return (
     <>
       <Navigation />
-      <main className="min-h-screen bg-black px-6 pb-14 pt-28 font-sourceSerif text-white sm:px-10 sm:pt-32">
-        <div className="mx-auto max-w-[680px]">
-          <header className="mb-16 pb-10">
-            <h1 className="font-silkscreen text-6xl font-semibold tracking-tight text-white sm:text-7xl">
-              Meld
-            </h1>
-            <p className="mt-5 text-lg text-slate-200">
-              Making physical space programmable
-              <br />
-              at the threshold of shared memory
-            </p>
+      <main className="min-h-screen bg-black px-6 pb-20 pt-28 font-sourceSerif text-white sm:px-10 sm:pt-32">
+        <div className="mx-auto max-w-6xl">
+          <header className="mb-24 md:ml-[336px]">
             <Link
-              href={`/${locale}`}
-              className="mt-8 inline-block text-sm font-medium uppercase tracking-wider text-teal-300 underline decoration-teal-500/70 underline-offset-4 transition-colors hover:text-teal-200 font-silkscreen"
+              href={`/${locale}#initiatives`}
+              className="mb-8 inline-block font-silkscreen text-xs uppercase tracking-wider text-white/60 transition-colors hover:text-cream"
             >
-              ← BACK
+              {t.back}
             </Link>
+            <h1 className="tf-0 font-silkscreen text-5xl tracking-tight sm:text-6xl">Meld</h1>
+            <p className="mt-5 text-lg text-slate-200">
+              {t.tagline[0]}
+              <br />
+              {t.tagline[1]}
+            </p>
           </header>
 
-          <section className="mb-14">
-            <p className={proseClasses}>
-              Governance fails because what people say
-              disappears. Citizen assemblies, community consultations, and municipal workshops
-              produce hours of spoken deliberation that is difficult to track, impossible to compare
-              across sessions, and rarely reflected in the decisions that follow. Meld is KOMMA&apos;s
-              initiative to address that.
-            </p>
-            <p className={`${proseClasses} mt-6`}>
-              Meld is a hardware device and spatial AI platform designed for deployment in civic
-              settings. It captures spoken deliberation in the room, processes it locally, and
-              returns structured sensemaking outputs to facilitators and participants without raw
-              audio ever leaving the space. It is the physical and technical infrastructure for a new
-              kind of civic listening.
-            </p>
-          </section>
+          <div className="grid grid-cols-1 gap-x-24 gap-y-12 md:grid-cols-[240px_1fr]">
+            {/* Metadata sidebar */}
+            <aside className="md:sticky md:top-28 md:self-start">
+              <span className={sideLabel}>{t.side.initiative}</span>
+              <span className={sideValue}>Meld</span>
+              <span className={sideLabel}>{t.side.stage}</span>
+              <span className={sideValue}>
+                <span className="mr-2 align-[1px] text-[8px]" style={{ color: "#575757" }}>●</span>
+                {t.side.stageValue}
+              </span>
+              <span className={sideLabel}>{t.side.places}</span>
+              <span className={sideValue}>
+                {t.side.placesValue.map((pl, i) => (
+                  <span key={pl}>
+                    {i > 0 ? <br /> : null}
+                    {pl}
+                  </span>
+                ))}
+              </span>
+              <span className={sideLabel}>{t.side.projects}</span>
+              <p className="leading-7">
+                <a href="https://kair.is/" target="_blank" rel="noopener noreferrer" className={sideLink}>
+                  Kair
+                </a>
+                <br />
+                <a href="https://meld.earth/" target="_blank" rel="noopener noreferrer" className={sideLink}>
+                  {t.side.device}
+                </a>
 
-          <section className="mb-14">
-            <p className={sectionLabelClasses}>The Problem</p>
-            <p className={proseClasses}>
-              Public deliberation sits at the heart of democratic renewal, but the tools available to
-              it are broken. Existing approaches either rely on commercial cloud AI that creates
-              unacceptable data sovereignty and privacy risks in public sector settings, or they
-              produce flat transcripts that demand hours of manual analysis. Neither is fit for
-              deployment in the places that need participatory tools most: under-resourced
-              municipalities, rural communities, and administrations without specialist technical
-              capacity.
-            </p>
-            <p className={`${proseClasses} mt-6`}>
-              Beneath this is a deeper structural problem. Democratic processes generate rich,
-              layered knowledge from citizens and communities, but that knowledge has no durable form.
-              It does not accumulate. It does not travel. It does not inform the next session or the
-              next decision. Each assembly starts from scratch.
-            </p>
-          </section>
+              </p>
+              <span className={sideLabel}>{t.side.team}</span>
+              <span className={sideValue}>
+                {t.side.teamValue[0]}
+                <br />
+                {t.side.teamValue[1]}
+              </span>
+              <span className={sideLabel}>{t.side.partners}</span>
+              <a
+                href="https://www.nextlearning.earth/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-2 inline-flex opacity-80 transition-opacity hover:opacity-100"
+              >
+                <img
+                  src="/Partners/nextlearning.svg"
+                  alt="nextlearning e.V."
+                  className="h-7 w-auto brightness-0 invert opacity-80"
+                />
+              </a>
+              <span className={sideLabel}>{t.side.contact}</span>
+              <p className="leading-7">
+                <Link href={`/${locale}/contact`} className={sideLink}>
+                  {t.side.contactCta}
+                </Link>
+              </p>
+            </aside>
 
-          <section className="mb-14">
-            <p className={sectionLabelClasses}>What Meld Does</p>
-            <p className={proseClasses}>
-              The Meld device sits in the room during civic assemblies and public workshops.
-              Participants register consent through a physical NFC tap before their voice enters the
-              pipeline. Transcription, anonymisation, and initial sensemaking happen locally on the
-              device, powered by KairOS - the operating system for relational technology developed
-              within the initiative.
-            </p>
-            <p className={`${proseClasses} mt-6`}>
-              After each session, the Embers Engine constructs a knowledge graph from the discussion:
-              extracting themes, relationships, and patterns across contributions, and connecting them
-              to prior sessions through a Temporal Deliberation Graph. Facilitators receive
-              structured outputs that make the conversation legible, comparable, and actionable.
-            </p>
-            <p className={`${proseClasses} mt-6`}>
-              The underlying platform is Kair, named for Kairos - the Greek concept of qualitative or
-              relational time. Where Chronos measures the passing of moments, Kairos names the moment
-              when something shifts. Kair is built to locate and hold those moments in civic life.
-            </p>
-          </section>
+            {/* Narrative */}
+            <div className="max-w-[680px]">
+              {t.intro.map((para, i) => (
+                <p key={i} className={`${proseClasses}${i > 0 ? " mt-6" : ""}`}>
+                  {para}
+                </p>
+              ))}
 
-          <section className="mb-14">
-            <p className={sectionLabelClasses}>Design Principles</p>
-            <div className="space-y-8">
-              <article>
-                <h3 className="text-base font-semibold text-white">Consent as action</h3>
-                <p className={`${proseClasses} mt-2`}>
-                  Participation in the pipeline is an active, physical choice. Each participant taps
-                  an NFC tag before their contributions are captured. Withdrawal is possible at any
-                  time, at the level of a session or a single exchange, without requiring
-                  identification.
+              <p className={labelClasses}>{t.problemLabel}</p>
+              {t.problem.map((para, i) => (
+                <p key={i} className={`${proseClasses}${i > 0 ? " mt-6" : ""}`}>
+                  {para}
                 </p>
-              </article>
-              <article>
-                <h3 className="text-base font-semibold text-white">Edge-first</h3>
-                <p className={`${proseClasses} mt-2`}>
-                  Raw audio stays on local hardware. Only de-identified transcripts and structured
-                  graph outputs leave the device. The platform operates without internet connectivity,
-                  which is essential for deployment in rural and low-connectivity settings.
-                </p>
-              </article>
-              <article>
-                <h3 className="text-base font-semibold text-white">Minimal trace by default</h3>
-                <p className={`${proseClasses} mt-2`}>
-                  Exports contain graph structures and metadata only. The system is designed so that
-                  the outputs of deliberation are useful without being personally attributable.
-                </p>
-              </article>
-            </div>
-          </section>
+              ))}
 
-          <section className="mb-14">
-            <p className={sectionLabelClasses}>Current Deployment</p>
-            <p className={proseClasses}>Announcement Soon</p>
-            {/* <p className={proseClasses}>
-              Meld&apos;s first production deployment is InnoVER - a BMBF-funded public
-              procurement running from 2026 to 2027 across two rural Landkreise in northern Germany:
-              Herzogtum Lauenburg in Schleswig-Holstein, and Ludwigslust-Parchim in
-              Mecklenburg-Vorpommern. The contracting authority is NextLearning e.V., with research
-              collaboration on the Temporal Deliberation Graph underway with the Max Planck Institute
-              for Geoanthropology.
-            </p> */}
-            {/* <p className={`${proseClasses} mt-6`}>
-              This is the first instantiation of the Kair Network: KOMMA&apos;s vision for a distributed
-              set of places where civic deliberation is captured, structured, and returned to
-              communities as usable knowledge.
-            </p> */}
-          </section>
-
-          <section className="mb-16">
-            <p className={sectionLabelClasses}>Team + Partners</p>
-            <div className="grid gap-8 sm:grid-cols-2">
-              <div>
-                <h3 className="text-sm font-semibold uppercase tracking-[0.1em] text-slate-300">
-                  Team
-                </h3>
-                <p className="mt-3 text-[1rem] leading-7 text-slate-100">
-                  Charlie Fisher (Project Lead)
-                </p>
-                <p className="text-[1rem] leading-7 text-slate-100">
-                  Robert Matijevic (Technical Lead)
-                </p>
+              <p className={labelClasses}>{t.whatLabel}</p>
+              <p className={`${proseClasses} mb-7 text-white`}>{t.whatLead}</p>
+              <div className="space-y-5">
+                {t.what.map((step, i) => (
+                  <div key={step.title} className="grid grid-cols-1 sm:grid-cols-[9.5rem_1fr] gap-x-5 gap-y-1 border-l border-white/20 pl-5">
+                    <p
+                      className="font-grotesk text-[15px] font-medium uppercase tracking-[0.16em] pt-1"
+                      style={{ color: ["#575757", "#737373", "#9c9c9c"][i] }}
+                    >
+                      {String(i + 1).padStart(2, "0")} {step.title}
+                    </p>
+                    <p className="[text-wrap:pretty] text-[1.1rem] leading-[1.75] text-gray-200">
+                      {step.body}
+                    </p>
+                  </div>
+                ))}
               </div>
-              <div>
-                <h3 className="text-sm font-semibold uppercase tracking-[0.1em] text-slate-300">
-                  Partners
-                </h3>
-                <p className="mt-3 text-[1rem] leading-7 text-slate-100">NextLearning e.V.</p>
+
+              <p className={labelClasses}>{t.principlesLabel}</p>
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
+                {t.principles.map((pr) => (
+                  <article key={pr.title}>
+                    <h3 className="text-lg font-semibold leading-snug text-white/60">{pr.title}</h3>
+                    <p className="[text-wrap:pretty] mt-3 text-[0.95rem] leading-relaxed text-white">
+                      {pr.body}
+                    </p>
+                  </article>
+                ))}
+              </div>
+
+              {/* Inside the initiative */}
+              <div className="mt-20">
+                <p className="mb-6 font-silkscreen text-base sm:text-lg uppercase tracking-[0.18em] text-cream">
+                  {t.insideLabel}
+                </p>
+
+                <div className="border-t border-b border-white/15 pb-2">
+                  <img
+                    src="/meld/innover-slide.png"
+                    alt={t.featured.imageAlt}
+                    className="w-full"
+                  />
+                  <div className="pt-7">
+                    <span className="btn-field-outline inline-block rounded-full px-3 py-1 font-mono text-[11px] uppercase tracking-[0.12em]">
+                      {t.featured.pill}
+                    </span>
+                    <h3 className="text-field mt-3 text-2xl font-light tracking-tight sm:text-3xl">
+                      {t.featured.title}
+                    </h3>
+                    <p className={`${proseClasses} mt-3 text-gray-300`}>
+                      {t.featured.body}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                  {t.cards.map((card, i) => (
+                    <a
+                      key={card.title}
+                      href={cardHrefs[i]}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group block"
+                    >
+                      <img src={cardImgs[i]} alt={card.title} className="w-full" />
+                      <div className="pt-5">
+                        <p className="font-silkscreen text-[0.7rem] uppercase tracking-widest text-white/40">
+                          {card.tag}
+                        </p>
+                        <h3 className="text-field-wide mt-3 text-2xl font-light tracking-tight sm:text-3xl">
+                          {card.title}
+                          <span className="text-field-wide ml-3 inline-block transition-transform group-hover:translate-x-1">
+                            →
+                          </span>
+                        </h3>
+                        <p className={`${proseClasses} mt-3 text-gray-300`}>{card.desc}</p>
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+              {/* From the field */}
+              <div className="mt-20">
+                <p className="mb-4 font-silkscreen text-base sm:text-lg uppercase tracking-[0.18em] text-cream">
+                  {t.fieldLabel}
+                </p>
+                <FieldEvents items={t.field} locale={locale} />
               </div>
             </div>
-          </section>
+          </div>
+
+          <Link
+            href={`/${locale}#initiatives`}
+            className="mt-16 inline-block font-silkscreen text-xs uppercase tracking-wider text-white/60 transition-colors hover:text-cream"
+          >
+            {t.back}
+          </Link>
         </div>
       </main>
     </>

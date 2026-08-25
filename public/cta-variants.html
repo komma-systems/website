@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>CTA variants: between filled and outlined</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300;8..60,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: #000; color: #eee; font-family: "Source Serif 4", serif; }
+  section { padding: 46px 48px; border-bottom: 1px solid #1e1e1e; display: flex; align-items: center; gap: 40px; flex-wrap: wrap; }
+  .tag { font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: .1em; color: #666; text-transform: uppercase; width: 300px; }
+  a.cta { font-family: "IBM Plex Mono", monospace; font-size: 13px; font-weight: 600; text-decoration: none; border-radius: 9999px; padding: 12px 24px; display: inline-block; transition: all .2s; color: #fff; }
+  .note { font-size: 13px; color: #777; font-family: "IBM Plex Mono", monospace; flex-basis: 100%; margin: 0; }
+
+  .v0 { background: #575757; }
+  .v1 { border: 1px solid rgba(255,255,255,.45); }
+  .v2 { background: rgba(255,255,255,.1); }
+  .v2:hover { background: rgba(255,255,255,.2); }
+  .v3 { border: 1px solid rgba(255,255,255,.35); background: rgba(255,255,255,.05); }
+  .v3:hover { background: rgba(255,255,255,.14); }
+  .v4 { border: 1px solid rgba(255,255,255,.45); background: transparent; }
+  .v4:hover { background: #fff; color: #000; }
+  .v5 { background: #f5f2e8; color: #000; }
+  .v6 { background: #2a2a2a; }
+  .v6:hover { background: #3d3d3d; }
+  .v7 { border: 1px solid transparent; background: rgba(255,255,255,.08); position: relative; }
+  .v7 .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #9c9c9c; margin-right: 9px; vertical-align: 1px; }
+  .v8 { padding: 12px 2px; border-radius: 0; border-bottom: 1px solid rgba(255,255,255,.5); }
+  .v8:hover { border-color: #fff; }
+</style>
+</head>
+<body>
+
+<section><span class="tag">0 · Filled solid (current, Clara's pick)</span>
+  <a class="cta v0" href="#">Let's talk →</a>
+  <p class="note">Charlie's objection: reads heavy / button-y.</p>
+</section>
+
+<section><span class="tag">1 · Outline only (Charlie's direction)</span>
+  <a class="cta v1" href="#">Let's talk →</a>
+  <p class="note">The quiet baseline for comparison.</p>
+</section>
+
+<section><span class="tag">2 · Ghost fill: translucent white</span>
+  <a class="cta v2" href="#">Let's talk →</a>
+  <p class="note">Still a solid shape (Clara), but soft and borderless (Charlie). Brightens on hover.</p>
+</section>
+
+<section><span class="tag">3 · Outline + faint fill</span>
+  <a class="cta v3" href="#">Let's talk →</a>
+  <p class="note">The literal midpoint: Charlie's outline with 5% fill inside, deepens on hover.</p>
+</section>
+
+<section><span class="tag">4 · Outline that fills on hover</span>
+  <a class="cta v4" href="#">Let's talk →</a>
+  <p class="note">Resting state is Charlie's, interaction is Clara's. Hover it.</p>
+</section>
+
+<section><span class="tag">5 · Filled cream</span>
+  <a class="cta v5" href="#">Let's talk →</a>
+  <p class="note">Solid but in the site's cream instead of grey; warmer, less UI-button.</p>
+</section>
+
+<section><span class="tag">6 · Filled charcoal</span>
+  <a class="cta v6" href="#">Let's talk →</a>
+  <p class="note">Solid shape, barely darker than the page; presence without weight.</p>
+</section>
+
+<section><span class="tag">7 · Ghost fill + status dot</span>
+  <a class="cta v7" href="#"><span class="dot"></span>Let's talk →</a>
+  <p class="note">Soft pill with a small marker giving it intent without heaviness.</p>
+</section>
+
+<section><span class="tag">8 · No pill: underlined text link</span>
+  <a class="cta v8" href="#">Let's talk →</a>
+  <p class="note">The escape hatch if pills themselves are the problem.</p>
+</section>
+
+<section style="border-top: 3px solid #333"><span class="tag">Gradient series: the field gradient, fading out</span>
+  <p class="note">The current button's gradient (with its grain) at decreasing opacity. G0 is what ships now.</p>
+</section>
+
+<section><span class="tag">G0 · Gradient full (current)</span>
+  <a class="cta g0" href="#">Let's talk →</a>
+</section>
+
+<section><span class="tag">G1 · Gradient at 60%</span>
+  <a class="cta g1" href="#">Let's talk →</a>
+</section>
+
+<section><span class="tag">G2 · Gradient at 40%</span>
+  <a class="cta g2" href="#">Let's talk →</a>
+</section>
+
+<section><span class="tag">G3 · Gradient at 25%, whisper</span>
+  <a class="cta g3" href="#">Let's talk →</a>
+</section>
+
+<section><span class="tag">G4 · Gradient 30% + gradient hairline border</span>
+  <a class="cta g4" href="#">Let's talk →</a>
+  <p class="note">Transparent fill, but the gradient also traces the edge so the shape stays crisp.</p>
+</section>
+
+<section><span class="tag">G5 · Gradient 30%, full on hover</span>
+  <a class="cta g5" href="#">Let's talk →</a>
+  <p class="note">Transparent at rest, the full field gradient floods in on hover.</p>
+</section>
+
+<style>
+  .grain { }
+  .g0 { background-image: linear-gradient(100deg, #3d3d3d, #575757 40%, #737373 80%, #9c9c9c); }
+  .g1 { background-image: linear-gradient(100deg, rgba(61,61,61,.6), rgba(87,87,87,.6) 40%, rgba(115,115,115,.6) 80%, rgba(156,156,156,.6)); }
+  .g2 { background-image: linear-gradient(100deg, rgba(61,61,61,.4), rgba(87,87,87,.4) 40%, rgba(115,115,115,.4) 80%, rgba(156,156,156,.4)); }
+  .g3 { background-image: linear-gradient(100deg, rgba(61,61,61,.25), rgba(87,87,87,.25) 40%, rgba(115,115,115,.25) 80%, rgba(156,156,156,.25)); }
+  .g4 { border: 1px solid transparent;
+        background:
+          linear-gradient(100deg, rgba(61,61,61,.3), rgba(87,87,87,.3) 40%, rgba(115,115,115,.3) 80%, rgba(156,156,156,.3)) padding-box,
+          linear-gradient(100deg, #3d3d3d, #575757 40%, #737373 80%, #9c9c9c) border-box; }
+  .g5 { background-image: linear-gradient(100deg, rgba(61,61,61,.3), rgba(87,87,87,.3) 40%, rgba(115,115,115,.3) 80%, rgba(156,156,156,.3)); }
+  .g5:hover { background-image: linear-gradient(100deg, #3d3d3d, #575757 40%, #737373 80%, #9c9c9c); }
+</style>
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MELD — project page: 4 reader experiences</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200;0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&family=Silkscreen&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#000;color:#fff;font-family:'Source Serif 4',serif}
+  p{text-wrap:pretty}
+  .vlabel{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:#000;background:#f5f2e8;padding:12px 24px;position:sticky;top:0;z-index:50;display:flex;justify-content:space-between}
+  .vlabel small{text-transform:none;letter-spacing:0}
+  .pix{font-family:'Silkscreen',cursive}
+  .mono{font-family:'IBM Plex Mono',monospace}
+  .page{padding:64px 40px 120px}
+  .inner{max-width:1050px;margin:0 auto}
+  .metaline{font-family:'IBM Plex Mono',monospace;font-size:13px;color:rgba(255,255,255,.6);letter-spacing:.04em}
+  .metaline b{color:#fff;font-weight:500}
+  .img{background:
+    repeating-conic-gradient(#0a0a0a 0% 25%, #1c1c1c 0% 50%) 0 0/8px 8px;
+    outline:1px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;
+    color:rgba(255,255,255,.35);font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em}
+  h1.pix{font-size:56px;letter-spacing:.02em}
+  .lede{font-size:22px;line-height:1.55;font-weight:300;color:#e6e6e6}
+  .prose{font-size:17px;line-height:1.7;color:#c9c9c9}
+  .sec{font-family:'Silkscreen',cursive;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:14px}
+  .cta{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:13px;border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:9px 20px;color:#fff;text-decoration:none}
+  .cta:hover{border-color:#f5f2e8;color:#f5f2e8}
+  a.link{color:#fff;border-bottom:1px solid rgba(255,255,255,.35);text-decoration:none}
+  a.link:hover{color:#f5f2e8;border-color:#f5f2e8}
+  .hair{border-top:1px solid rgba(255,255,255,.22)}
+  .factbox{padding:22px 24px;border:1px solid rgba(255,255,255,.2)}
+  .factbox .n{font-family:'IBM Plex Mono',monospace;font-size:30px;color:#fff}
+  .factbox .l{font-family:'IBM Plex Mono',monospace;font-size:12px;color:rgba(255,255,255,.55);margin-top:6px;letter-spacing:.05em}
+  .logos{display:flex;flex-wrap:wrap;gap:28px;align-items:center}
+  .logos span{font-family:'IBM Plex Mono',monospace;font-size:13px;color:rgba(255,255,255,.55);border:1px dashed rgba(255,255,255,.25);padding:10px 16px}
+  .tag{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#f5f2e8}
+  .grain{background-color:#161616}
+
+  /* V1 dossier */
+  .v1 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+  .v1 .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+  @media(max-width:820px){.v1 .grid2{grid-template-columns:1fr}.v1 .facts{grid-template-columns:1fr}}
+
+  /* V2 field notes */
+  .v2 .layout{display:grid;grid-template-columns:280px 1fr;gap:64px}
+  .v2 aside{position:sticky;top:70px;align-self:start;font-family:'IBM Plex Mono',monospace;font-size:13px;color:rgba(255,255,255,.65);line-height:2}
+  .v2 aside b{color:#fff;font-weight:500;display:block;margin-top:14px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+  .v2 .prose{font-size:18px;max-width:640px}
+  @media(max-width:820px){.v2 .layout{grid-template-columns:1fr}.v2 aside{position:static}}
+
+  /* V2 engagements */
+  .v2 .eng{display:grid;grid-template-columns:150px 1fr 220px;gap:36px;align-items:start;padding:34px 4px;border-top:1px solid rgba(255,255,255,.22);text-decoration:none;color:inherit;transition:background .2s}
+  .v2 .eng:hover{background:rgba(255,255,255,.04)}
+  .v2 .eng h4{font-weight:300;font-size:26px}
+  .v2 .eng p{font-size:16px;color:#9a9a9a;margin-top:10px;max-width:560px;line-height:1.6}
+  .v2 .eng .thumb{width:100%;aspect-ratio:4/3}
+  @media(max-width:820px){.v2 .eng{grid-template-columns:1fr}}
+
+  /* V3 system */
+  .v3 .nodes{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .v3 .node{border:1px solid rgba(255,255,255,.2);padding:20px;transition:background .2s}
+  .v3 .node:hover{background:rgba(255,255,255,.05)}
+  .v3 .node h4{font-weight:300;font-size:22px}
+  .v3 .node p{font-size:14px;color:#9a9a9a;margin-top:8px;line-height:1.55}
+  .v3 .node .tag{display:block;margin-bottom:8px}
+  @media(max-width:820px){.v3 .nodes{grid-template-columns:1fr}}
+
+  /* V4 feed */
+  .v4 .item{display:grid;grid-template-columns:150px 1fr 220px;gap:36px;padding:34px 4px}
+  .v4 .item .img{aspect-ratio:4/3}
+  @media(max-width:820px){.v4 .item{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- ===================== V1 ===================== -->
+<div class="vlabel"><span>V1 — Dossier</span><small>Urban Impact model: facts first, problem → role → results, metric boxes. For the reader who asks "is this real?"</small></div>
+<section class="page"><div class="inner v1">
+  <div class="img" style="height:340px;margin-bottom:40px">HERO — device in the room, workshop photo</div>
+  <h1 class="pix">MELD</h1>
+  <p class="metaline" style="margin-top:14px"><b>Civic deliberation infrastructure</b> · In deployment · Herzogtum Lauenburg + Ludwigslust-Parchim, DE · since 2026</p>
+  <p class="lede" style="margin-top:28px;max-width:760px">Meld captures deliberation in the room, processes it on the device, and returns structured documentation to the people who spoke. Built with nextlearning, Max Planck Institute and the 10x100 network; deployed under the BMBF-funded InnoVER programme.</p>
+
+  <div class="grid2" style="margin-top:56px">
+    <div>
+      <p class="sec">The problem</p>
+      <p class="prose">What communities say in a room rarely survives the room. Notes flatten disagreement, minutes arrive late, and sending audio to cloud AI trades trust for convenience. Placeholder: two more sentences on why deliberation needs its own infrastructure.</p>
+    </div>
+    <div>
+      <p class="sec">What Meld does</p>
+      <p class="prose">A hardware device and privacy-preserving platform. Consent is a physical NFC tap, audio never leaves the room, and the group receives its own sensemaking back as a queryable record. Placeholder: one sentence on BRAID / positions over time.</p>
+    </div>
+  </div>
+
+  <div style="margin-top:64px">
+    <p class="sec">Deployments</p>
+    <p class="prose" style="max-width:700px">First production deployment under InnoVER, a BMBF-funded public programme via the Landvorteil alliance, running pilots in two Landkreise. Demonstrated live with the 10x100 network at the European Forum Alpbach. Placeholder for deployment two.</p>
+    <div class="facts">
+      <div class="factbox"><div class="n">2</div><div class="l">LANDKREISE IN PILOT</div></div>
+      <div class="factbox"><div class="n">0 km</div><div class="l">AUDIO LEAVES THE ROOM</div></div>
+      <div class="factbox"><div class="n">3</div><div class="l">RETRIEVAL MODES (LOCAL / GLOBAL / BRIDGE)</div></div>
+    </div>
+  </div>
+
+  <div class="hair" style="margin-top:64px;padding-top:40px">
+    <p class="sec">Partners + funding</p>
+    <div class="logos"><span>BMBF · WIR!</span><span>Landvorteil</span><span>nextlearning</span><span>Max Planck Institute</span><span>10x100</span></div>
+  </div>
+
+  <div style="margin-top:56px;display:flex;gap:16px;flex-wrap:wrap">
+    <a class="cta" href="#">Kair, the platform →</a>
+    <a class="cta" href="#">meld.earth, the device →</a>
+    <a class="cta" href="#">Work with us →</a>
+  </div>
+  <p class="metaline" style="margin-top:48px">← Relational Wealth Flows&nbsp;&nbsp;·&nbsp;&nbsp;Weve →</p>
+</div></section>
+
+<!-- ===================== V2 ===================== -->
+<div class="vlabel"><span>V2 — Field notes (CHOSEN) + engagements</span><small>DML narrative + sidebar, then a clickable layer of announcements and ways to participate.</small></div>
+<section class="page grain"><div class="inner v2">
+  <div class="img" style="height:300px;margin-bottom:48px">HERO — wide room shot, halftone treatment</div>
+  <div class="layout">
+    <aside>
+      <b>Initiative</b>Meld
+      <b>Stage</b>In deployment
+      <b>Places</b>Herzogtum Lauenburg, DE<br>Ludwigslust-Parchim, DE<br>Alpbach, AT
+      <b>Projects</b><a class="link" href="#">Kair</a><br><a class="link" href="#">Device</a><br><a class="link" href="#">10x100</a><br>InnoVER
+      <b>Partners</b>nextlearning<br>Max Planck Institute<br>10x100 network
+      <b>Funding</b>BMBF (WIR!) via Landvorteil
+      <b>Contact</b><a class="link" href="#">Work with Meld →</a>
+    </aside>
+    <div>
+      <h1 class="pix" style="font-size:44px">MELD</h1>
+      <p class="lede" style="margin-top:22px">Deliberation is where communities decide how to live together, and it is the least documented thing they do. Placeholder lede continues for one more sentence.</p>
+      <p class="prose" style="margin-top:28px">Context paragraph. What happens to what people say in participatory processes today, why the record matters for trust, and why cloud AI is the wrong answer for contested public settings. Placeholder for roughly four sentences in the DML register: measured, concrete, no jargon.</p>
+      <p class="prose" style="margin-top:20px">Approach paragraph. The device in the room, consent as a physical action, processing at the edge, the BRAID ontology keeping positions traceable as they shift across sessions. Placeholder for how a session actually runs, told as a scene.</p>
+      <div class="img" style="height:260px;margin:36px 0">INLINE — NFC tap close-up / Alpbach photo</div>
+      <p class="prose">Deployment paragraph. InnoVER named and explained in one breath (what the programme funds, what the pilots test in the two Landkreise), then Alpbach as the public demonstration. Photographs from both feed this section.</p>
+      <p class="prose" style="margin-top:20px">Where this goes: the open API, what others could build, and the invitation. Ends on the click-through to Kair and meld.earth.</p>
+
+      <div style="margin-top:72px">
+        <p class="sec">From the field</p>
+
+        <a class="eng" href="#">
+          <div><span class="tag">Deployment</span><p class="metaline" style="margin-top:8px">Sep 2026<br>Schleswig-Holstein +<br>Mecklenburg-Vorpommern</p></div>
+          <div><h4>InnoVER: Meld enters public service</h4><p>What the programme is, what the pilots do, what the two Landkreise are testing, within the boundaries of what the contract allows to be said.</p></div>
+          <div class="img thumb">PHOTO</div>
+        </a>
+
+        <a class="eng" href="#">
+          <div><span class="tag">Forum</span><p class="metaline" style="margin-top:8px">26–30 Aug 2026<br>Alpbach, AT</p></div>
+          <div><h4>Meld at the European Forum Alpbach</h4><p>The 10x100 demonstration, told after the fact with the photographs Charlie asked for.</p></div>
+          <div class="img thumb">PHOTO</div>
+        </a>
+
+        <a class="eng" href="#">
+          <div><span class="tag">Event</span><p class="metaline" style="margin-top:8px">7 Sep 2026<br>tbc</p></div>
+          <div><h4>Alpbach 10x100, second session</h4><p>Pending Charlie's confirmation of what the 7 September event is. Photographs to follow.</p><p style="margin-top:12px"><span class="cta">Register →</span></p></div>
+          <div class="img thumb">PHOTO — tbc</div>
+        </a>
+
+        <a class="eng" href="#">
+          <div><span class="tag">Participate</span><p class="metaline" style="margin-top:8px">Ongoing</p></div>
+          <div><h4>Build on the Kair API</h4><p>The standing invitation for technologists: structured deliberation data, interface wide open.</p></div>
+          <div><span class="cta">Get access →</span></div>
+        </a>
+        <div class="hair"></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ===================== V3 ===================== -->
+<div class="vlabel"><span>V3 — System</span><small>Initiative as a system of interactive project nodes (Charlie's ask #6). For the reader who wants to explore.</small></div>
+<section class="page"><div class="inner v3">
+  <h1 class="pix">MELD</h1>
+  <p class="lede" style="margin-top:20px;max-width:720px">One initiative, five moving parts. Placeholder positioning sentence about deliberation infrastructure.</p>
+
+  <div style="margin-top:48px">
+    <p class="sec">The system</p>
+    <div class="nodes">
+      <div class="node"><span class="tag">Platform</span><h4>Kair</h4><p>Structures deliberation into a queryable ontology. Open API. → kair.is</p></div>
+      <div class="node"><span class="tag">Hardware</span><h4>Device</h4><p>Captures and processes in the room. Nothing leaves it. → meld.earth</p></div>
+      <div class="node"><span class="tag">Ontology</span><h4>BRAID</h4><p>Tracks positions as they shift across a process, session to session.</p></div>
+      <div class="node"><span class="tag">Deployment</span><h4>InnoVER</h4><p>First production deployment. BMBF-funded pilots in two Landkreise.</p></div>
+      <div class="node"><span class="tag">Network</span><h4>10x100</h4><p>Demonstrated live at the European Forum Alpbach. → 10x100.kair.is</p></div>
+      <div class="node" style="border-style:dashed"><span class="tag">Next</span><h4>Deployment two</h4><p>Placeholder awaiting confirmation.</p></div>
+    </div>
+  </div>
+
+  <div class="grid2" style="margin-top:64px;display:grid;grid-template-columns:1fr 1fr;gap:56px">
+    <div><p class="sec">Why</p><p class="prose">Short problem statement, three sentences max. Placeholder.</p></div>
+    <div><p class="sec">How it holds trust</p><p class="prose">Consent as action, edge-first, minimal trace: the three design principles, one line each. Placeholder.</p></div>
+  </div>
+
+  <div class="hair" style="margin-top:64px;padding-top:36px">
+    <p class="sec">Partners + funding</p>
+    <div class="logos"><span>BMBF · WIR!</span><span>Landvorteil</span><span>nextlearning</span><span>Max Planck Institute</span><span>10x100</span></div>
+  </div>
+  <div style="margin-top:44px"><a class="cta" href="#">Bring Meld to your process →</a></div>
+</div></section>
+
+<!-- ===================== V4 ===================== -->
+<div class="vlabel"><span>V4 — Living feed</span><small>Short standing intro + chronological feed of announcements (DML feed model). For the reader who returns. Solves the Coming-Soon / photos asks natively.</small></div>
+<section class="page grain"><div class="inner v4">
+  <h1 class="pix">MELD</h1>
+  <p class="lede" style="margin-top:20px;max-width:740px">Standing two-sentence definition of Meld that rarely changes. Everything else on this page is news from the field.</p>
+  <p class="metaline" style="margin-top:16px">In deployment · with nextlearning, Max Planck Institute, 10x100 · funded by BMBF (WIR!) via Landvorteil</p>
+
+  <div style="margin-top:48px" class="hair"></div>
+
+  <div class="item hair" style="border-top:0">
+    <div><span class="tag">Deployment</span><p class="metaline" style="margin-top:8px">Sep 2026<br>Schleswig-Holstein +<br>Mecklenburg-Vorpommern</p></div>
+    <div><h3 style="font-weight:300;font-size:26px">InnoVER: Meld enters public service</h3><p class="prose" style="margin-top:10px">Announcement copy placeholder. What the programme is, what the pilots do, what the two Landkreise are testing, within the boundaries of what the contract allows to be said.</p></div>
+    <div class="img">PHOTO — pilot session</div>
+  </div>
+
+  <div class="item hair">
+    <div><span class="tag">Forum</span><p class="metaline" style="margin-top:8px">26–30 Aug 2026<br>Alpbach, AT</p></div>
+    <div><h3 style="font-weight:300;font-size:26px">Meld at the European Forum Alpbach</h3><p class="prose" style="margin-top:10px">The 10x100 demonstration, told after the fact with the photographs Charlie asked for. Placeholder copy.</p></div>
+    <div class="img">PHOTO — Alpbach session</div>
+  </div>
+
+  <div class="item hair">
+    <div><span class="tag">Event</span><p class="metaline" style="margin-top:8px">7 Sep 2026<br>tbc</p></div>
+    <div><h3 style="font-weight:300;font-size:26px">Alpbach 10x100, second session</h3><p class="prose" style="margin-top:10px">Placeholder pending Charlie's confirmation of what the 7 September event is. Photographs to follow.</p></div>
+    <div class="img">PHOTO — tbc</div>
+  </div>
+
+  <div class="hair" style="padding-top:36px">
+    <p class="sec">About Meld</p>
+    <p class="prose" style="max-width:700px">The stable explainer lives below the feed: problem, what Meld does, design principles, compressed from the current page. Placeholder. Ends with links to Kair and meld.earth and one CTA.</p>
+    <div style="margin-top:28px"><a class="cta" href="#">Work with Meld →</a></div>
+  </div>
+</div></section>
+
+<div style="height:80px"></div>
+</body>
+</html>

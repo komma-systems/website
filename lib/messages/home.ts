@@ -15,9 +15,26 @@ export type HomeMessages = {
   actionAlt: string
   researchSubtitle: string
   intro1: string
-  intro2: string
+  heroCredential: string
+  heroSecondary: string
   partners: string
+  partnersIntro: string
+  who: {
+    label: string
+    lead: string
+    cta: string
+    paths: { title: string; body: string }[]
+  }
+  howWeWork: string
+  howWeWorkLead: string
+  howWeWorkLead2: string
+  howSteps: { key: string; label: string; description: string }[]
+  howClosingLead: string
+  howClosing: string
   ourApproach: string
+  areasHeading: string
+  areasIntro: string
+  areasSelectHint: string
   approachCards: ApproachCard[]
   initiatives: string
   loadingInitiatives: string
@@ -39,12 +56,41 @@ const en: HomeMessages = {
   sensingAlt: "sensing",
   actionAlt: "action",
   researchSubtitle: "Research and strategy to \nforge a new civics",
+  heroSecondary: "Explore the initiatives",
   intro1:
-    "is a venture collective utilising applied research, artistic inquiry and real-world demonstration to shift collective imagination on how we value, own and care for what is held in common.",
-  intro2:
-    "Our action is made possible through place-based partnerships with citizens, municipalities, philanthropy and the private sector to develop experiments, products and tools that conceptualise a new civics catalysed by relational technologies.",
+    "A research and\nrelational technology studio using\nartistic inquiry and real-world demonstration to shift collective imagination around how we value, own, govern and care for what we hold in common, beginning with land and housing.",
+  heroCredential: "10+ years of experience across spatial design, finance,\ngovernance, technology and communities.",
   partners: "Partners",
-  ourApproach: "Our Approach",
+  partnersIntro: "Working with organisations advancing new forms of collective action.",
+  who: {
+    label: "Who we work with",
+    lead: "Our work is made possible through place-based partnerships. We work with the people closest to the ground, the institutions that shape the territory, and the organisations that can help new models take root and be adapted in new contexts.",
+    cta: "Let\u2019s talk",
+    paths: [
+      { title: "Public institutions", body: "We work with public institutions to develop and test new approaches to collective challenges." },
+      { title: "Funders and philanthropy", body: "We work with funders to turn research and capital into practical experiments with potential beyond a single place." },
+      { title: "Private businesses", body: "We work with businesses to develop partnerships that connect economic activity with the long-term value and care of a place." },
+      { title: "Communities and land projects", body: "We work with communities to develop the mechanisms and infrastructure needed to make collective ownership and care viable." },
+      { title: "Researchers and institutional partners", body: "We work with researchers and institutions to bring applied research into contact with real places and practical experimentation." },
+      { title: "European consortia", body: "We join European research and innovation consortia as a practice partner, bringing live pilots, civic technology and experience from the ground." },
+    ],
+  },
+  howWeWork: "How we work",
+  howWeWorkLead: "We start from the realities of a place, working with the people and institutions already shaping it. Together, we research, design and test new mechanisms across governance, finance, relations and technology.",
+  howWeWorkLead2: "We demonstrate them, document what works as patterns, and turn those patterns into models, tools and civic technologies that others can use and adapt. What we learn in one place can inform what is built in another.",
+  howSteps: [
+    { key: "research", label: "Research", description: "Understand the conditions, relationships and systems shaping what is possible in a place." },
+    { key: "design", label: "Mechanism Design", description: "Develop new mechanisms of governance, finance, relations and technology with the people involved." },
+    { key: "demonstrate", label: "Demonstrators", description: "Build and test them in real places, with the communities and institutions involved." },
+    { key: "learn", label: "Patterns", description: "Document what works, what does not, and why, turning experience into patterns that can travel." },
+    { key: "adapt", label: "Tools", description: "Build the tools and infrastructure that help others use and adapt proven mechanisms." },
+  ],
+  howClosingLead: "One place informs the next.",
+  howClosing: "A mechanism proven in one place can be picked up in another, with each place starting further ahead.",
+  ourApproach: "Areas of practice",
+  areasHeading: "Areas of practice",
+  areasIntro: "The mechanisms we develop respond to the conditions of each place. We combine different levers to build what each situation requires. Our work spans four interconnected areas of practice.",
+  areasSelectHint: "Select an area to read more.",
   approachCards: [
     {
       key: "wealth",
@@ -62,14 +108,20 @@ const en: HomeMessages = {
       key: "rituals",
       heading: "Cultivating Playful Rituals",
       description:
-        "Integrating governance into everyday life through the human-centric design. Including sociocratic decision-making, digital coordination tools, and innovative hardware to enhance collective collaboration by smoothly connecting digital and physical spaces.",
+        "Integrating governance into everyday life through human-centric design. Including sociocratic decision-making, digital coordination tools, and innovative hardware to enhance collective collaboration by smoothly connecting digital and physical spaces.",
+    },
+    {
+      key: "technology",
+      heading: "Building Civic Technology",
+      description:
+        "We build the technology these mechanisms run on. AI that processes deliberation on the device, hardware built for the room, knowledge graphs that keep collective positions traceable, and decentralised registries validated by many hands. Prototyped in real deployments and designed to stay with the communities using them.",
     },
   ],
   initiatives: "Initiatives",
   loadingInitiatives: "Loading initiatives...",
   collective: "The Collective",
   collectiveIntro:
-    "Our collaborators bring together deep expertise leading organisations, and working alongside leading institutions, who are advancing equitable, commons-based civic action.",
+    "Our collaborators bring deep expertise from leading organisations and institutions advancing equitable, commons-based civic action.",
   advisors: "Advisors",
   advisorsIntro: "Our advisory board provides strategic guidance and expertise to support our mission.",
 }
@@ -86,12 +138,41 @@ const de: HomeMessages = {
   sensingAlt: "Wahrnehmen",
   actionAlt: "Handeln",
   researchSubtitle: "Forschung und Strategie für \neine neue Zivilgesellschaft",
+  heroSecondary: "Initiativen entdecken",
   intro1:
-    "ist ein Venture-Kollektiv, das mit angewandter Forschung, künstlerischer Erkundung und realen Demonstratoren das kollektive Bild davon verschiebt, wie wir das Gemeingute schätzen, besitzen und pflegen.",
-  intro2:
-    "Unser Handeln wird durch ortsbezogene Partnerschaften mit Bürgerinnen und Bürgern, Kommunen, Philanthropie und der Privatwirtschaft möglich — um Experimente, Produkte und Werkzeuge zu entwickeln, die eine neue Zivilgesellschaft denken, ausgelöst durch relationale Technologien.",
+    "Ein Studio für Forschung und\nzivilgesellschaftliche Technologie,\ndas mit künstlerischer Erkundung und realen Demonstratoren das kollektive Bild davon verschiebt, wie wir das gemeinsam Gehaltene schätzen, besitzen, verwalten und pflegen, beginnend mit Boden und Wohnen.",
+  heroCredential: "Über 10 Jahre Erfahrung in räumlicher Gestaltung, Finanzen,\nGovernance, Technologie und Gemeinschaften.",
   partners: "Partner",
-  ourApproach: "Unser Ansatz",
+  partnersIntro: "Wir arbeiten mit Organisationen, die neue Formen kollektiven Handelns vorantreiben.",
+  who: {
+    label: "Mit wem wir arbeiten",
+    lead: "Unsere Arbeit wird durch ortsbezogene Partnerschaften möglich. Wir arbeiten mit den Menschen vor Ort, mit den Institutionen, die das Territorium prägen, und mit den Organisationen, die neuen Modellen helfen können, Wurzeln zu schlagen und in neuen Kontexten Anwendung zu finden.",
+    cta: "Sprechen Sie mit uns",
+    paths: [
+      { title: "Öffentliche Institutionen", body: "Wir arbeiten mit öffentlichen Institutionen, um neue Ansätze für kollektive Aufgaben zu entwickeln und zu erproben." },
+      { title: "Förderer und Philanthropie", body: "Wir arbeiten mit Förderern, um Forschung und Kapital in praktische Experimente zu verwandeln, deren Potenzial über einen einzelnen Ort hinausreicht." },
+      { title: "Privatwirtschaft", body: "Wir arbeiten mit Unternehmen an Partnerschaften, die wirtschaftliche Aktivität mit dem langfristigen Wert und der Pflege eines Ortes verbinden." },
+      { title: "Gemeinschaften und Landprojekte", body: "Wir arbeiten mit Gemeinschaften an den Mechanismen und der Infrastruktur, die kollektives Eigentum und kollektive Sorge tragfähig machen." },
+      { title: "Forschende und\ninstitutionelle Partner", body: "Wir arbeiten mit Forschenden und Institutionen, um angewandte Forschung in Kontakt mit realen Orten und praktischem Experimentieren zu bringen." },
+      { title: "Europäische Konsortien", body: "Wir treten europäischen Forschungs- und Innovationskonsortien als Praxispartner bei, mit laufenden Piloten, ziviler Technologie und Erfahrung vor Ort." },
+    ],
+  },
+  howWeWork: "Wie wir arbeiten",
+  howWeWorkLead: "Wir beginnen bei den Realitäten eines Ortes und arbeiten mit den Menschen und Institutionen, die ihn bereits prägen. Gemeinsam erforschen, entwerfen und erproben wir neue Mechanismen in Governance, Finanzen, Beziehungen und Technologie.",
+  howWeWorkLead2: "Wir demonstrieren sie, dokumentieren als Muster, was funktioniert, und übersetzen diese Muster in Modelle, Werkzeuge und zivilgesellschaftliche Technologien, die andere nutzen und anpassen können. Was wir an einem Ort lernen, kann einfließen in das, was an einem anderen entsteht.",
+  howSteps: [
+    { key: "research", label: "Forschung", description: "Die Bedingungen, Beziehungen und Systeme verstehen, die bestimmen, was an einem Ort möglich ist." },
+    { key: "design", label: "Mechanismus-Design", description: "Neue Mechanismen für Governance, Finanzen, Beziehungen und Technologie gemeinsam mit den Beteiligten entwickeln." },
+    { key: "demonstrate", label: "Demonstratoren", description: "Sie an realen Orten bauen und erproben, mit den beteiligten Gemeinschaften und Institutionen." },
+    { key: "learn", label: "Muster", description: "Dokumentieren, was funktioniert, was nicht, und warum, und Erfahrung in Muster übersetzen, die wandern können." },
+    { key: "adapt", label: "Werkzeuge", description: "Die Werkzeuge und Infrastruktur bauen, die anderen helfen, bewährte Mechanismen zu nutzen und anzupassen." },
+  ],
+  howClosingLead: "Ein Ort informiert den nächsten.",
+  howClosing: "Ein Mechanismus, der sich an einem Ort bewährt hat, kann am nächsten aufgegriffen werden, und jeder Ort beginnt ein Stück weiter vorn.",
+  ourApproach: "Praxisfelder",
+  areasHeading: "Praxisfelder",
+  areasIntro: "Die Mechanismen, die wir entwickeln, antworten auf die Bedingungen jedes Ortes. Wir kombinieren verschiedene Hebel, um zu bauen, was die jeweilige Situation verlangt. Unsere Arbeit erstreckt sich über vier miteinander verbundene Praxisfelder.",
+  areasSelectHint: "Wähle ein Praxisfeld, um mehr zu lesen.",
   approachCards: [
     {
       key: "wealth",
@@ -110,6 +191,12 @@ const de: HomeMessages = {
       heading: "Spielerische Rituale kultivieren",
       description:
         "Governance in den Alltag integrieren — humanzentriert gestaltet. Mit sociokratischer Entscheidungsfindung, digitalen Koordinationswerkzeugen und innovativer Hardware, die kollektive Zusammenarbeit verbindet und digitale und physische Räume nahtlos verzahnt.",
+    },
+    {
+      key: "technology",
+      heading: "Zivilgesellschaftliche Technologie bauen",
+      description:
+        "Wir bauen die Technologie, auf der diese Mechanismen laufen. KI, die Deliberation direkt auf dem Gerät verarbeitet, Hardware für den Raum, Wissensgraphen, die kollektive Positionen nachvollziehbar halten, und dezentrale Register, die von vielen Händen validiert werden. Erprobt in realen Einsätzen und so gestaltet, dass sie bei den Gemeinschaften bleibt, die sie nutzen.",
     },
   ],
   initiatives: "Initiativen",

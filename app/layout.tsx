@@ -1,18 +1,17 @@
 import type React from "react"
 import "./globals.css"
 import type { Metadata, Viewport } from "next"
-import { Source_Serif_4, Silkscreen } from "next/font/google"
+import { Source_Serif_4, Silkscreen, IBM_Plex_Mono, Space_Grotesk } from "next/font/google"
 import { SiteFooter } from "@/components/site-footer"
 import { AuthProvider } from "@/app/providers"
 import { getRequestLocale } from "@/lib/request-locale"
 import { getSiteBaseUrl } from "@/lib/site-url"
 import type { Locale } from "@/lib/i18n"
 
-// Load Source Serif Pro (Source Serif 4 is the updated version)
-const sourceSerif = Source_Serif_4({
+const serif = Source_Serif_4({
   subsets: ["latin"],
-  weight: ["400"],
-  variable: "--font-source-serif",
+  weight: ["200", "300", "400"],
+  variable: "--font-serif",
   preload: true,
   display: "swap",
 })
@@ -25,6 +24,22 @@ const silkscreen = Silkscreen({
   display: "swap",
 })
 
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["300", "400", "500"],
+  variable: "--font-space-grotesk",
+  preload: false,
+  display: "swap",
+})
+
+const plexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-plex-mono",
+  preload: false,
+  display: "swap",
+})
+
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
@@ -33,9 +48,8 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteBaseUrl()),
-  title: "KOMMA / Initiative",
-  description: "A pause, transition, integration, or inflection point punctuating the dynamic relationship between sensing and action",
-  generator: 'v0.dev',
+  title: "KOMMA",
+  description: "A research and relational technology studio using artistic inquiry and real-world demonstration to shift how we value, own, govern and care for what we hold in common, beginning with land and housing.",
   icons: {
     icon: [
       { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
@@ -46,8 +60,9 @@ export const metadata: Metadata = {
     apple: "/favicon.svg",
   },
   openGraph: {
-    title: "KOMMA / Initiative",
-    description: "A pause, transition, integration, or inflection point punctuating the dynamic relationship between sensing and action",
+    title: "KOMMA",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "KOMMA" }],
+    description: "A research and relational technology studio using artistic inquiry and real-world demonstration to shift how we value, own, govern and care for what we hold in common, beginning with land and housing.",
     type: "website",
   },
 }
@@ -60,7 +75,7 @@ export default async function RootLayout({
   const lang: Locale = await getRequestLocale()
 
   return (
-    <html lang={lang} className={`${sourceSerif.variable} ${silkscreen.variable}`.trim()}>
+    <html lang={lang} className={`${serif.variable} ${silkscreen.variable} ${plexMono.variable} ${spaceGrotesk.variable}`.trim()}>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />

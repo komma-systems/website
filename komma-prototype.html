@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>KOMMA — Unwinding enclosures</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#f5f2e8;        /* cream text on black */
+    --black:#0a0a0a;
+    --cream:#f5f2e8;
+    --cream-ink:#1a1a1a;
+    --cyan:#00ffff;
+    --muted:#8a8780;
+    --line:rgba(245,242,232,.18);
+    --maxw:1080px;
+    --serif:"Source Serif 4",Georgia,serif;
+    --pixel:"Silkscreen",monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--black);color:var(--ink);
+    font-family:var(--serif);font-weight:300;
+    line-height:1.55;-webkit-font-smoothing:antialiased;
+    font-size:18px;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+  section{padding:96px 0}
+  a{color:inherit;text-decoration:none}
+
+  /* eyebrow / pixel labels */
+  .eyebrow{
+    font-family:var(--pixel);font-size:11px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:28px;
+  }
+
+  /* nav */
+  nav{
+    position:sticky;top:0;z-index:50;background:rgba(10,10,10,.82);
+    backdrop-filter:blur(8px);border-bottom:1px solid var(--line);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;
+    height:64px;max-width:var(--maxw);margin:0 auto;padding:0 32px}
+  .logo{font-family:var(--pixel);font-weight:700;font-size:18px;letter-spacing:.12em}
+  .nav-links{display:flex;gap:32px;align-items:center;font-size:14px;letter-spacing:.02em}
+  .nav-links a:hover{color:var(--cyan)}
+  .btn{
+    border:1px solid var(--ink);padding:9px 20px;font-size:14px;letter-spacing:.03em;
+    transition:.2s;display:inline-block;
+  }
+  .btn:hover{background:var(--ink);color:var(--black)}
+  .btn-cyan:hover{background:var(--cyan);border-color:var(--cyan);color:var(--black)}
+
+  /* hero */
+  .hero{padding:120px 0 104px;border-bottom:1px solid var(--line)}
+  h1{
+    font-family:var(--serif);font-weight:300;
+    font-size:clamp(48px,8vw,104px);line-height:.98;letter-spacing:-.02em;
+    margin-bottom:32px;
+  }
+  .hero .sub{font-size:clamp(20px,2.4vw,28px);font-weight:300;max-width:760px;margin-bottom:36px}
+  .hero .diff{font-size:18px;color:var(--muted);max-width:620px;margin-bottom:44px;line-height:1.6}
+  .hero .diff strong{color:var(--ink);font-weight:600}
+  .cta-row{display:flex;gap:16px;flex-wrap:wrap}
+
+  /* sensing/action chip */
+  .sa{font-family:var(--pixel);font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+    display:inline-flex;gap:14px;align-items:center;color:var(--muted);margin-bottom:40px}
+  .sa .dot{width:7px;height:7px;border-radius:50%;background:var(--muted);display:inline-block;margin-right:7px}
+  .sa .action{color:var(--cyan)}
+  .sa .action .dot{background:var(--cyan);box-shadow:0 0 8px var(--cyan)}
+
+  /* intro */
+  .intro p{font-size:clamp(22px,2.6vw,30px);font-weight:300;line-height:1.4;max-width:880px}
+  .intro p+p{margin-top:28px;color:var(--ink)}
+  .intro .lead-architects{color:var(--ink)}
+
+  /* unwinding enclosures band */
+  .band-enclosure{background:var(--cream);color:var(--cream-ink)}
+  .band-enclosure .eyebrow{color:#8a8474}
+  .band-enclosure p{font-size:clamp(24px,3vw,38px);font-weight:300;line-height:1.25;max-width:920px;letter-spacing:-.01em}
+
+  /* how we work */
+  .method-intro{font-size:clamp(20px,2.4vw,26px);font-weight:300;max-width:760px;margin-bottom:64px;color:var(--ink)}
+  .registers{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line)}
+  .reg{padding:36px 30px;border-right:1px solid var(--line)}
+  .reg:last-child{border-right:none}
+  .reg h3{font-family:var(--serif);font-weight:600;font-size:22px;margin-bottom:16px;line-height:1.15}
+  .reg .tag{font-family:var(--pixel);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);display:block;margin-bottom:18px}
+  .reg p{font-size:16px;color:var(--muted);line-height:1.6}
+  .tech-strip{border:1px solid var(--line);border-top:none;padding:24px 30px;
+    display:flex;gap:20px;align-items:baseline;flex-wrap:wrap}
+  .tech-strip .tt{font-family:var(--pixel);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+  .tech-strip p{font-size:15px;color:var(--muted);flex:1;min-width:280px}
+
+  /* worked example */
+  .band-example{background:var(--cream);color:var(--cream-ink)}
+  .band-example .eyebrow{color:#8a8474}
+  .example-name{font-size:clamp(28px,4vw,48px);font-weight:300;margin-bottom:36px;letter-spacing:-.01em}
+  table.tp{width:100%;max-width:760px;border-collapse:collapse;margin-bottom:32px}
+  table.tp td{padding:18px 0;border-bottom:1px solid rgba(26,26,26,.16);vertical-align:top;font-size:18px}
+  table.tp td:first-child{font-family:var(--pixel);font-size:11px;letter-spacing:.12em;text-transform:uppercase;width:130px;color:#6b6658;padding-top:21px}
+  .example-out{font-size:clamp(19px,2.2vw,24px);font-weight:300;max-width:760px;line-height:1.4}
+  .example-out b{font-weight:600}
+
+  /* work / initiatives */
+  .grid-work{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  .work-card{background:var(--black);padding:28px 24px;min-height:180px;display:flex;flex-direction:column;justify-content:space-between;transition:.2s}
+  .work-card:hover{background:#141414}
+  .work-card .nm{font-family:var(--pixel);font-size:15px;letter-spacing:.06em;margin-bottom:8px}
+  .work-card .place{font-size:13px;color:var(--cyan);letter-spacing:.04em;margin-bottom:18px;font-family:var(--pixel)}
+  .work-card .pain{font-size:15px;color:var(--muted);line-height:1.5}
+  .work-card .phase{font-size:11px;font-family:var(--pixel);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:18px}
+
+  /* partners */
+  .partners{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .partners .row{display:flex;gap:48px;flex-wrap:wrap;align-items:center;opacity:.7;font-size:15px;letter-spacing:.04em}
+
+  /* collective */
+  .team{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:12px}
+  .member{text-align:left}
+  .member .ph{aspect-ratio:1;background:#1c1c1c;border:1px solid var(--line);margin-bottom:14px;
+    display:flex;align-items:center;justify-content:center;color:#4a4a4a;font-family:var(--pixel);font-size:11px}
+  .member .nm{font-size:17px}
+  .member .ro{font-size:13px;color:var(--muted)}
+  .collective-note{font-size:clamp(18px,2vw,22px);font-weight:300;max-width:680px;margin-top:48px;color:var(--muted)}
+
+  /* comma — third floor */
+  .band-comma{text-align:center;border-top:1px solid var(--line)}
+  .comma-poem{font-size:clamp(22px,3vw,34px);font-weight:300;line-height:1.4;max-width:780px;margin:0 auto;letter-spacing:-.01em}
+  .comma-poem .sensing{color:var(--muted)}
+  .comma-poem .action{color:var(--cyan);text-shadow:0 0 8px rgba(0,255,255,.4)}
+  .comma-big{font-family:var(--serif);font-size:120px;line-height:1;color:var(--cyan);margin-bottom:24px}
+
+  /* entry points */
+  .band-entry{background:var(--cream);color:var(--cream-ink)}
+  .band-entry .eyebrow{color:#8a8474}
+  .entry-doors{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(26,26,26,.14);
+    border:1px solid rgba(26,26,26,.14);margin-bottom:40px}
+  .door{background:var(--cream);padding:28px 22px}
+  .door .d-t{font-family:var(--pixel);font-size:12px;letter-spacing:.08em;margin-bottom:10px}
+  .door p{font-size:14px;color:#6b6658;line-height:1.5}
+  .btn-dark{border:1px solid var(--cream-ink);color:var(--cream-ink);padding:11px 24px;display:inline-block;transition:.2s;font-size:15px;margin-right:14px}
+  .btn-dark:hover{background:var(--cream-ink);color:var(--cream)}
+
+  /* footer */
+  footer{padding:48px 0;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+  .foot-inner{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+  .foot-inner .logo{font-size:15px}
+
+  @media(max-width:860px){
+    section{padding:64px 0}
+    .registers,.grid-work,.team,.entry-doors{grid-template-columns:1fr}
+    .reg{border-right:none;border-bottom:1px solid var(--line)}
+    .grid-work{grid-template-columns:1fr 1fr}
+    .team{grid-template-columns:1fr 1fr}
+    .nav-links a:not(.btn){display:none}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo">KOMMA<span style="color:var(--cyan)">,</span></div>
+    <div class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#how">How we work</a>
+      <a href="#collective">About</a>
+      <a href="#entry" class="btn">Work with us</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="sa">
+      <span><span class="dot"></span>sensing</span>
+      <span class="action"><span class="dot"></span>action</span>
+    </div>
+    <h1>Unwinding<br>enclosures.</h1>
+    <p class="sub">We help communities take land and housing out of speculation and back into common ownership.</p>
+    <p class="diff">We don't build tools for their own sake. We study a place, find what keeps land and housing locked up — an opening in the law, a cultural readiness, an economic strategy that works — and <strong>unlock the means for communities to own them in common.</strong></p>
+    <div class="cta-row">
+      <a href="#how" class="btn btn-cyan">See how we work →</a>
+      <a href="#entry" class="btn">Work with us</a>
+    </div>
+  </div>
+</header>
+
+<!-- INTRO -->
+<section class="intro">
+  <div class="wrap">
+    <p>Komma is a venture collective that uses applied research, artistic inquiry and real-world demonstration to shift how we value, own and care for what is held in common.</p>
+    <p class="lead-architects">We're architects, researchers and economists who work from place — partnering with communities, municipalities, philanthropy and the private sector to find where land and housing stay locked in speculation, and unlock the legal, cultural and economic means to hold them in common. We build technology only when it's needed to make that work at scale.</p>
+  </div>
+</section>
+
+<!-- UNWINDING ENCLOSURES -->
+<section class="band-enclosure">
+  <div class="wrap">
+    <div class="eyebrow">Unwinding enclosures</div>
+    <p>For three centuries, enclosure has fenced off what was once held in common — first land, then housing, then the value communities create together. We work the other way: every project is a small act of unwinding, and the legal, economic and cultural scaffolding that lets it stay unwound.</p>
+  </div>
+</section>
+
+<!-- HOW WE WORK -->
+<section id="how">
+  <div class="wrap">
+    <div class="eyebrow">How we work</div>
+    <p class="method-intro">We start in place, not with a solution. We read a context across three registers and look for the rare moment where all three align. That alignment is the opening — the mechanism we build is how we hold it open.</p>
+    <div class="registers">
+      <div class="reg">
+        <span class="tag">Legal</span>
+        <h3>Where the law gives</h3>
+        <p>We find the opening in the law — an underused right, a route to collective tenure, an edge others read as a dead end — and build the agreements that turn it into durable, shared ownership.</p>
+      </div>
+      <div class="reg">
+        <span class="tag">Economic</span>
+        <h3>Where the money can move differently</h3>
+        <p>We find the economic strategy that already wants to work — a pooled fund, a community-led exit, value that recirculates locally instead of leaking out — and design the mechanism that lets it.</p>
+      </div>
+      <div class="reg">
+        <span class="tag">Cultural &middot; Social</span>
+        <h3>Where the community is ready</h3>
+        <p>We find the cultural predisposition — customary practice, trust, the willingness to act together — and design the rituals and interfaces that turn readiness into coordinated action.</p>
+      </div>
+    </div>
+    <div class="tech-strip">
+      <span class="tt">Technology · the connective layer</span>
+      <p>Built only when a mechanism must run across many people or places — registries, pledge pools, coordination tools. In service of the unlock, never the start.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WORKED EXAMPLE -->
+<section class="band-example">
+  <div class="wrap">
+    <div class="eyebrow">The approach in one move</div>
+    <div class="example-name">Threshold pools</div>
+    <table class="tp">
+      <tr><td>Legal</td><td>Striking on rent is illegal in Germany.</td></tr>
+      <tr><td>Social</td><td>Tenants will only pledge if it's anonymous and collective.</td></tr>
+      <tr><td>Economic</td><td>A pledge that triggers only at critical mass makes the risk bearable.</td></tr>
+    </table>
+    <p class="example-out">→ So we built <b>threshold pools</b>: anonymous, collective pledging that activates only once enough neighbours commit. A legal constraint, a social need and an economic insight — unlocked by a single tool.</p>
+  </div>
+</section>
+
+<!-- WORK / INITIATIVES -->
+<section id="work">
+  <div class="wrap">
+    <div class="eyebrow">Work in progress</div>
+    <p class="method-intro">Each project is a place we're reading and a mechanism we're testing. Here's where we are on each.</p>
+    <div class="grid-work">
+      <div class="work-card">
+        <div><div class="nm">MELD</div><div class="place">Berlin</div><div class="pain">Music venues disappearing as rents climb.</div></div>
+        <div class="phase">Prototype</div>
+      </div>
+      <div class="work-card">
+        <div><div class="nm">WEAVE</div><div class="place">South Africa</div><div class="pain">Roman law makes collective land ownership hard — no bundle of rights.</div></div>
+        <div class="phase">R&amp;D</div>
+      </div>
+      <div class="work-card">
+        <div><div class="nm">Overflow</div><div class="place">Barcelona</div><div class="pain">Tourism revenue leaks out instead of funding housing commons.</div></div>
+        <div class="phase">Research</div>
+      </div>
+      <div class="work-card">
+        <div><div class="nm">Threshold pools</div><div class="place">Berlin · UK</div><div class="pain">Tenants lack a safe way to pledge collectively.</div></div>
+        <div class="phase">Prototype</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<section class="partners">
+  <div class="wrap">
+    <div class="eyebrow">Working with</div>
+    <div class="row">
+      <span>GLS Bank</span><span>Gnosis</span><span>Don Maslow Center</span><span>Open Civics</span><span>Radical Roots</span>
+    </div>
+  </div>
+</section>
+
+<!-- COLLECTIVE -->
+<section id="collective">
+  <div class="wrap">
+    <div class="eyebrow">The collective</div>
+    <div class="team">
+      <div class="member"><div class="ph">PORTRAIT</div><div class="nm">Clara Gromaches</div><div class="ro">Co-founder · architect · advisor, land &amp; housing commons foundation</div></div>
+      <div class="member"><div class="ph">PORTRAIT</div><div class="nm">Charlie Fisher</div><div class="ro">Co-founder · architect</div></div>
+      <div class="member"><div class="ph">PORTRAIT</div><div class="nm">Rita</div><div class="ro">Collective</div></div>
+      <div class="member"><div class="ph">PORTRAIT</div><div class="nm">Olivia</div><div class="ro">Collective</div></div>
+    </div>
+    <p class="collective-note">Behind the collective sits many years of field work — twelve case studies across four cities, funds managed, co-ops incubated, municipalities advised. The proof is the practice.</p>
+  </div>
+</section>
+
+<!-- COMMA — third floor -->
+<section class="band-comma">
+  <div class="wrap">
+    <div class="comma-big">,</div>
+    <p class="comma-poem">A pause, transition, integration, or inflection point — punctuating the dynamic relationship between <span class="sensing">sensing</span> and <span class="action">action</span>.</p>
+  </div>
+</section>
+
+<!-- ENTRY POINTS -->
+<section id="entry" class="band-entry">
+  <div class="wrap">
+    <div class="eyebrow">Work with us</div>
+    <div class="entry-doors">
+      <div class="door"><div class="d-t">Municipalities</div><p>Advising on collective-ownership policy and mechanisms.</p></div>
+      <div class="door"><div class="d-t">Communities</div><p>Co-designing the route from speculation to common ownership.</p></div>
+      <div class="door"><div class="d-t">Funders</div><p>Partnering on research, pilots and patient finance.</p></div>
+      <div class="door"><div class="d-t">Events &amp; workshops</div><p>Join a session or the waitlist for what's next.</p></div>
+    </div>
+    <a href="#" class="btn-dark">Start a conversation</a>
+    <a href="#" class="btn-dark">Join the waitlist</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <div class="logo">KOMMA<span style="color:var(--cyan)">,</span></div>
+    <div>Tools and mechanisms for housing &amp; land commons · Kerala · Germany · Catalunya · Portugal</div>
+    <div>© 2026</div>
+  </div>
+</footer>
+
+</body>
+</html>

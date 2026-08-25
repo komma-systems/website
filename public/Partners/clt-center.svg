@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 320" aria-hidden="true">
+  <g fill="#FFFFFF" font-family="Futura, 'Century Gothic', 'Trebuchet MS', sans-serif" font-weight="700" text-anchor="middle">
+    <text x="550" y="95" font-size="70">International Center</text>
+    <text x="550" y="185" font-size="50">for</text>
+    <text x="550" y="290" font-size="70">Community Land Trusts</text>
+  </g>
+  <g stroke="#FFFFFF" stroke-width="6">
+    <line x1="200" y1="167" x2="480" y2="167"/>
+    <line x1="620" y1="167" x2="900" y2="167"/>
+  </g>
+</svg>

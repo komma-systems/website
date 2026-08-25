@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Meld sidebar label variants</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Silkscreen&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Space+Grotesk:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: #000; color: #eee; font-family: system-ui; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+  .card { padding: 44px 40px 52px; border: 1px solid #222; }
+  .name { font-family: "IBM Plex Mono", monospace; font-size: 11px; color: #666; margin-bottom: 30px; letter-spacing: .08em; }
+  .label { display: block; margin-top: 24px; }
+  .label:first-of-type { margin-top: 0; }
+  .value { display: block; }
+  .dot { color: #575757; font-size: 8px; vertical-align: 1px; margin-right: 7px; }
+
+  /* 0 current */
+  .v0 .label { font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: .18em; color: rgba(255,255,255,.4); }
+  .v0 .value { font-family: "IBM Plex Mono", monospace; font-size: 13.5px; line-height: 1.9; color: rgba(255,255,255,.8); }
+
+  /* 1 silkscreen labels */
+  .v1 .label { font-family: "Silkscreen", cursive; font-size: 10px; text-transform: uppercase; letter-spacing: .14em; color: rgba(255,255,255,.45); }
+  .v1 .value { font-family: "IBM Plex Mono", monospace; font-size: 13.5px; line-height: 1.9; color: rgba(255,255,255,.8); }
+
+  /* 2 fraunces italic labels */
+  .v2 .label { font-family: "Fraunces", serif; font-style: italic; font-size: 14px; font-weight: 300; color: rgba(255,255,255,.45); letter-spacing: .02em; }
+  .v2 .value { font-family: "IBM Plex Mono", monospace; font-size: 13.5px; line-height: 1.9; color: rgba(255,255,255,.85); }
+
+  /* 3 fraunces values, mono labels */
+  .v3 .label { font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 400; text-transform: uppercase; letter-spacing: .22em; color: rgba(255,255,255,.35); }
+  .v3 .value { font-family: "Fraunces", serif; font-size: 17px; font-weight: 400; line-height: 1.7; color: rgba(255,255,255,.9); }
+
+  /* 4 space grotesk */
+  .v4 .label { font-family: "Space Grotesk", sans-serif; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: .2em; color: rgba(255,255,255,.4); }
+  .v4 .value { font-family: "Space Grotesk", sans-serif; font-size: 14.5px; font-weight: 300; line-height: 1.8; color: rgba(255,255,255,.85); }
+
+  /* 5 jetbrains lowercase */
+  .v5 .label { font-family: "JetBrains Mono", monospace; font-size: 11.5px; font-weight: 300; text-transform: lowercase; letter-spacing: .05em; color: rgba(255,255,255,.38); }
+  .v5 .value { font-family: "JetBrains Mono", monospace; font-size: 13.5px; font-weight: 400; line-height: 1.9; color: rgba(255,255,255,.85); }
+</style>
+</head>
+<body>
+  <div class="card v0">
+    <div class="name">0 · current: IBM Plex Mono caps</div>
+    <span class="label">Initiative</span><span class="value">Meld</span>
+    <span class="label">Stage</span><span class="value"><span class="dot">●</span>Demonstrating</span>
+    <span class="label">Places</span><span class="value">Kiel · Alpbach · Berlin</span>
+  </div>
+  <div class="card v1">
+    <div class="name">1 · Silkscreen labels (match section headers)</div>
+    <span class="label">Initiative</span><span class="value">Meld</span>
+    <span class="label">Stage</span><span class="value"><span class="dot">●</span>Demonstrating</span>
+    <span class="label">Places</span><span class="value">Kiel · Alpbach · Berlin</span>
+  </div>
+  <div class="card v2">
+    <div class="name">2 · Fraunces italic labels</div>
+    <span class="label">Initiative</span><span class="value">Meld</span>
+    <span class="label">Stage</span><span class="value"><span class="dot">●</span>Demonstrating</span>
+    <span class="label">Places</span><span class="value">Kiel · Alpbach · Berlin</span>
+  </div>
+  <div class="card v3">
+    <div class="name">3 · mono labels, Fraunces values</div>
+    <span class="label">Initiative</span><span class="value">Meld</span>
+    <span class="label">Stage</span><span class="value"><span class="dot">●</span>Demonstrating</span>
+    <span class="label">Places</span><span class="value">Kiel · Alpbach · Berlin</span>
+  </div>
+  <div class="card v4">
+    <div class="name">4 · Space Grotesk throughout</div>
+    <span class="label">Initiative</span><span class="value">Meld</span>
+    <span class="label">Stage</span><span class="value"><span class="dot">●</span>Demonstrating</span>
+    <span class="label">Places</span><span class="value">Kiel · Alpbach · Berlin</span>
+  </div>
+  <div class="card v5">
+    <div class="name">5 · JetBrains Mono lowercase, quiet</div>
+    <span class="label">Initiative</span><span class="value">Meld</span>
+    <span class="label">Stage</span><span class="value"><span class="dot">●</span>Demonstrating</span>
+    <span class="label">Places</span><span class="value">Kiel · Alpbach · Berlin</span>
+  </div>
+</body>
+</html>

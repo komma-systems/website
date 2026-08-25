@@ -11,8 +11,10 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sourceSerif: ["var(--font-source-serif)"],
+        sourceSerif: ["var(--font-serif)"],
         silkscreen: ["Silkscreen", "cursive"],
+        mono: ["var(--font-plex-mono)", "ui-monospace", "Menlo", "monospace"],
+        grotesk: ["var(--font-space-grotesk)", "sans-serif"],
       },
       colors: {
         cream: "#f5f2e8",
