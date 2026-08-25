@@ -170,6 +170,8 @@ export function HomePageClient() {
   const [initiatives, setInitiatives] = useState<any[]>([])
   const [activeArea, setActiveArea] = useState<number | null>(null)
   const [activeStep, setActiveStep] = useState<number | null>(null)
+  const [openEvent, setOpenEvent] = useState<number | null>(null)
+  const [showAdvisors, setShowAdvisors] = useState(false)
   const [initiativesLoading, setInitiativesLoading] = useState(true)
   const introductionSectionRef = useRef<HTMLDivElement>(null)
   const approachSectionRef = useRef<HTMLDivElement>(null)
@@ -287,7 +289,15 @@ export function HomePageClient() {
                   </span>
                 ))}
               </p>
-              <div className="mt-10 flex flex-wrap items-center gap-4">
+              <p className="mt-6 text-lg md:text-xl lg:text-2xl font-light leading-snug text-white/45">
+                {t.heroCredential.split("\n").map((line, i) => (
+                  <span key={i}>
+                    {i > 0 ? <br /> : null}
+                    {line}
+                  </span>
+                ))}
+              </p>
+              <div className="mt-8 flex flex-wrap items-center gap-4">
                 <a
                   href="#initiatives"
                   className="btn-field-outline inline-block rounded-full px-6 py-3 font-mono text-[13px] transition-[filter] hover:brightness-125"
@@ -774,13 +784,26 @@ export function HomePageClient() {
             <AnimatedElement animation="fade-in" className="mb-12 mt-16">
               <h3 className="text-2xl md:text-3xl font-semibold text-left mb-6 text-black">
                 {t.advisors}
+                <button
+                  type="button"
+                  onClick={() => setShowAdvisors(!showAdvisors)}
+                  aria-expanded={showAdvisors}
+                  aria-label="Toggle advisors"
+                  className="ml-3 text-xl font-light text-gray-400 hover:text-black transition-transform duration-200"
+                  style={{ transform: showAdvisors ? "rotate(45deg)" : "none", display: "inline-block" }}
+                >
+                  +
+                </button>
               </h3>
+              {showAdvisors && (
               <p className="text-base md:text-lg text-left text-gray-600 max-w-4xl leading-relaxed mb-8">
                 {t.advisorsIntro}
               </p>
+              )}
             </AnimatedElement>
 
             {/* Advisors Grid */}
+            {showAdvisors && (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
               {/*
               Caroline Paulick-Thiel (archived)
@@ -853,6 +876,7 @@ export function HomePageClient() {
                 </div>
               </AnimatedElement>
             </div>
+            )}
           </div>
         </section>
 
@@ -876,7 +900,7 @@ export function HomePageClient() {
                   </p>
                 </div>
                 <div>
-                  <h3 className="font-light text-xl sm:text-2xl lg:text-3xl text-white tracking-tight">
+                  <h3 className="font-light text-xl sm:text-2xl lg:text-3xl text-white tracking-tight sm:mt-[19px]">
                     <a
                       href="https://www.alpbach.org/blog/urban-transformation-and-bioregional-resilience-the-micro-macro-deal"
                       target="_blank"
@@ -885,7 +909,18 @@ export function HomePageClient() {
                     >
                       Meld at the European Forum Alpbach
                     </a>
+                    <button
+                      type="button"
+                      onClick={() => setOpenEvent(openEvent === 0 ? null : 0)}
+                      aria-expanded={openEvent === 0}
+                      aria-label="Toggle event details"
+                      className="ml-3 text-lg text-white/50 hover:text-white transition-transform duration-200 align-middle"
+                      style={{ transform: openEvent === 0 ? "rotate(45deg)" : "none", display: "inline-block" }}
+                    >
+                      +
+                    </button>
                   </h3>
+                  {openEvent === 0 && (
                   <p className="mt-2 text-base text-gray-300 leading-relaxed max-w-2xl">
                     A live demonstration of Meld with the{" "}
                     <a
@@ -899,6 +934,7 @@ export function HomePageClient() {
                     at the European Forum Alpbach: consent-first deliberation captured in the room,
                     processed on the device, and returned to participants as structured sensemaking.
                   </p>
+                  )}
                 </div>
                 <a
                   href="https://10x100.kair.is/"
@@ -920,7 +956,7 @@ export function HomePageClient() {
                   </p>
                 </div>
                 <div>
-                  <h3 className="font-light text-xl sm:text-2xl lg:text-3xl text-white tracking-tight">
+                  <h3 className="font-light text-xl sm:text-2xl lg:text-3xl text-white tracking-tight sm:mt-[19px]">
                     <a
                       href="https://valleyofthecommons.com/"
                       target="_blank"
@@ -929,13 +965,25 @@ export function HomePageClient() {
                     >
                       KOMMA at the Valley of the Commons
                     </a>
+                    <button
+                      type="button"
+                      onClick={() => setOpenEvent(openEvent === 1 ? null : 1)}
+                      aria-expanded={openEvent === 1}
+                      aria-label="Toggle event details"
+                      className="ml-3 text-lg text-white/50 hover:text-white transition-transform duration-200 align-middle"
+                      style={{ transform: openEvent === 1 ? "rotate(45deg)" : "none", display: "inline-block" }}
+                    >
+                      +
+                    </button>
                   </h3>
+                  {openEvent === 1 && (
                   <p className="mt-2 text-base text-gray-300 leading-relaxed max-w-2xl">
                     Clara keynotes &ldquo;Housing as a Commons&rdquo;: how land became property, and
                     what a century of collective housing, from Red Vienna to La Borda, teaches about
                     owning, funding and governing in common. Charlie follows with &ldquo;Knowing at the
                     Boundaries&rdquo;, on mapping land ownership to open sites to community-led futures.
                   </p>
+                  )}
                 </div>
                 <a
                   href="https://valleyofthecommons.com/"
@@ -957,7 +1005,7 @@ export function HomePageClient() {
                   </p>
                 </div>
                 <div>
-                  <h3 className="font-light text-xl sm:text-2xl lg:text-3xl text-white tracking-tight">
+                  <h3 className="font-light text-xl sm:text-2xl lg:text-3xl text-white tracking-tight sm:mt-[19px]">
                     <a
                       href="https://k-erc.eu/2026/08/horizon-europe-category/33982/"
                       target="_blank"
@@ -966,12 +1014,24 @@ export function HomePageClient() {
                     >
                       Korea-EU Horizon Europe Researchers Consulting Forum
                     </a>
+                    <button
+                      type="button"
+                      onClick={() => setOpenEvent(openEvent === 2 ? null : 2)}
+                      aria-expanded={openEvent === 2}
+                      aria-label="Toggle event details"
+                      className="ml-3 text-lg text-white/50 hover:text-white transition-transform duration-200 align-middle"
+                      style={{ transform: openEvent === 2 ? "rotate(45deg)" : "none", display: "inline-block" }}
+                    >
+                      +
+                    </button>
                   </h3>
+                  {openEvent === 2 && (
                   <p className="mt-2 text-base text-gray-300 leading-relaxed max-w-2xl">
                     Consortium building between Korean and European researchers towards the 2027
                     Horizon Europe Cluster 4 calls (Digital, Industry and Space), organised by the
                     Korea-EU Research Centre (KERC) and the National Research Foundation of Korea.
                   </p>
+                  )}
                 </div>
                 <a
                   href="https://k-erc.eu/2026/08/horizon-europe-category/33982/"
@@ -993,7 +1053,7 @@ export function HomePageClient() {
                   </p>
                 </div>
                 <div>
-                  <h3 className="font-light text-xl sm:text-2xl lg:text-3xl text-white tracking-tight">
+                  <h3 className="font-light text-xl sm:text-2xl lg:text-3xl text-white tracking-tight sm:mt-[19px]">
                     <a
                       href="https://luma.com/ycmcreer?tk=7ObFX9"
                       target="_blank"
@@ -1002,13 +1062,25 @@ export function HomePageClient() {
                     >
                       Threshold #2: Designing Progressive Housing Mechanisms
                     </a>
+                    <button
+                      type="button"
+                      onClick={() => setOpenEvent(openEvent === 3 ? null : 3)}
+                      aria-expanded={openEvent === 3}
+                      aria-label="Toggle event details"
+                      className="ml-3 text-lg text-white/50 hover:text-white transition-transform duration-200 align-middle"
+                      style={{ transform: openEvent === 3 ? "rotate(45deg)" : "none", display: "inline-block" }}
+                    >
+                      +
+                    </button>
                   </h3>
+                  {openEvent === 3 && (
                   <p className="mt-2 text-base text-gray-300 leading-relaxed max-w-2xl">
                     The second network gathering of practitioners, researchers and institutional actors
                     advancing alternative housing models: diagnosing the housing system&rsquo;s structural
                     challenges, evaluating mechanisms such as Rent Credit Obligations and Tokenised
                     Access Rights, and identifying European demonstration sites. Organised with Autonomic.
                   </p>
+                  )}
                 </div>
                 <a
                   href="https://luma.com/ycmcreer?tk=7ObFX9"

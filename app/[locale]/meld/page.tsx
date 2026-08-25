@@ -4,6 +4,7 @@ import { Navigation } from "@/components/navigation"
 import { defaultLocale, isLocale, type Locale } from "@/lib/i18n"
 import { localeAlternatesMetadata } from "@/lib/metadata/locale-alternates"
 import { meldMessages } from "@/lib/messages/meld"
+import { FieldEvents } from "@/components/field-events"
 
 const meldDescription =
   "Meld is a hardware device and spatial AI platform for civic deliberation. Built by KOMMA Systems."
@@ -64,7 +65,7 @@ export default async function MeldPage({ params }: PageProps) {
       <Navigation />
       <main className="min-h-screen bg-black px-6 pb-20 pt-28 font-sourceSerif text-white sm:px-10 sm:pt-32">
         <div className="mx-auto max-w-6xl">
-          <header className="mb-24">
+          <header className="mb-24 md:ml-[336px]">
             <Link
               href={`/${locale}#initiatives`}
               className="mb-8 inline-block font-silkscreen text-xs uppercase tracking-wider text-white/60 transition-colors hover:text-cream"
@@ -238,64 +239,7 @@ export default async function MeldPage({ params }: PageProps) {
                 <p className="mb-4 font-silkscreen text-base sm:text-lg uppercase tracking-[0.18em] text-cream">
                   {t.fieldLabel}
                 </p>
-                <div>
-                  {t.field.map((item) => {
-                    const Row = (
-                      <div className="grid grid-cols-1 gap-x-9 gap-y-3 border-t border-white/25 py-8 transition-colors hover:bg-white/[0.04] sm:grid-cols-[130px_1fr]">
-                        <div>
-                          <p
-                            className="font-silkscreen text-[0.65rem] uppercase tracking-widest"
-                            style={{ color: TAG_COLORS[item.tag] ?? "#f5f2e8" }}
-                          >
-                            {item.tag}
-                          </p>
-                          <p className="mt-1.5 font-mono text-[13px] leading-relaxed text-white/60">
-                            {item.meta.map((m, i) => (
-                              <span key={m}>
-                                {i > 0 ? <br /> : null}
-                                {m}
-                              </span>
-                            ))}
-                          </p>
-                        </div>
-                        <div>
-                          <h3 className="text-xl font-light tracking-tight text-white sm:text-2xl">
-                            {item.title}
-                          </h3>
-                          <p className={`${proseClasses} mt-2 text-gray-300`}>
-                            {item.body}
-                          </p>
-                          {item.cta && (
-                            <p className="mt-4">
-                              <span
-                                className={
-                                  item.tag === "Participate" || item.tag === "Mitmachen"
-                                    ? "btn-field inline-block rounded-full px-5 py-2.5 font-mono text-[13px] font-semibold text-white transition-[filter] group-hover:brightness-110"
-                                    : "btn-field-outline inline-block rounded-full px-4 py-2 font-mono text-[13px] transition-[filter] group-hover:brightness-125"
-                                }
-                              >
-                                {item.cta}
-                              </span>
-                            </p>
-                          )}
-                        </div>
-                      </div>
-                    )
-                    return item.href ? (
-                      <a
-                        key={item.title}
-                        href={item.href.startsWith("/") ? `/${locale}${item.href}` : item.href}
-                        target={item.href.startsWith("/") ? undefined : "_blank"}
-                        rel={item.href.startsWith("/") ? undefined : "noopener noreferrer"}
-                        className="group block cursor-pointer"
-                      >
-                        {Row}
-                      </a>
-                    ) : (
-                      <div key={item.title}>{Row}</div>
-                    )
-                  })}
-                </div>
+                <FieldEvents items={t.field} locale={locale} />
               </div>
             </div>
           </div>

@@ -15,6 +15,7 @@ export type HomeMessages = {
   actionAlt: string
   researchSubtitle: string
   intro1: string
+  heroCredential: string
   heroSecondary: string
   intro2: string
   intro3: string
@@ -60,6 +61,7 @@ const en: HomeMessages = {
   heroSecondary: "Explore the initiatives",
   intro1:
     "A research and\nrelational technology studio using\nartistic inquiry and real-world demonstration to shift collective imagination around how we value, own, govern and care for what we hold in common, beginning with land and housing.",
+  heroCredential: "10+ years of experience across spatial design, finance,\ngovernance, technology and communities.",
   intro2:
     "Our action is made possible through place-based partnerships with citizens, municipalities, philanthropy and the private sector. Together, we research, design and test new mechanisms across governance, finance, relations and technology.",
   intro3:
@@ -145,6 +147,7 @@ const de: HomeMessages = {
   heroSecondary: "Initiativen entdecken",
   intro1:
     "Ein Studio für Forschung und\nzivilgesellschaftliche Technologie,\ndas mit künstlerischer Erkundung und realen Demonstratoren das kollektive Bild davon verschiebt, wie wir das gemeinsam Gehaltene schätzen, besitzen, verwalten und pflegen, beginnend mit Boden und Wohnen.",
+  heroCredential: "Über 10 Jahre Erfahrung in räumlicher Gestaltung, Finanzen,\nGovernance, Technologie und Gemeinschaften.",
   intro2:
     "Unser Handeln wird durch ortsbezogene Partnerschaften mit Bürgerinnen und Bürgern, Kommunen, Philanthropie und der Privatwirtschaft möglich. Gemeinsam erforschen, entwerfen und erproben wir neue Mechanismen in Governance, Finanzen, Beziehungen und Technologie.",
   intro3:
