@@ -131,7 +131,7 @@ const de: HomeMessages = {
     line1: "eine Pause, ein Übergang,",
     line2: "eine Integration oder ein Wendepunkt,",
     line3: "der die dynamische Beziehung",
-    line4: "strukturiert und ordnet —",
+    line4: "strukturiert und ordnet,",
     between: "zwischen",
     and: "und",
   },
@@ -140,7 +140,7 @@ const de: HomeMessages = {
   researchSubtitle: "Forschung und Strategie für \neine neue Zivilgesellschaft",
   heroSecondary: "Initiativen entdecken",
   intro1:
-    "Ein Studio für Forschung und\nzivilgesellschaftliche Technologie,\ndas mit künstlerischer Erkundung und realen Demonstratoren das kollektive Bild davon verschiebt, wie wir das gemeinsam Gehaltene schätzen, besitzen, verwalten und pflegen, beginnend mit Boden und Wohnen.",
+    "Ein Studio für Forschung und\nrelationale Technologie,\ndas mit künstlerischer Erkundung und realen Demonstratoren das kollektive Bild davon verschiebt, wie wir das gemeinsam Gehaltene schätzen, besitzen, verwalten und pflegen, beginnend mit Boden und Wohnen.",
   heroCredential: "Über 10 Jahre Erfahrung in räumlicher Gestaltung, Finanzen,\nGovernance, Technologie und Gemeinschaften.",
   partners: "Partner",
   partnersIntro: "Wir arbeiten mit Organisationen, die neue Formen kollektiven Handelns vorantreiben.",
@@ -172,13 +172,13 @@ const de: HomeMessages = {
   ourApproach: "Praxisfelder",
   areasHeading: "Praxisfelder",
   areasIntro: "Die Mechanismen, die wir entwickeln, antworten auf die Bedingungen jedes Ortes. Wir kombinieren verschiedene Hebel, um zu bauen, was die jeweilige Situation verlangt. Unsere Arbeit erstreckt sich über vier miteinander verbundene Praxisfelder.",
-  areasSelectHint: "Wähle ein Praxisfeld, um mehr zu lesen.",
+  areasSelectHint: "Wählen Sie ein Praxisfeld, um mehr zu lesen.",
   approachCards: [
     {
       key: "wealth",
       heading: "Ziviles Gemeinwohl neu denken",
       description:
-        "Gemeinschaften unterstützen, indem wir innovative ökonomische Werkzeuge mitgestalten — für mehr Kontrolle über Wohnen und Land. Gemeinsame Finanzierung, gemeinschaftlich gesteuerte Exit-Strategien, Multi-Kapital-Währungen und bioregionales Banking verändern, wie Wohlstand in Quartieren und vernetzten Gemeinschaften fließt.",
+        "Gemeinschaften unterstützen, indem wir innovative ökonomische Werkzeuge mitgestalten, für mehr Kontrolle über Wohnen und Land. Gemeinsame Finanzierung, gemeinschaftlich gesteuerte Exit-Strategien, Multi-Kapital-Währungen und bioregionales Banking verändern, wie Wohlstand in Quartieren und vernetzten Gemeinschaften fließt.",
     },
     {
       key: "agreements",
@@ -190,7 +190,7 @@ const de: HomeMessages = {
       key: "rituals",
       heading: "Spielerische Rituale kultivieren",
       description:
-        "Governance in den Alltag integrieren — humanzentriert gestaltet. Mit sociokratischer Entscheidungsfindung, digitalen Koordinationswerkzeugen und innovativer Hardware, die kollektive Zusammenarbeit verbindet und digitale und physische Räume nahtlos verzahnt.",
+        "Governance in den Alltag integrieren, humanzentriert gestaltet. Mit soziokratischer Entscheidungsfindung, digitalen Koordinationswerkzeugen und innovativer Hardware, die kollektive Zusammenarbeit verbindet und digitale und physische Räume nahtlos verzahnt.",
     },
     {
       key: "technology",
@@ -203,7 +203,7 @@ const de: HomeMessages = {
   loadingInitiatives: "Initiativen werden geladen...",
   collective: "Das Kollektiv",
   collectiveIntro:
-    "Unsere Kooperationspartnerinnen vereinen tiefe Expertise in der Leitung von Organisationen und arbeiten mit führenden Institutionen zusammen, die eine gerechte, commons-basierte zivile Praxis voranbringen.",
+    "Unsere Kooperationspartner:innen bringen Expertise aus führenden Organisationen und Institutionen mit, die eine gerechte, commons-basierte zivile Praxis voranbringen.",
   advisors: "Beirat",
   advisorsIntro: "Unser Beirat unterstützt unsere Mission mit strategischer Begleitung und Fachwissen.",
 }
