@@ -610,7 +610,7 @@ export function HomePageClient() {
                   Charlie works on practical demonstrations of decentralised technologies 
                   for enhancing the delivery of affordable housing and commons-based landholding. 
                   As a researcher, founder, and project advisor, he ran an architecture practice for 
-                  a decade, and was a key advisor on large scale new housing developments in England. 
+                  a decade, and was a key advisor on large-scale new housing developments in England. 
                   In 2022 he co-founded Oasa, a Swiss token-issuer for networked land projects.
                   </p>
                 </div>
@@ -658,7 +658,7 @@ export function HomePageClient() {
                     </a>
                   </div>
                   <p className="text-sm text-gray-500 leading-relaxed">
-                    Clara is a consultant, researcher and business operator on decentralised technologies. With a background in Architecture she developed regenerative housing projects, incubated cooperative housing projects, advised on affordable housing policy making to municipalities in Barcelona and manages operations at a decentralised tech workers cooperative.
+                    Clara is a consultant, researcher and business operator on decentralised technologies. With a background in architecture, she has developed regenerative housing projects, incubated cooperative housing, advised municipalities in Barcelona on affordable-housing policy, and manages operations at a decentralised tech workers' cooperative.
                   </p>
                 </div>
               </AnimatedElement>
@@ -680,7 +680,7 @@ export function HomePageClient() {
                     </div>
                   </div>
                   <p className="text-sm text-gray-500 leading-relaxed">
-                    Bradley is a strategic designer and innovator working at the intersection of culture, AI-native systems, and human-centred technology. Currently the Node Manager for Foresight Institute's Berlin AI Node and leading AI Builders Berlin as Community Director, he brings experience design, blending applied research with grassroots organising and urban rituals.
+                    Bradley is a strategic designer and innovator working at the intersection of culture, AI-native systems, and human-centred technology. Currently the Node Manager for Foresight Institute's Berlin AI Node and leading AI Builders Berlin as Community Director, he works in experience design, blending applied research with grassroots organising and urban rituals.
                   </p>
                 </div>
               </AnimatedElement>
@@ -724,8 +724,7 @@ export function HomePageClient() {
                     </div>
                   </div>
                   <p className="text-sm text-gray-500 leading-relaxed">
-                    Jeff is a researcher and technical writer at BlockScience. Along with Michael Zargham & Griff Green,
-                    he co-founded the Commons Stack to build out a toolkit of modular components that can be used for
+                    Jeff is a researcher and technical writer at BlockScience. He co-founded the Commons Stack to build out a toolkit of modular components that can be used for
                     polycentric governance of DAO ecosystems. He is involved in multiple open research initiatives into novel resource allocation patterns like bonding curves and conviction voting that could facilitate a future of data-driven algorithmic policy and computer-aided governance.
                   </p>
                 </div>
@@ -773,7 +772,7 @@ export function HomePageClient() {
                     </div>
                   </div>
                   <p className="text-sm text-gray-500 leading-relaxed">
-                    Robert Matijević is a fullstack developer and technical lead with a decade of experience shipping software and leading engineering teams across complex, multi-layer systems. He brings a generalist depth across frontend, backend, and infrastructure that lets him move fluidly between architecture decisions and hands-on implementation with an expertise in Rust. Alongside his professional work, Robert pursues a personal fascination with the world's writing systems. He joined KOMMA as Meld Initiative Technical Lead in 2025, where he leads development of the Kair platform.
+                    Robert Matijević is a fullstack developer and technical lead with a decade of experience shipping software and leading engineering teams across complex, multi-layer systems. He brings a generalist depth across frontend, backend, and infrastructure that lets him move fluidly between architecture decisions and hands-on implementation with expertise in Rust. Alongside his professional work, Robert pursues a personal fascination with the world's writing systems. He joined KOMMA as Meld Initiative Technical Lead in 2025, where he leads development of the Kair platform.
                   </p>
                 </div>
               </AnimatedElement>

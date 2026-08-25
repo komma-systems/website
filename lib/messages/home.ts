@@ -17,8 +17,6 @@ export type HomeMessages = {
   intro1: string
   heroCredential: string
   heroSecondary: string
-  intro2: string
-  intro3: string
   partners: string
   partnersIntro: string
   who: {
@@ -62,10 +60,6 @@ const en: HomeMessages = {
   intro1:
     "A research and\nrelational technology studio using\nartistic inquiry and real-world demonstration to shift collective imagination around how we value, own, govern and care for what we hold in common, beginning with land and housing.",
   heroCredential: "10+ years of experience across spatial design, finance,\ngovernance, technology and communities.",
-  intro2:
-    "Our action is made possible through place-based partnerships with citizens, municipalities, philanthropy and the private sector. Together, we research, design and test new mechanisms across governance, finance, relations and technology.",
-  intro3:
-    "We demonstrate them in real places, document what works as patterns, and turn those patterns into models, tools and civic technologies that others can use and adapt.",
   partners: "Partners",
   partnersIntro: "Working with organisations advancing new forms of collective action.",
   who: {
@@ -95,7 +89,7 @@ const en: HomeMessages = {
   howClosing: "A mechanism proven in one place can be picked up in another, with each place starting further ahead.",
   ourApproach: "Areas of practice",
   areasHeading: "Areas of practice",
-  areasIntro: "The mechanisms we develop respond to the conditions of each place. Rather than applying a fixed model, we combine different levers to build what the situation requires. Our work spans four interconnected areas of practice.",
+  areasIntro: "The mechanisms we develop respond to the conditions of each place. We combine different levers to build what each situation requires. Our work spans four interconnected areas of practice.",
   areasSelectHint: "Select an area to read more.",
   approachCards: [
     {
@@ -148,10 +142,6 @@ const de: HomeMessages = {
   intro1:
     "Ein Studio für Forschung und\nzivilgesellschaftliche Technologie,\ndas mit künstlerischer Erkundung und realen Demonstratoren das kollektive Bild davon verschiebt, wie wir das gemeinsam Gehaltene schätzen, besitzen, verwalten und pflegen, beginnend mit Boden und Wohnen.",
   heroCredential: "Über 10 Jahre Erfahrung in räumlicher Gestaltung, Finanzen,\nGovernance, Technologie und Gemeinschaften.",
-  intro2:
-    "Unser Handeln wird durch ortsbezogene Partnerschaften mit Bürgerinnen und Bürgern, Kommunen, Philanthropie und der Privatwirtschaft möglich. Gemeinsam erforschen, entwerfen und erproben wir neue Mechanismen in Governance, Finanzen, Beziehungen und Technologie.",
-  intro3:
-    "Wir demonstrieren sie an realen Orten, dokumentieren als Muster, was funktioniert, und übersetzen diese Muster in Modelle, Werkzeuge und zivilgesellschaftliche Technologien, die andere nutzen und anpassen können.",
   partners: "Partner",
   partnersIntro: "Wir arbeiten mit Organisationen, die neue Formen kollektiven Handelns vorantreiben.",
   who: {
@@ -181,7 +171,7 @@ const de: HomeMessages = {
   howClosing: "Ein Mechanismus, der sich an einem Ort bewährt hat, kann am nächsten aufgegriffen werden, und jeder Ort beginnt ein Stück weiter vorn.",
   ourApproach: "Praxisfelder",
   areasHeading: "Praxisfelder",
-  areasIntro: "Die Mechanismen, die wir entwickeln, antworten auf die Bedingungen jedes Ortes. Wir kombinieren verschiedene Hebel, um zu bauen, was die Situation verlangt. Unsere Arbeit erstreckt sich über vier miteinander verbundene Praxisfelder.",
+  areasIntro: "Die Mechanismen, die wir entwickeln, antworten auf die Bedingungen jedes Ortes. Wir kombinieren verschiedene Hebel, um zu bauen, was die jeweilige Situation verlangt. Unsere Arbeit erstreckt sich über vier miteinander verbundene Praxisfelder.",
   areasSelectHint: "Wähle ein Praxisfeld, um mehr zu lesen.",
   approachCards: [
     {

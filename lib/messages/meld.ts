@@ -44,7 +44,7 @@ const en: MeldMessages = {
     projects: "Projects",
     device: "Device",
     team: "Team",
-    teamValue: ["Charlie Fisher (Project Lead)", "Robert Matijevic (Technical Lead)"],
+    teamValue: ["Charlie Fisher (Project Lead)", "Robert Matijević (Technical Lead)"],
     partners: "Partners",
     contact: "Contact",
     contactCta: "Work with Meld →",
@@ -55,7 +55,7 @@ const en: MeldMessages = {
   ],
   problemLabel: "The Problem",
   problem: [
-    "The tools available today force a bad choice. Either the audio goes to commercial cloud AI, which public-sector settings cannot responsibly accept, or it becomes a flat transcript that someone spends hours analysing by hand. Either way, the knowledge citizens generate never takes a durable form that could accumulate, travel between places, or inform the next decision, so each assembly starts over from the beginning without the accumulated context.",
+    "The tools available today force a bad choice. Either the audio goes to commercial cloud AI, which public-sector settings cannot responsibly accept, or it becomes a flat transcript that someone spends hours analysing by hand. Either way, the knowledge citizens generate never takes a durable form that could accumulate, travel between places, or inform the next decision, so each assembly starts again without the accumulated context.",
   ],
   whatLabel: "What Meld Does",
   whatLead: "The whole pipeline is anonymous and private by design. No voice is ever tied to a name, and nothing leaves the room that could be.",
