@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>How-we-work: click-through variants</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300;8..60,400&family=Silkscreen&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: #111; color: #eee; font-family: "Source Serif 4", serif; }
+  section { padding: 56px 48px; border-bottom: 1px solid #2a2a2a; }
+  .tag { font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: .1em; color: #666; text-transform: uppercase; margin-bottom: 30px; }
+  .sk { font-family: "Silkscreen", cursive; text-transform: uppercase; letter-spacing: .08em; color: #d4d4d4; }
+  button { background: none; border: none; color: inherit; font: inherit; cursor: pointer; text-align: left; padding: 0; }
+  .desc { font-size: 17px; line-height: 1.7; color: #b9b9b9; max-width: 34em; margin: 0; }
+  img.mark { width: 100%; display: block; }
+  .dim { opacity: .35; }
+  .arrow { color: rgba(255,255,255,.3); }
+
+  /* B: band of drawings, text panel below */
+  .vB .band { display: grid; grid-template-columns: repeat(5, 1fr); gap: 28px; border-top: 1px solid rgba(255,255,255,.15); padding-top: 26px; }
+  .vB .band button { transition: opacity .2s; }
+  .vB .band .sk { font-size: 13px; margin-top: 10px; display: block; }
+  .vB .panel { margin-top: 30px; min-height: 60px; }
+  .vB .band button.on .sk { color: #fff; }
+
+  /* C: vertical accordion like Areas */
+  .vC .row { border-top: 1px solid rgba(255,255,255,.12); }
+  .vC .row:last-child { border-bottom: 1px solid rgba(255,255,255,.12); }
+  .vC .row > button { width: 100%; display: flex; align-items: baseline; gap: 12px; padding: 16px 0; }
+  .vC .sk { font-size: 15px; }
+  .vC .plus { font-size: 17px; opacity: .7; }
+  .vC .open-body { display: grid; grid-template-columns: 220px 1fr; gap: 30px; padding: 0 0 24px; align-items: start; }
+
+  /* D: labels column left, drawing + text right */
+  .vD { display: grid; grid-template-columns: 300px 1fr; gap: 60px; align-items: start; }
+  .vD .list button { display: block; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,.1); width: 100%; }
+  .vD .sk { font-size: 15px; }
+  .vD .stage img { max-width: 320px; }
+  .vD .stage .desc { margin-top: 18px; }
+
+  /* E: drawings as the buttons, text replaces the row under the active one */
+  .vE .band { display: grid; grid-template-columns: repeat(5, 1fr); gap: 28px; border-top: 1px solid rgba(255,255,255,.15); padding-top: 26px; }
+  .vE .sk { font-size: 13px; margin-top: 10px; display: block; }
+  .vE .below { margin-top: 8px; font-size: 15px; line-height: 1.6; color: #b9b9b9; }
+  @media (max-width: 900px){ .vB .band,.vE .band{grid-template-columns:repeat(2,1fr)} .vD{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+
+<section>
+  <div class="tag">B · Band of drawings as tabs, one text below (Charlie's literal ask)</div>
+  <div class="vB">
+    <div class="band" id="bband"></div>
+    <div class="panel"><p class="desc" id="bpanel"></p></div>
+  </div>
+</section>
+
+<section>
+  <div class="tag">C · Accordion like Areas of practice: drawing + text unfold in the row</div>
+  <div class="vC" id="cacc"></div>
+</section>
+
+<section>
+  <div class="tag">D · Step list left, drawing and text right</div>
+  <div class="vD">
+    <div class="list" id="dlist"></div>
+    <div class="stage" id="dstage"></div>
+  </div>
+</section>
+
+<section>
+  <div class="tag">E · Band stays, text appears under the active drawing only</div>
+  <div class="vE"><div class="band" id="eband"></div></div>
+</section>
+
+<script>
+const STEPS = [
+  ["research", "Research", "Understand the conditions, relationships and systems shaping what is possible in a place."],
+  ["design", "Mechanism Design", "Develop new mechanisms of governance, finance, relations and technology with the people involved."],
+  ["demonstrate", "Demonstrators", "Build and test them in real places, with the communities and institutions involved."],
+  ["learn", "Patterns", "Document what works, what does not, and why, turning experience into patterns that can travel."],
+  ["adapt", "Tools", "Build the tools and infrastructure that help others use and adapt proven mechanisms."],
+];
+
+(function(){ // B
+  let act = 0; const band = document.getElementById("bband"), panel = document.getElementById("bpanel");
+  function render(){
+    band.innerHTML = "";
+    STEPS.forEach(([k,l],i)=>{
+      const b = document.createElement("button");
+      b.className = (i===act ? "on" : "dim");
+      b.innerHTML = `<img class="mark" src="/how/${k}.svg" alt=""><span class="sk">${l}${i<4?' <span class="arrow">→</span>':''}</span>`;
+      b.onclick = ()=>{act=i;render();};
+      band.appendChild(b);
+    });
+    panel.textContent = STEPS[act][2];
+  }
+  render();
+})();
+
+(function(){ // C
+  let act = 0; const acc = document.getElementById("cacc");
+  function render(){
+    acc.innerHTML = "";
+    STEPS.forEach(([k,l,d],i)=>{
+      const row = document.createElement("div"); row.className = "row";
+      row.innerHTML = `<button><span class="sk${i===act?"":" dim"}">${l}</span><span class="plus">${i===act?"×":"+"}</span></button>` +
+        (i===act ? `<div class="open-body"><img class="mark" src="/how/${k}.svg" alt=""><p class="desc">${d}</p></div>` : "");
+      row.querySelector("button").onclick = ()=>{act = act===i ? -1 : i; render();};
+      acc.appendChild(row);
+    });
+  }
+  render();
+})();
+
+(function(){ // D
+  let act = 0; const list = document.getElementById("dlist"), stage = document.getElementById("dstage");
+  function render(){
+    list.innerHTML = "";
+    STEPS.forEach(([k,l],i)=>{
+      const b = document.createElement("button");
+      b.innerHTML = `<span class="sk${i===act?"":" dim"}">0${i+1} ${l}</span>`;
+      b.onclick = ()=>{act=i;render();};
+      list.appendChild(b);
+    });
+    stage.innerHTML = `<img class="mark" src="/how/${STEPS[act][0]}.svg" alt=""><p class="desc">${STEPS[act][2]}</p>`;
+  }
+  render();
+})();
+
+(function(){ // E
+  let act = 0; const band = document.getElementById("eband");
+  function render(){
+    band.innerHTML = "";
+    STEPS.forEach(([k,l,d],i)=>{
+      const b = document.createElement("button");
+      b.className = (i===act ? "" : "dim");
+      b.innerHTML = `<img class="mark" src="/how/${k}.svg" alt=""><span class="sk">${l}</span>` +
+        (i===act ? `<p class="below">${d}</p>` : "");
+      b.onclick = ()=>{act=i;render();};
+      band.appendChild(b);
+    });
+  }
+  render();
+})();
+</script>
+</body>
+</html>

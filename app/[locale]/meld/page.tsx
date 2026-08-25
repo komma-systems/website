@@ -37,10 +37,10 @@ const proseClasses = "[text-wrap:pretty] text-[1.125rem] leading-[1.8] text-slat
 const labelClasses = "mb-5 mt-14 font-silkscreen text-base sm:text-lg uppercase tracking-[0.18em] text-cream"
 
 const sideLabel =
-  "mt-6 block font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-white/40 first:mt-0"
-const sideValue = "font-mono text-[13.5px] leading-7 text-white/80"
+  "mt-6 block font-grotesk text-[11px] font-medium uppercase tracking-[0.2em] text-white/40 first:mt-0"
+const sideValue = "font-grotesk text-[14.5px] font-light leading-7 text-white/85"
 const sideLink =
-  "font-mono text-[13px] leading-7 text-white border-b border-white/30 hover:text-cream hover:border-cream transition-colors"
+  "font-grotesk text-[14px] font-light leading-7 text-white border-b border-white/30 hover:text-cream hover:border-cream transition-colors"
 
 const TAG_COLORS: Record<string, string> = {
   Forum: "#575757",
@@ -157,7 +157,7 @@ export default async function MeldPage({ params }: PageProps) {
                 {t.what.map((step, i) => (
                   <div key={step.title} className="grid grid-cols-1 sm:grid-cols-[9.5rem_1fr] gap-x-5 gap-y-1 border-l border-white/20 pl-5">
                     <p
-                      className="font-mono text-[14px] font-semibold uppercase tracking-[0.14em] pt-1"
+                      className="font-grotesk text-[15px] font-medium uppercase tracking-[0.16em] pt-1"
                       style={{ color: ["#575757", "#737373", "#9c9c9c"][i] }}
                     >
                       {String(i + 1).padStart(2, "0")} {step.title}

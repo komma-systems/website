@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Accordion + placement variants</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300;8..60,400&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: #000; color: #eee; font-family: "Source Serif 4", serif; }
+  section { padding: 48px; border-bottom: 1px solid #222; }
+  .tag { font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: .1em; color: #666; text-transform: uppercase; margin-bottom: 24px; }
+  .row { border-top: 1px solid rgba(255,255,255,.12); }
+  .row:last-child { border-bottom: 1px solid rgba(255,255,255,.12); }
+  button { background: none; border: none; color: inherit; font: inherit; cursor: pointer; text-align: left; width: 100%; padding: 18px 0; display: flex; align-items: baseline; gap: 14px; }
+  h3 { margin: 0; font-weight: 300; font-size: 26px; letter-spacing: -0.01em; }
+  .c0 { color: #8a8a8a; } .c1 { color: #9c9c9c; } .c2 { color: #b3b3b3; } .c3 { color: #cfcfcf; }
+  .plus { font-size: 20px; line-height: 1; }
+  .open p { margin: 0 0 22px; font-size: 17px; line-height: 1.7; color: #b9b9b9; max-width: 36em; }
+  .far { justify-content: space-between; }
+  .small { font-size: 15px; opacity: .7; }
+  .circ { display: inline-flex; width: 26px; height: 26px; border: 1px solid rgba(255,255,255,.35); border-radius: 50%; align-items: center; justify-content: center; font-size: 15px; flex: none; align-self: center; }
+</style>
+</head>
+<body>
+
+<section>
+  <div class="tag">A · Current: + pushed to the far right</div>
+  <div id="vA"></div>
+</section>
+
+<section>
+  <div class="tag">B · + on the left, before the title</div>
+  <div id="vB"></div>
+</section>
+
+<section>
+  <div class="tag">C · + hugging the title's end</div>
+  <div id="vC"></div>
+</section>
+
+<section>
+  <div class="tag">D · circled + hugging the title (ring like the CTAs)</div>
+  <div id="vD"></div>
+</section>
+
+<section>
+  <div class="tag">E · circled + on the left</div>
+  <div id="vE"></div>
+</section>
+
+<script>
+const AREAS = [
+  ["Inverting Civic Wealth", "Supporting communities through co-designing innovative economic tools to enhance control over housing and land ownership. Pooled funding, community-driven exit strategies, multi-capital currencies, and bioregional banking reshape how wealth flows within neighbourhoods and interconnected communities."],
+  ["Modernising Agreements", "Crafting modular and automated governance, policy and legal frameworks that redefine how communities own and care."],
+  ["Cultivating Playful Rituals", "Integrating governance into everyday life through human-centric design, connecting digital and physical spaces."],
+  ["Building Civic Technology", "We build the technology these mechanisms run on: on-device AI, hardware for the room, knowledge graphs, decentralised registries."],
+];
+function build(el, layout){
+  let act = -1;
+  function render(){
+    el.innerHTML = "";
+    AREAS.forEach(([h,b],i)=>{
+      const d = document.createElement("div"); d.className = "row" + (i===act?" open":"");
+      const sign = i===act ? "×" : "+";
+      let inner;
+      if(layout==="far")   inner = `<button class="far"><h3 class="c${i}">${h}</h3><span class="plus c${i}">${sign}</span></button>`;
+      if(layout==="left")  inner = `<button><span class="plus c${i}">${sign}</span><h3 class="c${i}">${h}</h3></button>`;
+      if(layout==="hug")   inner = `<button><h3 class="c${i}">${h} <span class="plus small c${i}">${sign}</span></h3></button>`;
+      if(layout==="circ")  inner = `<button><h3 class="c${i}">${h}</h3><span class="circ c${i}">${sign}</span></button>`;
+      if(layout==="circL") inner = `<button><span class="circ c${i}">${sign}</span><h3 class="c${i}">${h}</h3></button>`;
+      d.innerHTML = inner + (i===act ? `<p>${b}</p>` : "");
+      d.querySelector("button").onclick = ()=>{act = act===i ? -1 : i; render();};
+      el.appendChild(d);
+    });
+  }
+  render();
+}
+build(document.getElementById("vA"), "far");
+build(document.getElementById("vB"), "left");
+build(document.getElementById("vC"), "hug");
+build(document.getElementById("vD"), "circ");
+build(document.getElementById("vE"), "circL");
+</script>
+</body>
+</html>

@@ -1,18 +1,17 @@
 import type React from "react"
 import "./globals.css"
 import type { Metadata, Viewport } from "next"
-import { Source_Serif_4, Silkscreen, IBM_Plex_Mono } from "next/font/google"
+import { Source_Serif_4, Silkscreen, IBM_Plex_Mono, Space_Grotesk } from "next/font/google"
 import { SiteFooter } from "@/components/site-footer"
 import { AuthProvider } from "@/app/providers"
 import { getRequestLocale } from "@/lib/request-locale"
 import { getSiteBaseUrl } from "@/lib/site-url"
 import type { Locale } from "@/lib/i18n"
 
-// Load Source Serif Pro (Source Serif 4 is the updated version)
-const sourceSerif = Source_Serif_4({
+const serif = Source_Serif_4({
   subsets: ["latin"],
   weight: ["200", "300", "400"],
-  variable: "--font-source-serif",
+  variable: "--font-serif",
   preload: true,
   display: "swap",
 })
@@ -22,6 +21,14 @@ const silkscreen = Silkscreen({
   weight: ["400", "700"],
   variable: "--font-silkscreen",
   preload: true,
+  display: "swap",
+})
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["300", "400", "500"],
+  variable: "--font-space-grotesk",
+  preload: false,
   display: "swap",
 })
 
@@ -68,7 +75,7 @@ export default async function RootLayout({
   const lang: Locale = await getRequestLocale()
 
   return (
-    <html lang={lang} className={`${sourceSerif.variable} ${silkscreen.variable} ${plexMono.variable}`.trim()}>
+    <html lang={lang} className={`${serif.variable} ${silkscreen.variable} ${plexMono.variable} ${spaceGrotesk.variable}`.trim()}>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />

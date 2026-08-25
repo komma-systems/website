@@ -35,6 +35,7 @@ export type HomeMessages = {
   ourApproach: string
   areasHeading: string
   areasIntro: string
+  areasSelectHint: string
   approachCards: ApproachCard[]
   initiatives: string
   loadingInitiatives: string
@@ -74,7 +75,7 @@ const en: HomeMessages = {
       { title: "Funders and philanthropy", body: "We work with funders to turn research and capital into practical experiments with potential beyond a single place." },
       { title: "Private businesses", body: "We work with businesses to develop partnerships that connect economic activity with the long-term value and care of a place." },
       { title: "Communities and land projects", body: "We work with communities to develop the mechanisms and infrastructure needed to make collective ownership and care viable." },
-      { title: "Researchers and\ninstitutional partners", body: "We work with researchers and institutions to bring applied research into contact with real places and practical experimentation." },
+      { title: "Researchers and institutional partners", body: "We work with researchers and institutions to bring applied research into contact with real places and practical experimentation." },
       { title: "European consortia", body: "We join European research and innovation consortia as a practice partner, bringing live pilots, civic technology and experience from the ground." },
     ],
   },
@@ -93,6 +94,7 @@ const en: HomeMessages = {
   ourApproach: "Areas of practice",
   areasHeading: "Areas of practice",
   areasIntro: "The mechanisms we develop respond to the conditions of each place. Rather than applying a fixed model, we combine different levers to build what the situation requires. Our work spans four interconnected areas of practice.",
+  areasSelectHint: "Select an area to read more.",
   approachCards: [
     {
       key: "wealth",
@@ -177,6 +179,7 @@ const de: HomeMessages = {
   ourApproach: "Praxisfelder",
   areasHeading: "Praxisfelder",
   areasIntro: "Die Mechanismen, die wir entwickeln, antworten auf die Bedingungen jedes Ortes. Wir kombinieren verschiedene Hebel, um zu bauen, was die Situation verlangt. Unsere Arbeit erstreckt sich über vier miteinander verbundene Praxisfelder.",
+  areasSelectHint: "Wähle ein Praxisfeld, um mehr zu lesen.",
   approachCards: [
     {
       key: "wealth",

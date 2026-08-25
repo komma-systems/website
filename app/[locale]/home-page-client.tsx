@@ -39,10 +39,10 @@ const PARTNER_LOGOS = [
     imgClassName: "h-14 filter grayscale brightness-200 contrast-50",
   },
   {
-    href: "https://consensys.io/",
-    src: "/Partners/Consensys_logo_2023.svg",
-    alt: "Consensys",
-    imgClassName: "h-12 filter grayscale brightness-200 contrast-50",
+    href: "https://impacthub.net/",
+    src: "/Partners/impact-hub.svg",
+    alt: "Impact Hub",
+    imgClassName: "h-14 filter grayscale brightness-200 contrast-50",
   },
   {
     href: "https://ethereum.foundation/",
@@ -51,10 +51,10 @@ const PARTNER_LOGOS = [
     imgClassName: "h-12 w-auto filter grayscale brightness-200 contrast-50",
   },
   {
-    href: "https://impacthub.net/",
-    src: "/Partners/impact-hub.svg",
-    alt: "Impact Hub",
-    imgClassName: "h-14 filter grayscale brightness-200 contrast-50",
+    href: "https://consensys.io/",
+    src: "/Partners/Consensys_logo_2023.svg",
+    alt: "Consensys",
+    imgClassName: "h-12 filter grayscale brightness-200 contrast-50",
   },
   {
     href: "https://soam.earth/",
@@ -72,7 +72,7 @@ const PARTNER_LOGOS = [
     href: "https://www.justopensource.io/",
     src: "/Partners/just.svg",
     alt: "Just",
-    imgClassName: "h-6 filter grayscale brightness-200 contrast-50",
+    imgClassName: "h-5 filter grayscale brightness-200 contrast-50",
   },
 ] as const
 
@@ -152,7 +152,7 @@ const noOrphan = (text: string) => text.replace(/ (\S+)$/, "\u00A0$1")
 
 const AREA_COLORS = ["#575757", "#6b6b6b", "#737373", "#9c9c9c"]
 
-const STEP_COLORS = ["#575757", "#6b6b6b", "#737373", "#9c9c9c", "#d4d4d4"]
+const STEP_COLORS = ["#d4d4d4", "#d4d4d4", "#d4d4d4", "#d4d4d4", "#d4d4d4"]
 
 const STAGE_COLORS: Record<string, string> = {
   "Demonstrating": "#575757",
@@ -168,6 +168,8 @@ export function HomePageClient() {
   const t = homeMessages[locale]
 
   const [initiatives, setInitiatives] = useState<any[]>([])
+  const [activeArea, setActiveArea] = useState<number | null>(null)
+  const [activeStep, setActiveStep] = useState<number | null>(null)
   const [initiativesLoading, setInitiativesLoading] = useState(true)
   const introductionSectionRef = useRef<HTMLDivElement>(null)
   const approachSectionRef = useRef<HTMLDivElement>(null)
@@ -309,7 +311,7 @@ export function HomePageClient() {
             <div className="font-silkscreen text-sm md:text-base tracking-widest uppercase text-white/60 mb-8 text-left">{t.partners}</div>
             <div className="flex flex-col gap-y-7">
               {[PARTNER_LOGOS.slice(0, 6), PARTNER_LOGOS.slice(6)].map((row, rowIdx) => (
-                <div key={rowIdx} className="flex flex-wrap items-center justify-start gap-x-16 gap-y-12 md:gap-x-20">
+                <div key={rowIdx} className="flex flex-wrap items-center justify-start gap-x-10 gap-y-10 md:gap-x-14">
                   {row.map((partner) => (
                     <a
                       key={partner.alt}
@@ -329,7 +331,7 @@ export function HomePageClient() {
 
 
         {/* How we work */}
-        <section id="how-we-work" className="pt-20 pb-12 px-4 sm:px-6 md:px-8 bg-grain">
+        <section id="how-we-work" className="pt-20 pb-24 px-4 sm:px-6 md:px-8 bg-grain">
           <div className="max-w-7xl mx-auto">
             <AnimatedElement animation="fade-in" className="mb-10">
               <h2 className="font-semibold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-tight mb-4">
@@ -343,14 +345,25 @@ export function HomePageClient() {
               </p>
             </AnimatedElement>
 
-            <div className="mt-10 grid grid-cols-1 md:grid-cols-5 gap-x-10 border-t border-white/15 pt-8">
+            <div className="mt-10 grid grid-cols-2 md:grid-cols-5 gap-x-7 md:gap-x-10 gap-y-8 border-t border-white/15 pt-8 items-start">
               {t.howSteps.map((step, idx) => (
                 <AnimatedElement animation="fade-up" delay={100 * (idx + 1)} key={step.key}>
-                  <div className="relative h-full">
+                  <button
+                    type="button"
+                    onClick={() => setActiveStep(activeStep === idx ? null : idx)}
+                    aria-expanded={activeStep === idx}
+                    className={`w-full text-left transition-opacity duration-200 ${activeStep === null || activeStep === idx ? "" : "opacity-40 hover:opacity-70"}`}
+                  >
+                    <img
+                      src={`/how/${step.key}.svg`}
+                      alt=""
+                      aria-hidden="true"
+                      className="mb-4 w-full opacity-80"
+                    />
                     <div className="flex items-baseline justify-between gap-3">
                       <h3
                         className="font-silkscreen text-sm md:text-base uppercase tracking-wider"
-                        style={{ color: STEP_COLORS[idx] }}
+                        style={{ color: activeStep === idx ? "#ffffff" : STEP_COLORS[idx] }}
                       >
                         {step.label}
                       </h3>
@@ -358,13 +371,16 @@ export function HomePageClient() {
                         <span className="hidden md:inline text-white/30 pr-1">→</span>
                       )}
                     </div>
-                    <p className="[text-wrap:pretty] mt-3 text-sm lg:text-base text-gray-400 leading-relaxed">
-                      {step.description}
-                    </p>
-                  </div>
+                    {activeStep === idx && (
+                      <p className="[text-wrap:pretty] mt-3 text-sm lg:text-[15px] text-gray-300 leading-relaxed">
+                        {step.description}
+                      </p>
+                    )}
+                  </button>
                 </AnimatedElement>
               ))}
             </div>
+
 
             <div id="approach" ref={approachSectionRef} className="mt-10 pt-14 border-t border-white/15 scroll-mt-48">
               <h3 className="font-semibold text-xl sm:text-2xl text-white tracking-tight leading-tight mb-4">
@@ -373,21 +389,34 @@ export function HomePageClient() {
               <p className="[text-wrap:pretty] text-lg md:text-xl text-gray-300 max-w-2xl leading-relaxed mb-12">
                 {t.areasIntro}
               </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-14 gap-y-14">
+            <div className="border-b border-white/10">
               {t.approachCards.map((item, idx) => (
-                <AnimatedElement animation="fade-up" delay={100 * (idx + 1)} key={item.key}>
-                  <div className="text-left">
-                    <h3
-                      className="font-light text-[22px] sm:text-2xl lg:text-[28px] tracking-[-0.01em] leading-tight"
-                      style={{ color: AREA_COLORS[idx] }}
+                <div key={item.key} className="border-t border-white/10">
+                  <button
+                    type="button"
+                    onClick={() => setActiveArea(activeArea === idx ? null : idx)}
+                    aria-expanded={activeArea === idx}
+                    className="flex w-full items-baseline gap-3 py-5 text-left"
+                  >
+                    <span
+                      className="font-light text-[22px] sm:text-2xl lg:text-[28px] tracking-[-0.01em] leading-tight transition-opacity duration-200"
+                      style={{ color: AREA_COLORS[idx], opacity: activeArea === null || activeArea === idx ? 1 : 0.45 }}
                     >
                       {item.heading}
-                    </h3>
-                    <p className="[text-wrap:pretty] mt-4 text-base lg:text-lg text-gray-300 leading-relaxed">
+                    </span>
+                    <span
+                      className="text-lg opacity-70 transition-transform duration-200"
+                      style={{ color: AREA_COLORS[idx], transform: activeArea === idx ? "rotate(45deg)" : "none" }}
+                    >
+                      +
+                    </span>
+                  </button>
+                  {activeArea === idx && (
+                    <p className="[text-wrap:pretty] pb-7 text-base lg:text-lg text-gray-300 leading-relaxed max-w-2xl">
                       {item.description}
                     </p>
-                  </div>
-                </AnimatedElement>
+                  )}
+                </div>
               ))}
             </div>
             </div>
@@ -411,7 +440,7 @@ export function HomePageClient() {
             <div className="mt-12 grid grid-cols-1 gap-x-10 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
               {t.who.paths.map((path) => (
                 <div key={path.title} className="flex flex-col">
-                  <h3 className="text-xl font-semibold tracking-tight text-black sm:text-2xl sm:min-h-16">
+                  <h3 className="text-xl font-semibold tracking-tight leading-tight text-black sm:text-2xl">
                     {path.title.split("\n").map((line, i) => (
                       <span key={line}>
                         {i > 0 ? <br /> : null}
@@ -419,7 +448,7 @@ export function HomePageClient() {
                       </span>
                     ))}
                   </h3>
-                  <p className="[text-wrap:pretty] mt-4 flex-1 text-[15px] leading-relaxed text-gray-800">
+                  <p className="[text-wrap:pretty] mt-2 flex-1 text-[15px] leading-relaxed text-gray-800">
                     {path.body}
                   </p>
                 </div>
@@ -428,7 +457,7 @@ export function HomePageClient() {
 
             <a
               href={`/${locale}/contact`}
-              className="btn-field mt-12 inline-block rounded-full px-6 py-3 font-mono text-[13px] font-semibold text-white transition-[filter] hover:brightness-110"
+              className="btn-field mt-12 inline-block rounded-full px-6 py-3 font-mono text-[13px] font-semibold text-black transition-[filter] hover:brightness-95"
             >
               {t.who.cta} →
             </a>
