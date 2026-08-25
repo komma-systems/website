@@ -27,6 +27,7 @@ export function FieldEvents({ items, locale }: { items: readonly FieldItem[]; lo
   return (
     <div>
       {items.map((item, idx) => {
+        const alwaysOpen = item.tag === "Participate" || item.tag === "Mitmachen"
         const Row = (
           <div className="grid grid-cols-1 gap-x-9 gap-y-3 border-t border-white/25 py-8 transition-colors hover:bg-white/[0.04] sm:grid-cols-[130px_1fr]">
             <div>
@@ -48,6 +49,7 @@ export function FieldEvents({ items, locale }: { items: readonly FieldItem[]; lo
             <div>
               <h3 className="text-xl font-light tracking-tight text-white sm:text-2xl sm:mt-[19px]">
                 {item.title}
+                {!alwaysOpen && (
                 <button
                   type="button"
                   onClick={(e) => {
@@ -62,8 +64,9 @@ export function FieldEvents({ items, locale }: { items: readonly FieldItem[]; lo
                 >
                   +
                 </button>
+                )}
               </h3>
-              {open === idx && (
+              {(alwaysOpen || open === idx) && (
                 <p className={`${proseClasses} mt-2 text-gray-300`}>{item.body}</p>
               )}
               {item.cta && (
