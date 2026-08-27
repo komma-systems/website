@@ -133,6 +133,18 @@ const INITIATIVES = [
     href: null,
   },
   {
+    id: "ex-risk",
+    title: "EX:Risk",
+    description:
+      "A civic-sensing capability that reads the early signs from the ground up, pairing what residents notice with what the data shows, so a neighbourhood and its municipal and regional levels share one legible signal and can trigger policy before the actual risk.",
+    stage: "Exploration",
+    tags: ["sensing", "civic", "anticipatory policy"],
+    projects: [
+      { name: "Belonging signals", href: null },
+    ],
+    href: null,
+  },
+  {
     id: "exclsr",
     title: "EXCLSR",
     description:
