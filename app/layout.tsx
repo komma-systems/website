@@ -49,7 +49,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteBaseUrl()),
   title: "KOMMA",
-  description: "A research and relational technology studio using artistic inquiry and real-world demonstration to shift how we value, own, govern and care for what we hold in common, beginning with land and housing.",
+  description: "KOMMA is a cooperative that designs and builds the tools to hold land and housing in common. A research and relational technology studio using real-world demonstration to shift how we value, own, govern and care for what we hold in common.",
   icons: {
     icon: [
       { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "KOMMA",
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "KOMMA" }],
-    description: "A research and relational technology studio using artistic inquiry and real-world demonstration to shift how we value, own, govern and care for what we hold in common, beginning with land and housing.",
+    description: "KOMMA is a cooperative that designs and builds the tools to hold land and housing in common. A research and relational technology studio using real-world demonstration to shift how we value, own, govern and care for what we hold in common.",
     type: "website",
   },
 }
@@ -77,6 +77,37 @@ export default async function RootLayout({
   return (
     <html lang={lang} className={`${serif.variable} ${silkscreen.variable} ${plexMono.variable} ${spaceGrotesk.variable}`.trim()}>
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "KOMMA",
+              legalName: "Komma Genossenschaft",
+              url: "https://komma.systems",
+              logo: "https://komma.systems/favicon.svg",
+              description:
+                "KOMMA is a cooperative that designs and builds the tools to hold land and housing in common.",
+              founder: [
+                { "@type": "Person", name: "Charles Fisher" },
+                { "@type": "Person", name: "Clara Gromaches" },
+              ],
+              subOrganization: {
+                "@type": "Organization",
+                name: "Komma Systems UG (haftungsbeschränkt)",
+              },
+              sameAs: ["https://github.com/komma-systems"],
+              knowsAbout: [
+                "community land trusts",
+                "cooperative housing",
+                "land registries",
+                "civic deliberation",
+                "commons governance",
+              ],
+            }),
+          }}
+        />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/favicon.svg" />
@@ -86,6 +117,12 @@ export default async function RootLayout({
           {children}
           <SiteFooter />
         </AuthProvider>
+        {process.env.NEXT_PUBLIC_CF_BEACON_TOKEN && (
+          <script
+            type="module"
+            src={`https://static.cloudflareinsights.com/beacon.min.js?token=${process.env.NEXT_PUBLIC_CF_BEACON_TOKEN}`}
+          />
+        )}
       </body>
     </html>
   )
