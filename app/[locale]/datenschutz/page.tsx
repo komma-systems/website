@@ -55,8 +55,8 @@ export default function PrivacyPolicyPage() {
                   When you visit this site, our hosting platform (Vercel, Inc., United States)
                   processes technical data needed to deliver the site, including IP addresses and
                   standard request metadata in server and edge logs. This processing is for
-                  operating, securing, and troubleshooting the service only. We do not use analytics
-                  or marketing tracking on this site. Further detail on how Vercel handles data is
+                  operating, securing, and troubleshooting the service only. We do not use marketing
+                  tracking on this site. Further detail on how Vercel handles data is
                   available in{" "}
                   <a
                     href="https://vercel.com/legal/privacy-policy"
@@ -65,6 +65,29 @@ export default function PrivacyPolicyPage() {
                     className="text-white underline underline-offset-4 hover:text-slate-200"
                   >
                     Vercel&apos;s privacy policy
+                  </a>
+                  .
+                </p>
+              </div>
+              <div>
+                <h3 className="text-sm font-medium text-white">Web analytics</h3>
+                <p className="mt-3">
+                  We use Cloudflare Web Analytics (Cloudflare, Inc., United States) to understand, in
+                  aggregate, how this site is used. This tool is designed to be privacy-preserving:
+                  it sets no cookies, uses no localStorage, and does not fingerprint or track
+                  visitors across sites. It processes technical information in the browser, such as
+                  the page visited, referrer, browser and device type, country, and page performance
+                  timings, and provides us only aggregate statistics. IP addresses are used
+                  transiently to deliver the measurement and are not stored or made available to us.
+                  Cloudflare acts as a processor on our instructions and does not use this data for
+                  its own purposes. Details are available in{" "}
+                  <a
+                    href="https://www.cloudflare.com/privacypolicy/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white underline underline-offset-4 hover:text-slate-200"
+                  >
+                    Cloudflare&apos;s privacy policy
                   </a>
                   .
                 </p>
@@ -96,7 +119,10 @@ export default function PrivacyPolicyPage() {
               to entering into a contract or handling your request) and, where applicable, Art.
               6(1)(f) GDPR / DSG 2018 (our legitimate interest in responding to enquiries).
               Processing of hosting and log data is based on Art. 6(1)(f) GDPR / DSG 2018 (legitimate
-              interest in providing a secure, available website).
+              interest in providing a secure, available website). Processing of aggregate web
+              analytics data is based on Art. 6(1)(f) GDPR / DSG 2018 (legitimate interest in
+              understanding how the site is used and improving it), using a tool chosen specifically
+              because it operates without cookies or cross-site tracking.
             </p>
           </div>
 
@@ -161,7 +187,7 @@ export default function PrivacyPolicyPage() {
               6. International transfers
             </h2>
             <p className="mt-3">
-              Vercel and Resend are US companies. Using their services can involve transfers of
+              Vercel, Cloudflare and Resend are US companies. Using their services can involve transfers of
               personal data to the United States and other countries. Liechtenstein is part of the
               EEA; where data is transferred to countries not covered by an adequacy decision,
               applicable law (DSG 2018) requires appropriate safeguards.
@@ -194,7 +220,8 @@ export default function PrivacyPolicyPage() {
               8. Cookies
             </h2>
             <p className="mt-3">
-              This site does not use tracking or marketing cookies. Only technically necessary
+              This site does not use tracking or marketing cookies. Our web analytics tool is
+              cookieless and stores nothing on your device. Only technically necessary
               mechanisms required for basic site function may apply (for example session or
               security-related cookies from the hosting platform).
             </p>
