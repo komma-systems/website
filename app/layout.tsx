@@ -117,6 +117,12 @@ export default async function RootLayout({
           {children}
           <SiteFooter />
         </AuthProvider>
+        {process.env.NEXT_PUBLIC_CF_BEACON_TOKEN && (
+          <script
+            type="module"
+            src={`https://static.cloudflareinsights.com/beacon.min.js?token=${process.env.NEXT_PUBLIC_CF_BEACON_TOKEN}`}
+          />
+        )}
       </body>
     </html>
   )
