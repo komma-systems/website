@@ -117,6 +117,13 @@ export default async function RootLayout({
           {children}
           <SiteFooter />
         </AuthProvider>
+        {/* Cloudflare Web Analytics: cookieless, manual install because the
+            domain points straight at Vercel and edge injection cannot run */}
+        <script
+          type="module"
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon='{"token": "11702da51e284bf0bfd5a49a72b0de03"}'
+        />
       </body>
     </html>
   )
