@@ -6,6 +6,8 @@ import { Navigation } from "@/components/navigation"
 import { AnimatedElement } from "@/components/animated-element"
 import { defaultLocale, isLocale, type Locale } from "@/lib/i18n"
 import { homeMessages } from "@/lib/messages/home"
+import { splitEvents } from "@/lib/messages/events"
+import { TAG_COLORS, renderEventBody } from "@/components/field-events"
 
 const PARTNER_LOGOS = [
   {
@@ -183,6 +185,7 @@ export function HomePageClient() {
   const [activeArea, setActiveArea] = useState<number | null>(null)
   const [activeStep, setActiveStep] = useState<number | null>(null)
   const [openEvent, setOpenEvent] = useState<number | null>(null)
+  const upcomingEvents = splitEvents(locale, new Date().toISOString().slice(0, 10)).upcoming
   const [showAdvisors, setShowAdvisors] = useState(false)
   const [initiativesLoading, setInitiativesLoading] = useState(true)
   const introductionSectionRef = useRef<HTMLDivElement>(null)
@@ -901,208 +904,60 @@ export function HomePageClient() {
             </div>
 
             <div>
-              <div className="grid grid-cols-1 sm:grid-cols-[130px_1fr_auto] gap-x-9 gap-y-3 items-start border-t border-white/25 py-8 px-1 sm:px-2 hover:bg-white/[0.04] transition-colors">
-                <div>
-                  <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest" style={{ color: "#575757" }}>Forum</p>
-                  <p className="mt-1.5 font-mono text-[13px] text-white/60 leading-relaxed">
-                    26–30 Aug 2026
-                    <br />
-                    Alpbach, AT
-                  </p>
-                </div>
-                <div>
-                  <h3 className="font-light text-xl sm:text-2xl lg:text-3xl text-white tracking-tight sm:mt-[19px]">
+              {upcomingEvents.map((ev, i) => (
+                <div
+                  key={ev.title}
+                  className="grid grid-cols-1 sm:grid-cols-[130px_1fr_auto] gap-x-9 gap-y-3 items-start border-t border-white/25 py-8 px-1 sm:px-2 hover:bg-white/[0.04] transition-colors"
+                >
+                  <div>
+                    <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest" style={{ color: TAG_COLORS[ev.tag] ?? "#9c9c9c" }}>
+                      {ev.tag}
+                    </p>
+                    <p className="mt-1.5 font-mono text-[13px] text-white/60 leading-relaxed">
+                      {ev.meta.map((m, j) => (
+                        <span key={m}>
+                          {j > 0 ? <br /> : null}
+                          {m}
+                        </span>
+                      ))}
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="font-light text-xl sm:text-2xl lg:text-3xl text-white tracking-tight sm:mt-[19px]">
+                      {ev.href ? (
+                        <a href={ev.href} target="_blank" rel="noopener noreferrer" className="hover:text-cream transition-colors">
+                          {ev.title}
+                        </a>
+                      ) : (
+                        ev.title
+                      )}
+                      <button
+                        type="button"
+                        onClick={() => setOpenEvent(openEvent === i ? null : i)}
+                        aria-expanded={openEvent === i}
+                        aria-label="Toggle event details"
+                        className="ml-3 text-lg text-white/50 hover:text-white transition-transform duration-200 align-middle"
+                        style={{ transform: openEvent === i ? "rotate(45deg)" : "none", display: "inline-block" }}
+                      >
+                        +
+                      </button>
+                    </h3>
+                    {openEvent === i && (
+                      <p className="mt-2 text-base text-gray-300 leading-relaxed max-w-2xl">{renderEventBody(ev.body)}</p>
+                    )}
+                  </div>
+                  {ev.cta && ev.href && (
                     <a
-                      href="https://www.alpbach.org/blog/urban-transformation-and-bioregional-resilience-the-micro-macro-deal"
+                      href={ev.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="hover:text-cream transition-colors"
+                      className="btn-field-outline self-center font-mono text-[13px] rounded-full px-5 py-2.5 whitespace-nowrap transition-[filter]"
                     >
-                      Meld at the European Forum Alpbach
+                      {ev.cta}
                     </a>
-                    <button
-                      type="button"
-                      onClick={() => setOpenEvent(openEvent === 0 ? null : 0)}
-                      aria-expanded={openEvent === 0}
-                      aria-label="Toggle event details"
-                      className="ml-3 text-lg text-white/50 hover:text-white transition-transform duration-200 align-middle"
-                      style={{ transform: openEvent === 0 ? "rotate(45deg)" : "none", display: "inline-block" }}
-                    >
-                      +
-                    </button>
-                  </h3>
-                  {openEvent === 0 && (
-                  <p className="mt-2 text-base text-gray-300 leading-relaxed max-w-2xl">
-                    A live demonstration of Meld with the{" "}
-                    <a
-                      href="https://www.alpbach.org/blog/urban-transformation-and-bioregional-resilience-the-micro-macro-deal"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="border-b border-white/30 hover:text-cream hover:border-cream transition-colors"
-                    >
-                      10x100 network
-                    </a>{" "}
-                    at the European Forum Alpbach: consent-first deliberation captured in the room,
-                    processed on the device, and returned to participants as structured sensemaking.
-                  </p>
                   )}
                 </div>
-                <a
-                  href="https://10x100.kair.is/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-field-outline self-center font-mono text-[13px] rounded-full px-5 py-2.5 whitespace-nowrap transition-[filter]"
-                >
-                  Request access →
-                </a>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-[130px_1fr_auto] gap-x-9 gap-y-3 items-start border-t border-white/25 py-8 px-1 sm:px-2 hover:bg-white/[0.04] transition-colors">
-                <div>
-                  <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest" style={{ color: "#737373" }}>Keynote</p>
-                  <p className="mt-1.5 font-mono text-[13px] text-white/60 leading-relaxed">
-                    10–12 Sep 2026
-                    <br />
-                    Höllental, AT
-                  </p>
-                </div>
-                <div>
-                  <h3 className="font-light text-xl sm:text-2xl lg:text-3xl text-white tracking-tight sm:mt-[19px]">
-                    <a
-                      href="https://valleyofthecommons.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-cream transition-colors"
-                    >
-                      KOMMA at the Valley of the Commons
-                    </a>
-                    <button
-                      type="button"
-                      onClick={() => setOpenEvent(openEvent === 1 ? null : 1)}
-                      aria-expanded={openEvent === 1}
-                      aria-label="Toggle event details"
-                      className="ml-3 text-lg text-white/50 hover:text-white transition-transform duration-200 align-middle"
-                      style={{ transform: openEvent === 1 ? "rotate(45deg)" : "none", display: "inline-block" }}
-                    >
-                      +
-                    </button>
-                  </h3>
-                  {openEvent === 1 && (
-                  <p className="mt-2 text-base text-gray-300 leading-relaxed max-w-2xl">
-                    Clara keynotes &ldquo;Housing as a Commons&rdquo;: how land became property, and
-                    what a century of collective housing, from Red Vienna to La Borda, teaches about
-                    owning, funding and governing in common. Charlie follows with &ldquo;Knowing at the
-                    Boundaries&rdquo;, on mapping land ownership to open sites to community-led futures.
-                  </p>
-                  )}
-                </div>
-                <a
-                  href="https://valleyofthecommons.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-field-outline self-center font-mono text-[13px] rounded-full px-5 py-2.5 whitespace-nowrap transition-[filter]"
-                >
-                  Programme →
-                </a>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-[130px_1fr_auto] gap-x-9 gap-y-3 items-start border-t border-white/25 py-8 px-1 sm:px-2 hover:bg-white/[0.04] transition-colors">
-                <div>
-                  <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest" style={{ color: "#575757" }}>Forum</p>
-                  <p className="mt-1.5 font-mono text-[13px] text-white/60 leading-relaxed">
-                    15–16 Sep 2026
-                    <br />
-                    Brussels, BE
-                  </p>
-                </div>
-                <div>
-                  <h3 className="font-light text-xl sm:text-2xl lg:text-3xl text-white tracking-tight sm:mt-[19px]">
-                    <a
-                      href="https://k-erc.eu/2026/08/horizon-europe-category/33982/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-cream transition-colors"
-                    >
-                      Korea-EU Horizon Europe Researchers Consulting Forum
-                    </a>
-                    <button
-                      type="button"
-                      onClick={() => setOpenEvent(openEvent === 2 ? null : 2)}
-                      aria-expanded={openEvent === 2}
-                      aria-label="Toggle event details"
-                      className="ml-3 text-lg text-white/50 hover:text-white transition-transform duration-200 align-middle"
-                      style={{ transform: openEvent === 2 ? "rotate(45deg)" : "none", display: "inline-block" }}
-                    >
-                      +
-                    </button>
-                  </h3>
-                  {openEvent === 2 && (
-                  <p className="mt-2 text-base text-gray-300 leading-relaxed max-w-2xl">
-                    Consortium building between Korean and European researchers towards the 2027
-                    Horizon Europe Cluster 4 calls (Digital, Industry and Space), organised by the
-                    Korea-EU Research Centre (KERC) and the National Research Foundation of Korea.
-                  </p>
-                  )}
-                </div>
-                <a
-                  href="https://k-erc.eu/2026/08/horizon-europe-category/33982/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-field-outline self-center font-mono text-[13px] rounded-full px-5 py-2.5 whitespace-nowrap transition-[filter]"
-                >
-                  Details →
-                </a>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-[130px_1fr_auto] gap-x-9 gap-y-3 items-start border-t border-white/25 py-8 px-1 sm:px-2 hover:bg-white/[0.04] transition-colors">
-                <div>
-                  <p className="font-silkscreen text-[0.65rem] uppercase tracking-widest" style={{ color: "#9c9c9c" }}>Workshop</p>
-                  <p className="mt-1.5 font-mono text-[13px] text-white/60 leading-relaxed">
-                    October 2026
-                    <br />
-                    Vaduz, LI
-                  </p>
-                </div>
-                <div>
-                  <h3 className="font-light text-xl sm:text-2xl lg:text-3xl text-white tracking-tight sm:mt-[19px]">
-                    <a
-                      href="https://luma.com/ycmcreer?tk=7ObFX9"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-cream transition-colors"
-                    >
-                      Threshold #2: Designing Progressive Housing Mechanisms
-                    </a>
-                    <button
-                      type="button"
-                      onClick={() => setOpenEvent(openEvent === 3 ? null : 3)}
-                      aria-expanded={openEvent === 3}
-                      aria-label="Toggle event details"
-                      className="ml-3 text-lg text-white/50 hover:text-white transition-transform duration-200 align-middle"
-                      style={{ transform: openEvent === 3 ? "rotate(45deg)" : "none", display: "inline-block" }}
-                    >
-                      +
-                    </button>
-                  </h3>
-                  {openEvent === 3 && (
-                  <p className="mt-2 text-base text-gray-300 leading-relaxed max-w-2xl">
-                    The second network gathering of practitioners, researchers and institutional actors
-                    advancing alternative housing models: diagnosing the housing system&rsquo;s structural
-                    challenges, evaluating mechanisms such as Rent Credit Obligations and Tokenised
-                    Access Rights, and identifying European demonstration sites. Organised with Autonomic.
-                  </p>
-                  )}
-                </div>
-                <a
-                  href="https://luma.com/ycmcreer?tk=7ObFX9"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-field-outline self-center font-mono text-[13px] rounded-full px-5 py-2.5 whitespace-nowrap transition-[filter]"
-                >
-                  Register →
-                </a>
-              </div>
-
+              ))}
             </div>
           </div>
         </section>
