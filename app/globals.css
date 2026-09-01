@@ -9,7 +9,7 @@
 body {
   background-color: black;
   color: white;
-  font-family: var(--font-source-serif);
+  font-family: var(--font-serif);
 }
 
 .komma-title {
@@ -220,3 +220,116 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/* Grainy charcoal section background (from the Meld deck) */
+.bg-grain {
+  background-color: #161616;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Earth palette (from the Meld Core reference) */
+.bg-field {
+  background:
+    radial-gradient(ellipse 70% 90% at 12% 88%, rgba(95,28,16,.95), transparent 62%),
+    radial-gradient(ellipse 60% 80% at 85% 15%, rgba(94,94,94,.9), transparent 65%),
+    radial-gradient(ellipse 75% 70% at 65% 85%, rgba(64,64,64,.9), transparent 62%),
+    radial-gradient(ellipse 55% 65% at 35% 25%, rgba(74,74,74,.9), transparent 68%),
+    linear-gradient(130deg, #383838, #4a4a4a 55%, #5e5e5e);
+}
+.bg-grain-warm { background-color: #171717; }
+
+/* Analog film grain overlay */
+.film-grain { position: relative; }
+.film-grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: .55;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.62' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.film-grain > * { position: relative; z-index: 1; }
+
+/* Slivers of the field: thin gradient rules through the dark */
+.rule-field {
+  height: 3px;
+  background: linear-gradient(90deg, #383838, #575757 35%, #737373 70%, #9c9c9c);
+}
+.hairline-field {
+  height: 1px;
+  background: linear-gradient(90deg, rgba(56,56,56,.9), rgba(87,87,87,.8) 35%, rgba(115,115,115,.7) 70%, rgba(156,156,156,.5));
+}
+
+/* F: the field lives in type and actions */
+.text-field {
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.28'/%3E%3C/svg%3E"),
+    linear-gradient(100deg, #3d3d3d, #575757 35%, #737373 70%, #9c9c9c);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+/* for short words: a wide gradient so a single word shows a slice, never the whole ramp */
+.text-field-wide {
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.28'/%3E%3C/svg%3E"),
+    linear-gradient(100deg, #3d3d3d, #575757 30%, #737373 60%, #9c9c9c 90%);
+  background-size: auto, 640px 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.btn-field {
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.3'/%3E%3C/svg%3E"),
+    linear-gradient(100deg, rgba(61,61,61,.3), rgba(87,87,87,.3) 40%, rgba(115,115,115,.3) 80%, rgba(156,156,156,.3));
+}
+
+
+/* Five slices of the field, one per initiative */
+.tf-0 { background-image: var(--tgrain), linear-gradient(100deg, #3d3d3d, #575757 60%, #6b6b6b); }
+.tf-1 { background-image: var(--tgrain), linear-gradient(100deg, #575757, #737373 65%, #8a8a8a); }
+.tf-2 { background-image: var(--tgrain), linear-gradient(100deg, #737373, #9c9c9c 70%, #c0c0c0); }
+.tf-3 { background-image: var(--tgrain), linear-gradient(100deg, #9c9c9c, #c0c0c0 55%, #f5f2e8); }
+.tf-4 {
+  background-image: var(--tgrain), linear-gradient(100deg, #3d3d3d, #737373 50%, #f5f2e8);
+  background-size: auto, 340% 100%;
+  background-position: left center;
+}
+.tf-0, .tf-1, .tf-2, .tf-3, .tf-4 {
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+:root {
+  --tgrain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.28'/%3E%3C/svg%3E");
+}
+
+/* Outlined CTA: the field as a hairline border, quiet until hovered */
+.btn-field-outline {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(var(--pill-bg, #000), var(--pill-bg, #000)) padding-box,
+    linear-gradient(100deg, #3d3d3d, #575757 40%, #737373 80%, #9c9c9c) border-box;
+  color: rgba(255, 255, 255, 0.85);
+}
+.btn-field-outline:hover {
+  color: #fff;
+  filter: brightness(1.25);
+}
+
+/* Footer: the site exhales into the field, very softly */
+.bg-footer-field {
+  background: linear-gradient(
+    180deg,
+    #000 0%,
+    #0a0a0a 30%,
+    #1c1c1c 55%,
+    #2a2a2a 75%,
+    #404040 92%,
+    #525252 100%
+  );
+}
+
+.pill-bg-grain { --pill-bg: #161616; }

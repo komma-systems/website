@@ -28,7 +28,7 @@ export default function CharliePage() {
           <section>
             <h2 className="text-2xl font-semibold mb-4">About</h2>
             <p className="text-gray-300 mb-4">Berlin</p>
-            <p className="text-gray-300 mb-4">Charlie has been investigating novel models for investing in the commons since 2013, emphasizing the use of technology in the democratisation of investment and governance tools for public infrastructures such as housing. His work highlights the necessity of shifting away from top-down urban development models that primarily benefits private landowners and towards citizen-led investment approaches. Since 2021, Charlie has collaborated on developing modular smart contracts that utilize simple bonding curves, one of which was deployed in 2023 through the Swiss Association he co-founded in Switzerland. He most recently led the Civic Tech Studio at Dark Matter Labs in which prototyping work provided valuable insights into decentralised finance mechanisms. In October 2024, Charlie was awarded the Just Open Source Grant to further explore neighbourhood wealth mechanisms in Berlin co-operative developments through novel blockchain technologies.</p>
+            <p className="text-gray-300 mb-4">Charlie has been investigating novel models for investing in the commons since 2013, emphasising the use of technology in the democratisation of investment and governance tools for public infrastructures such as housing. His work highlights the necessity of shifting away from top-down urban development models that primarily benefits private landowners and towards citizen-led investment approaches. Since 2021, Charlie has collaborated on developing modular smart contracts that utilise simple bonding curves, one of which was deployed in 2023 through the Swiss Association he co-founded in Switzerland. He most recently led the Civic Tech Studio at Dark Matter Labs in which prototyping work provided valuable insights into decentralised finance mechanisms. In October 2024, Charlie was awarded the Just Open Source Grant to further explore neighbourhood wealth mechanisms in Berlin co-operative developments through novel blockchain technologies.</p>
           </section>
 
           <section>
@@ -109,7 +109,7 @@ export default function CharliePage() {
                 <ul className="list-disc list-inside space-y-2 text-gray-300">
                   <li>Reframing Conflict - One day training with Outlandish (2022)</li>
                   <li>Tools for the Regenerative Renaissance - 6 week course (2021)</li>
-                  <li>Organization Design Masterclass, Supermarkt Berlin (2020)</li>
+                  <li>Organisation Design Masterclass, Supermarkt Berlin (2020)</li>
                   <li>Pamwin Development Modelling Training, M3 (2020)</li>
                   <li>Accredited Community-led Housing Adviser with Chartered Institute of Housing (2018)</li>
                   <li>The One Planet Living Framework, Training, Oxford (2017)</li>

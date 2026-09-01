@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KOMMA — mechanism design strategies: 5 treatments</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200;0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&family=Silkscreen&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#000;color:#fff;font-family:'Source Serif 4',serif}
+  p{text-wrap:pretty}
+  .lab{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:#888;padding:56px 40px 16px;border-top:1px solid #222}
+  section{padding:56px 40px 100px}
+  .inner{max-width:1100px;margin:0 auto}
+  h2{font-weight:600;font-size:clamp(24px,3vw,36px);letter-spacing:-.01em}
+  .intro{font-size:19px;line-height:1.6;color:#b5b5b5;max-width:640px;margin-top:20px}
+  .pix{font-family:'Silkscreen',cursive}
+  .mono{font-family:'IBM Plex Mono',monospace}
+  .dom{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#f5f2e8}
+  .t{font-weight:300;font-size:26px;letter-spacing:-.01em}
+  .d{font-size:16px;line-height:1.65;color:#a8a8a8}
+
+  /* A — hairline rows, same system as initiatives */
+  .vA .row{display:grid;grid-template-columns:9rem 1fr 2fr;gap:40px;border-top:1px solid rgba(255,255,255,.25);padding:34px 8px;align-items:baseline}
+  .vA .row:hover{background:rgba(255,255,255,.04)}
+  @media(max-width:800px){.vA .row{grid-template-columns:1fr;gap:10px}}
+
+  /* B — 2x2 grid, corner numbers, hairline frame */
+  .vB .grid{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid rgba(255,255,255,.25);border-left:1px solid rgba(255,255,255,.25);margin-top:40px}
+  .vB .cell{border-right:1px solid rgba(255,255,255,.25);border-bottom:1px solid rgba(255,255,255,.25);padding:36px 32px 44px;position:relative}
+  .vB .cell:hover{background:rgba(255,255,255,.04)}
+  .vB .n{font-family:'Silkscreen',cursive;font-size:13px;color:rgba(255,255,255,.35)}
+  .vB .dom{display:block;margin-top:18px}
+  .vB .t{display:block;margin-top:8px}
+  .vB .d{margin-top:14px;max-width:420px}
+  @media(max-width:800px){.vB .grid{grid-template-columns:1fr}}
+
+  /* C — ledger: big titles left, description right */
+  .vC .row{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;border-top:1px solid rgba(255,255,255,.25);padding:40px 8px}
+  .vC .t{font-size:34px;font-weight:200}
+  .vC .dom{display:block;margin-top:10px;color:rgba(255,255,255,.4)}
+  .vC .d{font-size:17px}
+  @media(max-width:800px){.vC .row{grid-template-columns:1fr;gap:14px}}
+
+  /* D — band of four columns, echoes How-we-work */
+  .vD .band{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.25);border-bottom:1px solid rgba(255,255,255,.25);margin-top:40px}
+  .vD .col{padding:34px 26px 44px;border-right:1px solid rgba(255,255,255,.1)}
+  .vD .col:last-child{border-right:0}
+  .vD .col:hover{background:rgba(255,255,255,.04)}
+  .vD .t{font-size:22px;display:block;margin-top:10px}
+  .vD .d{margin-top:14px;font-size:15px}
+  @media(max-width:900px){.vD .band{grid-template-columns:1fr 1fr}.vD .col{border-bottom:1px solid rgba(255,255,255,.1)}}
+
+  /* E — spine: domains as a mono line, strategies hanging beneath */
+  .vE .spine{font-family:'IBM Plex Mono',monospace;font-size:15px;letter-spacing:.06em;color:#f5f2e8;margin-top:44px;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+  .vE .spine .sep{color:rgba(255,255,255,.3)}
+  .vE .item{border-top:1px solid rgba(255,255,255,.25);padding:30px 8px;display:grid;grid-template-columns:16rem 1fr;gap:40px;align-items:baseline}
+  .vE .item .t{font-size:24px}
+  .vE .stack{margin-top:36px}
+  @media(max-width:800px){.vE .item{grid-template-columns:1fr;gap:8px}}
+</style>
+</head>
+<body>
+
+<div class="lab">Shared copy — section title, intro, four strategies (economic / legal / social / technological)</div>
+<section style="padding-bottom:40px"><div class="inner">
+  <h2>Mechanism design strategies</h2>
+  <p class="intro">A mechanism is the working arrangement we build for a place: a concrete way for a community to hold land or housing in common. Most mechanisms draw on several of these strategies at once, in a mix shaped by the place.</p>
+</div></section>
+
+<div class="lab">A — hairline rows: domain, title, description (same system as the initiatives)</div>
+<section class="vA"><div class="inner">
+  <div class="row"><span class="dom">Economic</span><span class="t">Inverting Civic Wealth</span><p class="d">When a place improves, the gains flow to whoever owns the property. We design ways to keep that value local and circulating: pooled funds, community-led exit strategies, multi-capital currencies, bioregional banking.</p></div>
+  <div class="row"><span class="dom">Legal</span><span class="t">Modernising Agreements</span><p class="d">Most of the unwinding happens in the legal form. We build modular agreements that communities can read, adapt and change: bundles of rights, distributed validation, customary claims given standing.</p></div>
+  <div class="row"><span class="dom">Social</span><span class="t">Cultivating Playful Rituals</span><p class="d">Agreements hold when people live them. We fold governance into everyday life: sociocratic decision-making, ritual openings, and formats that connect the room with the record.</p></div>
+  <div class="row"><span class="dom">Technological</span><span class="t">Building Civic Technology</span><p class="d">Some mechanisms need software to run, so we build it: registries, pooled-commitment tools, deliberation infrastructure. It runs locally and stays in the hands of the people using it.</p></div>
+</div></section>
+
+<div class="lab">B — 2×2 grid with corner numbers and full hairline frame</div>
+<section class="vB"><div class="inner">
+  <div class="grid">
+    <div class="cell"><span class="n">01</span><span class="dom">Economic</span><span class="t">Inverting Civic Wealth</span><p class="d">When a place improves, the gains flow to whoever owns the property. We design ways to keep that value local and circulating: pooled funds, community-led exit strategies, multi-capital currencies, bioregional banking.</p></div>
+    <div class="cell"><span class="n">02</span><span class="dom">Legal</span><span class="t">Modernising Agreements</span><p class="d">Most of the unwinding happens in the legal form. We build modular agreements that communities can read, adapt and change: bundles of rights, distributed validation, customary claims given standing.</p></div>
+    <div class="cell"><span class="n">03</span><span class="dom">Social</span><span class="t">Cultivating Playful Rituals</span><p class="d">Agreements hold when people live them. We fold governance into everyday life: sociocratic decision-making, ritual openings, and formats that connect the room with the record.</p></div>
+    <div class="cell"><span class="n">04</span><span class="dom">Technological</span><span class="t">Building Civic Technology</span><p class="d">Some mechanisms need software to run, so we build it: registries, pooled-commitment tools, deliberation infrastructure. It runs locally and stays in the hands of the people using it.</p></div>
+  </div>
+</div></section>
+
+<div class="lab">C — ledger: oversized light titles left, prose right</div>
+<section class="vC"><div class="inner">
+  <div class="row"><div><span class="t">Inverting Civic Wealth</span><span class="dom">Economic</span></div><p class="d">When a place improves, the gains flow to whoever owns the property. We design ways to keep that value local and circulating: pooled funds, community-led exit strategies, multi-capital currencies, bioregional banking.</p></div>
+  <div class="row"><div><span class="t">Modernising Agreements</span><span class="dom">Legal</span></div><p class="d">Most of the unwinding happens in the legal form. We build modular agreements that communities can read, adapt and change: bundles of rights, distributed validation, customary claims given standing.</p></div>
+  <div class="row"><div><span class="t">Cultivating Playful Rituals</span><span class="dom">Social</span></div><p class="d">Agreements hold when people live them. We fold governance into everyday life: sociocratic decision-making, ritual openings, and formats that connect the room with the record.</p></div>
+  <div class="row"><div><span class="t">Building Civic Technology</span><span class="dom">Technological</span></div><p class="d">Some mechanisms need software to run, so we build it: registries, pooled-commitment tools, deliberation infrastructure. It runs locally and stays in the hands of the people using it.</p></div>
+</div></section>
+
+<div class="lab">D — four columns in a band, echoing the How-we-work strip</div>
+<section class="vD"><div class="inner">
+  <div class="band">
+    <div class="col"><span class="dom">Economic</span><span class="t">Inverting Civic Wealth</span><p class="d">When a place improves, the gains flow to whoever owns the property. We design ways to keep that value local and circulating: pooled funds, community-led exit strategies, multi-capital currencies, bioregional banking.</p></div>
+    <div class="col"><span class="dom">Legal</span><span class="t">Modernising Agreements</span><p class="d">Most of the unwinding happens in the legal form. We build modular agreements that communities can read, adapt and change: bundles of rights, distributed validation, customary claims given standing.</p></div>
+    <div class="col"><span class="dom">Social</span><span class="t">Cultivating Playful Rituals</span><p class="d">Agreements hold when people live them. We fold governance into everyday life: sociocratic decision-making, ritual openings, and formats that connect the room with the record.</p></div>
+    <div class="col"><span class="dom">Technological</span><span class="t">Building Civic Technology</span><p class="d">Some mechanisms need software to run, so we build it: registries, pooled-commitment tools, deliberation infrastructure. It runs locally and stays in the hands of the people using it.</p></div>
+  </div>
+</div></section>
+
+<div class="lab">E — spine: the four domains as one mono line, strategies hanging beneath</div>
+<section class="vE"><div class="inner">
+  <div class="spine">economic <span class="sep">/</span> legal <span class="sep">/</span> social <span class="sep">/</span> technological</div>
+  <div class="stack">
+    <div class="item"><span class="t">Inverting Civic Wealth</span><p class="d">When a place improves, the gains flow to whoever owns the property. We design ways to keep that value local and circulating: pooled funds, community-led exit strategies, multi-capital currencies, bioregional banking.</p></div>
+    <div class="item"><span class="t">Modernising Agreements</span><p class="d">Most of the unwinding happens in the legal form. We build modular agreements that communities can read, adapt and change: bundles of rights, distributed validation, customary claims given standing.</p></div>
+    <div class="item"><span class="t">Cultivating Playful Rituals</span><p class="d">Agreements hold when people live them. We fold governance into everyday life: sociocratic decision-making, ritual openings, and formats that connect the room with the record.</p></div>
+    <div class="item"><span class="t">Building Civic Technology</span><p class="d">Some mechanisms need software to run, so we build it: registries, pooled-commitment tools, deliberation infrastructure. It runs locally and stays in the hands of the people using it.</p></div>
+  </div>
+</div></section>
+
+<div style="height:100px"></div>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Areas of practice: interaction variants</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300;8..60,400&family=IBM+Plex+Mono:wght@400;500&family=Silkscreen&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: #000; color: #eee; font-family: "Source Serif 4", serif; }
+  section { padding: 64px 48px; border-bottom: 1px solid #222; }
+  .tag { font-family: "IBM Plex Mono", monospace; font-size: 12px; letter-spacing: .1em; color: #666; margin-bottom: 34px; text-transform: uppercase; }
+  h3.head { font-weight: 300; font-size: 26px; letter-spacing: -0.01em; margin: 0; line-height: 1.25; }
+  p.body { font-size: 17px; line-height: 1.7; color: #b9b9b9; max-width: 36em; }
+  .c0 { color: #8a8a8a; } .c1 { color: #9c9c9c; } .c2 { color: #b3b3b3; } .c3 { color: #cfcfcf; }
+  button { background: none; border: none; color: inherit; font: inherit; cursor: pointer; text-align: left; padding: 0; }
+  .dim { opacity: .4; }
+
+  /* A: list + side panel (current) */
+  .vA { display: grid; grid-template-columns: minmax(0,380px) 1fr; gap: 56px; }
+  .vA .item { display: flex; justify-content: space-between; align-items: baseline; width: 100%; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.1); }
+
+  /* B: tabs on top */
+  .vB .tabs { display: flex; flex-wrap: wrap; gap: 8px 36px; border-bottom: 1px solid rgba(255,255,255,.15); padding-bottom: 16px; margin-bottom: 26px; }
+  .vB .tabs button h3 { font-size: 22px; }
+  .vB .tabs button.on h3 { border-bottom: 2px solid currentColor; padding-bottom: 6px; }
+
+  /* C: accordion */
+  .vC .item { border-top: 1px solid rgba(255,255,255,.12); }
+  .vC .item > button { width: 100%; display: flex; justify-content: space-between; align-items: baseline; padding: 18px 0; }
+  .vC .item p { margin: 0 0 22px; }
+
+  /* D: numbered steps with panel */
+  .vD { display: grid; grid-template-columns: minmax(0,420px) 1fr; gap: 56px; }
+  .vD .item { display: grid; grid-template-columns: 44px 1fr; align-items: baseline; padding: 13px 0; border-left: 1px solid rgba(255,255,255,.15); padding-left: 18px; }
+  .vD .num { font-family: "IBM Plex Mono", monospace; font-size: 12px; }
+
+  /* E: cards that expand */
+  .vE { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; align-items: start; }
+  .vE .card { border: 1px solid rgba(255,255,255,.14); padding: 22px; min-height: 130px; transition: all .25s; }
+  .vE .card.on { grid-column: span 2; background: rgba(255,255,255,.04); }
+  .vE .card h3 { font-size: 21px; }
+  @media (max-width: 900px){ .vA,.vD{grid-template-columns:1fr} .vE{grid-template-columns:1fr 1fr} }
+</style>
+</head>
+<body>
+
+<section>
+  <div class="tag">A · List + side panel (what's on localhost now)</div>
+  <div class="vA">
+    <div id="alist"></div>
+    <p class="body" id="apanel"></p>
+  </div>
+</section>
+
+<section>
+  <div class="tag">B · Tabs above, text below</div>
+  <div class="vB">
+    <div class="tabs" id="btabs"></div>
+    <p class="body" id="bpanel"></p>
+  </div>
+</section>
+
+<section>
+  <div class="tag">C · Accordion, text unfolds in place</div>
+  <div class="vC" id="cacc"></div>
+</section>
+
+<section>
+  <div class="tag">D · Numbered like How-we-work, panel right</div>
+  <div class="vD">
+    <div id="dlist"></div>
+    <p class="body" id="dpanel"></p>
+  </div>
+</section>
+
+<section>
+  <div class="tag">E · Cards, active one widens</div>
+  <div class="vE" id="ecards"></div>
+</section>
+
+<script>
+const AREAS = [
+  ["Inverting Civic Wealth", "Supporting communities through co-designing innovative economic tools to enhance control over housing and land ownership. Pooled funding, community-driven exit strategies, multi-capital currencies, and bioregional banking reshape how wealth flows within neighbourhoods and interconnected communities."],
+  ["Modernising Agreements", "Crafting modular and automated governance, policy and legal frameworks that redefine how communities own and care. We work to implement interoperable organisational models to create scalable systems that meet evolving needs."],
+  ["Cultivating Playful Rituals", "Integrating governance into everyday life through human-centric design. Including sociocratic decision-making, digital coordination tools, and innovative hardware to enhance collective collaboration by smoothly connecting digital and physical spaces."],
+  ["Building Civic Technology", "We build the technology these mechanisms run on. AI that processes deliberation on the device, hardware built for the room, knowledge graphs that keep collective positions traceable, and decentralised registries validated by many hands."],
+];
+
+function makeList(listEl, panelEl, numbered){
+  let act = 0;
+  function render(){
+    listEl.innerHTML = "";
+    AREAS.forEach(([h,b],i)=>{
+      const btn = document.createElement("button");
+      btn.className = "item" + (i===act ? "" : " dim");
+      btn.innerHTML = (numbered?`<span class="num c${i}">0${i+1}</span>`:"") +
+        `<h3 class="head c${i}">${h}</h3>` + (numbered?"":`<span class="c${i}">${i===act?"×":"+"}</span>`);
+      btn.onclick = ()=>{act=i;render();};
+      listEl.appendChild(btn);
+    });
+    panelEl.textContent = AREAS[act][1];
+  }
+  render();
+}
+makeList(document.getElementById("alist"), document.getElementById("apanel"), false);
+makeList(document.getElementById("dlist"), document.getElementById("dpanel"), true);
+
+(function(){ // B tabs
+  let act = 0; const tabs = document.getElementById("btabs"), panel = document.getElementById("bpanel");
+  function render(){
+    tabs.innerHTML = "";
+    AREAS.forEach(([h],i)=>{
+      const b = document.createElement("button");
+      b.className = i===act ? "on" : "dim";
+      b.innerHTML = `<h3 class="head c${i}">${h}</h3>`;
+      b.onclick = ()=>{act=i;render();};
+      tabs.appendChild(b);
+    });
+    panel.textContent = AREAS[act][1];
+  }
+  render();
+})();
+
+(function(){ // C accordion
+  let act = 0; const acc = document.getElementById("cacc");
+  function render(){
+    acc.innerHTML = "";
+    AREAS.forEach(([h,b],i)=>{
+      const d = document.createElement("div"); d.className = "item";
+      d.innerHTML = `<button><h3 class="head c${i}${i===act?"":" dim"}">${h}</h3><span class="c${i}">${i===act?"×":"+"}</span></button>` +
+        (i===act ? `<p class="body">${b}</p>` : "");
+      d.querySelector("button").onclick = ()=>{act = act===i ? -1 : i; render();};
+      acc.appendChild(d);
+    });
+  }
+  render();
+})();
+
+(function(){ // E cards
+  let act = 0; const wrap = document.getElementById("ecards");
+  function render(){
+    wrap.innerHTML = "";
+    AREAS.forEach(([h,b],i)=>{
+      const c = document.createElement("div"); c.className = "card" + (i===act?" on":"");
+      c.innerHTML = `<button style="width:100%"><h3 class="head c${i}">${h}</h3>` +
+        (i===act ? `<p class="body" style="font-size:15px">${b}</p>` : "") + `</button>`;
+      c.querySelector("button").onclick = ()=>{act=i;render();};
+      wrap.appendChild(c);
+    });
+  }
+  render();
+})();
+</script>
+</body>
+</html>

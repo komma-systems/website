@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KOMMA — roast fixes: hero, taxonomy bridge, collective</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200;0,8..60,300;0,8..60,400;0,8..60,600&family=Silkscreen&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--terra:#b5502a;--sienna:#c9673a;--ochre:#c07b3a;--amber:#d99a4e;--cream:#f5f2e8}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#000;color:#fff;font-family:'Source Serif 4',serif}
+  p{text-wrap:pretty}
+  .lab{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:#000;background:var(--cream);padding:12px 24px;position:sticky;top:0;z-index:50;display:flex;justify-content:space-between}
+  .lab small{text-transform:none;letter-spacing:0}
+  section{padding:64px 40px 100px}
+  .inner{max-width:1000px;margin:0 auto}
+  .pix{font-family:'Silkscreen',cursive}
+  .mono{font-family:'IBM Plex Mono',monospace}
+  .grain{background:#161616}
+  .tgrad{background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.28'/%3E%3C/svg%3E"),
+    linear-gradient(100deg,#8f2f1c,#b5502a 35%,#c07b3a 70%,#d99a4e);
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  .btnfill{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;color:#fff;border-radius:999px;padding:11px 24px;text-decoration:none;
+    background:linear-gradient(100deg,#8f2f1c,#b5502a 40%,#c07b3a 80%,#d99a4e)}
+  .btnring{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:13px;color:rgba(255,255,255,.85);border-radius:999px;padding:10px 22px;text-decoration:none;border:1px solid transparent;
+    background:linear-gradient(#000,#000) padding-box,linear-gradient(100deg,#8f2f1c,#b5502a 40%,#c07b3a 80%,#d99a4e) border-box}
+
+  /* hero variants */
+  .heroA h1{font-weight:300;font-size:clamp(30px,4.4vw,52px);line-height:1.25;letter-spacing:-.01em;max-width:840px}
+  .heroA .sub{margin-top:26px;font-size:20px;line-height:1.6;color:#b5b5b5;max-width:640px}
+  .heroA .komma{font-size:30px;display:block;margin-bottom:36px}
+  .heroA .fact{margin-top:34px;font-family:'IBM Plex Mono',monospace;font-size:13px;color:rgba(255,255,255,.5)}
+  .heroA .fact b{color:#fff;font-weight:500}
+
+  /* bridge */
+  .areas{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;margin-bottom:8px}
+  .areas h4{font-weight:300;font-size:20px}
+  .areas p{font-size:13px;color:#9a9a9a;margin-top:6px;line-height:1.5}
+  .row{display:grid;grid-template-columns:1fr 210px;gap:36px;border-top:1px solid rgba(255,255,255,.25);padding:28px 6px;align-items:start}
+  .row h3{font-weight:300;font-size:30px}
+  .chips{margin-top:10px;font-family:'IBM Plex Mono',monospace;font-size:13px;display:flex;gap:14px;flex-wrap:wrap}
+  .row .desc{font-size:16px;color:#c9c9c9;margin-top:12px;line-height:1.65;max-width:560px}
+  .stage{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#fff}
+  .dot{font-size:9px;vertical-align:2px;margin-right:8px}
+
+  /* collective */
+  .white{background:#f7f5ef;color:#111}
+  .founders{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin:36px 0 44px}
+  .founders h3{font-weight:600;font-size:24px}
+  .founders .role{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#a4531f;margin-top:4px}
+  .founders p{font-size:15px;color:#444;margin-top:12px;line-height:1.65}
+  .collab{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;border-top:1px solid rgba(0,0,0,.15);padding-top:30px}
+  .collab h4{font-weight:600;font-size:17px}
+  .collab p{font-size:13.5px;color:#555;margin-top:6px;line-height:1.55}
+  .adv{border-top:1px solid rgba(0,0,0,.15);margin-top:36px;padding-top:26px}
+  .adv .line{display:flex;gap:14px;padding:9px 0;font-size:15px;align-items:baseline}
+  .adv .line b{min-width:170px;font-weight:600}
+  .adv .line span{color:#555}
+</style>
+</head>
+<body>
+
+<div class="lab"><span>Fix 1a — Hero: statement + method + action</span><small>land and housing in the first sentence; the page's primary CTA above the fold</small></div>
+<section class="heroA"><div class="inner">
+  <span class="pix komma">KOMMA</span>
+  <h1>A research and civic technology studio building the mechanisms to hold <span class="tgrad">land and housing</span> in common.</h1>
+  <p class="sub">We start from the realities of a place, design new mechanisms with the people who live and work there, and turn what works into patterns and tools that other places can adapt.</p>
+  <p style="margin-top:36px"><a class="btnfill" href="#">Let's talk →</a>&nbsp;&nbsp;<a class="btnring" href="#">See the work ↓</a></p>
+  <p class="fact"><b>In deployment</b> in two rural German districts · <b>5 initiatives</b> across Europe · funded by <b>BMBF</b></p>
+</div></section>
+
+<div class="lab"><span>Fix 1b — Hero: quieter alternative</span><small>keeps the current serif register, one paragraph instead of three, CTA present</small></div>
+<section class="heroA grain"><div class="inner">
+  <span class="pix komma">KOMMA</span>
+  <h1 style="font-size:clamp(26px,3.2vw,38px)">A research and civic technology studio using artistic inquiry and real-world demonstration to change how we value, own, govern and care for land and housing.</h1>
+  <p style="margin-top:36px"><a class="btnfill" href="#">Let's talk →</a></p>
+</div></section>
+
+<div class="lab"><span>Fix 2 — The bridge: initiative tags become areas of practice</span><small>the areas grid becomes a legend; each initiative shows its areas in the area's own colour. Three taxonomies collapse to two.</small></div>
+<section><div class="inner">
+  <p class="mono" style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:22px">Areas of practice (the legend)</p>
+  <div class="areas">
+    <div><h4 style="color:var(--terra)">Inverting Civic Wealth</h4><p>economic tools for control over housing and land</p></div>
+    <div><h4 style="color:var(--sienna)">Modernising Agreements</h4><p>governance, policy and legal frameworks</p></div>
+    <div><h4 style="color:var(--ochre)">Cultivating Playful Rituals</h4><p>governance in everyday life</p></div>
+    <div><h4 style="color:var(--amber)">Building Civic Technology</h4><p>the technology the mechanisms run on</p></div>
+  </div>
+
+  <p class="mono" style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.45);margin:44px 0 6px">Initiatives (each row shows its areas)</p>
+  <div class="row"><div>
+    <h3 class="tgrad" style="display:inline-block">Meld →</h3>
+    <div class="chips"><span style="color:var(--ochre)">Cultivating Playful Rituals</span><span style="color:var(--amber)">Building Civic Technology</span></div>
+    <p class="desc">Civic deliberation infrastructure: a hardware device and privacy-preserving platform that captures deliberation in the room.</p>
+  </div><div><span class="stage"><span class="dot" style="color:var(--terra)">●</span>IN DEPLOYMENT</span></div></div>
+
+  <div class="row"><div>
+    <h3 class="tgrad" style="display:inline-block">Relational Wealth Flows</h3>
+    <div class="chips"><span style="color:var(--terra)">Inverting Civic Wealth</span><span style="color:var(--amber)">Building Civic Technology</span></div>
+    <p class="desc">Mechanism design for how neighbourhoods capture and circulate the value they create together.</p>
+  </div><div><span class="stage"><span class="dot" style="color:var(--ochre)">●</span>EXPLORATION</span></div></div>
+
+  <div class="row"><div>
+    <h3 class="tgrad" style="display:inline-block">Weve</h3>
+    <div class="chips"><span style="color:var(--sienna)">Modernising Agreements</span><span style="color:var(--amber)">Building Civic Technology</span></div>
+    <p class="desc">A registry that records land as the relationships between the people who hold it.</p>
+  </div><div><span class="stage"><span class="dot" style="color:var(--amber)">●</span>IN DEVELOPMENT</span></div></div>
+</div></section>
+
+<div class="lab"><span>Fix 3 — Collective: founders, collaborators, advisors in three weights</span><small>hierarchy instead of ten equal bios; advisor intro replaced</small></div>
+<section class="white"><div class="inner">
+  <h2 style="font-weight:600;font-size:32px">The Collective</h2>
+  <div class="founders">
+    <div><h3>Charlie Fisher</h3><p class="role">Co-lead · Meld, Weve</p><p>Practical demonstrations of decentralised technologies for affordable housing and commons-based landholding. Ran an architecture practice for a decade; co-founded Oasa.</p></div>
+    <div><h3>Clara Gromaches</h3><p class="role">Co-lead · Operations, Relational Wealth Flows</p><p>Consultant, researcher and business operator on decentralised technologies. Developed regenerative housing projects and advised municipalities on affordable housing policy.</p></div>
+  </div>
+  <div class="collab">
+    <div><h4>Robert Matijević</h4><p>Technical lead of the Kair platform.</p></div>
+    <div><h4>Franz Josef Allmayer</h4><p>Digital infrastructure for decentralised governance and regenerative finance.</p></div>
+    <div><h4>Bradley Clark Royes</h4><p>Strategic design at the intersection of culture and AI-native systems.</p></div>
+    <div><h4>Livia Deschermayer</h4><p>Token engineering, governance and culture.</p></div>
+    <div><h4>Jeff Emmett</h4><p>Research on novel resource allocation patterns.</p></div>
+    <div><h4>Rita Palma</h4><p>Multispecies perspectives in organisational contexts.</p></div>
+  </div>
+  <div class="adv">
+    <p style="font-size:15px;color:#444;margin-bottom:14px">A small circle of advisors accompanies specific initiatives.</p>
+    <div class="line"><b>Dan Lewis</b><span>Enspiral Foundation Steward · advises the Meld initiative</span></div>
+    <div class="line"><b>Kate Beecroft</b><span>Governance for decentralised organisations · works with us on Noumenal</span></div>
+  </div>
+</div></section>
+
+<div style="height:90px"></div>
+</body>
+</html>

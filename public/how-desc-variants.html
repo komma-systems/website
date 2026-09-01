@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>How-we-work: description panel treatments</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300;8..60,400&family=Silkscreen&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: #111; color: #eee; font-family: "Source Serif 4", serif; }
+  section { padding: 56px 48px; border-bottom: 1px solid #2a2a2a; }
+  .tag { font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: .1em; color: #666; text-transform: uppercase; margin-bottom: 30px; }
+  .sk { font-family: "Silkscreen", cursive; text-transform: uppercase; letter-spacing: .08em; }
+  button { background: none; border: none; color: inherit; font: inherit; cursor: pointer; text-align: left; padding: 0; }
+  .band { display: grid; grid-template-columns: repeat(5, 1fr); gap: 28px; border-top: 1px solid rgba(255,255,255,.15); padding-top: 26px; }
+  .band .sk { font-size: 13px; margin-top: 10px; display: block; color: #d4d4d4; }
+  .band button.off { opacity: .4; }
+  .band button.on .sk { color: #fff; }
+  img.mark { width: 100%; display: block; }
+  .arrow { color: rgba(255,255,255,.3); }
+  @media (max-width: 900px){ .band{grid-template-columns:repeat(2,1fr)} }
+
+  /* 1: plain paragraph (current) */
+  .d1 { margin-top: 30px; font-size: 17px; line-height: 1.7; color: #b9b9b9; max-width: 34em; }
+
+  /* 2: hairline left border + step number */
+  .d2 { margin-top: 30px; border-left: 1px solid rgba(255,255,255,.35); padding-left: 22px; max-width: 34em; }
+  .d2 .num { font-family: "IBM Plex Mono", monospace; font-size: 12px; color: #9c9c9c; display: block; margin-bottom: 8px; }
+  .d2 p { margin: 0; font-size: 17px; line-height: 1.7; color: #cfcfcf; }
+
+  /* 3: large light serif, reads like a statement */
+  .d3 { margin-top: 34px; font-weight: 300; font-size: 26px; line-height: 1.45; color: #e6e6e6; max-width: 26em; }
+
+  /* 4: aligned under the active drawing */
+  .d4wrap { position: relative; margin-top: 14px; min-height: 90px; }
+  .d4 { font-size: 15px; line-height: 1.65; color: #b9b9b9; width: calc((100% - 4*28px)/5*2 + 28px); }
+
+  /* 5: label repeated + text inline, mono */
+  .d5 { margin-top: 30px; max-width: 40em; font-family: "IBM Plex Mono", monospace; font-size: 14px; line-height: 1.8; color: #b9b9b9; }
+  .d5 .lbl { color: #fff; }
+</style>
+</head>
+<body>
+
+<section>
+  <div class="tag">1 · Plain paragraph below (current)</div>
+  <div class="band" data-v="1"></div>
+  <p class="d1" data-panel="1"></p>
+</section>
+
+<section>
+  <div class="tag">2 · Numbered, hairline left border</div>
+  <div class="band" data-v="2"></div>
+  <div class="d2"><span class="num" data-num="2"></span><p data-panel="2"></p></div>
+</section>
+
+<section>
+  <div class="tag">3 · Large light serif, statement-sized</div>
+  <div class="band" data-v="3"></div>
+  <p class="d3" data-panel="3"></p>
+</section>
+
+<section>
+  <div class="tag">4 · Text slides to sit under the active drawing</div>
+  <div class="band" data-v="4"></div>
+  <div class="d4wrap"><p class="d4" data-panel="4"></p></div>
+</section>
+
+<section>
+  <div class="tag">5 · Mono caption: LABEL — text</div>
+  <div class="band" data-v="5"></div>
+  <p class="d5" data-panel="5"></p>
+</section>
+
+<script>
+const STEPS = [
+  ["research", "Research", "Understand the conditions, relationships and systems shaping what is possible in a place."],
+  ["design", "Mechanism Design", "Develop new mechanisms of governance, finance, relations and technology with the people involved."],
+  ["demonstrate", "Demonstrators", "Build and test them in real places, with the communities and institutions involved."],
+  ["learn", "Patterns", "Document what works, what does not, and why, turning experience into patterns that can travel."],
+  ["adapt", "Tools", "Build the tools and infrastructure that help others use and adapt proven mechanisms."],
+];
+document.querySelectorAll(".band").forEach(band => {
+  const v = band.dataset.v;
+  let act = 0;
+  function render(){
+    band.innerHTML = "";
+    STEPS.forEach(([k,l],i)=>{
+      const b = document.createElement("button");
+      b.className = i===act ? "on" : "off";
+      b.innerHTML = `<img class="mark" src="/how/${k}.svg" alt=""><span class="sk">${l}${i<4?' <span class="arrow">→</span>':''}</span>`;
+      b.onclick = ()=>{act=i;render();};
+      band.appendChild(b);
+    });
+    const panel = document.querySelector(`[data-panel="${v}"]`);
+    if(v==="5"){ panel.innerHTML = `<span class="lbl">${STEPS[act][1].toUpperCase()}</span> — ${STEPS[act][2]}`; }
+    else { panel.textContent = STEPS[act][2]; }
+    const num = document.querySelector(`[data-num="${v}"]`);
+    if(num) num.textContent = "0" + (act+1) + " / 05";
+    if(v==="4"){ panel.style.marginLeft = `calc((100% - 4*28px)/5*${Math.min(act,3)} + ${Math.min(act,3)}*28px)`; }
+  }
+  render();
+});
+</script>
+</body>
+</html>
