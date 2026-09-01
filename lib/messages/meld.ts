@@ -29,7 +29,8 @@ export type MeldMessages = {
   featured: { tag: string; pill: string; title: string; body: string; imageAlt: string }
   cards: { tag: string; title: string; desc: string }[]
   fieldLabel: string
-  field: { tag: string; meta: string[]; title: string; body: string; cta: string | null; href: string | null }[]
+  fieldPastLabel: string
+  field: { tag: string; meta: string[]; title: string; body: string; cta: string | null; href: string | null; start?: string; end?: string }[]
 }
 
 const en: MeldMessages = {
@@ -100,22 +101,35 @@ const en: MeldMessages = {
     },
   ],
   fieldLabel: "From the field",
+  fieldPastLabel: "Past events",
   field: [
     {
       tag: "Forum",
       meta: ["26–30 Aug 2026", "Alpbach, AT"],
+      end: "2026-08-30",
       title: "Meld at the European Forum Alpbach",
-      body: "A live demonstration of Meld with the 10x100 network at the European Forum Alpbach: consent-first deliberation captured in the room, processed on the device, and returned to participants as structured sensemaking.",
+      body: "A live demonstration of Meld with the [10x100 network](https://www.alpbach.org/blog/urban-transformation-and-bioregional-resilience-the-micro-macro-deal) at the European Forum Alpbach: consent-first deliberation captured in the room, processed on the device, and returned to participants as structured sensemaking.",
       cta: "Request access →",
       href: "https://10x100.kair.is/",
     },
     {
       tag: "Event",
       meta: ["7 Sep 2026", "Kiel, DE"],
+      end: "2026-09-07",
       title: "Meld in Kiel",
       body: "An in-person session in Kiel, in collaboration with nextlearning. More details to follow here.",
       cta: null,
       href: null,
+    },
+    {
+      tag: "Residence",
+      meta: ["17–31 Oct 2026", "Mandrem, Goa, IN"],
+      start: "2026-10-17",
+      end: "2026-10-31",
+      title: "Residency at CoCo City",
+      body: "A two-week residency at CoCo City, a pop-up city held in common in Mandrem, Goa. We bring Meld into the daily life of a temporary city, testing consent-first deliberation with a community building shared infrastructure from scratch.",
+      cta: "Visit →",
+      href: "https://city.commoncompute.org/",
     },
     {
       tag: "Participate",
@@ -196,22 +210,35 @@ const de: MeldMessages = {
     },
   ],
   fieldLabel: "Aus der Praxis",
+  fieldPastLabel: "Vergangene Veranstaltungen",
   field: [
     {
       tag: "Forum",
       meta: ["26.–30. Aug 2026", "Alpbach, AT"],
+      end: "2026-08-30",
       title: "Meld beim Europäischen Forum Alpbach",
-      body: "Eine Live-Demonstration von Meld mit dem 10x100-Netzwerk beim Europäischen Forum Alpbach. Deliberation wird mit Einwilligung im Raum erfasst, auf dem Gerät verarbeitet und den Teilnehmenden als strukturierte Auswertung zurückgegeben.",
+      body: "Eine Live-Demonstration von Meld mit dem [10x100-Netzwerk](https://www.alpbach.org/blog/urban-transformation-and-bioregional-resilience-the-micro-macro-deal) beim Europäischen Forum Alpbach. Deliberation wird mit Einwilligung im Raum erfasst, auf dem Gerät verarbeitet und den Teilnehmenden als strukturierte Auswertung zurückgegeben.",
       cta: "Zugang anfragen →",
       href: "https://10x100.kair.is/",
     },
     {
       tag: "Veranstaltung",
       meta: ["7. Sep 2026", "Kiel, DE"],
+      end: "2026-09-07",
       title: "Meld in Kiel",
       body: "Eine Veranstaltung vor Ort in Kiel, in Zusammenarbeit mit nextlearning. Weitere Einzelheiten folgen hier.",
       cta: null,
       href: null,
+    },
+    {
+      tag: "Residenz",
+      meta: ["17.–31. Okt 2026", "Mandrem, Goa, IN"],
+      start: "2026-10-17",
+      end: "2026-10-31",
+      title: "Residenz in der CoCo City",
+      body: "Eine zweiwöchige Residenz in der CoCo City, einer temporären, gemeinschaftlich getragenen Stadt in Mandrem, Goa. Wir bringen Meld in den Alltag einer temporären Stadt und erproben einwilligungsbasierte Deliberation mit einer Gemeinschaft, die gemeinsame Infrastruktur von Grund auf aufbaut.",
+      cta: "Besuchen →",
+      href: "https://city.commoncompute.org/",
     },
     {
       tag: "Mitmachen",

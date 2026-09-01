@@ -34,6 +34,9 @@ export async function generateMetadata({
   }
 }
 
+// Re-render at most daily so past events drop off without a deploy
+export const revalidate = 86400
+
 const proseClasses = "[text-wrap:pretty] text-[1.125rem] leading-[1.8] text-slate-100"
 const labelClasses = "mb-5 mt-14 font-silkscreen text-base sm:text-lg uppercase tracking-[0.18em] text-cream"
 
@@ -57,6 +60,7 @@ export default async function MeldPage({ params }: PageProps) {
   const { locale: raw } = await params
   const locale: Locale = isLocale(raw) ? raw : defaultLocale
   const t = meldMessages[locale]
+  const today = new Date().toISOString().slice(0, 10)
   const cardHrefs = ["https://kair.is/", "https://meld.earth/"]
   const cardImgs = ["/meld/kair.png", "/meld/device.png"]
 
@@ -239,7 +243,14 @@ export default async function MeldPage({ params }: PageProps) {
                 <p className="mb-4 font-silkscreen text-base sm:text-lg uppercase tracking-[0.18em] text-cream">
                   {t.fieldLabel}
                 </p>
-                <FieldEvents items={t.field} locale={locale} />
+                <FieldEvents
+                  items={t.field.filter((item) => !item.end || item.end >= today)}
+                  pastItems={t.field
+                    .filter((item) => item.end && item.end < today)
+                    .sort((a, b) => (a.end! < b.end! ? 1 : -1))}
+                  pastLabel={t.fieldPastLabel}
+                  locale={locale}
+                />
               </div>
             </div>
           </div>

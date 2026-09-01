@@ -11,22 +11,58 @@ type FieldItem = {
   href?: string | null
 }
 
-const TAG_COLORS: Record<string, string> = {
+export const TAG_COLORS: Record<string, string> = {
   Forum: "#575757",
   Event: "#9c9c9c",
   Veranstaltung: "#9c9c9c",
+  Residence: "#8a8a8a",
+  Residenz: "#8a8a8a",
+  Keynote: "#737373",
+  Workshop: "#9c9c9c",
   Participate: "#737373",
   Mitmachen: "#737373",
 }
 
 const proseClasses = "[text-wrap:pretty] text-[1.125rem] leading-[1.8] text-slate-100"
 
-export function FieldEvents({ items, locale }: { items: readonly FieldItem[]; locale: string }) {
-  const [open, setOpen] = useState<number | null>(null)
+// Renders [text](url) links inside event descriptions; everything else is plain text.
+export function renderEventBody(body: string) {
+  const parts = body.split(/(\[[^\]]+\]\([^)]+\))/g)
+  return parts.map((part, i) => {
+    const match = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/)
+    if (!match) return part
+    return (
+      <a
+        key={i}
+        href={match[2]}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="border-b border-white/30 hover:text-cream hover:border-cream transition-colors"
+      >
+        {match[1]}
+      </a>
+    )
+  })
+}
 
-  return (
+export function FieldEvents({
+  items,
+  pastItems = [],
+  pastLabel,
+  locale,
+}: {
+  items: readonly FieldItem[]
+  pastItems?: readonly FieldItem[]
+  pastLabel?: string
+  locale: string
+}) {
+  const [open, setOpen] = useState<number | null>(null)
+  const [showPast, setShowPast] = useState(false)
+
+  const renderItems = (list: readonly FieldItem[], offset: number) => (
     <div>
-      {items.map((item, idx) => {
+      {list.map((item, i) => {
+        const idx = offset + i
         const alwaysOpen = item.tag === "Participate" || item.tag === "Mitmachen"
         const Row = (
           <div className="grid grid-cols-1 gap-x-9 gap-y-3 border-t border-white/25 py-8 transition-colors hover:bg-white/[0.04] sm:grid-cols-[130px_1fr]">
@@ -67,7 +103,7 @@ export function FieldEvents({ items, locale }: { items: readonly FieldItem[]; lo
                 )}
               </h3>
               {(alwaysOpen || open === idx) && (
-                <p className={`${proseClasses} mt-2 text-gray-300`}>{item.body}</p>
+                <p className={`${proseClasses} mt-2 text-gray-300`}>{renderEventBody(item.body)}</p>
               )}
               {item.cta && (
                 <p className="mt-4">
@@ -99,6 +135,31 @@ export function FieldEvents({ items, locale }: { items: readonly FieldItem[]; lo
           <div key={item.title}>{Row}</div>
         )
       })}
+    </div>
+  )
+
+  return (
+    <div>
+      {renderItems(items, 0)}
+      {pastItems.length > 0 && (
+        <div className="border-t border-white/25">
+          <button
+            type="button"
+            onClick={() => setShowPast(!showPast)}
+            aria-expanded={showPast}
+            className="flex w-full items-center gap-3 py-6 text-left font-silkscreen text-[0.7rem] uppercase tracking-widest text-white/50 transition-colors hover:text-white"
+          >
+            <span
+              className="inline-block text-base transition-transform duration-200"
+              style={{ transform: showPast ? "rotate(45deg)" : "none" }}
+            >
+              +
+            </span>
+            {pastLabel} ({pastItems.length})
+          </button>
+          {showPast && <div className="opacity-55">{renderItems(pastItems, items.length)}</div>}
+        </div>
+      )}
     </div>
   )
 }
