@@ -14,10 +14,15 @@ permissions:
 
 jobs:
   deploy:
-    if: github.event.action != 'closed'
+    # Only deploy previews for branches in this repo. Fork PRs are skipped:
+    # deploying needs the Cloudflare secrets, and checking out fork code under
+    # pull_request_target would expose them to untrusted code (pwn request).
+    if: >-
+      github.event.action != 'closed' &&
+      github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           ref: ${{ github.event.pull_request.head.sha }}
 
