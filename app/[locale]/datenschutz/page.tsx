@@ -29,10 +29,10 @@ export default function PrivacyPolicyPage() {
             <h2 className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">
               1. Data controller
             </h2>
-            <p className="mt-3 font-medium text-white">KOMMA Genossenschaft</p>
-            <p className="mt-3">In der Specki 3</p>
-            <p>9494 Schaan</p>
-            <p>Liechtenstein</p>
+            <p className="mt-3 font-medium text-white">Komma Systems UG (haftungsbeschränkt) i.G.</p>
+            <p className="mt-3">Eichenweg 34</p>
+            <p>79183 Waldkirch</p>
+            <p>Germany</p>
             <p className="mt-3">
               Email:{" "}
               <a
@@ -109,18 +109,16 @@ export default function PrivacyPolicyPage() {
               3. Legal basis
             </h2>
             <p className="mt-3">
-              Applicable law is the Liechtenstein Data Protection Act (Datenschutzgesetz, DSG) of
-              2018, which transposes Liechtenstein&apos;s EEA obligations and is materially aligned
-              with the EU General Data Protection Regulation (GDPR). References below to articles of
-              the GDPR are to the equivalent bases under the DSG 2018.
+              Applicable law is the EU General Data Protection Regulation (GDPR) together with the
+              German Federal Data Protection Act (Bundesdatenschutzgesetz, BDSG).
             </p>
             <p className="mt-4">
-              Processing of contact form data is based on Art. 6(1)(b) GDPR / DSG 2018 (steps prior
+              Processing of contact form data is based on Art. 6(1)(b) GDPR (steps prior
               to entering into a contract or handling your request) and, where applicable, Art.
-              6(1)(f) GDPR / DSG 2018 (our legitimate interest in responding to enquiries).
-              Processing of hosting and log data is based on Art. 6(1)(f) GDPR / DSG 2018 (legitimate
+              6(1)(f) GDPR (our legitimate interest in responding to enquiries).
+              Processing of hosting and log data is based on Art. 6(1)(f) GDPR (legitimate
               interest in providing a secure, available website). Processing of aggregate web
-              analytics data is based on Art. 6(1)(f) GDPR / DSG 2018 (legitimate interest in
+              analytics data is based on Art. 6(1)(f) GDPR (legitimate interest in
               understanding how the site is used and improving it), using a tool chosen specifically
               because it operates without cookies or cross-site tracking.
             </p>
@@ -144,9 +142,9 @@ export default function PrivacyPolicyPage() {
               5. Your rights
             </h2>
             <p className="mt-3">
-              Under the Liechtenstein DSG 2018 you have the right of access, rectification, erasure,
+              Under the GDPR you have the right of access, rectification, erasure,
               restriction of processing, data portability, and the right to object where
-              applicable (these correspond to the rights familiar from the GDPR). To exercise these
+              applicable. To exercise these
               rights, contact us at{" "}
               <a
                 href="mailto:contact@komma.systems"
@@ -159,25 +157,20 @@ export default function PrivacyPolicyPage() {
               inform you within the first month if an extension applies. You also have the right to
               lodge a complaint with a supervisory authority:
             </p>
-            <p className="mt-4 font-medium text-white">Datenschutzstelle Liechtenstein</p>
-            <p className="mt-2">Städtle 38</p>
-            <p>FL-9490 Vaduz</p>
-            <p className="mt-2">
-              <a
-                href="mailto:info.dss@llv.li"
-                className="text-white underline underline-offset-4 hover:text-slate-200"
-              >
-                info.dss@llv.li
-              </a>
+            <p className="mt-4 font-medium text-white">
+              Der Landesbeauftragte für den Datenschutz und die Informationsfreiheit
+              Baden-Württemberg
             </p>
+            <p className="mt-2">Lautenschlagerstraße 20</p>
+            <p>70173 Stuttgart, Germany</p>
             <p className="mt-2">
               <a
-                href="https://www.datenschutzstelle.li"
+                href="https://www.baden-wuerttemberg.datenschutz.de"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white underline underline-offset-4 hover:text-slate-200"
               >
-                datenschutzstelle.li
+                baden-wuerttemberg.datenschutz.de
               </a>
             </p>
           </div>
@@ -188,17 +181,17 @@ export default function PrivacyPolicyPage() {
             </h2>
             <p className="mt-3">
               Vercel, Cloudflare and Resend are US companies. Using their services can involve transfers of
-              personal data to the United States and other countries. Liechtenstein is part of the
-              EEA; where data is transferred to countries not covered by an adequacy decision,
-              applicable law (DSG 2018) requires appropriate safeguards.
+              personal data to the United States and other countries. Where data is transferred to
+              countries not covered by an adequacy decision, the GDPR requires appropriate
+              safeguards.
             </p>
             <p className="mt-4">
               For these processors, safeguards are typically set out in their customer agreements
               and, where offered, in a data processing agreement (DPA). Those instruments often
               incorporate the EU Commission&apos;s standard contractual clauses (SCCs) or another
               approved transfer mechanism for processor processing. The exact tool that governs your
-              relationship depends on the terms and DPA (if any) accepted between KOMMA
-              Genossenschaft and each provider. We recommend reviewing Vercel&apos;s and
+              relationship depends on the terms and DPA (if any) accepted between Komma Systems UG
+              (haftungsbeschränkt) i.G. and each provider. We recommend reviewing Vercel&apos;s and
               Resend&apos;s current DPA and privacy materials and confirming that you have accepted
               the processing terms that apply to your account.
             </p>
