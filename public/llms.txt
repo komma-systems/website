@@ -1,0 +1,29 @@
+# KOMMA
+
+> KOMMA is a cooperative that designs and builds the tools to hold land and housing in common. It develops mechanisms combining finance, legal form and governance, tests them as real-world demonstrators with communities and institutions, and turns what works into tools and civic technologies others can adapt.
+
+KOMMA operates through two entities: Komma Genossenschaft, a Liechtenstein Venture Cooperative, and Komma Systems UG (haftungsbeschränkt), a German limited company that builds and holds the platform technology. It is co-run by Charles (Charlie) Fisher and Clara Gromaches, based across Liechtenstein, Germany and Spain.
+
+## Initiatives
+
+- [Meld](https://komma.systems/en/meld): Civic deliberation infrastructure. A hardware device and privacy-preserving platform that captures deliberation in the room with consent, processes it locally so raw audio never leaves the device, and returns structured documentation. In deployment through the BMBF-funded InnoVER programme with nextlearning e.V.
+- Weve: A land registry that records land as the relationships between the people who hold it, from formal titles to customary claims, growing toward the registry layer for community land trusts.
+- Relational Wealth Flows: Mechanism design for how neighbourhoods capture and circulate the value they create, including threshold pools for pooled, conditional funding commitments.
+- Sensed Governance: A collective practice of embodied, relational governance, helping communities navigate differences before they harden into process.
+- EX:Risk: Civic sensing that pairs what residents notice with what data shows, so neighbourhoods and municipalities share one legible early signal.
+- EXCLSR: An academy gathering the mechanisms that keep land and housing in common, so other places can read, adapt and replicate what worked.
+
+## Pages
+
+- [Home](https://komma.systems/en): Who KOMMA is, how it works, areas of practice, the collective
+- [Meld](https://komma.systems/en/meld): The Meld initiative in depth
+- [About](https://komma.systems/en/about): Background and approach
+- [Contact](https://komma.systems/en/contact): Get in touch
+
+## Facts
+
+- Legal form: cooperative (Liechtenstein Venture Cooperative) with a German operating subsidiary
+- Focus: land and housing held in common; unwinding enclosures through practical mechanisms
+- Method: research, mechanism design, real-world demonstrators, patterns, tools
+- Partners and funders include the BMBF (German Federal Ministry of Education and Research, via InnoVER), nextlearning e.V., Foresight Institute, 10x100, the International Center for Community Land Trusts, Impact Hub, Ethereum Foundation and Consensys
+- Languages: English and German (site available in both)

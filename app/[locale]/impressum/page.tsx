@@ -23,12 +23,12 @@ export default function ImpressumPage() {
 
         <div className="mt-12 space-y-10 text-[1.02rem] leading-[1.75] text-slate-100">
           <div>
-            <p className="font-medium text-white">KOMMA Genossenschaft</p>
-            <p className="mt-3">In der Specki 3</p>
-            <p>9494 Schaan</p>
-            <p>Liechtenstein</p>
-            <p className="mt-3">Handelsregister: FL-0002.754.170-8</p>
-            <p>Eingetragen am: 25.03.2026</p>
+            <p className="font-medium text-white">Komma Systems UG (haftungsbeschränkt) i.G.</p>
+            <p className="mt-3">Eichenweg 34</p>
+            <p>79183 Waldkirch</p>
+            <p>Germany</p>
+            <p className="mt-3">Geschäftsführer: Charles Fisher</p>
+            <p>Handelsregister: HRB pending, Amtsgericht Freiburg im Breisgau</p>
           </div>
 
           <div>
@@ -40,8 +40,8 @@ export default function ImpressumPage() {
             <h2 className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">
               Responsible for content (§ 18 Abs. 2 MStV)
             </h2>
-            <p className="mt-3">Charlie Fisher</p>
-            <p className="mt-1">In der Specki 3, 9494 Schaan, Liechtenstein</p>
+            <p className="mt-3">Charles Fisher</p>
+            <p className="mt-1">Eichenweg 34, 79183 Waldkirch, Germany</p>
           </div>
 
           <div>
