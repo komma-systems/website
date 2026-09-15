@@ -63,6 +63,15 @@ const siteEventsEn: SiteEvent[] = [
     start: "2026-10-01",
     end: "2026-10-31",
   },
+  {
+    tag: "Exhibition",
+    meta: ["3–6 Nov 2026", "Mumbai, IN"],
+    title: "Ex:Risk Dharavi: weaving belonging",
+    body: "A participatory, interactive installation by Clara, rooted in belonging and place, selected for the Infinite Garden Artist Cohort at Devcon 8 India.",
+    cta: "Devcon →",
+    href: "https://devcon.org/",
+    end: "2026-11-06",
+  },
 ]
 
 const siteEventsDe: SiteEvent[] = [
@@ -93,6 +102,15 @@ const siteEventsDe: SiteEvent[] = [
     href: "https://luma.com/ycmcreer?tk=7ObFX9",
     start: "2026-10-01",
     end: "2026-10-31",
+  },
+  {
+    tag: "Ausstellung",
+    meta: ["3.–6. Nov 2026", "Mumbai, IN"],
+    title: "Ex:Risk Dharavi: Zugehörigkeit weben",
+    body: "Eine partizipative, interaktive Installation von Clara, verwurzelt in Zugehörigkeit und Ort, ausgewählt für das Infinite Garden Artist Cohort (Künstler:innen-Kohorte) auf der Devcon 8 India.",
+    cta: "Devcon →",
+    href: "https://devcon.org/",
+    end: "2026-11-06",
   },
 ]
 
