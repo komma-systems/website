@@ -19,6 +19,8 @@ export const TAG_COLORS: Record<string, string> = {
   Residenz: "#8a8a8a",
   Keynote: "#737373",
   Workshop: "#9c9c9c",
+  Exhibition: "#9c9c9c",
+  Ausstellung: "#9c9c9c",
   Participate: "#737373",
   Mitmachen: "#737373",
 }
