@@ -121,12 +121,12 @@ export async function middleware(request: NextRequest) {
 
   const onSlidesHost = requestHost(request) === slidesHost
   if (onSlidesHost) {
+    if (pathname === "/" || pathname === "/slides") {
+      return rewriteSlidesCatalog(request, "/slides")
+    }
     const bareDeck = pathname.match(/^\/([^/]+)$/)
     if (bareDeck && isDeckId(bareDeck[1]) && !isLocale(bareDeck[1])) {
       return rewriteDeck(request, bareDeck[1])
-    }
-    if (pathname === "/" || pathname === "/slides") {
-      return rewriteSlidesCatalog(request, "/slides")
     }
   }
 
