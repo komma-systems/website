@@ -10,9 +10,8 @@ export type Presentation = {
 export const presentations: readonly Presentation[] = [
   {
     id: "Braid-intro-10x100",
-    title: "10x100 at Day 1500",
-    summary:
-      "The window opened at European Forum Alpbach in September 2022. Today is close to day 1500.",
+    title: "BRAID intro for 10x100 Network",
+    summary: "An introduction to BRAID for the 10x100 network.",
   },
 ]
 
