@@ -3,6 +3,7 @@ import type { NextRequest } from "next/server"
 import { getToken } from "next-auth/jwt"
 import { LOCALE_HEADER, PATHNAME_HEADER } from "@/lib/request-locale"
 import { defaultLocale, isLocale, locales, type Locale } from "@/lib/i18n"
+import { deckAssetPath, isDeckId, slidesHost } from "@/lib/slides"
 
 const LOCALE_COOKIE = "NEXT_LOCALE"
 
@@ -69,6 +70,32 @@ async function handlePortalAndLogin(request: NextRequest): Promise<NextResponse>
   return NextResponse.next()
 }
 
+function requestHost(request: NextRequest): string {
+  const raw = request.headers.get("x-forwarded-host") ?? request.headers.get("host") ?? ""
+  return raw.split(",")[0]?.trim().split(":")[0]?.toLowerCase() ?? ""
+}
+
+function rewriteDeck(request: NextRequest, id: string): NextResponse {
+  const url = request.nextUrl.clone()
+  url.pathname = deckAssetPath(id)
+  return NextResponse.rewrite(url)
+}
+
+function rewriteSlidesCatalog(request: NextRequest, pathname: string): NextResponse {
+  const requestHeaders = new Headers(request.headers)
+  requestHeaders.set(LOCALE_HEADER, defaultLocale)
+  requestHeaders.set(PATHNAME_HEADER, pathname)
+
+  const url = request.nextUrl.clone()
+  url.pathname = `/${defaultLocale}/slides`
+
+  return NextResponse.rewrite(url, {
+    request: {
+      headers: requestHeaders,
+    },
+  })
+}
+
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
@@ -83,6 +110,28 @@ export async function middleware(request: NextRequest) {
 
   if (pathname === "/login" || pathname.startsWith("/portal")) {
     return handlePortalAndLogin(request)
+  }
+
+  // Decks stay out of locale routing. komma.systems/slides/<id> and
+  // slides.komma.systems/<id> both serve the same HTML file.
+  const deckFromSlidesPath = pathname.match(/^(?:\/(?:en|de))?\/slides\/([^/]+)$/)
+  if (deckFromSlidesPath && isDeckId(deckFromSlidesPath[1])) {
+    return rewriteDeck(request, deckFromSlidesPath[1])
+  }
+
+  const onSlidesHost = requestHost(request) === slidesHost
+  if (onSlidesHost) {
+    const bareDeck = pathname.match(/^\/([^/]+)$/)
+    if (bareDeck && isDeckId(bareDeck[1]) && !isLocale(bareDeck[1])) {
+      return rewriteDeck(request, bareDeck[1])
+    }
+    if (pathname === "/" || pathname === "/slides") {
+      return rewriteSlidesCatalog(request, "/slides")
+    }
+  }
+
+  if (pathname === "/slides") {
+    return rewriteSlidesCatalog(request, pathname)
   }
 
   // Keep the public Meld entry path locale-neutral (e.g. meld.komma.systems -> /meld).
