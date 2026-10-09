@@ -1,0 +1,614 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>BRAID Phone Recording</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap">
+<style>
+/* Layout: a fixed 1280x720 "video" stage scaled to fit, moderator window left, phone right, caption bar below. Single light look on purpose, like a recorded screencast. */
+:root {
+  color-scheme: light;
+  --page: #e9ebf1;
+  --stage: #f5f6f9;
+  --card: #ffffff;
+  --ink: #1d1f2b;
+  --muted: #6b6f80;
+  --line: #e4e6ee;
+  --brand: #6b63d9;
+  --brand-soft: #ecebfb;
+  --rec: #d6453d;
+  --ok: #1f8a5b;
+  --blue: #0072B2;
+  --orange: #D07A00;
+  --green: #009E73;
+  --font: "Figtree", "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { background: var(--page); color: var(--ink); font-family: var(--font); }
+body { padding-block: 24px 32px; padding-inline: 16px; }
+.wrap { max-width: 1280px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
+.head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 16px; }
+.head h1 { margin: 0; font-size: clamp(20px, 3vw, 28px); font-weight: 800; letter-spacing: -0.01em; text-wrap: balance; }
+.head p { margin: 0; color: var(--muted); font-size: 14px; }
+
+#frame { position: relative; width: 100%; overflow: hidden; border-radius: 18px; box-shadow: 0 1px 0 rgba(0,0,0,.04), 0 12px 40px rgba(40,44,70,.12); background: var(--stage); }
+#stage { position: absolute; left: 0; top: 0; width: 1280px; height: 720px; transform-origin: 0 0; background: var(--stage); overflow: hidden; }
+
+.lbl { position: absolute; top: 34px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+.lbl-mod { left: 44px; }
+.lbl-phone { left: 930px; width: 290px; text-align: center; transition: color .3s; }
+.lbl-phone.new { color: var(--brand); }
+
+/* Moderator window */
+.win { position: absolute; left: 40px; top: 60px; width: 840px; height: 556px; background: var(--card); border-radius: 22px; box-shadow: 0 0 0 1px var(--line), 0 10px 30px rgba(40,44,70,.08); overflow: hidden; }
+.win-top { display: flex; align-items: center; justify-content: space-between; padding: 16px 22px 10px; gap: 12px; }
+.crumb { font-size: 12px; color: var(--muted); }
+.title { font-size: 22px; font-weight: 800; letter-spacing: -0.01em; margin-top: 2px; }
+.actions { display: flex; align-items: center; gap: 8px; position: relative; }
+.btn { border: 0; font: inherit; font-size: 13px; font-weight: 600; border-radius: 999px; padding: 9px 16px; background: var(--card); color: var(--ink); box-shadow: inset 0 0 0 1px var(--line); white-space: nowrap; transition: transform .12s, background .2s, box-shadow .2s; position: relative; }
+.btn.primary { background: var(--brand); color: #fff; box-shadow: none; }
+.btn.dark { background: var(--ink); color: #fff; box-shadow: none; }
+.btn.small { padding: 6px 12px; font-size: 12px; }
+.btn.pressed { transform: scale(.94); }
+.badge { position: absolute; top: -6px; right: -6px; min-width: 20px; height: 20px; padding: 0 5px; border-radius: 999px; background: var(--rec); color: #fff; font-size: 11px; font-weight: 700; display: grid; place-items: center; box-shadow: 0 0 0 2px var(--card); }
+.livepill { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 700; color: var(--rec); background: #fdeceb; border-radius: 999px; padding: 7px 12px; font-variant-numeric: tabular-nums; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--rec); animation: blink 1.2s infinite; }
+@keyframes blink { 50% { opacity: .25; } }
+
+.tabs { display: flex; gap: 22px; padding: 0 22px; border-bottom: 1px solid var(--line); font-size: 14px; }
+.tabs span { padding: 10px 0; color: var(--muted); }
+.tabs .on { color: var(--ink); font-weight: 700; box-shadow: inset 0 -2px 0 var(--brand); }
+
+.body { padding: 16px 22px; display: flex; flex-direction: column; gap: 14px; }
+.h { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); margin: 0; }
+.sources { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.src { border-radius: 16px; padding: 12px; box-shadow: inset 0 0 0 1px var(--line); display: flex; flex-direction: column; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: var(--muted); transition: box-shadow .25s, background .25s, color .25s, transform .12s; }
+.src svg { width: 22px; height: 22px; }
+.src.on { background: var(--brand-soft); color: var(--brand); box-shadow: inset 0 0 0 2px var(--brand); }
+.src.pressed { transform: scale(.95); }
+.placeholder { color: var(--muted); font-size: 14px; padding: 40px 0; text-align: center; border: 1.5px dashed var(--line); border-radius: 18px; }
+
+.remote { display: grid; grid-template-columns: 340px 1fr; gap: 16px; animation: rise .45s ease both; }
+@keyframes rise { from { opacity: 0; transform: translateY(8px); } }
+.qrcard { border-radius: 22px; box-shadow: inset 0 0 0 1px var(--line); padding: 16px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.qrrow { display: flex; gap: 12px; }
+.qrbox, .shapebox { width: 136px; height: 136px; border-radius: 16px; display: grid; place-items: center; }
+.qrbox { background: #fff; box-shadow: inset 0 0 0 1px var(--line); padding: 8px; }
+.qrbox svg { width: 120px; height: 120px; transition: opacity .3s; }
+.shapebox { background: #f3f3f7; flex-direction: column; gap: 4px; align-content: center; transition: box-shadow .3s; }
+.shapebox svg { width: 62px; height: 62px; }
+.shapebox .nm { font-size: 13px; font-weight: 700; }
+.shapebox.hi { box-shadow: 0 0 0 3px var(--brand); animation: ring 1.4s ease-in-out infinite; }
+@keyframes ring { 50% { box-shadow: 0 0 0 7px rgba(107,99,217,.25); } }
+.qrbtns { display: flex; gap: 8px; }
+.hint { font-size: 11.5px; color: var(--muted); text-align: center; line-height: 1.4; margin: 0; }
+.lists { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.list { border-radius: 18px; box-shadow: inset 0 0 0 1px var(--line); padding: 12px 14px; display: flex; flex-direction: column; gap: 8px; min-height: 92px; }
+.empty { font-size: 13px; color: var(--muted); margin: auto 0; }
+.row { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 8px 10px; border-radius: 12px; background: #f7f7fa; animation: rise .4s ease both; }
+.row.hi { background: var(--brand-soft); }
+.who { display: flex; flex-direction: column; gap: 1px; }
+.who b { font-size: 14px; }
+.who small { font-size: 12px; color: var(--muted); }
+.who small.ok { color: var(--ok); font-weight: 600; }
+.who small.rec { color: var(--rec); font-weight: 600; }
+.rowbtns { display: flex; gap: 6px; }
+
+/* Dialog and popover */
+.scrim { position: absolute; inset: 0; background: rgba(29,31,43,.32); display: grid; place-items: center; animation: fade .25s both; }
+@keyframes fade { from { opacity: 0; } }
+.dialog { width: 380px; background: #fff; border-radius: 22px; padding: 22px; display: flex; flex-direction: column; gap: 10px; box-shadow: 0 18px 50px rgba(0,0,0,.2); }
+.dialog h3 { margin: 0; font-size: 18px; }
+.dialog p { margin: 0; font-size: 14px; color: var(--muted); line-height: 1.45; }
+.dialog .rowbtns { justify-content: flex-end; margin-top: 6px; }
+.pop { position: absolute; right: 18px; top: 62px; width: 330px; background: #fff; border-radius: 20px; box-shadow: 0 0 0 1px var(--line), 0 18px 44px rgba(40,44,70,.18); padding: 14px; display: flex; flex-direction: column; gap: 10px; animation: rise .3s ease both; z-index: 3; }
+.ptabs { display: flex; gap: 6px; background: #f3f3f7; border-radius: 999px; padding: 4px; }
+.ptabs span { flex: 1; text-align: center; font-size: 13px; font-weight: 600; padding: 6px; border-radius: 999px; color: var(--muted); }
+.ptabs .on { background: #fff; color: var(--ink); box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+.pmini { display: flex; gap: 10px; align-items: center; }
+.pmini .qrbox, .pmini .shapebox { width: 84px; height: 84px; padding: 6px; }
+.pmini .qrbox svg { width: 72px; height: 72px; }
+.pmini .shapebox svg { width: 40px; height: 40px; }
+.pmini .shapebox .nm { font-size: 11px; }
+
+/* Phone */
+.phone { position: absolute; left: 930px; top: 56px; width: 290px; height: 564px; border-radius: 44px; background: #1b1c24; padding: 11px; box-shadow: 0 16px 40px rgba(20,22,40,.25); }
+.screen { position: relative; width: 100%; height: 100%; border-radius: 34px; background: #fff; overflow: hidden; }
+.sbar { position: absolute; top: 0; left: 0; right: 0; height: 34px; display: flex; align-items: center; justify-content: space-between; padding: 0 22px; font-size: 12px; font-weight: 700; z-index: 2; }
+.sbar .notch { width: 70px; height: 20px; border-radius: 999px; background: #1b1c24; }
+.urlbar { position: absolute; top: 38px; left: 16px; right: 16px; height: 28px; border-radius: 999px; background: #f0f1f5; font-size: 12px; color: var(--muted); display: grid; place-items: center; }
+.scr { position: absolute; inset: 0; padding: 84px 20px 24px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px; animation: fade .35s both; }
+.scr h2 { margin: 0; font-size: 20px; font-weight: 800; letter-spacing: -0.01em; text-wrap: balance; }
+.scr p { margin: 0; font-size: 14px; line-height: 1.45; color: var(--muted); }
+.scr .grow { flex: 1; }
+.scr.dark { background: #111216; color: #fff; padding-top: 34px; }
+.sbar.light { color: #fff; }
+.off { background: linear-gradient(160deg, #2a2c3a, #1b1c24); display: grid; place-items: center; }
+.off span { color: rgba(255,255,255,.55); font-size: 13px; }
+
+.cam { position: relative; width: 100%; flex: 1; display: grid; place-items: center; background: radial-gradient(circle at 50% 45%, #3a3d4a, #15161c 75%); border-radius: 0; margin: 0 -20px; width: calc(100% + 40px); }
+.paper { background: #fff; padding: 10px; border-radius: 6px; transform: rotate(-4deg); box-shadow: 0 8px 20px rgba(0,0,0,.4); }
+.paper svg { width: 130px; height: 130px; display: block; }
+.brackets { position: absolute; width: 190px; height: 190px; }
+.brackets i { position: absolute; width: 34px; height: 34px; border: 4px solid #ffd54a; }
+.brackets i:nth-child(1) { left: 0; top: 0; border-right: 0; border-bottom: 0; border-radius: 10px 0 0 0; }
+.brackets i:nth-child(2) { right: 0; top: 0; border-left: 0; border-bottom: 0; border-radius: 0 10px 0 0; }
+.brackets i:nth-child(3) { left: 0; bottom: 0; border-right: 0; border-top: 0; border-radius: 0 0 0 10px; }
+.brackets i:nth-child(4) { right: 0; bottom: 0; border-left: 0; border-top: 0; border-radius: 0 0 10px 0; }
+.scanline { position: absolute; left: 50%; width: 170px; margin-left: -85px; height: 2px; background: #ffd54a; box-shadow: 0 0 10px #ffd54a; animation: scan 1.6s ease-in-out infinite; top: calc(50% - 85px); }
+@keyframes scan { 50% { top: calc(50% + 85px); } }
+.cambanner { position: absolute; top: 46px; left: 14px; right: 14px; background: rgba(255,255,255,.95); color: var(--ink); border-radius: 16px; padding: 10px 12px; display: flex; align-items: center; gap: 10px; text-align: left; font-size: 13px; animation: drop .4s ease both; }
+@keyframes drop { from { opacity: 0; transform: translateY(-12px); } }
+.cambanner .ic { width: 30px; height: 30px; border-radius: 9px; background: var(--brand); display: grid; place-items: center; color: #fff; font-weight: 800; font-size: 13px; flex: none; }
+.cambanner b { display: block; font-size: 13px; }
+.camhint { color: rgba(255,255,255,.75); font-size: 13px; padding: 12px 0 6px; }
+
+.tiles { display: flex; flex-direction: column; gap: 10px; width: 100%; }
+.tile { display: flex; align-items: center; gap: 14px; padding: 10px 14px; border-radius: 18px; box-shadow: inset 0 0 0 1.5px var(--line); font-size: 15px; font-weight: 700; text-align: left; transition: box-shadow .25s, background .25s, transform .12s; }
+.tile svg { width: 54px; height: 54px; flex: none; }
+.tile.picked { background: var(--brand-soft); box-shadow: inset 0 0 0 2.5px var(--brand); }
+.tile.pressed { transform: scale(.96); }
+.avatar { width: 92px; height: 92px; border-radius: 50%; background: var(--brand-soft); display: grid; place-items: center; }
+.avatar svg { width: 46px; height: 46px; }
+.bigname { font-size: 24px; font-weight: 800; color: var(--brand); }
+.dots { display: flex; gap: 6px; }
+.dots i { width: 8px; height: 8px; border-radius: 50%; background: var(--brand); animation: blink 1.2s infinite; }
+.dots i:nth-child(2) { animation-delay: .2s; } .dots i:nth-child(3) { animation-delay: .4s; }
+.notice { text-align: left; background: #f6f6f9; border-radius: 16px; padding: 14px; font-size: 13.5px; line-height: 1.5; color: var(--ink); }
+.notice a { color: var(--brand); font-weight: 600; text-decoration: none; display: inline-block; margin-top: 6px; }
+.wide { width: 100%; padding: 13px; font-size: 15px; }
+.mic { width: 116px; height: 116px; border-radius: 50%; background: var(--rec); display: grid; place-items: center; position: relative; }
+.mic::before { content: ""; position: absolute; inset: -12px; border-radius: 50%; border: 3px solid var(--rec); opacity: .35; animation: pulse 1.6s ease-out infinite; }
+@keyframes pulse { from { transform: scale(.85); opacity: .6; } to { transform: scale(1.25); opacity: 0; } }
+.mic svg { width: 48px; height: 48px; }
+.ready { width: 96px; height: 96px; border-radius: 50%; background: #e7f5ee; display: grid; place-items: center; }
+.ready svg { width: 46px; height: 46px; }
+.rectime { font-size: 15px; font-weight: 700; color: var(--rec); font-variant-numeric: tabular-nums; }
+.bubble { width: 100%; text-align: left; background: #f6f6f9; border-radius: 14px; padding: 10px 12px; font-size: 13px; line-height: 1.4; }
+.bubble small { display: block; color: var(--muted); font-size: 11px; font-weight: 700; margin-bottom: 2px; }
+.ended { width: 92px; height: 92px; border-radius: 50%; background: #f3f3f7; display: grid; place-items: center; }
+
+/* Caption */
+.caption { position: absolute; left: 40px; right: 40px; top: 636px; height: 66px; display: flex; align-items: center; gap: 16px; }
+.step { flex: none; background: var(--ink); color: #fff; font-weight: 800; font-size: 14px; border-radius: 999px; padding: 9px 16px; white-space: nowrap; }
+.step.tip { background: var(--orange); }
+.step.late { background: var(--brand); }
+.caption p { margin: 0; font-size: 19px; line-height: 1.32; font-weight: 600; text-wrap: balance; }
+
+/* Pointers */
+#cursor { position: absolute; width: 26px; height: 26px; left: 0; top: 0; z-index: 20; transition: transform .9s cubic-bezier(.5,0,.2,1), opacity .3s; pointer-events: none; }
+#cursor svg { width: 26px; height: 26px; filter: drop-shadow(0 2px 3px rgba(0,0,0,.3)); }
+#finger { position: absolute; width: 44px; height: 44px; margin: -22px 0 0 -22px; left: 0; top: 0; border-radius: 50%; background: rgba(29,31,43,.22); box-shadow: 0 0 0 2px rgba(255,255,255,.9), 0 4px 12px rgba(0,0,0,.25); z-index: 20; transition: transform .8s cubic-bezier(.5,0,.2,1), opacity .3s; pointer-events: none; }
+.ripple { position: absolute; width: 20px; height: 20px; margin: -10px 0 0 -10px; border-radius: 50%; border: 3px solid var(--brand); z-index: 19; pointer-events: none; animation: rip .6s ease-out forwards; }
+@keyframes rip { to { transform: scale(3.2); opacity: 0; } }
+
+/* Title cards */
+.overlay { position: absolute; inset: 0; z-index: 30; background: var(--stage); display: flex; flex-direction: column; justify-content: center; padding: 0 120px; gap: 18px; animation: fade .5s both; }
+.overlay .kicker { font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--brand); }
+.overlay h2 { margin: 0; font-size: 64px; line-height: 1.02; font-weight: 800; letter-spacing: -0.025em; max-width: 900px; }
+.overlay .sub { font-size: 22px; color: var(--muted); max-width: 760px; line-height: 1.4; margin: 0; }
+.flow { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+.flow span { display: inline-flex; align-items: center; gap: 10px; background: var(--card); border-radius: 999px; padding: 12px 20px 12px 12px; font-size: 19px; font-weight: 700; box-shadow: 0 0 0 1px var(--line); }
+.flow b { width: 30px; height: 30px; border-radius: 50%; background: var(--ink); color: #fff; display: grid; place-items: center; font-size: 14px; }
+.flow .t b { background: var(--orange); }
+
+/* Controls */
+.ctrl { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.cbtn { border: 0; font: inherit; font-size: 14px; font-weight: 600; border-radius: 999px; padding: 9px 16px; background: var(--card); color: var(--ink); box-shadow: inset 0 0 0 1px #d9dbe5; cursor: pointer; }
+.cbtn.main { background: var(--ink); color: #fff; box-shadow: none; min-width: 120px; }
+.cbtn:focus-visible, .chip:focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; }
+.bar { flex: 1 1 160px; height: 6px; border-radius: 999px; background: #d9dbe5; overflow: hidden; min-width: 120px; }
+.bar i { display: block; height: 100%; width: 0; background: var(--brand); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { border: 0; font: inherit; font-size: 13px; font-weight: 600; border-radius: 999px; padding: 6px 12px; background: transparent; color: var(--muted); box-shadow: inset 0 0 0 1px #d9dbe5; cursor: pointer; }
+.chip.on { background: var(--brand); color: #fff; box-shadow: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before { animation-duration: .01s !important; animation-iteration-count: 1 !important; }
+  #cursor, #finger { transition-duration: .2s; }
+}
+</style>
+
+<div class="wrap">
+  <div class="head">
+    <h1>Connect phones as recording devices</h1>
+    <p>Short guide for moderators and participants · about 75 seconds</p>
+  </div>
+
+  <div id="frame">
+    <div id="stage" aria-live="polite">
+      <div class="lbl lbl-mod">Moderator screen</div>
+      <div class="lbl lbl-phone" id="phoneLabel">Participant phone</div>
+
+      <div class="win">
+        <div class="win-top">
+          <div>
+            <div class="crumb">Sessions / Village development</div>
+            <div class="title">Playground dialogue</div>
+          </div>
+          <div class="actions">
+            <span class="livepill" id="livePill" hidden><span class="dot"></span><span id="liveTime">00:00</span></span>
+            <button class="btn" tabindex="-1">Upload</button>
+            <button class="btn primary" id="start-btn" tabindex="-1">Start Session</button>
+            <button class="btn dark" id="share-btn" tabindex="-1">Share<span class="badge" id="shareBadge" hidden>1</span></button>
+          </div>
+        </div>
+        <div class="tabs"><span>Summary</span><span class="on">Setup</span></div>
+        <div class="body">
+          <p class="h">Where to record from</p>
+          <div class="sources">
+            <div class="src"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>This Device</div>
+            <div class="src"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="m16 10 5-3v10l-5-3"/></svg>Online Meeting</div>
+            <div class="src" id="src-remote"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg>Remote Devices</div>
+            <div class="src"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="3"/><circle cx="12" cy="12" r="3.5"/></svg>Recorders</div>
+          </div>
+          <div id="placeholder" class="placeholder">Choose where to record from.</div>
+          <div id="remote" class="remote" hidden>
+            <div class="qrcard" id="qr-card">
+              <div class="qrrow">
+                <div class="qrbox" id="qrMain"></div>
+                <div class="shapebox" id="shapeMain"></div>
+              </div>
+              <div class="qrbtns">
+                <button class="btn primary small" tabindex="-1">Copy link</button>
+                <button class="btn small" id="rotate-btn" tabindex="-1">Rotate link</button>
+              </div>
+              <p class="hint">After rotating, every device must scan again. Any running takes will end.</p>
+            </div>
+            <div class="lists">
+              <div class="list"><p class="h">Waiting</p><div id="waiting"></div></div>
+              <div class="list"><p class="h">Admitted</p><div id="admitted"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pop" id="pop" hidden>
+          <div class="ptabs"><span>Share</span><span class="on">Remote</span></div>
+          <div class="pmini"><div class="qrbox" id="qrPop"></div><div class="shapebox" id="shapePop"></div></div>
+          <p class="h">Requested devices</p>
+          <div id="popWaiting"></div>
+        </div>
+
+        <div class="scrim" id="dialog" hidden>
+          <div class="dialog">
+            <h3>Rotate link?</h3>
+            <p>After rotating, every device must scan again. Any running takes will end.</p>
+            <div class="rowbtns">
+              <button class="btn small" tabindex="-1">Cancel</button>
+              <button class="btn primary small" id="rotate-confirm" tabindex="-1">Rotate now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="phone"><div class="screen" id="screen"></div></div>
+
+      <div class="caption"><span class="step" id="step"></span><p id="caption"></p></div>
+
+      <div id="cursor"><svg viewBox="0 0 24 24"><path d="M4 2.5v17.2l4.6-4.3 3 6.6 3-1.4-3-6.4h6.3z" fill="#1d1f2b" stroke="#fff" stroke-width="1.4" stroke-linejoin="round"/></svg></div>
+      <div id="finger" style="opacity:0"></div>
+
+      <div class="overlay" id="intro" hidden>
+        <div class="kicker">BRAID · Remote Devices</div>
+        <h2>Connect phones as recording devices</h2>
+        <p class="sub">How participants join a session with their own phone. No account needed.</p>
+      </div>
+      <div class="overlay" id="outro" hidden>
+        <div class="kicker">In short</div>
+        <h2>Six steps, then recording begins.</h2>
+        <div class="flow">
+          <span><b>1</b>Choose Remote Devices</span>
+          <span><b>2</b>Scan the QR code</span>
+          <span><b>3</b>Tap the shape</span>
+          <span><b>4</b>Admit</span>
+          <span><b>5</b>Agree</span>
+          <span><b>6</b>Start Session</span>
+          <span class="t"><b>!</b>Problems? Rotate link</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ctrl">
+    <button class="cbtn" id="prev">Back</button>
+    <button class="cbtn main" id="play">Pause</button>
+    <button class="cbtn" id="next">Next</button>
+    <div class="bar"><i id="prog"></i></div>
+  </div>
+  <div class="chips" id="chips"></div>
+</div>
+
+<script>
+(() => {
+  const COL = { blue: '#0072B2', orange: '#D07A00', green: '#009E73' };
+  const NAMES = {
+    'circle-orange': 'Orange circle', 'triangle-blue': 'Blue triangle', 'square-green': 'Green square',
+    'star-green': 'Green star', 'moon-orange': 'Orange moon', 'heart-blue': 'Blue heart'
+  };
+  const SETS = {
+    'circle-orange': ['triangle-blue', 'circle-orange', 'square-green'],
+    'star-green': ['moon-orange', 'heart-blue', 'star-green']
+  };
+
+  function shapeSvg(key) {
+    const [shape, c] = key.split('-'); const col = COL[c];
+    const st = `fill="none" stroke="${col}" stroke-width="9" stroke-linejoin="round"`;
+    const d = {
+      circle: `<circle cx="50" cy="50" r="34" ${st}/>`,
+      triangle: `<path d="M50 16 86 80H14z" ${st}/>`,
+      square: `<rect x="18" y="18" width="64" height="64" rx="6" ${st}/>`,
+      star: `<path d="M50 12l11 24 26 3-19 18 5 26-23-13-23 13 5-26-19-18 26-3z" ${st}/>`,
+      moon: `<path d="M64 16a36 36 0 1 0 20 52A30 30 0 0 1 64 16z" ${st}/>`,
+      heart: `<path d="M50 84S14 62 14 38a18 18 0 0 1 36-6 18 18 0 0 1 36 6c0 24-36 46-36 46z" ${st}/>`
+    }[shape];
+    return `<svg viewBox="0 0 100 100" aria-hidden="true">${d}</svg>`;
+  }
+
+  // Decorative, unscannable QR-style pattern: the demo must not carry a real capture link.
+  function qrSvg(seed) {
+    const n = 25; let x = seed * 9301 + 49297;
+    const rnd = () => (x = (x * 9301 + 49297) % 233280) / 233280;
+    let r = '';
+    const finder = (cx, cy) => r += `<rect x="${cx}" y="${cy}" width="7" height="7" fill="#1d1f2b"/><rect x="${cx+1}" y="${cy+1}" width="5" height="5" fill="#fff"/><rect x="${cx+2}" y="${cy+2}" width="3" height="3" fill="#1d1f2b"/>`;
+    for (let i = 0; i < n; i++) for (let j = 0; j < n; j++) {
+      const inF = (i < 8 && j < 8) || (i < 8 && j > n - 9) || (i > n - 9 && j < 8);
+      const inC = i > 9 && i < 15 && j > 9 && j < 15;
+      if (!inF && !inC && rnd() > .52) r += `<rect x="${j}" y="${i}" width="1" height="1" fill="#1d1f2b"/>`;
+    }
+    finder(0, 0); finder(n - 7, 0); finder(0, n - 7);
+    r += `<rect x="10" y="10" width="5" height="5" rx="1.2" fill="#6b63d9"/>`;
+    return `<svg viewBox="0 0 ${n} ${n}" shape-rendering="crispEdges" aria-hidden="true">${r}</svg>`;
+  }
+
+  const ICON_USER = '<svg viewBox="0 0 24 24" fill="none" stroke="#6b63d9" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>';
+  const ICON_MIC = '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>';
+  const ICON_CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="#1f8a5b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>';
+  const ICON_X = '<svg viewBox="0 0 24 24" width="44" height="44" fill="none" stroke="#6b6f80" stroke-width="1.8" stroke-linecap="round"><path d="M7 7l10 10M17 7 7 17"/></svg>';
+
+  const $ = s => document.querySelector(s);
+  const stage = $('#stage'), frame = $('#frame');
+  let scale = 1;
+  function fit() { scale = frame.clientWidth / 1280; stage.style.transform = `scale(${scale})`; frame.style.height = (720 * scale) + 'px'; }
+  new ResizeObserver(fit).observe(frame); fit();
+
+  function pos(sel) {
+    const el = stage.querySelector(sel); if (!el) return null;
+    const r = el.getBoundingClientRect(), s = stage.getBoundingClientRect();
+    if (!r.width) return null;
+    return { x: (r.left + r.width / 2 - s.left) / scale, y: (r.top + r.height / 2 - s.top) / scale };
+  }
+
+  function base() {
+    return {
+      overlay: null, source: false, qr: 1, shape: 'circle-orange', hiShape: false,
+      waiting: [], hiWaiting: false, admitted: [], live: false, liveMs: 0, dialog: false,
+      badge: 0, pop: false, popWaiting: [],
+      phone: 'off', phoneLabel: 'Participant phone', newPhone: false, name: '', banner: false, picked: false, camSeed: 1,
+      cursor: { x: 470, y: 470 }, finger: { show: false, x: 1075, y: 480 },
+      step: '', stepKind: '', caption: ''
+    };
+  }
+  const S = (o) => Object.assign(base(), o);
+
+  function phoneHtml(s) {
+    const sbar = (light) => `<div class="sbar ${light ? 'light' : ''}"><span>10:30</span><span class="notch"></span><span>5G</span></div>`;
+    const url = `<div class="urlbar">BRAID</div>`;
+    switch (s.phone) {
+      case 'off': return `<div class="scr off"><span>Phone ready</span></div>`;
+      case 'camera': return `<div class="scr dark">${sbar(true)}
+          <div class="cam"><div class="paper">${qrSvg(s.camSeed)}</div><div class="brackets"><i></i><i></i><i></i><i></i></div><div class="scanline"></div>
+          ${s.banner ? `<div class="cambanner" id="cam-banner"><span class="ic">B</span><span><b>Open BRAID</b>Link from the QR code</span></div>` : ''}</div>
+          <div class="camhint">Point the camera at the QR code</div></div>`;
+      case 'challenge': return `${sbar()}${url}<div class="scr"><h2>Tap the shape shown by the moderator</h2>
+          <div class="tiles">${SETS[s.shape].map(k => `<div class="tile ${k === s.shape && s.picked ? 'picked' : ''}" ${k === s.shape ? 'id="tile-target"' : ''}>${shapeSvg(k)}${NAMES[k]}</div>`).join('')}</div></div>`;
+      case 'lobby': return `${sbar()}${url}<div class="scr"><div class="grow"></div><div class="avatar">${ICON_USER}</div>
+          <p>Your name in this session</p><div class="bigname">${s.name}</div><h2>Waiting to join</h2><p>The moderator will admit you shortly.</p><div class="dots"><i></i><i></i><i></i></div><div class="grow"></div></div>`;
+      case 'consent': return `${sbar()}${url}<div class="scr"><h2>Consent</h2>
+          <div class="notice">Everyone at this table is recorded. The session moderators can listen to the recording. It is kept for as long as the session is kept.<br><a>Privacy notice</a></div>
+          <div class="grow"></div><button class="btn primary wide" id="consent-btn" tabindex="-1">I agree</button></div>`;
+      case 'ready': return `${sbar()}${url}<div class="scr"><div class="grow"></div><div class="ready">${ICON_CHECK}</div><h2>Ready to record</h2>
+          <p>Waiting for the moderator to start the session. Your phone will begin recording automatically.</p><div class="grow"></div></div>`;
+      case 'rec': return `${sbar()}${url}<div class="scr"><div class="grow"></div><div class="mic">${ICON_MIC}</div>
+          <div class="rectime" id="recTime">00:00 recorded</div><h2>Recording</h2>
+          <div class="bubble"><small>Table 1 · S1</small>We should move the playground.</div>
+          <div class="grow"></div><button class="btn wide" tabindex="-1">Stop</button></div>`;
+      case 'ended': return `${sbar()}${url}<div class="scr"><div class="grow"></div><div class="ended">${ICON_X}</div><h2>Access ended</h2>
+          <p>Please scan the new QR code.</p><div class="grow"></div></div>`;
+    }
+    return '';
+  }
+
+  let lastPhoneKey = '';
+  function render(s) {
+    $('#intro').hidden = s.overlay !== 'intro';
+    $('#outro').hidden = s.overlay !== 'outro';
+    $('#src-remote').classList.toggle('on', s.source);
+    $('#placeholder').hidden = s.source;
+    $('#remote').hidden = !s.source;
+    const qk = s.qr + s.shape;
+    if ($('#qrMain').dataset.k !== qk) {
+      $('#qrMain').dataset.k = qk;
+      $('#qrMain').innerHTML = qrSvg(s.qr); $('#qrPop').innerHTML = qrSvg(s.qr);
+      const sh = shapeSvg(s.shape) + `<span class="nm" style="color:${COL[s.shape.split('-')[1]]}">${NAMES[s.shape]}</span>`;
+      $('#shapeMain').innerHTML = sh; $('#shapePop').innerHTML = sh;
+    }
+    $('#shapeMain').classList.toggle('hi', s.hiShape);
+    $('#waiting').innerHTML = s.waiting.length ? s.waiting.map((n, i) => `<div class="row ${s.hiWaiting ? 'hi' : ''}"><div class="who"><b>${n}</b><small>waiting for 0:12</small></div><div class="rowbtns"><button class="btn small" tabindex="-1">Reject</button><button class="btn primary small" id="admit-${i}" tabindex="-1">Admit</button></div></div>`).join('') : `<p class="empty">No devices in the queue.</p>`;
+    $('#admitted').innerHTML = s.admitted.length ? s.admitted.map(a => {
+      const st = a.consent ? (s.live ? '<small class="rec">recording</small>' : '<small class="ok">Consent given</small>') : '<small>No consent yet</small>';
+      return `<div class="row"><div class="who"><b>${a.name}</b>${st}</div><button class="btn small" tabindex="-1">Revoke</button></div>`;
+    }).join('') : `<p class="empty">Nobody admitted yet.</p>`;
+    $('#livePill').hidden = !s.live;
+    $('#start-btn').textContent = s.live ? 'End Session' : 'Start Session';
+    $('#shareBadge').hidden = !s.badge;
+    $('#pop').hidden = !s.pop;
+    $('#popWaiting').innerHTML = s.popWaiting.length ? s.popWaiting.map((n, i) => `<div class="row"><div class="who"><b>${n}</b><small>waiting for 0:08</small></div><button class="btn primary small" id="pop-admit-${i}" tabindex="-1">Admit</button></div>`).join('') : `<p class="empty">No devices in the queue.</p>`;
+    $('#dialog').hidden = !s.dialog;
+
+    const pk = [s.phone, s.banner, s.picked, s.name, s.shape, s.camSeed].join('|');
+    if (pk !== lastPhoneKey) { lastPhoneKey = pk; $('#screen').innerHTML = phoneHtml(s); }
+    $('#phoneLabel').textContent = s.phoneLabel;
+    $('#phoneLabel').classList.toggle('new', s.newPhone);
+
+    const st = $('#step'); st.textContent = s.step; st.hidden = !s.step;
+    st.className = 'step ' + (s.stepKind || '');
+    $('#caption').textContent = s.caption;
+
+    const c = s.cursor.to ? pos(s.cursor.to) : s.cursor;
+    if (c) $('#cursor').style.transform = `translate(${c.x - 4}px, ${c.y - 3}px)`;
+    const f = s.finger.to ? pos(s.finger.to) : s.finger;
+    if (f) $('#finger').style.transform = `translate(${f.x}px, ${f.y}px)`;
+    $('#finger').style.opacity = s.finger.show ? 1 : 0;
+    $('#cursor').style.opacity = s.overlay ? 0 : 1;
+    timers(s);
+  }
+
+  function fmt(ms) { const t = Math.floor(ms / 1000); return String(Math.floor(t / 60)).padStart(2, '0') + ':' + String(t % 60).padStart(2, '0'); }
+  function timers(s) {
+    $('#liveTime').textContent = 'Recording ' + fmt(s.liveMs);
+    const r = $('#recTime'); if (r) r.textContent = fmt(s.phone === 'rec' ? s.recMs || 0 : 0) + ' recorded';
+  }
+
+  // Visual feedback runs against the DOM as it is before the state change, where the pointer actually sits.
+  function press(sel) {
+    const el = stage.querySelector(sel), p = pos(sel); if (!el || !p) return;
+    el.classList.add('pressed'); setTimeout(() => el.classList.remove('pressed'), 220);
+    const r = document.createElement('div'); r.className = 'ripple';
+    r.style.left = p.x + 'px'; r.style.top = p.y + 'px'; stage.appendChild(r);
+    setTimeout(() => r.remove(), 650);
+  }
+
+  const scenes = [
+    { chip: 'Start', dur: 4500, start: () => S({ overlay: 'intro' }), steps: [] },
+
+    { chip: '1 Remote Devices', dur: 7000,
+      start: () => S({ step: 'Step 1', caption: 'Open the session and go to “Setup”. Choose “Remote Devices”. A QR code and a shape appear.' }),
+      steps: [
+        [700, s => { s.cursor = { to: '#src-remote' }; }],
+        [1900, s => { press('#src-remote'); s.source = true; }],
+        [2800, s => { s.cursor = { to: '#qrMain' }; }],
+        [3800, s => { s.cursor = { to: '#shapeMain' }; s.hiShape = true; }]
+      ] },
+
+    { chip: '2 Scan', dur: 6500,
+      start: () => S({ step: 'Step 2', source: true, phone: 'camera', cursor: { to: '#qrMain' }, caption: 'Participants open the camera on their phone and point it at the QR code. Then they tap the link.' }),
+      steps: [
+        [2200, s => { s.banner = true; }],
+        [3000, s => { s.finger = { show: true, to: '#cam-banner' }; }],
+        [4100, s => { press('#cam-banner'); }],
+        [4600, s => { s.phone = 'challenge'; s.banner = false; s.finger = { show: false, to: null, x: 1075, y: 520 }; }]
+      ] },
+
+    { chip: '3 Shape', dur: 6500,
+      start: () => S({ step: 'Step 3', source: true, phone: 'challenge', hiShape: true, cursor: { to: '#shapeMain' }, caption: 'Three shapes appear on the phone. Tap the shape that the moderator’s screen shows. Here it is the orange circle.' }),
+      steps: [
+        [1200, s => { s.finger = { show: true, to: '#tile-target' }; }],
+        [2800, s => { press('#tile-target'); s.picked = true; }],
+        [3800, s => { s.phone = 'lobby'; s.name = 'Blue falcon'; s.finger = { show: false, x: 1075, y: 520 }; }]
+      ] },
+
+    { chip: '4 Lobby', dur: 6000,
+      start: () => S({ step: 'Step 4', source: true, phone: 'lobby', name: 'Blue falcon', caption: 'The phone gets a name, here “Blue falcon”, and waits. The same name appears on the moderator’s screen under “Waiting”.' }),
+      steps: [
+        [1200, s => { s.waiting = ['Blue falcon']; s.hiWaiting = true; s.cursor = { x: 640, y: 380 }; }]
+      ] },
+
+    { chip: '5 Admit', dur: 6000,
+      start: () => S({ step: 'Step 5', source: true, phone: 'lobby', name: 'Blue falcon', waiting: ['Blue falcon'], cursor: { x: 640, y: 380 }, caption: 'The moderator checks that the person is really in the room and clicks “Admit”.' }),
+      steps: [
+        [700, s => { s.cursor = { to: '#admit-0' }; }],
+        [2100, s => { press('#admit-0'); s.waiting = []; s.admitted = [{ name: 'Blue falcon', consent: false }]; s.phone = 'consent'; s.cursor = { x: 700, y: 470 }; }]
+      ] },
+
+    { chip: '6 Agree', dur: 6000,
+      start: () => S({ step: 'Step 6', source: true, phone: 'consent', name: 'Blue falcon', admitted: [{ name: 'Blue falcon', consent: false }], cursor: { x: 700, y: 470 }, caption: 'A short recording notice appears on the phone. The person reads it and taps “I agree”.' }),
+      steps: [
+        [1300, s => { s.finger = { show: true, to: '#consent-btn' }; }],
+        [2800, s => { press('#consent-btn'); s.phone = 'ready'; s.admitted = [{ name: 'Blue falcon', consent: true }]; }],
+        [3500, s => { s.finger = { show: false, x: 1075, y: 540 }; }]
+      ] },
+
+    { chip: '7 Start', dur: 7500,
+      start: () => S({ step: 'Step 7', source: true, phone: 'ready', name: 'Blue falcon', admitted: [{ name: 'Blue falcon', consent: true }], cursor: { x: 700, y: 470 }, caption: 'The moderator clicks “Start Session”. The phone now records by itself. Nobody needs to press anything on the phone.' }),
+      steps: [
+        [700, s => { s.cursor = { to: '#start-btn' }; }],
+        [2000, s => { press('#start-btn'); s.live = true; s.phone = 'rec'; s.recMs = 0; s.cursor = { x: 560, y: 470 }; }]
+      ] },
+
+    { chip: 'Tip: Rotate link', dur: 9500,
+      start: () => S({ step: 'Tip', stepKind: 'tip', source: true, phone: 'challenge', phoneLabel: 'Phone that cannot join', admitted: [{ name: 'Blue falcon', consent: true }], cursor: { x: 560, y: 470 }, caption: 'Not working for everyone? Click “Rotate link”. Every phone then scans the new QR code. Any running recordings will end.' }),
+      steps: [
+        [700, s => { s.cursor = { to: '#rotate-btn' }; }],
+        [2000, s => { press('#rotate-btn'); s.dialog = true; }],
+        [2700, s => { s.cursor = { to: '#rotate-confirm' }; }],
+        [3900, s => { press('#rotate-confirm'); s.dialog = false; s.qr = 2; s.shape = 'star-green'; s.admitted = []; s.phone = 'ended'; s.phoneLabel = 'All phones'; s.cursor = { to: '#qrMain' }; }],
+        [5600, s => { s.phone = 'camera'; s.camSeed = 2; }],
+        [7300, s => { s.phone = 'challenge'; s.hiShape = true; }]
+      ] },
+
+    { chip: 'After the start', dur: 10000,
+      start: () => S({ step: 'Joining later', stepKind: 'late', source: true, live: true, liveMs: 754000, qr: 2, shape: 'star-green', phone: 'challenge', phoneLabel: 'New phone', newPhone: true, admitted: [{ name: 'Blue falcon', consent: true }], cursor: { x: 560, y: 470 }, caption: 'New people can still join after the start. They scan the code as before. The moderator admits them through “Share” and then “Remote”.' }),
+      steps: [
+        [600, s => { s.finger = { show: true, to: '#tile-target' }; }],
+        [1800, s => { press('#tile-target'); s.picked = true; }],
+        [2500, s => { s.phone = 'lobby'; s.name = 'Green owl'; s.finger = { show: false, x: 1075, y: 520 }; s.badge = 1; s.popWaiting = ['Green owl']; s.waiting = ['Green owl']; }],
+        [3400, s => { s.cursor = { to: '#share-btn' }; }],
+        [4500, s => { press('#share-btn'); s.pop = true; }],
+        [5300, s => { s.cursor = { to: '#pop-admit-0' }; }],
+        [6500, s => { press('#pop-admit-0'); s.popWaiting = []; s.waiting = []; s.badge = 0; s.admitted = [{ name: 'Blue falcon', consent: true }, { name: 'Green owl', consent: false }]; s.phone = 'consent'; }],
+        [7700, s => { s.pop = false; s.cursor = { x: 600, y: 480 }; }]
+      ] },
+
+    { chip: 'Summary', dur: 7000, start: () => S({ overlay: 'outro' }), steps: [] }
+  ];
+
+  let idx = 0, elapsed = 0, fired = 0, state = null, playing = true, last = performance.now();
+  const chips = $('#chips');
+  chips.innerHTML = scenes.map((sc, i) => `<button class="chip" data-i="${i}">${sc.chip}</button>`).join('');
+  chips.addEventListener('click', e => { const b = e.target.closest('.chip'); if (b) { go(+b.dataset.i); setPlaying(true); } });
+
+  function go(i) {
+    idx = Math.max(0, Math.min(scenes.length - 1, i));
+    elapsed = 0; fired = 0; state = scenes[idx].start(); lastPhoneKey = '';
+    render(state);
+    // Snap pointers to their start positions instead of gliding across from the previous scene.
+    ['#cursor', '#finger'].forEach(sel => { const el = $(sel); el.style.transition = 'none'; });
+    render(state);
+    requestAnimationFrame(() => ['#cursor', '#finger'].forEach(sel => $(sel).style.transition = ''));
+    [...chips.children].forEach((c, j) => c.classList.toggle('on', j === idx));
+  }
+  function setPlaying(p) { playing = p; $('#play').textContent = p ? 'Pause' : 'Abspielen'; }
+
+  $('#play').onclick = () => {
+    if (!playing && idx === scenes.length - 1 && elapsed >= scenes[idx].dur) go(0);
+    setPlaying(!playing);
+  };
+  $('#prev').onclick = () => go(idx - 1);
+  $('#next').onclick = () => go(idx + 1);
+  document.addEventListener('keydown', e => {
+    if (e.key === ' ' && e.target === document.body) { e.preventDefault(); $('#play').click(); }
+    if (e.key === 'ArrowRight') go(idx + 1);
+    if (e.key === 'ArrowLeft') go(idx - 1);
+  });
+
+  function tick(now) {
+    const dt = Math.min(100, now - last); last = now;
+    if (playing && state) {
+      elapsed += dt;
+      const sc = scenes[idx];
+      while (fired < sc.steps.length && sc.steps[fired][0] <= elapsed) { sc.steps[fired][1](state); fired++; render(state); }
+      if (state.live) { state.liveMs += dt; state.recMs = (state.recMs || 0) + dt; timers(state); }
+      if (elapsed >= sc.dur) {
+        if (idx < scenes.length - 1) go(idx + 1);
+        else { elapsed = sc.dur; setPlaying(false); }
+      }
+    }
+    $('#prog').style.width = ((idx + Math.min(1, elapsed / scenes[idx].dur)) / scenes.length * 100) + '%';
+    requestAnimationFrame(tick);
+  }
+  go(0);
+  requestAnimationFrame(tick);
+})();
+</script>
+
+</body></html>

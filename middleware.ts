@@ -3,6 +3,7 @@ import type { NextRequest } from "next/server"
 import { getToken } from "next-auth/jwt"
 import { LOCALE_HEADER, PATHNAME_HEADER } from "@/lib/request-locale"
 import { defaultLocale, isLocale, locales, type Locale } from "@/lib/i18n"
+import { braidIdeaAssetPath, isBraidIdeaId } from "@/lib/braid-ideas"
 import { deckAssetPath, isDeckId, slidesHost } from "@/lib/slides"
 
 const LOCALE_COOKIE = "NEXT_LOCALE"
@@ -132,6 +133,13 @@ export async function middleware(request: NextRequest) {
 
   if (pathname === "/slides") {
     return rewriteSlidesCatalog(request, pathname)
+  }
+
+  const braidIdea = pathname.match(/^(?:\/(?:en|de))?\/meld\/braid-ideas\/([^/]+)$/)
+  if (braidIdea && isBraidIdeaId(braidIdea[1])) {
+    const url = request.nextUrl.clone()
+    url.pathname = braidIdeaAssetPath(braidIdea[1])
+    return NextResponse.rewrite(url)
   }
 
   // Keep the public Meld entry path locale-neutral (e.g. meld.komma.systems -> /meld).
