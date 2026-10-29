@@ -110,7 +110,7 @@ export async function fetchInitiativeBySlug(slug: string): Promise<Initiative | 
       return page.parent?.database_id === process.env.NOTION_DATABASE_ID &&
              pageSlug === slug &&
              page.properties?.['Prod?']?.checkbox === true
-    })
+    }) as any
 
     if (!matchingPage) {
       console.log('No published initiative found with slug:', slug)

@@ -107,7 +107,7 @@ export default async function PortalDashboardPage() {
     else displayName = collabRes.data?.display_name ?? null
 
     if (projectsRes.error) console.error("[portal/dashboard] collaborator_projects", projectsRes.error.message)
-    else projects = (projectsRes.data ?? []) as CollaboratorProjectRow[]
+    else projects = (projectsRes.data ?? []) as unknown as CollaboratorProjectRow[]
 
     if (agreementsRes.error) console.error("[portal/dashboard] agreements", agreementsRes.error.message)
     else agreements = (agreementsRes.data ?? []) as AgreementRow[]
