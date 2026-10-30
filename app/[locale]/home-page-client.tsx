@@ -81,19 +81,6 @@ const PARTNER_LOGOS = [
 
 const INITIATIVES = [
   {
-    id: "tourism-to-housing",
-    title: "Tourism-to-Housing Impact Fund",
-    description:
-      "A finance mechanism that turns a share of tourism's value into permanently affordable housing held in common. Operators and impact investors fund a pool that lends to housing and land commons, and earn a tiered impact certificate for doing it. In exploration for Catalonia, Venice and other saturated destinations.",
-    stage: "Exploration",
-    tags: ["finance", "housing", "land"],
-    projects: [
-      { name: "Tourism Impact Pool", href: null },
-      { name: "Impact certificate", href: null },
-    ],
-    href: "/tourism-to-housing",
-  },
-  {
     id: "meld",
     title: "Meld",
     description:
@@ -119,6 +106,19 @@ const INITIATIVES = [
       { name: "Thresholds", href: "https://luma.com/8b7u93xt?tk=zBWUVi" },
     ],
     href: null,
+  },
+  {
+    id: "tourism-to-housing",
+    title: "Tourism-to-Housing Impact Fund",
+    description:
+      "A finance mechanism that turns a share of tourism's value into permanently affordable housing held in common. Operators and impact investors fund a pool that lends to housing and land commons, and earn a tiered impact certificate for doing it. In exploration for Catalonia, Venice and other saturated destinations.",
+    stage: "Exploration",
+    tags: ["finance", "housing", "land"],
+    projects: [
+      { name: "Tourism Impact Pool", href: null },
+      { name: "Impact certificate", href: null },
+    ],
+    href: "/tourism-to-housing",
   },
   {
     id: "weave",
