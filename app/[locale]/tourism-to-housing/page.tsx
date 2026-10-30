@@ -123,6 +123,15 @@ export default async function TourismToHousingPage({ params }: PageProps) {
                 </p>
               ))}
 
+              {/* The core move (the idea) */}
+              <p className={labelClasses}>{t.researchLabel}</p>
+              {t.research.map((para, i) => (
+                <p key={i} className={`${proseClasses}${i > 0 ? " mt-6" : ""}`}>
+                  {para}
+                </p>
+              ))}
+
+              {/* How it works */}
               <p className={labelClasses}>{t.whatLabel}</p>
               <p className={`${proseClasses} mb-7 text-white`}>{t.whatLead}</p>
               <div className="space-y-5">
@@ -143,6 +152,26 @@ export default async function TourismToHousingPage({ params }: PageProps) {
                   <MechanismDiagram />
                 </div>
               )}
+
+              {/* A worked model (the numbers) */}
+              <div className="mt-20">
+                <p className="mb-2 font-silkscreen text-base sm:text-lg uppercase tracking-[0.18em] text-cream">
+                  {t.pilotLabel}
+                </p>
+                <p className={`${proseClasses} mb-7`}>{t.pilotLead}</p>
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+                  {t.stats.map((stat) => (
+                    <div key={stat.figure} className="border-t border-white/20 pt-4">
+                      <p className="text-field text-3xl font-light tracking-tight sm:text-4xl">
+                        {stat.figure}
+                      </p>
+                      <p className="[text-wrap:pretty] mt-3 text-[0.95rem] leading-relaxed text-gray-300">
+                        {stat.body}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
 
               {t.whyLabel && t.why && (
                 <>
@@ -177,34 +206,7 @@ export default async function TourismToHousingPage({ params }: PageProps) {
                 ))}
               </div>
 
-              <p className={labelClasses}>{t.researchLabel}</p>
-              {t.research.map((para, i) => (
-                <p key={i} className={`${proseClasses}${i > 0 ? " mt-6" : ""}`}>
-                  {para}
-                </p>
-              ))}
-
-              {/* A worked model */}
-              <div className="mt-20">
-                <p className="mb-2 font-silkscreen text-base sm:text-lg uppercase tracking-[0.18em] text-cream">
-                  {t.pilotLabel}
-                </p>
-                <p className={`${proseClasses} mb-7`}>{t.pilotLead}</p>
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-                  {t.stats.map((stat) => (
-                    <div key={stat.figure} className="border-t border-white/20 pt-4">
-                      <p className="text-field text-3xl font-light tracking-tight sm:text-4xl">
-                        {stat.figure}
-                      </p>
-                      <p className="[text-wrap:pretty] mt-3 text-[0.95rem] leading-relaxed text-gray-300">
-                        {stat.body}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* What's next */}
+              {/* Get involved (call to action) */}
               <div className="mt-20">
                 <p className="mb-5 font-silkscreen text-base sm:text-lg uppercase tracking-[0.18em] text-cream">
                   {t.nextLabel}
@@ -214,6 +216,26 @@ export default async function TourismToHousingPage({ params }: PageProps) {
                     {para}
                   </p>
                 ))}
+                {t.ctaItems && (
+                  <div className="mt-8 border-t border-white/15">
+                    {t.ctaItems.map((item) => (
+                      <div key={item.who} className="grid grid-cols-1 sm:grid-cols-[13rem_1fr] gap-x-6 gap-y-1 border-b border-white/15 py-5">
+                        <p className="font-grotesk text-[15px] font-medium uppercase tracking-[0.14em] pt-0.5 text-white/55">
+                          {item.who}
+                        </p>
+                        <p className="[text-wrap:pretty] text-[1.05rem] leading-[1.7] text-gray-200">
+                          {item.ask}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                )}
+                <Link
+                  href={`/${locale}/contact`}
+                  className="btn-field mt-10 inline-block rounded-full px-6 py-3 font-mono text-[13px] font-semibold text-black transition-[filter] hover:brightness-95"
+                >
+                  {t.side.contactCta}
+                </Link>
               </div>
             </div>
           </div>

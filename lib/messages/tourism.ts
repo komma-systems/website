@@ -28,6 +28,7 @@ export type TourismMessages = {
   whyLabel?: string
   whyLead?: string
   why?: { title: string; body: string }[]
+  ctaItems?: { who: string; ask: string }[]
   mechanismLabel?: string
   pilotLabel: string
   pilotLead: string
@@ -108,7 +109,7 @@ const en: TourismMessages = {
       body: "The only success metric is the number of permanently affordable homes and the area of housing-and-land commons created. The certificate proves both.",
     },
   ],
-  researchLabel: "Grounded in research",
+  researchLabel: "The core move",
   research: [
     "The mechanism is a worked example of transvestment: the transfer of value out of the system that produced it and into commons that cannot be seized (Dmytri Kleiner and Baruch Gottlieb, with later elaboration by Michael Haupt). Tourism capital crosses once, into housing held in perpetuity, and the option to pull it back into private hands is closed by design. That one-directionality is what separates it from impact investment, which keeps the exit open.",
     "It builds on the commons scholarship of David Bollier and Silke Helfrich (Free, Fair and Alive, 2019): property's deep habit is the right to exclude and to sell, so a commons has to hold wealth such that no single party can alienate it. The Fund's legal wrappers place each home under that kind of stewardship, and a network of them forms a protective membrane against market and state pressure.",
@@ -145,10 +146,23 @@ const en: TourismMessages = {
     },
   ],
   tiers: "★ worth a stay · ★★ worth a detour · ★★★ worth the journey",
-  nextLabel: "What's next",
+  nextLabel: "Get involved",
   next: [
-    "The Fund is being developed as the demonstrator a European consortium can form around, in particular the New European Bauhaus Facility's line on how communities finance and own local assets.",
-    "In parallel, the first conversations are opening with land-holding mission foundations that buy land out of speculation, and with a Catalan ethical-finance partner to hold the pool. These relationships take months, and they are the critical path.",
+    "The Fund is at its exploration stage, which is exactly when it can still be shaped. We are looking for the first partners to build the demonstrator with, in Catalonia and beyond.",
+  ],
+  ctaItems: [
+    {
+      who: "Tourism operators & businesses",
+      ask: "Join a founding cohort and help design the impact certificate you would compete to earn.",
+    },
+    {
+      who: "Municipalities",
+      ask: "Host a first pilot building in a destination under tourism pressure.",
+    },
+    {
+      who: "Foundations & mission-aligned capital",
+      ask: "Seed the first-loss pool that unlocks credit for non-profit housing.",
+    },
   ],
 }
 
@@ -223,7 +237,7 @@ const de: TourismMessages = {
       body: "Der einzige Erfolgsmaßstab ist die Zahl der dauerhaft bezahlbaren Wohnungen und die Fläche an geschaffenen Wohn- und Landallmenden. Das Zertifikat belegt beides.",
     },
   ],
-  researchLabel: "In der Forschung verankert",
+  researchLabel: "Der Kerngedanke",
   research: [
     "Der Mechanismus ist ein konkretes Beispiel für Transvestment (Transvestition): die Überführung von Wert aus dem System, das ihn hervorgebracht hat, in Allmenden, die nicht wieder entzogen werden können (Dmytri Kleiner und Baruch Gottlieb, mit späterer Ausarbeitung durch Michael Haupt). Touristisches Kapital wechselt einmal hinüber, in dauerhaft gehaltenen Wohnraum, und die Möglichkeit, es wieder in private Hände zu ziehen, ist by design verschlossen. Diese Einseitigkeit unterscheidet es vom Impact Investment (wirkungsorientierten Investieren), das den Ausstieg offen hält.",
     "Er baut auf der Allmende-Forschung von David Bollier und Silke Helfrich auf (Free, Fair and Alive, 2019): Die tiefe Gewohnheit des Eigentums ist das Recht, auszuschließen und zu verkaufen, deshalb muss eine Allmende Vermögen so halten, dass keine einzelne Partei es veräußern kann. Die rechtlichen Hüllen des Fonds stellen jede Wohnung unter diese Art von Fürsorge (stewardship), und ein Netz aus ihnen bildet eine schützende Membran gegen den Druck von Markt und Staat.",
@@ -246,10 +260,9 @@ const de: TourismMessages = {
     },
   ],
   tiers: "★ eine Reise wert · ★★ einen Umweg wert · ★★★ die ganze Reise wert",
-  nextLabel: "Wie es weitergeht",
+  nextLabel: "Mitmachen",
   next: [
-    "Der Fonds wird als Demonstrator entwickelt, um den sich ein europäisches Konsortium bilden kann, insbesondere entlang der Linie der New European Bauhaus Facility dazu, wie Gemeinschaften lokale Vermögenswerte finanzieren und besitzen.",
-    "Parallel öffnen sich die ersten Gespräche mit landhaltenden Stiftungen, die Boden der Spekulation entziehen, und mit einem katalanischen ethischen Finanzpartner, der den Pool hält. Diese Beziehungen brauchen Monate und sind der kritische Pfad.",
+    "Der Fonds ist in der Erkundungsphase, und genau jetzt lässt er sich noch gestalten. Wir suchen die ersten Partner, um den Demonstrator gemeinsam zu bauen, in Katalonien und darüber hinaus.",
   ],
 }
 
