@@ -128,9 +128,9 @@ const en: TourismMessages = {
       body: "Contributing earns a verified, tiered certificate, a star in a credible guide to impact-positive stays. Operators compete for stars, travellers who care pick the rated ones, and social licence, goodwill and smoother permits follow. It is the Michelin move: a guide that makes the thing you want them to do the thing they chase. Government-backed recognition adds prestige, and non-participants feel the gap.",
     },
   ],
-  pilotLabel: "A worked model",
+  pilotLabel: "The demonstrator",
   pilotLead:
-    "An illustrative model for a single Barcelona building, conservative throughout. It sizes what a first pilot could do, it is not a live pilot.",
+    "An illustrative run of the numbers for a single Barcelona building, conservative throughout. It sizes what a first demonstrator could do, it is not yet live.",
   stats: [
     {
       figure: "€2m",
@@ -242,9 +242,9 @@ const de: TourismMessages = {
     "Der Mechanismus ist ein konkretes Beispiel für Transvestment (Transvestition): die Überführung von Wert aus dem System, das ihn hervorgebracht hat, in Allmenden, die nicht wieder entzogen werden können (Dmytri Kleiner und Baruch Gottlieb, mit späterer Ausarbeitung durch Michael Haupt). Touristisches Kapital wechselt einmal hinüber, in dauerhaft gehaltenen Wohnraum, und die Möglichkeit, es wieder in private Hände zu ziehen, ist by design verschlossen. Diese Einseitigkeit unterscheidet es vom Impact Investment (wirkungsorientierten Investieren), das den Ausstieg offen hält.",
     "Er baut auf der Allmende-Forschung von David Bollier und Silke Helfrich auf (Free, Fair and Alive, 2019): Die tiefe Gewohnheit des Eigentums ist das Recht, auszuschließen und zu verkaufen, deshalb muss eine Allmende Vermögen so halten, dass keine einzelne Partei es veräußern kann. Die rechtlichen Hüllen des Fonds stellen jede Wohnung unter diese Art von Fürsorge (stewardship), und ein Netz aus ihnen bildet eine schützende Membran gegen den Druck von Markt und Staat.",
   ],
-  pilotLabel: "Ein Rechenmodell",
+  pilotLabel: "Der Demonstrator",
   pilotLead:
-    "Ein illustratives Modell für ein einzelnes Gebäude in Barcelona, durchweg konservativ. Es bemisst, was ein erster Pilot leisten könnte, es ist kein laufender Pilot.",
+    "Eine illustrative Durchrechnung der Zahlen für ein einzelnes Gebäude in Barcelona, durchweg konservativ. Sie bemisst, was ein erster Demonstrator leisten könnte, er läuft noch nicht.",
   stats: [
     {
       figure: "2 Mio. €",
