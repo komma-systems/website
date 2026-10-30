@@ -83,7 +83,7 @@ const INITIATIVES = [
     id: "tourism-to-housing",
     title: "Tourism-to-Housing Impact Fund",
     description:
-      "A finance mechanism that turns a share of tourism's value into permanently affordable housing held in common. Operators and impact investors fund a pool that lends to housing and land commons, and earn a tiered impact certificate for doing it. Piloted in Catalonia.",
+      "A finance mechanism that turns a share of tourism's value into permanently affordable housing held in common. Operators and impact investors fund a pool that lends to housing and land commons, and earn a tiered impact certificate for doing it. In exploration for Catalonia, Venice and other saturated destinations.",
     stage: "Exploration",
     tags: ["finance", "housing", "land"],
     projects: [

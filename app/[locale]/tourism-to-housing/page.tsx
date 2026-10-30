@@ -6,7 +6,7 @@ import { localeAlternatesMetadata } from "@/lib/metadata/locale-alternates"
 import { tourismMessages } from "@/lib/messages/tourism"
 
 const tourismDescription =
-  "The Tourism-to-Housing Impact Fund turns a share of tourism's value into permanently affordable housing held in common. A finance mechanism and demonstrator by KOMMA, piloted in Catalonia."
+  "The Tourism-to-Housing Impact Fund turns a share of tourism's value into permanently affordable housing held in common. A finance mechanism and demonstrator by KOMMA, in exploration for high-pressure destinations like Catalonia and Venice."
 
 export async function generateMetadata({
   params,
@@ -152,7 +152,14 @@ export default async function TourismToHousingPage({ params }: PageProps) {
                 ))}
               </div>
 
-              {/* The pilot */}
+              <p className={labelClasses}>{t.researchLabel}</p>
+              {t.research.map((para, i) => (
+                <p key={i} className={`${proseClasses}${i > 0 ? " mt-6" : ""}`}>
+                  {para}
+                </p>
+              ))}
+
+              {/* A worked model */}
               <div className="mt-20">
                 <p className="mb-2 font-silkscreen text-base sm:text-lg uppercase tracking-[0.18em] text-cream">
                   {t.pilotLabel}

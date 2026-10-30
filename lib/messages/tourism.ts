@@ -23,6 +23,8 @@ export type TourismMessages = {
   what: { title: string; body: string }[]
   principlesLabel: string
   principles: { title: string; body: string }[]
+  researchLabel: string
+  research: string[]
   pilotLabel: string
   pilotLead: string
   stats: { figure: string; body: string }[]
@@ -44,8 +46,8 @@ const en: TourismMessages = {
     stageValue: "Exploration",
     places: "Places",
     placesValue: [
-      "Pilot: Barcelona & Costa Brava, Catalonia",
-      "Model for saturated destinations: Venice, the Greek islands",
+      "Exploring: Barcelona & Costa Brava, Catalonia",
+      "Potential: Venice, Mallorca, Mykonos, the Greek islands",
     ],
     team: "Team",
     teamValue: ["Clara Gromaches (Project Lead)"],
@@ -54,7 +56,7 @@ const en: TourismMessages = {
   },
   intro: [
     "Tourism draws enormous value out of the places people visit, and leaves the costs behind: rising rents, displaced residents, a social fabric worn thin. The Tourism-to-Housing Impact Fund turns a share of that value back into the place it comes from, as permanently affordable housing held in common.",
-    "It is a finance mechanism and a demonstrator, piloted in Barcelona and the Costa Brava in Catalonia, and built for the kind of destination where tourism pressure runs highest: Venice, the Greek islands, anywhere visitors price residents out of their own home.",
+    "It is a finance mechanism and a demonstrator, currently in exploration, built for the kind of destination where tourism pressure runs highest: Barcelona and the Costa Brava, Venice, Mallorca, Mykonos and the Greek islands, anywhere visitors price residents out of their own home.",
   ],
   problemLabel: "The Problem",
   problem: [
@@ -101,13 +103,18 @@ const en: TourismMessages = {
       body: "The only success metric is the number of permanently affordable homes and the area of housing-and-land commons created. The certificate proves both.",
     },
   ],
-  pilotLabel: "The pilot",
+  researchLabel: "The thinking",
+  research: [
+    "The mechanism is a worked example of transvestment: the transfer of value out of the system that produced it and into commons that cannot be seized (Dmytri Kleiner and Baruch Gottlieb, with later elaboration by Michael Haupt). Tourism capital crosses once, into housing held in perpetuity, and the option to pull it back into private hands is closed by design. That one-directionality is what separates it from impact investment, which keeps the exit open.",
+    "It builds on the commons scholarship of David Bollier and Silke Helfrich (Free, Fair and Alive, 2019): property's deep habit is the right to exclude and to sell, so a commons has to hold wealth such that no single party can alienate it. The Fund's legal wrappers place each home under that kind of stewardship, and a network of them forms a protective membrane against market and state pressure.",
+  ],
+  pilotLabel: "A worked model",
   pilotLead:
-    "A worked model for a single Barcelona building, conservative throughout.",
+    "An illustrative model for a single Barcelona building, conservative throughout. It sizes what a first pilot could do, it is not a live pilot.",
   stats: [
     {
       figure: "€2m",
-      body: "pilot bond, 10 years at a tiered coupon of 0 to 2.5%, funding about 8 homes in Barcelona.",
+      body: "illustrative bond, 10 years at a tiered coupon of 0 to 2.5%, funding about 8 homes in Barcelona.",
     },
     {
       figure: "~60 homes / yr",
@@ -139,8 +146,8 @@ const de: TourismMessages = {
     stageValue: "Erkundung (Exploration)",
     places: "Orte",
     placesValue: [
-      "Pilot: Barcelona & Costa Brava, Katalonien",
-      "Modell für übersättigte Reiseziele: Venedig, die griechischen Inseln",
+      "In Erkundung: Barcelona & Costa Brava, Katalonien",
+      "Möglich: Venedig, Mallorca, Mykonos, die griechischen Inseln",
     ],
     team: "Team",
     teamValue: ["Clara Gromaches (Projektleitung)"],
@@ -149,7 +156,7 @@ const de: TourismMessages = {
   },
   intro: [
     "Der Tourismus zieht enormen Wert aus den besuchten Orten und lässt die Kosten zurück: steigende Mieten, verdrängte Bewohner:innen, ein ausgedünntes soziales Gefüge. Der Tourism-to-Housing Impact Fund (Tourismus-zu-Wohnraum-Wirkungsfonds) führt einen Teil dieses Werts dorthin zurück, woher er kommt, als dauerhaft bezahlbaren Wohnraum, der gemeinschaftlich gehalten wird.",
-    "Er ist ein Finanzmechanismus und ein Demonstrator, pilotiert in Barcelona und an der Costa Brava in Katalonien, und gebaut für jene Reiseziele, an denen der touristische Druck am höchsten ist: Venedig, die griechischen Inseln, überall dort, wo Besucher:innen die Einheimischen aus den eigenen Wohnungen verdrängen.",
+    "Er ist ein Finanzmechanismus und ein Demonstrator, derzeit in Erkundung (exploration), und gebaut für jene Reiseziele, an denen der touristische Druck am höchsten ist: Barcelona und die Costa Brava, Venedig, Mallorca, Mykonos und die griechischen Inseln, überall dort, wo Besucher:innen die Einheimischen aus den eigenen Wohnungen verdrängen.",
   ],
   problemLabel: "Das Problem",
   problem: [
@@ -196,13 +203,18 @@ const de: TourismMessages = {
       body: "Der einzige Erfolgsmaßstab ist die Zahl der dauerhaft bezahlbaren Wohnungen und die Fläche an geschaffenen Wohn- und Landallmenden. Das Zertifikat belegt beides.",
     },
   ],
-  pilotLabel: "Der Pilot",
+  researchLabel: "Der Gedanke",
+  research: [
+    "Der Mechanismus ist ein konkretes Beispiel für Transvestment (Transvestition): die Überführung von Wert aus dem System, das ihn hervorgebracht hat, in Allmenden, die nicht wieder entzogen werden können (Dmytri Kleiner und Baruch Gottlieb, mit späterer Ausarbeitung durch Michael Haupt). Touristisches Kapital wechselt einmal hinüber, in dauerhaft gehaltenen Wohnraum, und die Möglichkeit, es wieder in private Hände zu ziehen, ist by design verschlossen. Diese Einseitigkeit unterscheidet es vom Impact Investment (wirkungsorientierten Investieren), das den Ausstieg offen hält.",
+    "Er baut auf der Allmende-Forschung von David Bollier und Silke Helfrich auf (Free, Fair and Alive, 2019): Die tiefe Gewohnheit des Eigentums ist das Recht, auszuschließen und zu verkaufen, deshalb muss eine Allmende Vermögen so halten, dass keine einzelne Partei es veräußern kann. Die rechtlichen Hüllen des Fonds stellen jede Wohnung unter diese Art von Fürsorge (stewardship), und ein Netz aus ihnen bildet eine schützende Membran gegen den Druck von Markt und Staat.",
+  ],
+  pilotLabel: "Ein Rechenmodell",
   pilotLead:
-    "Ein durchgerechnetes Modell für ein einzelnes Gebäude in Barcelona, durchweg konservativ.",
+    "Ein illustratives Modell für ein einzelnes Gebäude in Barcelona, durchweg konservativ. Es bemisst, was ein erster Pilot leisten könnte, es ist kein laufender Pilot.",
   stats: [
     {
       figure: "2 Mio. €",
-      body: "Pilot-Anleihe, 10 Jahre mit einem gestuften Kupon von 0 bis 2,5%, finanziert etwa 8 Wohnungen in Barcelona.",
+      body: "illustrative Anleihe, 10 Jahre mit einem gestuften Kupon von 0 bis 2,5%, finanziert etwa 8 Wohnungen in Barcelona.",
     },
     {
       figure: "~60 Wohnungen / Jahr",
