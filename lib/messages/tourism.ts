@@ -25,6 +25,10 @@ export type TourismMessages = {
   principles: { title: string; body: string }[]
   researchLabel: string
   research: string[]
+  whyLabel?: string
+  whyLead?: string
+  why?: { title: string; body: string }[]
+  mechanismLabel?: string
   pilotLabel: string
   pilotLead: string
   stats: { figure: string; body: string }[]
@@ -47,7 +51,7 @@ const en: TourismMessages = {
     places: "Places",
     placesValue: [
       "Exploring: Barcelona & Costa Brava, Catalonia",
-      "Potential: Venice, Mallorca, Mykonos, the Greek islands",
+      "Potential: Venice, Mallorca, Mykonos",
     ],
     team: "Team",
     teamValue: ["Clara Gromaches (Project Lead)"],
@@ -56,7 +60,7 @@ const en: TourismMessages = {
   },
   intro: [
     "Tourism draws enormous value out of the places people visit, and leaves the costs behind: rising rents, displaced residents, a social fabric worn thin. The Tourism-to-Housing Impact Fund turns a share of that value back into the place it comes from, as permanently affordable housing held in common.",
-    "It is a finance mechanism and a demonstrator, currently in exploration, built for destinations where tourism pressure runs highest, where visitors price residents out of their own home. Venice, Mallorca, Mykonos and the Greek islands all face the same squeeze and could each host a version of it.",
+    "It is a finance mechanism and a demonstrator, currently in exploration, built for destinations where tourism pressure runs highest, where visitors price residents out of their own home. Venice, Mallorca and Mykonos all face the same squeeze and could each host a version of it.",
     "The work is furthest along in Barcelona and the Costa Brava, where the numbers, the housing partners and the ethical-finance landscape are concrete enough to model in detail. Catalonia is the anchor case, and the mechanism is designed to travel out from there.",
   ],
   problemLabel: "The Problem",
@@ -109,6 +113,20 @@ const en: TourismMessages = {
     "The mechanism is a worked example of transvestment: the transfer of value out of the system that produced it and into commons that cannot be seized (Dmytri Kleiner and Baruch Gottlieb, with later elaboration by Michael Haupt). Tourism capital crosses once, into housing held in perpetuity, and the option to pull it back into private hands is closed by design. That one-directionality is what separates it from impact investment, which keeps the exit open.",
     "It builds on the commons scholarship of David Bollier and Silke Helfrich (Free, Fair and Alive, 2019): property's deep habit is the right to exclude and to sell, so a commons has to hold wealth such that no single party can alienate it. The Fund's legal wrappers place each home under that kind of stewardship, and a network of them forms a protective membrane against market and state pressure.",
   ],
+  mechanismLabel: "The mechanism",
+  whyLabel: "Why operators pay in",
+  whyLead:
+    "A tourism business is not a charity, so the fund has to pay it back in a currency it values. Two loops run in parallel, and together they make funding local housing something operators choose to compete over.",
+  why: [
+    {
+      title: "The capital loop",
+      body: "Operators contribute into the pool under multi-year agreements; the pool lends to housing and land commons; permanently affordable homes grow, off the market. The pool's first-loss guarantee means each euro unlocks credit at several times its size, so a modest contribution moves real housing.",
+    },
+    {
+      title: "The reputation loop",
+      body: "Contributing earns a verified, tiered certificate, a star in a credible guide to impact-positive stays. Operators compete for stars, travellers who care pick the rated ones, and social licence, goodwill and smoother permits follow. It is the Michelin move: a guide that makes the thing you want them to do the thing they chase. Government-backed recognition adds prestige, and non-participants feel the gap.",
+    },
+  ],
   pilotLabel: "A worked model",
   pilotLead:
     "An illustrative model for a single Barcelona building, conservative throughout. It sizes what a first pilot could do, it is not a live pilot.",
@@ -148,7 +166,7 @@ const de: TourismMessages = {
     places: "Orte",
     placesValue: [
       "In Erkundung: Barcelona & Costa Brava, Katalonien",
-      "Möglich: Venedig, Mallorca, Mykonos, die griechischen Inseln",
+      "Möglich: Venedig, Mallorca, Mykonos",
     ],
     team: "Team",
     teamValue: ["Clara Gromaches (Projektleitung)"],
@@ -157,7 +175,7 @@ const de: TourismMessages = {
   },
   intro: [
     "Der Tourismus zieht enormen Wert aus den besuchten Orten und lässt die Kosten zurück: steigende Mieten, verdrängte Bewohner:innen, ein ausgedünntes soziales Gefüge. Der Tourism-to-Housing Impact Fund (Tourismus-zu-Wohnraum-Wirkungsfonds) führt einen Teil dieses Werts dorthin zurück, woher er kommt, als dauerhaft bezahlbaren Wohnraum, der gemeinschaftlich gehalten wird.",
-    "Er ist ein Finanzmechanismus und ein Demonstrator, derzeit in Erkundung (exploration), gebaut für jene Reiseziele, an denen der touristische Druck am höchsten ist, wo Besucher:innen die Einheimischen aus den eigenen Wohnungen verdrängen. Venedig, Mallorca, Mykonos und die griechischen Inseln stehen unter demselben Druck und könnten jeweils eine eigene Variante beherbergen.",
+    "Er ist ein Finanzmechanismus und ein Demonstrator, derzeit in Erkundung (exploration), gebaut für jene Reiseziele, an denen der touristische Druck am höchsten ist, wo Besucher:innen die Einheimischen aus den eigenen Wohnungen verdrängen. Venedig, Mallorca und Mykonos stehen unter demselben Druck und könnten jeweils eine eigene Variante beherbergen.",
     "Am weitesten gediehen ist die Arbeit in Barcelona und an der Costa Brava, wo die Zahlen, die Wohnpartner und die Landschaft der ethischen Finanzierung konkret genug sind, um sie im Detail durchzurechnen. Katalonien ist der Ankerfall, und der Mechanismus ist so angelegt, dass er von dort aus weiterwandert.",
   ],
   problemLabel: "Das Problem",

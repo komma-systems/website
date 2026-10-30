@@ -4,6 +4,7 @@ import { Navigation } from "@/components/navigation"
 import { defaultLocale, isLocale, type Locale } from "@/lib/i18n"
 import { localeAlternatesMetadata } from "@/lib/metadata/locale-alternates"
 import { tourismMessages } from "@/lib/messages/tourism"
+import { MechanismDiagram, CircuitsDiagram } from "@/components/tourism-diagrams"
 
 const tourismDescription =
   "The Tourism-to-Housing Impact Fund turns a share of tourism's value into permanently affordable housing held in common. A finance mechanism and demonstrator by KOMMA, in exploration for high-pressure destinations like Catalonia and Venice."
@@ -137,6 +138,33 @@ export default async function TourismToHousingPage({ params }: PageProps) {
                 ))}
               </div>
 
+              {t.mechanismLabel && (
+                <div className="mt-14 border-t border-white/15 pt-10">
+                  <MechanismDiagram />
+                </div>
+              )}
+
+              {t.whyLabel && t.why && (
+                <>
+                  <p className={labelClasses}>{t.whyLabel}</p>
+                  {t.whyLead && <p className={`${proseClasses} mb-8 text-white`}>{t.whyLead}</p>}
+                  <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
+                    {t.why.map((loop) => (
+                      <article key={loop.title}>
+                        <h3 className="text-lg font-semibold leading-snug text-white/60">{loop.title}</h3>
+                        <p className="[text-wrap:pretty] mt-3 text-[0.95rem] leading-relaxed text-white">
+                          {loop.body}
+                        </p>
+                      </article>
+                    ))}
+                  </div>
+                  <div className="mt-10">
+                    <CircuitsDiagram />
+                  </div>
+                  <p className="mt-8 font-grotesk text-[15px] tracking-[0.04em] text-white/70">{t.tiers}</p>
+                </>
+              )}
+
               <p className={labelClasses}>{t.principlesLabel}</p>
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
                 {t.principles.map((pr) => (
@@ -174,9 +202,6 @@ export default async function TourismToHousingPage({ params }: PageProps) {
                     </div>
                   ))}
                 </div>
-                <p className="mt-8 font-grotesk text-[15px] tracking-[0.04em] text-white/70">
-                  {t.tiers}
-                </p>
               </div>
 
               {/* What's next */}
