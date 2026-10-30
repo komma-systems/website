@@ -42,9 +42,11 @@ jobs:
       - name: Deploy preview worker
         run: >
           npx wrangler deploy
-          --name komma-systems-pr-${{ github.event.pull_request.number }}
-          --var STAGING_PASSWORD:komma-staging
+          --name "komma-systems-pr-${PR_NUMBER}"
+          --var "STAGING_PASSWORD:${STAGING_PASSWORD}"
         env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          STAGING_PASSWORD: ${{ secrets.STAGING_PASSWORD }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
@@ -55,7 +57,7 @@ jobs:
             const pr = context.payload.pull_request.number;
             const url = `https://komma-systems-pr-${pr}.comms-898.workers.dev`;
             const marker = '<!-- pr-preview-url -->';
-            const body = `${marker}\nPreview deployed: ${url}\n\nAny username, password \`komma-staging\`. Updates automatically on every push to this branch.`;
+            const body = `${marker}\nPreview deployed: ${url}\n\nBasic-auth protected (any username). The password is shared privately, not posted here. Updates automatically on every push to this branch.`;
             const { data: comments } = await github.rest.issues.listComments({
               ...context.repo, issue_number: pr, per_page: 100,
             });

@@ -46,12 +46,13 @@ const PARTNER_LOGOS = [
     alt: "Impact Hub",
     imgClassName: "h-14 filter grayscale brightness-200 contrast-50",
   },
-  {
-    href: "https://ethereum.foundation/",
-    src: "/Partners/ethereum-foundation-wordmark.svg",
-    alt: "Ethereum Foundation",
-    imgClassName: "h-12 w-auto filter grayscale brightness-200 contrast-50",
-  },
+  // Hidden for now; restore by uncommenting.
+  // {
+  //   href: "https://ethereum.foundation/",
+  //   src: "/Partners/ethereum-foundation-wordmark.svg",
+  //   alt: "Ethereum Foundation",
+  //   imgClassName: "h-12 w-auto filter grayscale brightness-200 contrast-50",
+  // },
   {
     href: "https://consensys.io/",
     src: "/Partners/Consensys_logo_2023.svg",
@@ -80,6 +81,19 @@ const PARTNER_LOGOS = [
 
 const INITIATIVES = [
   {
+    id: "tourism-to-housing",
+    title: "Tourism-to-Housing Impact Fund",
+    description:
+      "A finance mechanism that turns a share of tourism's value into permanently affordable housing held in common. Operators and impact investors fund a pool that lends to housing and land commons, and earn a tiered impact certificate for doing it. In exploration for Catalonia, Venice and other saturated destinations.",
+    stage: "Exploration",
+    tags: ["finance", "housing", "land"],
+    projects: [
+      { name: "Tourism Impact Pool", href: null },
+      { name: "Impact certificate", href: null },
+    ],
+    href: "/tourism-to-housing",
+  },
+  {
     id: "meld",
     title: "Meld",
     description:
@@ -103,7 +117,6 @@ const INITIATIVES = [
     tags: ["finance", "ownership", "tech"],
     projects: [
       { name: "Thresholds", href: "https://luma.com/8b7u93xt?tk=zBWUVi" },
-      { name: "Tourism to Housing Fund", href: "https://frin.notion.site/Local-Affordable-Housing-Funded-by-Tourism-in-Catalonia-2e179ea359ae8016b8a5f2663625aa71" },
     ],
     href: null,
   },
@@ -355,6 +368,105 @@ export function HomePageClient() {
         </section>
 
 
+        {/* Initiatives Section */}
+        <section id="initiatives" className="py-16 px-4 sm:px-6 md:px-8 bg-black">
+          <div className="max-w-7xl mx-auto">
+            <AnimatedElement animation="fade-in" className="mb-16">
+              <div className="flex items-center gap-2 sm:gap-4 mb-6 sm:mb-8 pb-3 sm:pb-4">
+                <h2 className="font-semibold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-tight">
+                  {t.initiatives}
+                </h2>
+              </div>
+            </AnimatedElement>
+
+            <div>
+              {INITIATIVES.map((initiative, idx) => {
+                const Row = (
+                  <div id={initiative.id} className="group scroll-mt-28 border-t border-white/25 py-8 sm:py-10 px-1 sm:px-2 transition-colors duration-200 hover:bg-white/[0.04]">
+                    <div className="min-w-0 grid grid-cols-1 sm:grid-cols-[1fr_220px] gap-x-10 gap-y-5 items-start">
+                      <div className="min-w-0">
+                        <div className="flex items-baseline gap-4">
+                          <h3 className={`tf-${idx % 5} font-extralight text-[26px] sm:text-3xl lg:text-[40px] tracking-[-0.01em] leading-tight group-hover:translate-x-1 transition-transform duration-200`}>
+                            {initiative.title}
+                          </h3>
+                          {initiative.href && (
+                            <span className={`tf-${idx % 5} inline-block text-xl sm:text-2xl transition-transform duration-200 group-hover:translate-x-1`}>
+                              →
+                            </span>
+                          )}
+                        </div>
+
+                        <p className="mt-3 font-mono text-[13px] text-white/50">
+                          {initiative.tags.join(" / ")}
+                        </p>
+
+                        <p className="mt-5 text-base lg:text-lg text-gray-300 leading-relaxed max-w-2xl">
+                          {initiative.description}
+                        </p>
+
+                        <div className="mt-6 flex flex-wrap items-baseline gap-x-6 gap-y-2">
+                          <span className="font-silkscreen text-[0.65rem] uppercase tracking-widest text-white/40">
+                            Projects
+                          </span>
+                          {initiative.projects.map((project) =>
+                            project.href ? (
+                              <a
+                                key={project.name}
+                                href={project.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={(e) => e.stopPropagation()}
+                                className="text-field-wide font-mono text-sm border-b border-white/30 pb-0.5 transition-[filter] hover:brightness-125"
+                              >
+                                {project.name}
+                                <span className="text-[11px] text-white/40"> ↗</span>
+                              </a>
+                            ) : (
+                              <span key={project.name} className="text-field-wide font-mono text-sm opacity-80">
+                                {project.name}
+                              </span>
+                            )
+                          )}
+                        </div>
+                      </div>
+
+                      <div className="flex flex-col sm:items-end gap-3.5">
+                        <span className="font-mono font-semibold text-[13.5px] uppercase tracking-[0.14em] text-white whitespace-nowrap">
+                          <span
+                            className="text-[9px] align-[2px] mr-2"
+                            style={{ color: STAGE_COLORS[initiative.stage] ?? "#f5f2e8" }}
+                          >
+                            ●
+                          </span>
+                          {initiative.stage}
+                        </span>
+                        <div className="w-full aspect-[4/3] mt-1 overflow-hidden outline outline-1 outline-white/15 opacity-80 group-hover:opacity-100 transition-opacity">
+                          <img
+                            src={`/initiatives/${initiative.id}.svg`}
+                            alt=""
+                            className="w-full h-full object-cover [image-rendering:pixelated] grayscale"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )
+                return (
+                  <AnimatedElement animation="fade-up" delay={100 * (idx + 1)} key={initiative.id}>
+                    {initiative.href ? (
+                      <a href={`/${locale}${initiative.href}`} className="block cursor-pointer">
+                        {Row}
+                      </a>
+                    ) : (
+                      Row
+                    )}
+                  </AnimatedElement>
+                )
+              })}
+            </div>
+          </div>
+        </section>
+
         {/* How we work */}
         <section id="how-we-work" className="pt-20 pb-24 px-4 sm:px-6 md:px-8 bg-grain">
           <div className="max-w-7xl mx-auto">
@@ -489,104 +601,6 @@ export function HomePageClient() {
           </div>
         </section>
 
-        {/* Initiatives Section */}
-        <section id="initiatives" className="py-16 px-4 sm:px-6 md:px-8 bg-black">
-          <div className="max-w-7xl mx-auto">
-            <AnimatedElement animation="fade-in" className="mb-16">
-              <div className="flex items-center gap-2 sm:gap-4 mb-6 sm:mb-8 pb-3 sm:pb-4">
-                <h2 className="font-semibold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-tight">
-                  {t.initiatives}
-                </h2>
-              </div>
-            </AnimatedElement>
-
-            <div>
-              {INITIATIVES.map((initiative, idx) => {
-                const Row = (
-                  <div id={initiative.id} className="group scroll-mt-28 border-t border-white/25 py-8 sm:py-10 px-1 sm:px-2 transition-colors duration-200 hover:bg-white/[0.04]">
-                    <div className="min-w-0 grid grid-cols-1 sm:grid-cols-[1fr_220px] gap-x-10 gap-y-5 items-start">
-                      <div className="min-w-0">
-                        <div className="flex items-baseline gap-4">
-                          <h3 className={`tf-${idx % 5} font-extralight text-[26px] sm:text-3xl lg:text-[40px] tracking-[-0.01em] leading-tight group-hover:translate-x-1 transition-transform duration-200`}>
-                            {initiative.title}
-                          </h3>
-                          {initiative.href && (
-                            <span className={`tf-${idx % 5} inline-block text-xl sm:text-2xl transition-transform duration-200 group-hover:translate-x-1`}>
-                              →
-                            </span>
-                          )}
-                        </div>
-
-                        <p className="mt-3 font-mono text-[13px] text-white/50">
-                          {initiative.tags.join(" / ")}
-                        </p>
-
-                        <p className="mt-5 text-base lg:text-lg text-gray-300 leading-relaxed max-w-2xl">
-                          {initiative.description}
-                        </p>
-
-                        <div className="mt-6 flex flex-wrap items-baseline gap-x-6 gap-y-2">
-                          <span className="font-silkscreen text-[0.65rem] uppercase tracking-widest text-white/40">
-                            Projects
-                          </span>
-                          {initiative.projects.map((project) =>
-                            project.href ? (
-                              <a
-                                key={project.name}
-                                href={project.href}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                onClick={(e) => e.stopPropagation()}
-                                className="text-field-wide font-mono text-sm border-b border-white/30 pb-0.5 transition-[filter] hover:brightness-125"
-                              >
-                                {project.name}
-                                <span className="text-[11px] text-white/40"> ↗</span>
-                              </a>
-                            ) : (
-                              <span key={project.name} className="text-field-wide font-mono text-sm opacity-80">
-                                {project.name}
-                              </span>
-                            )
-                          )}
-                        </div>
-                      </div>
-
-                      <div className="flex flex-col sm:items-end gap-3.5">
-                        <span className="font-mono font-semibold text-[13.5px] uppercase tracking-[0.14em] text-white whitespace-nowrap">
-                          <span
-                            className="text-[9px] align-[2px] mr-2"
-                            style={{ color: STAGE_COLORS[initiative.stage] ?? "#f5f2e8" }}
-                          >
-                            ●
-                          </span>
-                          {initiative.stage}
-                        </span>
-                        <div className="w-full aspect-[4/3] mt-1 overflow-hidden outline outline-1 outline-white/15 opacity-80 group-hover:opacity-100 transition-opacity">
-                          <img
-                            src={`/initiatives/${initiative.id}.svg`}
-                            alt=""
-                            className="w-full h-full object-cover [image-rendering:pixelated] grayscale"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                )
-                return (
-                  <AnimatedElement animation="fade-up" delay={100 * (idx + 1)} key={initiative.id}>
-                    {initiative.href ? (
-                      <a href={`/${locale}${initiative.href}`} className="block cursor-pointer">
-                        {Row}
-                      </a>
-                    ) : (
-                      Row
-                    )}
-                  </AnimatedElement>
-                )
-              })}
-            </div>
-          </div>
-        </section>
 
         {/* Team & Advisors Section */}
         <section id="team" className="py-16 px-4 sm:px-6 md:px-8 bg-white">
