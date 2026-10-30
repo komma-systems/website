@@ -78,7 +78,7 @@ const en: TourismMessages = {
     },
     {
       title: "The lender",
-      body: "The fund is held and lent out where ordinary banks will not: by an ethical bank, or in a transparent treasury whose balances, rules and movements anyone can verify. We are in conversation with ethical-finance partners in Catalonia about who holds it.",
+      body: "The fund is held and lent out where ordinary banks will not: by an ethical-finance partner, or in a transparent treasury whose balances, rules and movements anyone can verify.",
     },
     {
       title: "The pool",
@@ -193,7 +193,7 @@ const de: TourismMessages = {
     },
     {
       title: "Der Kreditgeber",
-      body: "Der Fonds wird gehalten und dort verliehen, wo gewöhnliche Banken es nicht tun: durch eine ethische Bank oder in einer transparenten Treasury (Finanzreserve), deren Bestände, Regeln und Bewegungen alle überprüfen können. Wir sind mit ethischen Finanzpartnern in Katalonien im Gespräch darüber, wer ihn hält.",
+      body: "Der Fonds wird gehalten und dort verliehen, wo gewöhnliche Banken es nicht tun: durch einen ethischen Finanzpartner oder in einer transparenten Treasury (Finanzreserve), deren Bestände, Regeln und Bewegungen alle überprüfen können.",
     },
     {
       title: "Der Pool",
