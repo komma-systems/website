@@ -54,13 +54,6 @@ const siteEventsEn: SiteEvent[] = [
     end: "2026-11-06",
   },
   {
-    tag: "Installation",
-    meta: ["3 to 6 Nov 2026", "Jio World Centre, Mumbai"],
-    title: "EX:Risk: Dharavi",
-    body: "An installation of EX:Risk, KOMMA’s civic-sensing work, grounded in Dharavi: reading the early signs from the ground up, pairing what residents notice with what the data shows, so a neighbourhood and its municipal and regional levels can share one legible signal. Shown at the Jio World Centre during Devcon 8.",
-    end: "2026-11-06",
-  },
-  {
     tag: "Keynote",
     meta: ["10–12 Sep 2026", "Höllental, AT"],
     title: "KOMMA at the Valley of the Commons",
@@ -116,13 +109,6 @@ const siteEventsDe: SiteEvent[] = [
     body: "KOMMA nimmt am Panel „Liability, Records & Justice“ (Haftung, Register und Justiz) beim Onchain Legal Summit teil, dem Rechts- und Governance-Track der Devcon 8 Mumbai. Der Summit fragt, was eine Onchain-Einheit rechtlich ist und wer für sie einsteht: Wir bringen die Perspektive aus Land und Wohnen ein, dazu, wie Haftung, zivile Register und Justiz standhalten, wenn Eigentum und Rechtsträger onchain wandern. Im Legal & Governance Community Hub, am Hauptveranstaltungsort der Devcon.",
     cta: "Anmelden →",
     href: "https://luma.com/cw0h549b",
-    end: "2026-11-06",
-  },
-  {
-    tag: "Installation",
-    meta: ["3. bis 6. Nov 2026", "Jio World Centre, Mumbai"],
-    title: "EX:Risk: Dharavi",
-    body: "Eine Installation von EX:Risk, der Civic-Sensing-Arbeit (bürgernahe Sensorik) von KOMMA, verortet in Dharavi: Sie liest die frühen Signale von unten nach oben und verbindet, was Bewohner:innen bemerken, mit dem, was die Daten zeigen, sodass ein Viertel und seine kommunale und regionale Ebene ein gemeinsames, lesbares Signal teilen können. Gezeigt im Jio World Centre während der Devcon 8.",
     end: "2026-11-06",
   },
   {

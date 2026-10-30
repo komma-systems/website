@@ -46,12 +46,13 @@ const PARTNER_LOGOS = [
     alt: "Impact Hub",
     imgClassName: "h-14 filter grayscale brightness-200 contrast-50",
   },
-  {
-    href: "https://ethereum.foundation/",
-    src: "/Partners/ethereum-foundation-wordmark.svg",
-    alt: "Ethereum Foundation",
-    imgClassName: "h-12 w-auto filter grayscale brightness-200 contrast-50",
-  },
+  // Hidden for now; restore by uncommenting.
+  // {
+  //   href: "https://ethereum.foundation/",
+  //   src: "/Partners/ethereum-foundation-wordmark.svg",
+  //   alt: "Ethereum Foundation",
+  //   imgClassName: "h-12 w-auto filter grayscale brightness-200 contrast-50",
+  // },
   {
     href: "https://consensys.io/",
     src: "/Partners/Consensys_logo_2023.svg",
