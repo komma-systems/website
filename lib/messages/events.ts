@@ -36,6 +36,31 @@ export type SiteEvent = (typeof meldMessages)["en"]["field"][number]
 // so the /events page stays complete; the homepage markup is still hand-built.
 const siteEventsEn: SiteEvent[] = [
   {
+    tag: "Conference",
+    meta: ["3 to 6 Nov 2026", "Jio World Centre, Mumbai"],
+    title: "KOMMA at Devcon 8",
+    body: "KOMMA is at Devcon 8, Ethereum’s flagship gathering, in Mumbai: a talk on programmable cadastral institutions, letting a community govern its own land record with the rules for what is immutable, adjustable and discretionary held in verifiable infrastructure and privacy by design; the “Liability, Records & Justice” panel at the Onchain Legal Summit; and the EX:Risk: Dharavi installation. All at the Jio World Centre, Devcon’s first edition in India.",
+    cta: "Devcon →",
+    href: "https://devcon.org/",
+    end: "2026-11-06",
+  },
+  {
+    tag: "Panel",
+    meta: ["3 to 6 Nov 2026", "Mumbai, IN"],
+    title: "KOMMA at the Onchain Legal Summit",
+    body: "KOMMA joins the “Liability, Records & Justice” panel at the Onchain Legal Summit, the legal and governance track of Devcon 8 Mumbai. The summit asks what an onchain entity is in law and who answers for it: we bring the view from land and housing, on how liability, civic records and justice hold up when ownership and entities move onchain. Held at the Legal & Governance Community Hub, at the main Devcon venue.",
+    cta: "Register →",
+    href: "https://luma.com/cw0h549b",
+    end: "2026-11-06",
+  },
+  {
+    tag: "Installation",
+    meta: ["3 to 6 Nov 2026", "Jio World Centre, Mumbai"],
+    title: "EX:Risk: Dharavi",
+    body: "An installation of EX:Risk, KOMMA’s civic-sensing work, grounded in Dharavi: reading the early signs from the ground up, pairing what residents notice with what the data shows, so a neighbourhood and its municipal and regional levels can share one legible signal. Shown at the Jio World Centre during Devcon 8.",
+    end: "2026-11-06",
+  },
+  {
     tag: "Keynote",
     meta: ["10–12 Sep 2026", "Höllental, AT"],
     title: "KOMMA at the Valley of the Commons",
@@ -75,6 +100,31 @@ const siteEventsEn: SiteEvent[] = [
 ]
 
 const siteEventsDe: SiteEvent[] = [
+  {
+    tag: "Conference",
+    meta: ["3. bis 6. Nov 2026", "Jio World Centre, Mumbai"],
+    title: "KOMMA bei der Devcon 8",
+    body: "KOMMA ist bei der Devcon 8, Ethereums wichtigstem Treffen, in Mumbai: mit einem Vortrag (talk) über programmierbare Katasterinstitutionen (programmable cadastral institutions), die es einer Gemeinschaft erlauben, ihr eigenes Landregister zu führen, wobei die Regeln für das, was unveränderlich, anpassbar und im Ermessen liegt, in überprüfbarer Infrastruktur gehalten werden, mit Datenschutz by design; auf dem Panel „Liability, Records & Justice“ (Haftung, Register und Justiz) beim Onchain Legal Summit; und mit der Installation EX:Risk: Dharavi. Alles im Jio World Centre, die erste Devcon in Indien.",
+    cta: "Devcon →",
+    href: "https://devcon.org/",
+    end: "2026-11-06",
+  },
+  {
+    tag: "Panel",
+    meta: ["3. bis 6. Nov 2026", "Mumbai, IN"],
+    title: "KOMMA beim Onchain Legal Summit",
+    body: "KOMMA nimmt am Panel „Liability, Records & Justice“ (Haftung, Register und Justiz) beim Onchain Legal Summit teil, dem Rechts- und Governance-Track der Devcon 8 Mumbai. Der Summit fragt, was eine Onchain-Einheit rechtlich ist und wer für sie einsteht: Wir bringen die Perspektive aus Land und Wohnen ein, dazu, wie Haftung, zivile Register und Justiz standhalten, wenn Eigentum und Rechtsträger onchain wandern. Im Legal & Governance Community Hub, am Hauptveranstaltungsort der Devcon.",
+    cta: "Anmelden →",
+    href: "https://luma.com/cw0h549b",
+    end: "2026-11-06",
+  },
+  {
+    tag: "Installation",
+    meta: ["3. bis 6. Nov 2026", "Jio World Centre, Mumbai"],
+    title: "EX:Risk: Dharavi",
+    body: "Eine Installation von EX:Risk, der Civic-Sensing-Arbeit (bürgernahe Sensorik) von KOMMA, verortet in Dharavi: Sie liest die frühen Signale von unten nach oben und verbindet, was Bewohner:innen bemerken, mit dem, was die Daten zeigen, sodass ein Viertel und seine kommunale und regionale Ebene ein gemeinsames, lesbares Signal teilen können. Gezeigt im Jio World Centre während der Devcon 8.",
+    end: "2026-11-06",
+  },
   {
     tag: "Keynote",
     meta: ["10.–12. Sep 2026", "Höllental, AT"],
