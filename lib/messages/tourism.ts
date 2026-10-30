@@ -60,7 +60,7 @@ const en: TourismMessages = {
   ],
   problemLabel: "The Problem",
   problem: [
-    "Two economies share one street. Over a decade, tourist numbers in Barcelona rose by half while rents climbed 68% and salaries by 3.4%. One in two renters is now at risk of poverty, and barely 1.2% of housing is social, against roughly 15% across the EU.",
+    "In Barcelona two economies now run side by side on the same street: over a decade tourist numbers rose by half while rents climbed 68% and salaries by just 3.4%, until one in two renters is at risk of poverty and barely 1.2% of housing is social, against roughly 15% across the EU.",
     "Meanwhile the city's hotels clear about €1.5bn in profit a year. Tourism's gains flow to private operators and global platforms; its costs, the instability, the displacement, the upkeep of a strained public realm, stay with the community. The capital to buy land and buildings before the speculative market does is exactly what non-profit housing cannot reach.",
   ],
   whatLabel: "How it works",
@@ -160,7 +160,7 @@ const de: TourismMessages = {
   ],
   problemLabel: "Das Problem",
   problem: [
-    "Zwei Ökonomien teilen sich eine Straße. In einem Jahrzehnt stieg die Zahl der Tourist:innen in Barcelona um die Hälfte, während die Mieten um 68% und die Gehälter um 3,4% zunahmen. Jede:r zweite Mieter:in ist heute von Armut bedroht, und kaum 1,2% des Wohnraums ist sozial, gegenüber rund 15% in der EU.",
+    "In Barcelona laufen heute zwei Ökonomien auf derselben Straße nebeneinander her: In einem Jahrzehnt stieg die Zahl der Tourist:innen um die Hälfte, während die Mieten um 68% und die Gehälter um nur 3,4% zunahmen, bis jede:r zweite Mieter:in von Armut bedroht ist und kaum 1,2% des Wohnraums sozial ist, gegenüber rund 15% in der EU.",
     "Zugleich erwirtschaften die Hotels der Stadt etwa 1,5 Mrd. € Gewinn pro Jahr. Die Erträge des Tourismus fließen an private Betreiber und globale Plattformen; seine Kosten, die Instabilität, die Verdrängung, die Pflege eines strapazierten öffentlichen Raums, bleiben bei der Gemeinschaft. Das Kapital, um Land und Gebäude zu kaufen, bevor der spekulative Markt es tut, ist genau das, was gemeinnütziges Wohnen nicht erreicht.",
   ],
   whatLabel: "Wie es funktioniert",
