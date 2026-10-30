@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="360" viewBox="0 0 480 360">
+<defs>
+<pattern id="th-dg" width="6" height="6" patternUnits="userSpaceOnUse"><rect width="6" height="6" fill="#000"/><rect x="2" y="2" width="2" height="2" fill="#cfcfcf"/></pattern>
+<pattern id="th-dh" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="4" fill="#000"/><rect x="1" y="1" width="2" height="2" fill="#d6d6d6"/></pattern>
+</defs>
+<rect width="480" height="360" fill="#000"/>
+<line x1="0" y1="300" x2="480" y2="300" stroke="#8f8f8f" stroke-width="0.8" opacity="0.6"/>
+<!-- row of houses, pitched roofs, some filled with pixel pattern -->
+<g stroke="#a8a8a8" stroke-width="0.9" opacity="0.9" fill="none">
+<path d="M18 300 L18 212 L58 178 L98 212 L98 300 Z"/>
+<path d="M18 212 L58 178 L98 212" fill="url(#th-dg)"/>
+<rect x="40" y="238" width="16" height="22" fill="url(#th-dh)"/>
+<rect x="66" y="238" width="16" height="22"/>
+<path d="M112 300 L112 236 L148 206 L184 236 L184 300 Z"/>
+<rect x="128" y="252" width="14" height="18"/>
+<rect x="152" y="252" width="14" height="18" fill="url(#th-dh)"/>
+<path d="M198 300 L198 190 L242 156 L286 190 L286 300 Z"/>
+<path d="M198 190 L242 156 L286 190" fill="url(#th-dg)"/>
+<rect x="216" y="214" width="18" height="24"/>
+<rect x="250" y="214" width="18" height="24" fill="url(#th-dh)"/>
+<rect x="216" y="252" width="18" height="24" fill="url(#th-dh)"/>
+<rect x="250" y="252" width="18" height="24"/>
+<path d="M300 300 L300 230 L336 202 L372 230 L372 300 Z"/>
+<rect x="316" y="248" width="14" height="20" fill="url(#th-dh)"/>
+<rect x="342" y="248" width="14" height="20"/>
+<path d="M386 300 L386 206 L426 174 L466 206 L466 300 Z"/>
+<path d="M386 206 L426 174 L466 206" fill="url(#th-dg)"/>
+<rect x="406" y="232" width="16" height="22"/>
+<rect x="430" y="232" width="16" height="22" fill="url(#th-dh)"/>
+</g>
+</svg>

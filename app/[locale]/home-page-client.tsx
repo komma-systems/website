@@ -80,6 +80,19 @@ const PARTNER_LOGOS = [
 
 const INITIATIVES = [
   {
+    id: "tourism-to-housing",
+    title: "Tourism-to-Housing Impact Fund",
+    description:
+      "A finance mechanism that turns a share of tourism's value into permanently affordable housing held in common. Operators and impact investors fund a pool that lends to housing and land commons, and earn a tiered impact certificate for doing it. Piloted in Catalonia.",
+    stage: "Exploration",
+    tags: ["finance", "housing", "land"],
+    projects: [
+      { name: "Tourism Impact Pool", href: null },
+      { name: "Impact certificate", href: null },
+    ],
+    href: "/tourism-to-housing",
+  },
+  {
     id: "meld",
     title: "Meld",
     description:
@@ -103,7 +116,6 @@ const INITIATIVES = [
     tags: ["finance", "ownership", "tech"],
     projects: [
       { name: "Thresholds", href: "https://luma.com/8b7u93xt?tk=zBWUVi" },
-      { name: "Tourism to Housing Fund", href: "https://frin.notion.site/Local-Affordable-Housing-Funded-by-Tourism-in-Catalonia-2e179ea359ae8016b8a5f2663625aa71" },
     ],
     href: null,
   },
