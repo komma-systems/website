@@ -4,7 +4,7 @@ import type { Locale } from "@/lib/i18n"
 import { homeMessages } from "@/lib/messages/home"
 
 const footerCopy: Record<Locale, { contact: string; impressum: string; privacy: string }> = {
-  en: { contact: "Contact", impressum: "Impressum", privacy: "Privacy Policy" },
+  en: { contact: "Contact", impressum: "Legal notice", privacy: "Privacy Policy" },
   de: { contact: "Kontakt", impressum: "Impressum", privacy: "Datenschutz" },
 }
 
