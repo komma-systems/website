@@ -8,3 +8,9 @@ onlyBuiltDependencies:
   - esbuild
   - sharp
   - workerd
+overrides:
+  '@types/react': '19.3.0'
+  '@types/react-dom': '19.3.0'
+  wrangler: '4.154.0'
+  '@dotenvx/providers': '0.3.12'
+  '@dotenvx/providers>@dotenvx/primitives': '4.2.3'
