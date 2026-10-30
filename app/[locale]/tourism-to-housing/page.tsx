@@ -127,10 +127,7 @@ export default async function TourismToHousingPage({ params }: PageProps) {
               <div className="space-y-5">
                 {t.what.map((step, i) => (
                   <div key={step.title} className="grid grid-cols-1 sm:grid-cols-[9.5rem_1fr] gap-x-5 gap-y-1 border-l border-white/20 pl-5">
-                    <p
-                      className="font-grotesk text-[15px] font-medium uppercase tracking-[0.16em] pt-1"
-                      style={{ color: ["#5d7d63", "#5d6f93", "#c5882a", "#5d7d63", "#c2557f"][i] }}
-                    >
+                    <p className="font-grotesk text-[15px] font-medium uppercase tracking-[0.16em] pt-1 text-white/55">
                       {String(i + 1).padStart(2, "0")} {step.title}
                     </p>
                     <p className="[text-wrap:pretty] text-[1.1rem] leading-[1.75] text-gray-200">

@@ -56,7 +56,8 @@ const en: TourismMessages = {
   },
   intro: [
     "Tourism draws enormous value out of the places people visit, and leaves the costs behind: rising rents, displaced residents, a social fabric worn thin. The Tourism-to-Housing Impact Fund turns a share of that value back into the place it comes from, as permanently affordable housing held in common.",
-    "It is a finance mechanism and a demonstrator, currently in exploration, built for the kind of destination where tourism pressure runs highest: Barcelona and the Costa Brava, Venice, Mallorca, Mykonos and the Greek islands, anywhere visitors price residents out of their own home.",
+    "It is a finance mechanism and a demonstrator, currently in exploration, built for destinations where tourism pressure runs highest, where visitors price residents out of their own home. Venice, Mallorca, Mykonos and the Greek islands all face the same squeeze and could each host a version of it.",
+    "The work is furthest along in Barcelona and the Costa Brava, where the numbers, the housing partners and the ethical-finance landscape are concrete enough to model in detail. Catalonia is the anchor case, and the mechanism is designed to travel out from there.",
   ],
   problemLabel: "The Problem",
   problem: [
@@ -73,7 +74,7 @@ const en: TourismMessages = {
     },
     {
       title: "The lender",
-      body: "An ethical-finance partner holds the fund and lends where banks will not. In Catalonia that is Coop57 (the ethical-finance cooperative that already lends to cohousing), with Fiare Banca Etica (an ethical bank) as the alternative.",
+      body: "The fund is held and lent out where ordinary banks will not: by an ethical bank, or in a transparent treasury whose balances, rules and movements anyone can verify. We are in conversation with ethical-finance partners in Catalonia about who holds it.",
     },
     {
       title: "The pool",
@@ -156,7 +157,8 @@ const de: TourismMessages = {
   },
   intro: [
     "Der Tourismus zieht enormen Wert aus den besuchten Orten und lässt die Kosten zurück: steigende Mieten, verdrängte Bewohner:innen, ein ausgedünntes soziales Gefüge. Der Tourism-to-Housing Impact Fund (Tourismus-zu-Wohnraum-Wirkungsfonds) führt einen Teil dieses Werts dorthin zurück, woher er kommt, als dauerhaft bezahlbaren Wohnraum, der gemeinschaftlich gehalten wird.",
-    "Er ist ein Finanzmechanismus und ein Demonstrator, derzeit in Erkundung (exploration), und gebaut für jene Reiseziele, an denen der touristische Druck am höchsten ist: Barcelona und die Costa Brava, Venedig, Mallorca, Mykonos und die griechischen Inseln, überall dort, wo Besucher:innen die Einheimischen aus den eigenen Wohnungen verdrängen.",
+    "Er ist ein Finanzmechanismus und ein Demonstrator, derzeit in Erkundung (exploration), gebaut für jene Reiseziele, an denen der touristische Druck am höchsten ist, wo Besucher:innen die Einheimischen aus den eigenen Wohnungen verdrängen. Venedig, Mallorca, Mykonos und die griechischen Inseln stehen unter demselben Druck und könnten jeweils eine eigene Variante beherbergen.",
+    "Am weitesten gediehen ist die Arbeit in Barcelona und an der Costa Brava, wo die Zahlen, die Wohnpartner und die Landschaft der ethischen Finanzierung konkret genug sind, um sie im Detail durchzurechnen. Katalonien ist der Ankerfall, und der Mechanismus ist so angelegt, dass er von dort aus weiterwandert.",
   ],
   problemLabel: "Das Problem",
   problem: [
@@ -173,7 +175,7 @@ const de: TourismMessages = {
     },
     {
       title: "Der Kreditgeber",
-      body: "Ein ethischer Finanzpartner hält den Fonds und vergibt Kredite, wo Banken es nicht tun. In Katalonien ist das Coop57 (die ethische Finanzgenossenschaft, die bereits Cohousing finanziert), mit Fiare Banca Etica (einer ethischen Bank) als Alternative.",
+      body: "Der Fonds wird gehalten und dort verliehen, wo gewöhnliche Banken es nicht tun: durch eine ethische Bank oder in einer transparenten Treasury (Finanzreserve), deren Bestände, Regeln und Bewegungen alle überprüfen können. Wir sind mit ethischen Finanzpartnern in Katalonien im Gespräch darüber, wer ihn hält.",
     },
     {
       title: "Der Pool",
